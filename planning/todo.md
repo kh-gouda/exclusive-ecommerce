@@ -5,7 +5,7 @@
   - [x] Define theme variables & colors
   - [] Define custome utility classes
 
-- [ ] Prepare Images
+- [x] Prepare Images
   - [x] Download and set favicon
   - [x] Download and set og:image
   - [x] Download all images
@@ -27,12 +27,19 @@
   - [x] Create product card title
   - [x] Create product card price
   - [x] Create product card rating
+  - [x] Create customizable shared button
+
+- [ ] Create Carusels
+  - [x] Create First Ads Area Carusel
+  - [x] Create Section With Carusels
+  - [x] Create Section Without Carusels
+  - [] Create Second Ads Area Carusel
 
 - [ ] Create Molecules and Organisms
   - [x] Header Component & Nav
-  - [] Footer Component
+  - [x] Footer Component
   - [x] ProductCard component
-  - [] Layout Component
+  - [x] Layout Component
 
 - [ ] Prepare dummy data for initial static design
 - [ ] Perform components logic and dynamic data display

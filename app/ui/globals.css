@@ -12,7 +12,9 @@
   --color-border-color: rgba(0, 0, 0, 0.3);
   --color-about-area: #eb7ea8;
   --color-yellow-star: #ffad33;
+  --color-green-color: #00ff66;
   --animate-card-button: card-button 0.2s linear forwards;
+  --inset-shadow-custome: inset 0px 15px 50px 75px #000;
 
   @keyframes card-button {
     0% {
@@ -39,6 +41,10 @@
 
 @utility add-to-cart {
   @apply absolute bg-black-color text-white-color text-base font-medium rounded-b-sm bottom-0 left-0 py-2 cursor-pointer  w-0 opacity-0 group-hover:animate-card-button;
+}
+
+@utility time {
+  @apply bg-white-color flex flex-col items-center justify-center w-15.5 h-15.5 rounded-full text-black-color;
 }
 
 @theme inline {
@@ -149,4 +155,71 @@
   --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.embla__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.embla__dot {
+  -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--color-white);
+  /* background-color: var(--color-identity); */
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+}
+.embla__dot:before,
+.embla__dot:after {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  content: "";
+}
+.embla__dot:before {
+  border: 0.2rem solid var(--detail-medium-contrast);
+}
+.embla__dot:after {
+  border: 0.2rem solid var(--text-body);
+  opacity: 0;
+}
+.embla__dot--selected {
+  background-color: var(--color-identity);
+}
+
+.embla__dot--selected:after {
+  opacity: 1;
 }

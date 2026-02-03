@@ -3,42 +3,89 @@ import FirstAdArea from "@home/main/FirstAdArea";
 import SideNav from "@home/main/SideNav";
 
 import {
+  CATEGORIES,
   BEST_SELLING_PRODUCTS,
   EXPLORE_PRODUCTS,
+  FIRST_AD_AREA_LIST,
   FLASH_SALES_PRODUCTS,
 } from "@/app/lib/dummyData";
-import HomeSection from "@ui/home/HomeSection";
-import CategoriesSection from "@ui/home/CategoriesSection";
+import SecondAdArea from "@ui/home/SecondAdArea";
+import { Carusel } from "@ui/home/Carusel";
+import Section from "@ui/shared/Section";
+import SectionLabel from "@ui/shared/SectionLabel";
+import { createSlides } from "@/app/lib/utils";
+import { CATEGRY_TYPE, ProductCardType } from "@/app/lib/typeDefinitions";
+import Cards from "@ui/productCard/Cards";
+import SharedButton from "@ui/shared/SharedButton";
+import Categories from "@ui/home/Categories";
+import SectionTitle from "@ui/shared/SectionTitle";
 
 export default function Home() {
-  const flasSalesProducts = FLASH_SALES_PRODUCTS;
+  const flashSalesProducts = createSlides<ProductCardType>(
+    FLASH_SALES_PRODUCTS,
+    4,
+  );
+  const flashSalesSlides = flashSalesProducts.map((slide, index) => (
+    <Cards key={index} products={slide} showDiscountLabel />
+  ));
+
+  const categories = createSlides<CATEGRY_TYPE>(CATEGORIES, 6);
+  const categoriesSlides = categories.map((slide, index) => (
+    <Categories key={index} categories={slide} />
+  ));
+
   const bestSellingProducts = BEST_SELLING_PRODUCTS;
-  const exploreProducts = EXPLORE_PRODUCTS;
+
+  const exploreProducts = createSlides<ProductCardType>(EXPLORE_PRODUCTS, 8);
+  const exploreSlides = exploreProducts.map((slide, index) => (
+    <Cards key={index} products={slide} />
+  ));
 
   return (
     <div className="">
       <Container>
         <main className="flex pb-12.5">
           <SideNav />
-          <FirstAdArea />
+          <FirstAdArea slides={FIRST_AD_AREA_LIST} options={{ loop: true }} />
         </main>
-        <HomeSection
-          label="Today's"
-          title="Flash Sales"
-          products={flasSalesProducts}
-          showDiscountLabel
-        />
-        <CategoriesSection />
-        <HomeSection
-          label="This Month"
-          title="Best Selling Products"
-          products={bestSellingProducts}
-        />
-        <HomeSection
-          label="Our Products"
-          title="Explore Our Products"
-          products={exploreProducts}
-        />
+
+        <Section withBorder>
+          <SectionLabel>Today&apos;s</SectionLabel>
+          <Carusel title="Flash Sales" slides={flashSalesSlides} />
+          <div className="text-center">
+            <SharedButton task="fetch All Flash Sales Products">
+              View All Products
+            </SharedButton>
+          </div>
+        </Section>
+
+        <Section withBorder>
+          <SectionLabel>Categories</SectionLabel>
+          <Carusel title="Browse By Category" slides={categoriesSlides} />
+        </Section>
+
+        <Section>
+          <SectionLabel>This Month</SectionLabel>
+          <div className="flex items-center justify-between">
+            <SectionTitle>Best Selling Products</SectionTitle>
+            <SharedButton task="fetch All Best Selling Products">
+              View All
+            </SharedButton>
+          </div>
+          <Cards products={bestSellingProducts} />
+        </Section>
+
+        <SecondAdArea />
+
+        <Section withBorder>
+          <SectionLabel>Today&apos;s</SectionLabel>
+          <Carusel title="Flash Sales" slides={exploreSlides} />
+          <div className="text-center">
+            <SharedButton task="fetch All Products">
+              View All Products
+            </SharedButton>
+          </div>
+        </Section>
       </Container>
     </div>
   );

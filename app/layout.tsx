@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { poppins } from "@shared/fonts";
 import "@ui/globals.css";
 import Header from "@layout/header/Header";
+import Footer from "@ui/layout/footer/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={`${poppins.className} antialiased font-normal`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
