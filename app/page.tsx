@@ -1,13 +1,13 @@
 import Container from "@shared/Container";
 import FirstAdArea from "@home/main/FirstAdArea";
 import SideNav from "@home/main/SideNav";
-
 import {
   CATEGORIES,
   BEST_SELLING_PRODUCTS,
   EXPLORE_PRODUCTS,
   FIRST_AD_AREA_LIST,
   FLASH_SALES_PRODUCTS,
+  NEW_ARRIVAL_DATA,
 } from "@/app/lib/dummyData";
 import SecondAdArea from "@ui/home/SecondAdArea";
 import { Carusel } from "@ui/home/Carusel";
@@ -19,6 +19,9 @@ import Cards from "@ui/productCard/Cards";
 import SharedButton from "@ui/shared/SharedButton";
 import Categories from "@ui/home/Categories";
 import SectionTitle from "@ui/shared/SectionTitle";
+import NewArrivals from "@ui/home/NewArrivals";
+import Features from "@ui/home/main/Features";
+import ScrollToTopButton from "@ui/shared/ScrollToTopButton";
 
 export default function Home() {
   const flashSalesProducts = createSlides<ProductCardType>(
@@ -38,8 +41,10 @@ export default function Home() {
 
   const exploreProducts = createSlides<ProductCardType>(EXPLORE_PRODUCTS, 8);
   const exploreSlides = exploreProducts.map((slide, index) => (
-    <Cards key={index} products={slide} />
+    <Cards key={index} products={slide} showNewLabel />
   ));
+
+  const newArrivalData = NEW_ARRIVAL_DATA;
 
   return (
     <div className="">
@@ -51,7 +56,11 @@ export default function Home() {
 
         <Section withBorder>
           <SectionLabel>Today&apos;s</SectionLabel>
-          <Carusel title="Flash Sales" slides={flashSalesSlides} />
+          <Carusel
+            title="Flash Sales"
+            slides={flashSalesSlides}
+            flashSalesTimer="2026-02-18"
+          />
           <div className="text-center">
             <SharedButton task="fetch All Flash Sales Products">
               View All Products
@@ -77,15 +86,27 @@ export default function Home() {
 
         <SecondAdArea />
 
-        <Section withBorder>
-          <SectionLabel>Today&apos;s</SectionLabel>
-          <Carusel title="Flash Sales" slides={exploreSlides} />
+        <Section>
+          <SectionLabel>Our Products</SectionLabel>
+          <Carusel title="Explore Our Products" slides={exploreSlides} />
           <div className="text-center">
             <SharedButton task="fetch All Products">
               View All Products
             </SharedButton>
           </div>
         </Section>
+
+        <Section>
+          <SectionLabel>Featured</SectionLabel>
+          <SectionTitle>New Arrivals</SectionTitle>
+          <NewArrivals newArrivals={newArrivalData} />
+        </Section>
+
+        <Section>
+          <Features />
+        </Section>
+
+        <ScrollToTopButton />
       </Container>
     </div>
   );

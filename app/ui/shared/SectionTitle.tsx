@@ -15,7 +15,7 @@ export default function SectionTitle({
   const FONT_WEIGHT = weight ? `font-${weight}` : "";
   return (
     <h2
-      className={clsx(`${inter.className} my-6`, {
+      className={clsx(`${inter.className} my-6 flex items-center gap-10`, {
         "text-4xl": !size,
         [FONT_SIZE]: size,
         "font-semibold": !weight,

@@ -23,13 +23,17 @@
   - [x] Create side nav
   - [x] Create section label
   - [x] Create section title
-  - [x] Create product card discount
+  - [x] Create product card discount label
+  - [x] Create product card new label
+  - [x] Create product card colors
   - [x] Create product card title
   - [x] Create product card price
   - [x] Create product card rating
   - [x] Create customizable shared button
+  - [x] Create flash sales timer
 
 - [ ] Create Carusels
+  - [x] Install embla carusel
   - [x] Create First Ads Area Carusel
   - [x] Create Section With Carusels
   - [x] Create Section Without Carusels
@@ -38,8 +42,10 @@
 - [ ] Create Molecules and Organisms
   - [x] Header Component & Nav
   - [x] Footer Component
-  - [x] ProductCard component
   - [x] Layout Component
+  - [x] ProductCard component
+  - [x] Create New Arrivals Section
+  - [x] Create Features Section
 
 - [ ] Prepare dummy data for initial static design
 - [ ] Perform components logic and dynamic data display

@@ -1,5 +1,6 @@
 "use client";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import FlashSalesTimer from "@ui/home/FlashSalesTimer";
 import SectionTitle from "@ui/shared/SectionTitle";
 import useEmblaCarousel from "embla-carousel-react";
 import { ReactNode, useCallback } from "react";
@@ -7,9 +8,11 @@ import { ReactNode, useCallback } from "react";
 export function Carusel({
   title,
   slides,
+  flashSalesTimer,
 }: {
   title: string;
   slides: ReactNode[];
+  flashSalesTimer?: string;
 }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
@@ -25,7 +28,10 @@ export function Carusel({
   return (
     <div className="embla">
       <div className="flex items-center justify-between">
-        <SectionTitle>{title}</SectionTitle>
+        <SectionTitle>
+          {title}
+          {flashSalesTimer ? <FlashSalesTimer targetDate={flashSalesTimer} /> : null}
+        </SectionTitle>
         <div className="flex items-center justify-center gap-1">
           <button
             className="embla__prev cursor-pointer w-11.5 h-11.5 bg-gray-bg rounded-full flex items-center justify-center"

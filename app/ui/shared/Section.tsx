@@ -10,7 +10,7 @@ export default function Section({
 }) {
   return (
     <section
-      className={clsx("py-12.5", { "border-b border-gray-300": withBorder })}
+      className={clsx("py-17.5", { "border-b border-gray-300": withBorder })}
     >
       {children}
     </section>

@@ -1,6 +1,7 @@
 import {
   CATEGRY_TYPE,
   FIRST_AD,
+  NEW_ARRIVAL_TYPE,
   ProductCardType,
 } from "@/app/lib/typeDefinitions";
 
@@ -73,6 +74,7 @@ export const CATEGORIES: CATEGRY_TYPE[] = [
     icon: <GamepadIcon className="w-16.25 h-16.25 " />,
   },
 ];
+
 export const FIRST_AD_AREA_LIST: FIRST_AD[] = [
   {
     productId: 1,
@@ -293,6 +295,8 @@ export const EXPLORE_PRODUCTS: ProductCardType[] = [
       stars: 5,
       voters: 65,
     },
+    colors: ["#FB1314", "#DB4444"],
+    new: true,
   },
   {
     productID: 6,
@@ -304,6 +308,7 @@ export const EXPLORE_PRODUCTS: ProductCardType[] = [
       stars: 5,
       voters: 35,
     },
+    colors: ["#EEFF61", "#DB4444"],
   },
   {
     productID: 7,
@@ -315,6 +320,8 @@ export const EXPLORE_PRODUCTS: ProductCardType[] = [
       stars: 4,
       voters: 65,
     },
+    colors: ["#000", "#DB4444"],
+    new: true,
   },
   {
     productID: 8,
@@ -326,6 +333,7 @@ export const EXPLORE_PRODUCTS: ProductCardType[] = [
       stars: 4,
       voters: 55,
     },
+    colors: ["#184A48", "#DB4444"],
   },
   {
     productID: 9,
@@ -381,6 +389,8 @@ export const EXPLORE_PRODUCTS: ProductCardType[] = [
       stars: 5,
       voters: 65,
     },
+    colors: ["#FB1314", "#DB4444"],
+    new: true,
   },
   {
     productID: 14,
@@ -392,6 +402,7 @@ export const EXPLORE_PRODUCTS: ProductCardType[] = [
       stars: 5,
       voters: 35,
     },
+    colors: ["#EEFF61", "#DB4444"],
   },
   {
     productID: 15,
@@ -403,6 +414,8 @@ export const EXPLORE_PRODUCTS: ProductCardType[] = [
       stars: 4,
       voters: 65,
     },
+    colors: ["#000", "#DB4444"],
+    new: true,
   },
   {
     productID: 16,
@@ -414,5 +427,34 @@ export const EXPLORE_PRODUCTS: ProductCardType[] = [
       stars: 4,
       voters: 55,
     },
+    colors: ["#184A48", "#DB4444"],
   },
 ];
+
+export const NEW_ARRIVAL_DATA: NEW_ARRIVAL_TYPE = {
+  collection: {
+    title: "Women's Collections",
+    description: "Featured woman collections that give you another vibe.",
+    link: "shop",
+  },
+  products: [
+    {
+      title: "PlayStation 5",
+      description: "Black and White version of the PS5 coming out on sale.",
+      image: "/images/products_large/PlayStation_5_0.webp",
+      link: "shop",
+    },
+    {
+      title: "Speakers",
+      description: "Amazon wireless speakers",
+      image: "/images/products_large/speakers_0.webp",
+      link: "shop",
+    },
+    {
+      title: "Perfume",
+      description: "GUCCI INTENSE OUD EDP",
+      image: "/images/products_large/perfume_0.webp",
+      link: "shop",
+    },
+  ],
+};

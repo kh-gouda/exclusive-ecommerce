@@ -18,9 +18,10 @@ export default function SharedButton({
   return (
     <button
       className={clsx(
-        "py-4 px-12  font-medium text-base  rounded-sm cursor-pointer",
+        "py-4 px-12  font-medium text-base  rounded-sm cursor-pointer flex items-center justify-center gap-2",
         {
           "bg-identity text-white-text": !transparent,
+          "border border-gray-300": transparent,
           "w-full": full,
         },
       )}

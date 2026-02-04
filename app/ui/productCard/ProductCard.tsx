@@ -7,13 +7,17 @@ import { EyeIcon, HeartIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import AddToCartButton from "@ui/productCard/AddToCartButton";
 import { ProductCardType } from "@/app/lib/typeDefinitions";
+import NewLabel from "@ui/productCard/NewLabel";
+import ProductColor from "@ui/productCard/ProductColor";
 
 export default function ProductCard({
   product,
   showDiscountLabel,
+  showNewLabel,
 }: {
   product: ProductCardType;
   showDiscountLabel?: boolean;
+  showNewLabel?: boolean;
 }) {
   return (
     <div className="group w-67.5 cursor-pointer">
@@ -27,6 +31,7 @@ export default function ProductCard({
         {showDiscountLabel ? (
           <DiscountLabel discount={product.discount} />
         ) : null}
+        {showNewLabel && product.new ? <NewLabel /> : null}
         <div className="absolute right-3 top-3">
           <div className="w-8 5 h-8 5 rounded-full bg-white-color flex items-center justify-center">
             <HeartIcon className="w-5 h-5" />
@@ -41,6 +46,13 @@ export default function ProductCard({
         <ProductTitle title={product.productTitle} />
         <PriceLbel price={product.price} discount={product.discount} />
         <Rating stars={product.rating.stars} voters={product.rating.voters} />
+        {product.colors && product.colors.length ? (
+          <div className="mt-2">
+            {product.colors.map((color) => (
+              <ProductColor key={color} color={color} />
+            ))}
+          </div>
+        ) : null}
       </Link>
     </div>
   );

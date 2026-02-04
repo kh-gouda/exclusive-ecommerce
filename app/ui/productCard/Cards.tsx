@@ -4,9 +4,11 @@ import ProductCard from "@ui/productCard/ProductCard";
 export default function Cards({
   products,
   showDiscountLabel,
+  showNewLabel,
 }: {
   products: ProductCardType[];
   showDiscountLabel?: boolean;
+  showNewLabel?: boolean;
 }) {
   return (
     <>
@@ -17,6 +19,7 @@ export default function Cards({
               key={product.productID}
               product={product}
               showDiscountLabel={showDiscountLabel}
+              showNewLabel={showNewLabel}
             />
           ))}
         </div>

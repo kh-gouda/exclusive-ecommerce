@@ -19,6 +19,7 @@ export type ProductCardType = {
     voters: number;
   };
   colors?: string[];
+  new?: boolean;
 };
 
 export type CATEGRY_TYPE = {
@@ -29,4 +30,32 @@ export type CATEGRY_TYPE = {
 export type FOOTER_LIST = {
   listHeading: string;
   listItems: string[] | { name: string; link: string }[];
+};
+
+export type NEW_ARRIVAL_TYPE = {
+  collection: {
+    title: string;
+    description: string;
+    link: string;
+  };
+  products: [
+    {
+      title: string;
+      description: string;
+      image: string;
+      link: string;
+    },
+    {
+      title: string;
+      description: string;
+      image: string;
+      link: string;
+    },
+    {
+      title: string;
+      description: string;
+      image: string;
+      link: string;
+    },
+  ];
 };

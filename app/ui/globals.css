@@ -47,6 +47,18 @@
   @apply bg-white-color flex flex-col items-center justify-center w-15.5 h-15.5 rounded-full text-black-color;
 }
 
+@utility new-arrivals {
+  @apply mt-15 grid grid-cols-4 grid-rows-2 gap-7.5 *:bg-black-color min-h-150 *:flex *:items-center *:justify-center *:overflow-hidden *:relative p-7.5;
+}
+
+@utility scroll-top {
+  @apply w-11.5 h-11.5 rounded-full bg-gray-300 flex justify-center items-center fixed bottom-5 right-5 cursor-pointer;
+}
+
+@utility form-input {
+  @apply border-b border-gray-300 w-full pb-2 mb-10;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -183,7 +195,6 @@
   -webkit-appearance: none;
   appearance: none;
   background-color: var(--color-white);
-  /* background-color: var(--color-identity); */
   touch-action: manipulation;
   display: inline-flex;
   text-decoration: none;
