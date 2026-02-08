@@ -14,10 +14,12 @@ export default function ProductCard({
   product,
   showDiscountLabel,
   showNewLabel,
+  showAddToCartButton,
 }: {
   product: ProductCardType;
   showDiscountLabel?: boolean;
   showNewLabel?: boolean;
+  showAddToCartButton?: boolean;
 }) {
   return (
     <div className="group w-67.5 cursor-pointer">
@@ -28,7 +30,7 @@ export default function ProductCard({
           src={product.productImage}
           alt={product.productTitle}
         />
-        {showDiscountLabel ? (
+        {showDiscountLabel && product.discount ? (
           <DiscountLabel discount={product.discount} />
         ) : null}
         {showNewLabel && product.new ? <NewLabel /> : null}
@@ -40,12 +42,14 @@ export default function ProductCard({
             <EyeIcon className="w-5 h-5" />
           </div>
         </div>
-        <AddToCartButton />
+        <AddToCartButton showAddToCartButton={showAddToCartButton} />
       </div>
       <Link href={"/pId"}>
         <ProductTitle title={product.productTitle} />
         <PriceLbel price={product.price} discount={product.discount} />
-        <Rating stars={product.rating.stars} voters={product.rating.voters} />
+        {product.rating ? (
+          <Rating stars={product.rating.stars} voters={product.rating.voters} />
+        ) : null}
         {product.colors && product.colors.length ? (
           <div className="mt-2">
             {product.colors.map((color) => (

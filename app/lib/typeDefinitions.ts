@@ -14,7 +14,7 @@ export type ProductCardType = {
   productImage: string;
   price: number;
   discount: number;
-  rating: {
+  rating?: {
     stars: number;
     voters: number;
   };
@@ -58,4 +58,13 @@ export type NEW_ARRIVAL_TYPE = {
       link: string;
     },
   ];
+};
+
+export type CART_TYPE = {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+  quantity: number;
+  subtotal: number;
 };

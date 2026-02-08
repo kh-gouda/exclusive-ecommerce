@@ -5,10 +5,12 @@ export default function Cards({
   products,
   showDiscountLabel,
   showNewLabel,
+  showAddToCartButton,
 }: {
   products: ProductCardType[];
   showDiscountLabel?: boolean;
   showNewLabel?: boolean;
+  showAddToCartButton?: boolean;
 }) {
   return (
     <>
@@ -20,6 +22,7 @@ export default function Cards({
               product={product}
               showDiscountLabel={showDiscountLabel}
               showNewLabel={showNewLabel}
+              showAddToCartButton={showAddToCartButton}
             />
           ))}
         </div>

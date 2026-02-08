@@ -1,4 +1,5 @@
 import {
+  CART_TYPE,
   CATEGRY_TYPE,
   FIRST_AD,
   NEW_ARRIVAL_TYPE,
@@ -458,3 +459,101 @@ export const NEW_ARRIVAL_DATA: NEW_ARRIVAL_TYPE = {
     },
   ],
 };
+
+export const WISHLIST_PRODUCTS: ProductCardType[] = [
+  {
+    productID: 2,
+    productTitle: "Gucci duffle bag",
+    productImage: "/images/products_small/Gucci_duffle_bag_0.webp",
+    price: 1160,
+    discount: 40,
+  },
+  {
+    productID: 3,
+    productTitle: "RGB liquid CPU Cooler",
+    productImage: "/images/products_small/RGB_liquid_CPU_Cooler_0.webp",
+    price: 170,
+    discount: 0,
+  },
+  {
+    productID: 7,
+    productTitle: "GP11 Shooter USB Gamepad",
+    productImage: "/images/products_small/GP11_Shooter_USB_Gamepad_0.webp",
+    price: 660,
+    discount: 0,
+  },
+  {
+    productID: 8,
+    productTitle: "Quilted Satin Jacket",
+    productImage: "/images/products_small/Quilted_Satin_Jacket_0.webp",
+    price: 660,
+    discount: 0,
+  },
+];
+
+export const JUST_FOR_YOU_PRODUCTS: ProductCardType[] = [
+  {
+    productID: 4,
+    productTitle: "ASUS FHD Gaming Laptop",
+    productImage: "/images/products_small/ASUS_FHD_Gaming_Laptop_0.webp",
+    price: 700,
+    discount: 35,
+    rating: {
+      stars: 5,
+      voters: 325,
+    },
+  },
+  {
+    productID: 3,
+    productTitle: "IPS LCD Gaming Monitor",
+    productImage: "/images/products_small/IPS_LCD_Gaming_Monitor_0.webp",
+    price: 400,
+    discount: 0,
+    rating: {
+      stars: 5,
+      voters: 99,
+    },
+  },
+  {
+    productID: 1,
+    productTitle: "HAVIT HV-G92 Gamepad",
+    productImage: "/images/products_small/HAVIT_HV-G92_Gamepad_0.webp",
+    price: 160,
+    discount: 0,
+    rating: {
+      stars: 5,
+      voters: 88,
+    },
+    new: true,
+  },
+  {
+    productID: 2,
+    productTitle: "AK-900 Wired Keyboard",
+    productImage: "/images/products_small/AK-900_Wired_Keyboard_0.webp",
+    price: 1160,
+    discount: 0,
+    rating: {
+      stars: 4,
+      voters: 75,
+    },
+  },
+];
+
+export const CART_DATA: CART_TYPE[] = [
+  {
+    id: 1,
+    title: "LCD Monitor",
+    image: "/images/products_small/IPS_LCD_Gaming_Monitor_0.webp",
+    price: 650,
+    quantity: 1,
+    subtotal: 560,
+  },
+  {
+    id: 2,
+    title: "H1 Gamepad",
+    image: "/images/products_small/HAVIT_HV-G92_Gamepad_0.webp",
+    price: 550,
+    quantity: 2,
+    subtotal: 1100,
+  },
+];

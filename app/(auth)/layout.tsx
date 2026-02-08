@@ -3,11 +3,11 @@ import { ReactNode } from "react";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <main className="flex items-center h-195 mt-15 mb-35 *:flex-1 gap-25">
+    <main className="flex items-center gap-25 min-h-195 mt-15 mb-35 flex-wrap">
       <Image
         width={805}
         height={781}
-        className="max-w-full"
+        className="max-w-full rounded-sm"
         src="/images/shopping_car.webp"
         alt="shopping car"
       />

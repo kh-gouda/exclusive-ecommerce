@@ -61,7 +61,7 @@ export default function Home() {
             slides={flashSalesSlides}
             flashSalesTimer="2026-02-18"
           />
-          <div className="text-center">
+          <div className="flex justify-center items-center">
             <SharedButton task="fetch All Flash Sales Products">
               View All Products
             </SharedButton>
@@ -89,7 +89,7 @@ export default function Home() {
         <Section>
           <SectionLabel>Our Products</SectionLabel>
           <Carusel title="Explore Our Products" slides={exploreSlides} />
-          <div className="text-center">
+          <div className="flex justify-center items-center">
             <SharedButton task="fetch All Products">
               View All Products
             </SharedButton>

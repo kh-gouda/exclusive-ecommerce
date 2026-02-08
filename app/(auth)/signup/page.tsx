@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Signup() {
   return (
-    <section className="w-92.5 max-w-full">
+    <section className="">
       <SectionTitle weight="medium">Create an account</SectionTitle>
       <p className="text-base">Enter your details below</p>
 
@@ -26,8 +26,8 @@ export default function Signup() {
           id="authinticator"
           placeholder="Email or Phone Number"
           className="form-input"
-          aria-label="new useremail"
-          autoComplete="email"
+          aria-label="authinticator"
+          autoComplete="mobile email"
         />
 
         <input
@@ -37,7 +37,7 @@ export default function Signup() {
           placeholder="Password"
           className="form-input"
           aria-label="new userpassword"
-          autoComplete="current-password"
+          autoComplete="new-password"
         />
 
         <SharedButton full task="create account">

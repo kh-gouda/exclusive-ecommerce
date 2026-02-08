@@ -40,7 +40,11 @@
 }
 
 @utility add-to-cart {
-  @apply absolute bg-black-color text-white-color text-base font-medium rounded-b-sm bottom-0 left-0 py-2 cursor-pointer  w-0 opacity-0 group-hover:animate-card-button;
+  @apply absolute bg-black-color text-white-color text-base font-medium rounded-b-sm bottom-0 left-0 py-2 cursor-pointer;
+}
+
+@utility add-to-cart-animation {
+  @apply w-0 opacity-0 group-hover:animate-card-button;
 }
 
 @utility time {
@@ -56,7 +60,11 @@
 }
 
 @utility form-input {
-  @apply border-b border-gray-300 w-full pb-2 mb-10;
+  @apply border-b border-gray-300 w-full pb-2 mb-10 outline-none;
+}
+
+@utility billing-data-label {
+  @apply text-gray-500;
 }
 
 @theme inline {

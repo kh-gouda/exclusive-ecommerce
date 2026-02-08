@@ -9,21 +9,23 @@ import Link from "next/link";
 export default function UserLinks() {
   const isLogged = false;
   return (
-    <ul
-      className={clsx("", {
-        "flex items-center gap-4": isLogged,
-        hidden: !isLogged,
-      })}
-    >
+    <ul className="flex items-center gap-4">
       <li>
         <Link href="/wishlist">
           <HeartIcon className="h-5 w-5 cursor-pointer" />
         </Link>
       </li>
       <li>
-        <ShoppingCartIcon className="h-5 w-5 cursor-pointer" />
+        <Link href="/cart">
+          <ShoppingCartIcon className="h-5 w-5 cursor-pointer" />
+        </Link>
       </li>
-      <li>
+      <li
+        className={clsx("", {
+          block: isLogged,
+          hidden: !isLogged,
+        })}
+      >
         <UserIcon className="h-5 w-5 cursor-pointer" />
       </li>
     </ul>
