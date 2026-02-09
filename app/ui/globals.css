@@ -67,6 +67,10 @@
   @apply text-gray-500;
 }
 
+@utility profile-form-input {
+  @apply bg-gray-bg p-4 w-full rounded-sm mt-2 text-gray-500;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

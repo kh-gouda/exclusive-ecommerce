@@ -16,7 +16,7 @@ type PropType = {
 export default function FirstAdArea(props: PropType) {
   const { slides, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
-    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true }),
+    Autoplay({ delay: 2800, stopOnInteraction: false, stopOnMouseEnter: true }),
   ]);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =

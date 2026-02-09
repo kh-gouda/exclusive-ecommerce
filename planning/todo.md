@@ -47,6 +47,10 @@
   - [x] Create New Arrivals Section
   - [x] Create Features Section
 
+- [ ] refactor Pages
+  - [] signup - login - wishlist - cart - Checkout
+    ##############################
+
 - [ ] Prepare dummy data for initial static design
 - [ ] Perform components logic and dynamic data display
 

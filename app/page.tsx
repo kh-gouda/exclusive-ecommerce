@@ -51,7 +51,10 @@ export default function Home() {
       <Container>
         <main className="flex pb-12.5">
           <SideNav />
-          <FirstAdArea slides={FIRST_AD_AREA_LIST} options={{ loop: true }} />
+          <FirstAdArea
+            slides={FIRST_AD_AREA_LIST}
+            options={{ loop: true, duration: 60 }}
+          />
         </main>
 
         <Section withBorder>
