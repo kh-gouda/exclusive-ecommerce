@@ -10,7 +10,7 @@ export default function Checkout() {
   return (
     <main className="pt-20 pb-35">
       <Container>
-        <SectionTitle weight="medium">Billing Details</SectionTitle>
+        <SectionTitle weight={500}>Billing Details</SectionTitle>
         <form action="" className="flex *:flex-1 gap-20">
           <div>
             <label htmlFor="fname" className="billing-data-label">

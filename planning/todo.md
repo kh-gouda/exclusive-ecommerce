@@ -20,6 +20,7 @@
   - [x] Create nav links
   - [x] Create search bar
   - [x] Create user account links
+  - [x] Create User account control Dropdownmenu
   - [x] Create side nav
   - [x] Create section label
   - [x] Create section title
@@ -46,10 +47,6 @@
   - [x] ProductCard component
   - [x] Create New Arrivals Section
   - [x] Create Features Section
-
-- [ ] refactor Pages
-  - [] signup - login - wishlist - cart - Checkout
-    ##############################
 
 - [ ] Prepare dummy data for initial static design
 - [ ] Perform components logic and dynamic data display

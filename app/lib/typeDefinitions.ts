@@ -68,3 +68,13 @@ export type CART_TYPE = {
   quantity: number;
   subtotal: number;
 };
+
+export type STAFF_TYPE = {
+  id: number;
+  name: string;
+  image: string;
+  jobTitle: string;
+  twitterLink: string;
+  instagramLink: string;
+  linkedinLink: string;
+};

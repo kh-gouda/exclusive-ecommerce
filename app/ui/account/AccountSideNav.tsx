@@ -49,6 +49,26 @@ export default function AccountSideNav() {
         <li className="my-2">
           <Link
             className={clsx("text-gray-500", {
+              "text-identity": pathname.endsWith("in-progress"),
+            })}
+            href={`/account/${id}/orders/in-progress`}
+          >
+            In Progress
+          </Link>
+        </li>
+        <li className="my-2">
+          <Link
+            className={clsx("text-gray-500", {
+              "text-identity": pathname.endsWith("completed"),
+            })}
+            href={`/account/${id}/orders/completed`}
+          >
+            Completed
+          </Link>
+        </li>
+        <li className="my-2">
+          <Link
+            className={clsx("text-gray-500", {
               "text-identity": pathname.endsWith("returns"),
             })}
             href={`/account/${id}/orders/returns`}

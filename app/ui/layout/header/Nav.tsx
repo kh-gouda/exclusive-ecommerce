@@ -2,7 +2,7 @@ import LogoText from "@shared/LogoText";
 import Container from "@shared/Container";
 import NavLinks from "@layout/header/NavLinks";
 import SearchBar from "@layout/header/SearchBar";
-import UserLinks from "@layout/header/UserLinks";
+import UserLinks from "@ui/layout/header/AccountLinks";
 
 export default function Nav() {
   return (

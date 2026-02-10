@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Login() {
   return (
     <section className="">
-      <SectionTitle weight="medium">Log in to Exclusive</SectionTitle>
+      <SectionTitle weight={500}>Log in to Exclusive</SectionTitle>
       <p className="text-base">Enter your details below</p>
 
       <form className="mt-12" action="">

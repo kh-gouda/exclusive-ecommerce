@@ -20,7 +20,7 @@ import SharedButton from "@ui/shared/SharedButton";
 import Categories from "@ui/home/Categories";
 import SectionTitle from "@ui/shared/SectionTitle";
 import NewArrivals from "@ui/home/NewArrivals";
-import Features from "@ui/home/main/Features";
+import Features from "@ui/shared/Features";
 import ScrollToTopButton from "@ui/shared/ScrollToTopButton";
 
 export default function Home() {

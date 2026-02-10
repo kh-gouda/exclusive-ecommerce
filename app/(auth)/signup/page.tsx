@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Signup() {
   return (
     <section className="">
-      <SectionTitle weight="medium">Create an account</SectionTitle>
+      <SectionTitle weight={500}>Create an account</SectionTitle>
       <p className="text-base">Enter your details below</p>
 
       <form className="mt-12" action="">
