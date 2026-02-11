@@ -44,7 +44,7 @@ export default function ProductCard({
         </div>
         <AddToCartButton showAddToCartButton={showAddToCartButton} />
       </div>
-      <Link href={"/pId"}>
+      <Link href={`/products/${product.productID}`}>
         <ProductTitle title={product.productTitle} />
         <PriceLbel price={product.price} discount={product.discount} />
         {product.rating ? (
