@@ -3,9 +3,11 @@ import { StarIcon } from "@heroicons/react/24/solid";
 export default function Rating({
   stars,
   voters,
+  reviewsString = false,
 }: {
   stars: number;
   voters: number;
+  reviewsString?: boolean;
 }) {
   const STARS_ARRAY = new Array(5).fill("dummy");
   return (
@@ -17,7 +19,9 @@ export default function Rating({
           <StarIcon key={i} className="h-5 w-5 opacity-40" />
         );
       })}
-      <span className="ml-3 opacity-40">({voters})</span>
+      <span className="ml-3 opacity-40">
+        ({voters} {reviewsString ? "reviews" : null})
+      </span>
     </p>
   );
 }

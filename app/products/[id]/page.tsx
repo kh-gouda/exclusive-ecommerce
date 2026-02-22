@@ -1,14 +1,10 @@
-import ImagesPreview from "@ui/product_details/ImagesPreview";
-import ProductInfo from "@ui/product_details/ProductInfo";
+import ProductDetailsMain from "@ui/product_details/ProductDetailsMain";
 import Container from "@ui/shared/Container";
 
 export default function ProductDetails() {
   return (
     <Container>
-      <main className="mt-20 mb-35">
-        <ImagesPreview />
-        <ProductInfo />
-      </main>
+      <ProductDetailsMain />
     </Container>
   );
 }

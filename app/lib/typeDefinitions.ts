@@ -78,3 +78,18 @@ export type STAFF_TYPE = {
   instagramLink: string;
   linkedinLink: string;
 };
+
+export type PRODUCT_DETAILS_Type = {
+  productId: number;
+  productName: string;
+  productDescription: string;
+  productPrice: number;
+  productImages: string[];
+  productRating: {
+    voters: number;
+    stars: number;
+  };
+  colors: string[];
+  sizes: string[];
+  stock: boolean;
+};

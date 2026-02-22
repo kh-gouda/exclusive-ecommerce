@@ -3,6 +3,7 @@ import {
   CATEGRY_TYPE,
   FIRST_AD,
   NEW_ARRIVAL_TYPE,
+  PRODUCT_DETAILS_Type,
   ProductCardType,
 } from "@/app/lib/typeDefinitions";
 
@@ -641,3 +642,25 @@ export const STAFF = [
     linkedinLink: "https://www.linkedin.com/in/kh-gouda/",
   },
 ];
+
+export const PRODUCT_DETAILS_DATA: PRODUCT_DETAILS_Type = {
+  productId: 1,
+  productName: "Havic HV G-92 Gamepad",
+  productDescription:
+    "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+  productPrice: 192,
+  productImages: [
+    "Havic_HV_G-92_Gamepad_0.webp",
+    "Havic_HV_G-92_Gamepad_1.webp",
+    "Havic_HV_G-92_Gamepad_2.webp",
+    "Havic_HV_G-92_Gamepad_3.webp",
+    "Havic_HV_G-92_Gamepad_4.webp",
+  ],
+  productRating: {
+    voters: 150,
+    stars: 4,
+  },
+  colors: ["#A0BCE0", "#E07575"],
+  sizes: ["XS", "S", "M", "L", "XL"],
+  stock: true,
+};
