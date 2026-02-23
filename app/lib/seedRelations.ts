@@ -298,3 +298,96 @@ export const wishList_seed = [
   { userId: 2, productId: 12 },
   { userId: 2, productId: 15 },
 ];
+
+export const staff_seed = [
+  {
+    employeeName: "Tom Cruise",
+    employeeJobTitle: "Founder & Chairman",
+    employeeImage: "Tom_Cruise_hbwybu",
+    employeeSocialLinks: {
+      twitterLink: "https://www.linkedin.com/in/kh-gouda/",
+      instagramLink: "https://www.linkedin.com/in/kh-gouda/",
+      linkedinLink: "https://www.linkedin.com/in/kh-gouda/",
+    },
+  },
+  {
+    employeeName: "Emma Watson",
+    employeeJobTitle: "Managing Director",
+    employeeImage: "Emma_Watson_rtsvit",
+    employeeSocialLinks: {
+      twitterLink: "https://www.linkedin.com/in/kh-gouda/",
+      instagramLink: "https://www.linkedin.com/in/kh-gouda/",
+      linkedinLink: "https://www.linkedin.com/in/kh-gouda/",
+    },
+  },
+  {
+    employeeName: "Will Smith",
+    employeeJobTitle: "Product Designer",
+    employeeImage: "Will_Smith_pqehy8",
+    employeeSocialLinks: {
+      twitterLink: "https://www.linkedin.com/in/kh-gouda/",
+      instagramLink: "https://www.linkedin.com/in/kh-gouda/",
+      linkedinLink: "https://www.linkedin.com/in/kh-gouda/",
+    },
+  },
+  {
+    employeeName: "Ahmed Hussein",
+    employeeJobTitle: "Marketing Manager",
+    employeeImage: "Ahmed_Hussein_nbkmos",
+    employeeSocialLinks: {
+      twitterLink: "https://www.linkedin.com/in/kh-gouda/",
+      instagramLink: "https://www.linkedin.com/in/kh-gouda/",
+      linkedinLink: "https://www.linkedin.com/in/kh-gouda/",
+    },
+  },
+  {
+    employeeName: "Mohammed Hassan",
+    employeeJobTitle: "Accountant",
+    employeeImage: "Mohammed_Hassan_gk9h6h",
+    employeeSocialLinks: {
+      twitterLink: "https://www.linkedin.com/in/kh-gouda/",
+      instagramLink: "https://www.linkedin.com/in/kh-gouda/",
+      linkedinLink: "https://www.linkedin.com/in/kh-gouda/",
+    },
+  },
+  {
+    employeeName: "Ibrahim Ezzat",
+    employeeJobTitle: "Sales Manager",
+    employeeImage: "Ibrahim_Ezzat_uhtpuh",
+    employeeSocialLinks: {
+      twitterLink: "https://www.linkedin.com/in/kh-gouda/",
+      instagramLink: "https://www.linkedin.com/in/kh-gouda/",
+      linkedinLink: "https://www.linkedin.com/in/kh-gouda/",
+    },
+  },
+  {
+    employeeName: "Ahmed Ibrahim",
+    employeeJobTitle: "Production Manager",
+    employeeImage: "Mohammed_Hassan_gk9h6h",
+    employeeSocialLinks: {
+      twitterLink: "https://www.linkedin.com/in/kh-gouda/",
+      instagramLink: "https://www.linkedin.com/in/kh-gouda/",
+      linkedinLink: "https://www.linkedin.com/in/kh-gouda/",
+    },
+  },
+  {
+    employeeName: "Khaled Ali",
+    employeeJobTitle: "HR Manager",
+    employeeImage: "Will_Smith_pqehy8",
+    employeeSocialLinks: {
+      twitterLink: "https://www.linkedin.com/in/kh-gouda/",
+      instagramLink: "https://www.linkedin.com/in/kh-gouda/",
+      linkedinLink: "https://www.linkedin.com/in/kh-gouda/",
+    },
+  },
+  {
+    employeeName: "Ossama Youssef",
+    employeeJobTitle: "Public Relations Manager",
+    employeeImage: "Ahmed_Hussein_nbkmos",
+    employeeSocialLinks: {
+      twitterLink: "https://www.linkedin.com/in/kh-gouda/",
+      instagramLink: "https://www.linkedin.com/in/kh-gouda/",
+      linkedinLink: "https://www.linkedin.com/in/kh-gouda/",
+    },
+  },
+];

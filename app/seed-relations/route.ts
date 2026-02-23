@@ -5,6 +5,7 @@ import {
   flashSalesProducts_seed,
   product_category_seed,
   rating_seed,
+  staff_seed,
   stock_seed,
   wishList_seed,
 } from "@/app/lib/seedRelations";
@@ -105,7 +106,7 @@ async function seedFlashSales() {
     flashSaleId serial primary key,
     occasion text not null,
     startTime timestamp not null default now(),
-    endTime timestamp not null default now() + interval '3 day',
+    endTime timestamp not null default now() + interval '3 day'
   )`;
 
   const insertedFlashSales = await Promise.all(
@@ -166,6 +167,52 @@ async function seedWishList() {
   return insertedWishList;
 }
 
+async function seedOrders() {
+  await sql`
+  create table if not exists orders (
+    orderId serial primary key,
+    userId int references users(userId) on delete cascade,
+    orderStatus text not null default 'pending',
+    orderDate timestamp not null default now()
+  )`;
+}
+
+async function seedOrderItems() {
+  await sql`
+  create table if not exists orderItems (
+    orderId int references orders(orderId) on delete cascade,
+    productId int references products(productId) on delete cascade,
+    quantity int not null check (quantity > 0),
+    unique (orderId, productId)
+  )`;
+}
+
+async function seedStaff() {
+  await sql`
+  create table if not exists staff (
+    employeeId serial primary key,
+    employeeName text not null,
+    employeeJobTitle text not null,
+    employeeImage text not null,
+    employeeSocialLinks jsonb not null,
+    employeeStatus text not null default 'active',
+    employeeCreatedAt timestamp default now(),
+    employeeUpdatedAt timestamp default now()
+  )`;
+
+  const insertedStaff = await Promise.all(
+    staff_seed.map(
+      (employee) =>
+        sql`
+        INSERT INTO staff (employeeName, employeeJobTitle, employeeImage, employeeSocialLinks)
+        VALUES (${employee.employeeName}, ${employee.employeeJobTitle}, ${employee.employeeImage}, ${JSON.stringify(employee.employeeSocialLinks)})
+      `,
+    ),
+  );
+
+  return insertedStaff;
+}
+
 export async function GET() {
   try {
     const result = await sql.begin((sql) => [
@@ -176,6 +223,9 @@ export async function GET() {
       seedFlashSales(),
       seedFlashSalesProducts(),
       seedWishList(),
+      seedOrders(),
+      seedOrderItems(),
+      seedStaff(),
     ]);
 
     return Response.json({ message: "Database seeded successfully" });
