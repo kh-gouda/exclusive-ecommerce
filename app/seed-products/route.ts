@@ -60,15 +60,17 @@ async function seedSubCategories() {
   await sql`
   create table if not exists subCategories (
     subCategoryId serial primary key,
-    subCategory text unique not null
+    subCategory text unique not null,
+    icon text,
+    categoryId int references categories(categoryId) on delete set null
   )`;
 
   const insertedSubCategories = await Promise.all(
     subCategories_seed.map(
       (subCategory) =>
         sql`
-        INSERT INTO subCategories (subCategory)
-        VALUES (${subCategory})
+        INSERT INTO subCategories (subCategory, icon, categoryId)
+        VALUES (${subCategory.subCategory}, ${subCategory.icon}, ${subCategory.categoryId})
         ON CONFLICT (subCategory) DO NOTHING;
       `,
     ),

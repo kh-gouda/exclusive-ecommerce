@@ -1,20 +1,23 @@
-import { CATEGRY_TYPE } from "@/app/lib/typeDefinitions";
+import { CATEGORY_TYPE } from "@/app/lib/typeDefinitions";
+import CategoryIcon from "@ui/home/CategoryIcon";
+import Link from "next/link";
 
 export default function Categories({
   categories,
 }: {
-  categories: CATEGRY_TYPE[];
+  categories: CATEGORY_TYPE[];
 }) {
   return (
     <div className="flex gap-7.5 flex-wrap my-15">
       {categories.map((category) => (
-        <div
+        <Link
+          href={`/sub-categories/${category.id}`}
           key={category.id}
-          className="w-42.5 h-36.25 rounded-sm border border-border-color flex flex-col justify-center items-center gap-4 cursor-pointer hover:bg-identity"
+          className="group w-42.5 h-36.25 rounded-sm border border-border-color flex flex-col justify-center items-center gap-4 cursor-pointer hover:bg-identity hover:text-white-text"
         >
-          {category.icon}
-          <div className="text-base">{category.title}</div>
-        </div>
+          <CategoryIcon categoryIcon={category.icon} />
+          <div className="text-base text-center">{category.title}</div>
+        </Link>
       ))}
     </div>
   );

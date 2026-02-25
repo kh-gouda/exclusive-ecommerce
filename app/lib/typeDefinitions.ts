@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 export type FIRST_AD = {
   productId: number;
   product: string;
@@ -22,10 +20,10 @@ export type ProductCardType = {
   new?: boolean;
 };
 
-export type CATEGRY_TYPE = {
+export type CATEGORY_TYPE = {
   id: number;
   title: string;
-  icon: ReactNode;
+  icon: string;
 };
 export type FOOTER_LIST = {
   listHeading: string;
@@ -92,4 +90,35 @@ export type PRODUCT_DETAILS_Type = {
   colors: string[];
   sizes: string[];
   stock: boolean;
+};
+
+export type FETCHED_PRODUCT_CARD_TYPE = {
+  flashsaleid: number;
+  endtime: string;
+  productid: number;
+  productname: string;
+  productimages: string[];
+  productprice: string;
+  productdiscount: number;
+  voters: string;
+  stars: number;
+  colors?: string[];
+};
+
+export type FETCHED_CATEGORY_TYPE = {
+  subcategoryid: number;
+  subcategory: string;
+  icon: string;
+  categoryid: number;
+};
+
+export type FETCHED_BEST_SELLING_PRODUCT_TYPE = {
+  productid: number;
+  productname: string;
+  productimages: string[];
+  productprice: string;
+  productdiscount: number;
+  total_sold: string;
+  voters: string;
+  stars: number;
 };

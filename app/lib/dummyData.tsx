@@ -1,79 +1,72 @@
 import {
   CART_TYPE,
-  CATEGRY_TYPE,
+  CATEGORY_TYPE,
   FIRST_AD,
   NEW_ARRIVAL_TYPE,
   PRODUCT_DETAILS_Type,
   ProductCardType,
 } from "@/app/lib/typeDefinitions";
 
-import {
-  CameraIcon,
-  ComputerDesktopIcon,
-  PhoneIcon,
-} from "@heroicons/react/24/outline";
-import { GamepadIcon, HeadphonesIcon, WatchIcon } from "lucide-react";
-
-export const CATEGORIES: CATEGRY_TYPE[] = [
+export const CATEGORIES: CATEGORY_TYPE[] = [
   {
     id: 1,
     title: "Phones",
-    icon: <PhoneIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-CellPhone_cnog2x",
   },
   {
     id: 2,
     title: "Computers",
-    icon: <ComputerDesktopIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-Computer_ugrrnb",
   },
   {
     id: 3,
     title: "SmartWatch",
-    icon: <WatchIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-SmartWatch_orvmqt",
   },
   {
     id: 4,
     title: "Camera",
-    icon: <CameraIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-Camera_ao1jhm",
   },
   {
     id: 5,
     title: "HeadPhones",
-    icon: <HeadphonesIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-Headphone_giwx9d",
   },
   {
     id: 6,
     title: "Gaming",
-    icon: <GamepadIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-Gamepad_dzdvtv",
   },
   {
     id: 7,
     title: "Phones",
-    icon: <PhoneIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-CellPhone_cnog2x",
   },
   {
     id: 8,
     title: "Computers",
-    icon: <ComputerDesktopIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-Computer_ugrrnb",
   },
   {
     id: 9,
     title: "SmartWatch",
-    icon: <WatchIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-SmartWatch_orvmqt",
   },
   {
     id: 10,
     title: "Camera",
-    icon: <CameraIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-Camera_ao1jhm",
   },
   {
     id: 11,
     title: "HeadPhones",
-    icon: <HeadphonesIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-Headphone_giwx9d",
   },
   {
     id: 12,
     title: "Gaming",
-    icon: <GamepadIcon className="w-16.25 h-16.25 " />,
+    icon: "Category-Gamepad_dzdvtv",
   },
 ];
 

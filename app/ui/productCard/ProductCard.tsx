@@ -1,7 +1,6 @@
 import DiscountLabel from "@productCard/DiscountLabel";
 import ProductTitle from "@productCard/ProductTitle";
 import PriceLbel from "@productCard/PriceLabel";
-import Image from "next/image";
 import Rating from "@productCard/Rating";
 import { EyeIcon, HeartIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -9,6 +8,7 @@ import AddToCartButton from "@ui/productCard/AddToCartButton";
 import { ProductCardType } from "@/app/lib/typeDefinitions";
 import NewLabel from "@ui/productCard/NewLabel";
 import ProductColor from "@ui/productCard/ProductColor";
+import CardImage from "@ui/productCard/CardImage";
 
 export default function ProductCard({
   product,
@@ -24,12 +24,8 @@ export default function ProductCard({
   return (
     <div className="group w-67.5 cursor-pointer">
       <div className="relative w-full h-62.5 bg-gray-bg flex justify-center items-center mb-4 rounded-sm">
-        <Image
-          width={190}
-          height={190}
-          src={product.productImage}
-          alt={product.productTitle}
-        />
+        <CardImage productImage={product.productImage} />
+
         {showDiscountLabel && product.discount ? (
           <DiscountLabel discount={product.discount} />
         ) : null}

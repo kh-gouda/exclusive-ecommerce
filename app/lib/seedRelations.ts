@@ -286,7 +286,7 @@ export const flashSalesProducts_seed = [
   { flashSaleId: 1, productId: 2, productDiscount: 35 },
   { flashSaleId: 1, productId: 1, productDiscount: 30 },
   { flashSaleId: 1, productId: 3, productDiscount: 25 },
-  { flashSaleId: 1, productId: 5, productDiscount: 28 },
+  { flashSaleId: 1, productId: 5, productDiscount: 23 },
   { flashSaleId: 1, productId: 6, productDiscount: 18 },
   { flashSaleId: 1, productId: 7, productDiscount: 6 },
   { flashSaleId: 1, productId: 8, productDiscount: 15 },
