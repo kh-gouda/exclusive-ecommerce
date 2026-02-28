@@ -1,7 +1,10 @@
 import sql from "@/app/lib/db";
 import {
+  FETCHED_AD_TYPE,
   FETCHED_BEST_SELLING_PRODUCT_TYPE,
   FETCHED_CATEGORY_TYPE,
+  FETCHED_NEW_ARRIVALS_TYPE,
+  FETCHED_NEW_COLLECTION_TYPE,
   FETCHED_PRODUCT_CARD_TYPE,
 } from "@/app/lib/typeDefinitions";
 
@@ -143,7 +146,8 @@ export async function fetchAllProducts() {
       p.productname, 
       p.productimages, 
       p.productprice, 
-      p.productdiscount, 
+      p.productdiscount,
+      p.newproduct,
       COALESCE(rp.voters, 0) AS voters, 
       rp.stars AS stars,
       COALESCE(psi.colors, ARRAY[]::text[]) AS colors -- Returns empty array if no colors
@@ -151,6 +155,44 @@ export async function fetchAllProducts() {
     LEFT JOIN RatedProducts rp ON p.productid = rp.productid
     LEFT JOIN ProductStockInfo psi ON p.productid = psi.productid
     LIMIT 16;
+  `;
+
+  return data;
+}
+
+export async function fetchNewArrivals() {
+  const data = await sql<FETCHED_NEW_ARRIVALS_TYPE[]>`
+  select p.productid, p.productname, p.productdescription, p.productimages
+  from products p
+  join newarrivals n on n.productid = p.productid
+  where now() - n.arriveat < interval '1 months'
+  order by productid
+  limit 3;`;
+
+  return data;
+}
+
+export async function fetchNewCollection() {
+  const data = await sql<FETCHED_NEW_COLLECTION_TYPE[]>`
+  select collectionid, collectiontitle, collectiondescription, categoryid
+  from newcollections
+  where now() - arriveat < interval '1 months'
+  limit 1;`;
+
+  return data;
+}
+
+export async function fetchFirstAd() {
+  const data = await sql<FETCHED_AD_TYPE[]>`
+    select * from ads where adarea = 1 and endtime > now();
+  `;
+
+  return data;
+}
+
+export async function fetchSecondAd() {
+  const data = await sql<FETCHED_AD_TYPE[]>`
+    select * from ads where adarea = 2 and endtime > now();
   `;
 
   return data;

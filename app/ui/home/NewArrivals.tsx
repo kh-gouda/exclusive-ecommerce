@@ -1,6 +1,6 @@
 import { NEW_ARRIVAL_TYPE } from "@/app/lib/typeDefinitions";
+import NewArrivalImage from "@ui/home/NewArrivalImage";
 import { inter } from "@ui/shared/fonts";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function NewArrivals({
@@ -11,13 +11,7 @@ export default function NewArrivals({
   return (
     <div className="new-arrivals">
       <div className="col-span-2 row-span-2">
-        <Image
-          className="max-w-full"
-          width={446}
-          height={315}
-          src={newArrivals.products[0].image}
-          alt={newArrivals.products[0].title}
-        />
+        <NewArrivalImage productImage={newArrivals.products[0].image} />
         <div className="absolute left-7.5 bottom-7.5  text-white-text">
           <h3 className={`${inter.className} font-semibold text-2xl`}>
             {newArrivals.products[0].title}
@@ -38,7 +32,7 @@ export default function NewArrivals({
           </h3>
           <p className="text-sm my-2">{newArrivals.collection.description}</p>
           <Link
-            href={newArrivals.collection.link}
+            href={`/categories/${newArrivals.collection.categoryid}/new`}
             className="border-b border-white-text text-base font-medium"
           >
             Shop Now
@@ -46,13 +40,7 @@ export default function NewArrivals({
         </div>
       </div>
       <div className="">
-        <Image
-          className="max-w-full"
-          width={446}
-          height={315}
-          src={newArrivals.products[1].image}
-          alt="speakers_0"
-        />
+        <NewArrivalImage productImage={newArrivals.products[1].image} />
         <div className="absolute left-7.5 bottom-7.5  text-white-text">
           <h3 className={`${inter.className} font-semibold text-2xl`}>
             {newArrivals.products[1].title}
@@ -67,13 +55,7 @@ export default function NewArrivals({
         </div>
       </div>
       <div className="">
-        <Image
-          className="max-w-full"
-          width={446}
-          height={315}
-          src={newArrivals.products[2].image}
-          alt="perfume_0"
-        />
+        <NewArrivalImage productImage={newArrivals.products[2].image} />
         <div className="absolute left-7.5 bottom-7.5  text-white-text">
           <h3 className={`${inter.className} font-semibold text-2xl`}>
             {newArrivals.products[2].title}

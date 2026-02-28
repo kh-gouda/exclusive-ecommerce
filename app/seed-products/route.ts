@@ -18,15 +18,16 @@ async function seedProducts() {
     productPrice numeric(10, 2) not null check (productPrice > 0),
     productDiscount int not null check (productDiscount >= 0 and productDiscount <= 100) default 0,
     productCreatedAt timestamp default now(),
-    productUpdatedAt timestamp default now()
+    productUpdatedAt timestamp default now(),
+    newProduct bool default false
   )`;
 
   const insertedProducts = await Promise.all(
     products_seed.map(
       (product) =>
         sql`
-        INSERT INTO products (productName, productDescription, productImages, productPrice)
-        VALUES (${product.productName}, ${product.productDescription}, ${product.productImages}, ${product.productPrice})
+        INSERT INTO products (productName, productDescription, productImages, productPrice, newProduct)
+        VALUES (${product.productName}, ${product.productDescription}, ${product.productImages}, ${product.productPrice}, ${product.newProduct})
         ON CONFLICT (productName) DO NOTHING;
       `,
     ),

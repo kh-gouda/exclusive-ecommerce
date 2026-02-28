@@ -1,7 +1,6 @@
 import Container from "@shared/Container";
 import FirstAdArea from "@home/main/FirstAdArea";
 import SideNav from "@home/main/SideNav";
-import { FIRST_AD_AREA_LIST, NEW_ARRIVAL_DATA } from "@/app/lib/dummyData";
 import SecondAdArea from "@ui/home/SecondAdArea";
 import { Carusel } from "@ui/home/Carusel";
 import Section from "@ui/shared/Section";
@@ -10,7 +9,10 @@ import {
   createSlides,
   fetchAllProducts,
   fetchBestSellingProducts,
+  fetchFirstAd,
   fetchFlashSalesProducts,
+  fetchNewArrivals,
+  fetchNewCollection,
   fetchSubCategories,
 } from "@/app/lib/utils";
 import { CATEGORY_TYPE, ProductCardType } from "@/app/lib/typeDefinitions";
@@ -23,6 +25,25 @@ import Features from "@ui/shared/Features";
 import ScrollToTopButton from "@ui/shared/ScrollToTopButton";
 
 export default async function Home() {
+  const firstAdData = await fetchFirstAd();
+  const FIRST_AD_AREA_LIST = firstAdData.map((ad) => ({
+    productId: ad.productid,
+    product: ad.adtitle,
+    productLogo: ad.adlogo,
+    details: ad.addetails,
+    link: `products/${ad.productid}`,
+    imageSrc: ad.adimage,
+  }));
+  const adForm = {
+    productId: FIRST_AD_AREA_LIST.length * 1000,
+    product: "Ads Title",
+    productLogo: "adlogo_qyqfuy",
+    details: "You Can Add Your Ads Details Here",
+    link: "/",
+    imageSrc: "adimage_tmusbo",
+  };
+  const NEW_FIRST_AD_AREA_LIST = [...FIRST_AD_AREA_LIST, adForm];
+
   const fsProducts = await fetchFlashSalesProducts();
   const FLASH_SALES_PRODUCTS = fsProducts.map((product) => ({
     productID: product.productid,
@@ -81,11 +102,31 @@ export default async function Home() {
       voters: +product.voters,
     },
     colors: product.colors,
+    new: product.newproduct,
   }));
   const exploreProducts = createSlides<ProductCardType>(ALL_PRODUCTS, 8);
   const exploreSlides = exploreProducts.map((slide, index) => (
     <Cards key={index} products={slide} showNewLabel />
   ));
+
+  const newArrivals = await Promise.all([
+    fetchNewCollection(),
+    fetchNewArrivals(),
+  ]);
+
+  const NEW_ARRIVAL_DATA = {
+    collection: newArrivals[0].map((collection) => ({
+      title: collection.collectiontitle,
+      description: collection.collectiondescription,
+      categoryid: collection.categoryid,
+    }))[0],
+    products: newArrivals[1].map((product) => ({
+      title: product.productname,
+      description: product.productdescription,
+      image: product.productimages[0],
+      link: `products/${product.productid}`,
+    })),
+  };
 
   const newArrivalData = NEW_ARRIVAL_DATA;
 
@@ -95,7 +136,7 @@ export default async function Home() {
         <main className="flex pb-12.5">
           <SideNav />
           <FirstAdArea
-            slides={FIRST_AD_AREA_LIST}
+            slides={NEW_FIRST_AD_AREA_LIST}
             options={{ loop: true, duration: 60 }}
           />
         </main>
@@ -142,11 +183,11 @@ export default async function Home() {
           </div>
         </Section>
 
-        {/* <Section>
+        <Section>
           <SectionLabel>Featured</SectionLabel>
           <SectionTitle>New Arrivals</SectionTitle>
           <NewArrivals newArrivals={newArrivalData} />
-        </Section> */}
+        </Section>
 
         <Section>
           <Features />

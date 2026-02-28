@@ -1,8 +1,8 @@
 export type FIRST_AD = {
   productId: number;
   product: string;
-  productLogo: string;
-  details: string;
+  productLogo?: string;
+  details?: string;
   link: string;
   imageSrc: string;
 };
@@ -34,28 +34,14 @@ export type NEW_ARRIVAL_TYPE = {
   collection: {
     title: string;
     description: string;
-    link: string;
+    categoryid: number;
   };
-  products: [
-    {
-      title: string;
-      description: string;
-      image: string;
-      link: string;
-    },
-    {
-      title: string;
-      description: string;
-      image: string;
-      link: string;
-    },
-    {
-      title: string;
-      description: string;
-      image: string;
-      link: string;
-    },
-  ];
+  products: {
+    title: string;
+    description: string;
+    image: string;
+    link: string;
+  }[];
 };
 
 export type CART_TYPE = {
@@ -103,6 +89,7 @@ export type FETCHED_PRODUCT_CARD_TYPE = {
   voters: string;
   stars: number;
   colors?: string[];
+  newproduct?: boolean;
 };
 
 export type FETCHED_CATEGORY_TYPE = {
@@ -121,4 +108,29 @@ export type FETCHED_BEST_SELLING_PRODUCT_TYPE = {
   total_sold: string;
   voters: string;
   stars: number;
+};
+
+export type FETCHED_NEW_ARRIVALS_TYPE = {
+  productid: number;
+  productname: string;
+  productdescription: string;
+  productimages: string[];
+};
+
+export type FETCHED_NEW_COLLECTION_TYPE = {
+  collectionid: number;
+  collectiontitle: string;
+  collectiondescription: string;
+  categoryid: number;
+};
+
+export type FETCHED_AD_TYPE = {
+  adid: number;
+  adarea: number;
+  adtitle: string;
+  adlogo?: string;
+  addetails?: string;
+  adimage: string;
+  productid: number;
+  endtime: string;
 };

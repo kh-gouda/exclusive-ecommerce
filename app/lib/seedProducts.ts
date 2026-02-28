@@ -11,6 +11,7 @@ export const products_seed = [
       "HAVIT_HV-G92_Gamepad_4_zkcx5z",
     ],
     productPrice: 160.0,
+    newProduct: true,
   },
   {
     productName: "AK-900 Wired Keyboard",
@@ -24,6 +25,7 @@ export const products_seed = [
       "AK-900_Wired_Keyboard_4_u0ioq9",
     ],
     productPrice: 1160.0,
+    newProduct: false,
   },
   {
     productName: "IPS LCD Gaming Monitor",
@@ -37,6 +39,7 @@ export const products_seed = [
       "IPS_LCD_Gaming_Monitor_4_rhehpv",
     ],
     productPrice: 400.0,
+    newProduct: false,
   },
   {
     productName: "S-Series Comfort Chair",
@@ -50,6 +53,7 @@ export const products_seed = [
       "S-Series_Comfort_Chair_4_ue4cnr",
     ],
     productPrice: 400.0,
+    newProduct: false,
   },
   {
     productName: "The north coat",
@@ -63,6 +67,7 @@ export const products_seed = [
       "The_north_coat_4_fcjz87",
     ],
     productPrice: 360.0,
+    newProduct: false,
   },
   {
     productName: "Gucci duffle bag",
@@ -76,6 +81,7 @@ export const products_seed = [
       "Gucci_duffle_bag_4_m4rljd",
     ],
     productPrice: 1160.0,
+    newProduct: false,
   },
   {
     productName: "RGB liquid CPU Cooler",
@@ -89,6 +95,7 @@ export const products_seed = [
       "RGB_liquid_CPU_Cooler_4_vcbo9o",
     ],
     productPrice: 170.0,
+    newProduct: false,
   },
   {
     productName: "Small BookSelf",
@@ -102,6 +109,7 @@ export const products_seed = [
       "Small_BookSelf_4_uxdtqi",
     ],
     productPrice: 360.0,
+    newProduct: false,
   },
   {
     productName: "Breed Dry Dog Food",
@@ -115,6 +123,7 @@ export const products_seed = [
       "Breed_Dry_Dog_Food_4_ghgpcl",
     ],
     productPrice: 100.0,
+    newProduct: false,
   },
   {
     productName: "CANON EOS DSLR Camera",
@@ -128,6 +137,7 @@ export const products_seed = [
       "CANON_EOS_DSLR_Camera_4_bqxlnm",
     ],
     productPrice: 360.0,
+    newProduct: false,
   },
   {
     productName: "ASUS FHD Gaming Laptop",
@@ -141,6 +151,7 @@ export const products_seed = [
       "ASUS_FHD_Gaming_Laptop_4_ynw3y1",
     ],
     productPrice: 700.0,
+    newProduct: false,
   },
   {
     productName: "Curology Product Set",
@@ -154,6 +165,7 @@ export const products_seed = [
       "Curology_Product_Set_4_c3wnho",
     ],
     productPrice: 500.0,
+    newProduct: false,
   },
   {
     productName: "Kids Electric Car",
@@ -167,6 +179,7 @@ export const products_seed = [
       "Kids_Electric_Car_4_x1dvha",
     ],
     productPrice: 960.0,
+    newProduct: true,
   },
   {
     productName: "Jr. Zoom Soccer Cleats",
@@ -180,6 +193,7 @@ export const products_seed = [
       "Jr._Zoom_Soccer_Cleats_4_xhmuy7",
     ],
     productPrice: 1160.0,
+    newProduct: false,
   },
   {
     productName: "GP11 Shooter USB Gamepad",
@@ -193,6 +207,7 @@ export const products_seed = [
       "GP11_Shooter_USB_Gamepad_4_irv9yp",
     ],
     productPrice: 660.0,
+    newProduct: true,
   },
   {
     productName: "Quilted Satin Jacket",
@@ -206,6 +221,7 @@ export const products_seed = [
       "Quilted_Satin_Jacket_4_gnmhxr",
     ],
     productPrice: 660.0,
+    newProduct: false,
   },
   {
     productName: "PlayStation 5",
@@ -219,6 +235,7 @@ export const products_seed = [
       "PlayStation_5_4_w3xsp9",
     ],
     productPrice: 560.0,
+    newProduct: false,
   },
   {
     productName: "Speakers",
@@ -231,6 +248,7 @@ export const products_seed = [
       "Speakers_4_viltkh",
     ],
     productPrice: 300.0,
+    newProduct: false,
   },
   {
     productName: "Perfume",
@@ -243,6 +261,7 @@ export const products_seed = [
       "Perfume_4_cmtdce",
     ],
     productPrice: 150.0,
+    newProduct: false,
   },
   {
     productName: "Havic HV G-92 Gamepad",
@@ -256,6 +275,7 @@ export const products_seed = [
       "Havic_HV_G-92_Gamepad_4_axk42n",
     ],
     productPrice: 100.0,
+    newProduct: false,
   },
 ];
 

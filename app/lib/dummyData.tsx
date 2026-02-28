@@ -430,7 +430,7 @@ export const NEW_ARRIVAL_DATA: NEW_ARRIVAL_TYPE = {
   collection: {
     title: "Women's Collections",
     description: "Featured woman collections that give you another vibe.",
-    link: "shop",
+    categoryid: 3,
   },
   products: [
     {

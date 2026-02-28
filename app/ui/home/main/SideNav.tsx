@@ -21,7 +21,7 @@ export default async function SideNav() {
         <Link
           key={category.categoryid}
           className="text-base not-last:mb-4 block"
-          href={`/category/${category.categoryid}`}
+          href={`/categories/${category.categoryid}`}
         >
           {category.category}
         </Link>
