@@ -39,7 +39,7 @@ export default async function Home() {
     product: "Ads Title",
     productLogo: "adlogo_qyqfuy",
     details: "You Can Add Your Ads Details Here",
-    link: "/",
+    link: "/preserve-ad",
     imageSrc: "adimage_tmusbo",
   };
   const NEW_FIRST_AD_AREA_LIST = [...FIRST_AD_AREA_LIST, adForm];
@@ -69,6 +69,7 @@ export default async function Home() {
     id: category.subcategoryid,
     title: category.subcategory,
     icon: category.icon,
+    categoryid: category.categoryid,
   }));
   const categories = createSlides<CATEGORY_TYPE>(CATEGORIES, 6);
   const categoriesSlides = categories.map((slide, index) => (

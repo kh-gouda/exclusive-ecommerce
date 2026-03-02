@@ -24,6 +24,7 @@ export type CATEGORY_TYPE = {
   id: number;
   title: string;
   icon: string;
+  categoryid: number;
 };
 export type FOOTER_LIST = {
   listHeading: string;
@@ -73,9 +74,7 @@ export type PRODUCT_DETAILS_Type = {
     voters: number;
     stars: number;
   };
-  colors: string[];
-  sizes: string[];
-  stock: boolean;
+  stock: { color: string; size: string; quantity: number }[];
 };
 
 export type FETCHED_PRODUCT_CARD_TYPE = {
@@ -133,4 +132,21 @@ export type FETCHED_AD_TYPE = {
   adimage: string;
   productid: number;
   endtime: string;
+};
+
+export type FETCHED_PRODUCT_BY_ID_TYPE = {
+  productid: number;
+  productname: string;
+  productdescription: string;
+  productimages: string[];
+  productprice: string;
+  productdiscount: number;
+  newproduct: boolean;
+  voters: string;
+  stars: number;
+  stock: {
+    size: string;
+    color: string;
+    quantity: number;
+  }[];
 };

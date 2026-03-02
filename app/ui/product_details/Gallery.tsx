@@ -1,4 +1,4 @@
-import Image from "next/image";
+import GalleryImage from "@ui/product_details/GalleryImage";
 import { MouseEvent } from "react";
 
 export default function Gallery({
@@ -17,13 +17,7 @@ export default function Gallery({
           data-src={image}
           onClick={clickHandler}
         >
-          <Image
-            width={190}
-            height={190}
-            src={`/images/products_small/${image}`}
-            alt={image}
-            className="w-30 h-25"
-          />
+          <GalleryImage image={image} />
         </div>
       ))}
     </div>

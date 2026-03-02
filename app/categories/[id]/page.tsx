@@ -1,7 +1,7 @@
-import ProductDetailsMain from "@ui/product_details/ProductDetailsMain";
+import CategoryProducts from "@ui/categories/CategoryProducts";
 import Container from "@ui/shared/Container";
 
-export default async function ProductDetails(props: {
+export default async function CategoryPage(props: {
   params: Promise<{ id: string }>;
 }) {
   const params = await props.params;
@@ -9,7 +9,7 @@ export default async function ProductDetails(props: {
 
   return (
     <Container>
-      <ProductDetailsMain productId={id} />
+      <CategoryProducts id={id} />
     </Container>
   );
 }

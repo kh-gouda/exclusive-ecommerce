@@ -5,6 +5,7 @@ import {
   FETCHED_CATEGORY_TYPE,
   FETCHED_NEW_ARRIVALS_TYPE,
   FETCHED_NEW_COLLECTION_TYPE,
+  FETCHED_PRODUCT_BY_ID_TYPE,
   FETCHED_PRODUCT_CARD_TYPE,
 } from "@/app/lib/typeDefinitions";
 
@@ -193,6 +194,194 @@ export async function fetchFirstAd() {
 export async function fetchSecondAd() {
   const data = await sql<FETCHED_AD_TYPE[]>`
     select * from ads where adarea = 2 and endtime > now();
+  `;
+
+  return data;
+}
+
+export async function fetchProductsByCategoryId(categoryId: number) {
+  const data = await sql<FETCHED_PRODUCT_CARD_TYPE[]>`
+    WITH RatedProducts AS (
+      -- Calculate rating count and the most common (max counted) rating value
+      SELECT 
+        productid, 
+        COUNT(ratingid) AS voters,
+        MODE() WITHIN GROUP (ORDER BY ratingid) AS stars
+      FROM productratings
+      GROUP BY productid
+    ),
+    ProductStockInfo AS (
+      -- Aggregate distinct colors and sizes for each product
+      SELECT 
+        s.productid,
+        ARRAY_AGG(DISTINCT c.colorHex) AS colors
+      FROM stock s
+      LEFT JOIN colors c ON s.colorid = c.colorid
+      GROUP BY s.productid
+    )
+    SELECT 
+      p.productid, 
+      p.productname, 
+      p.productimages, 
+      p.productprice, 
+      p.productdiscount,
+      p.newproduct,
+      COALESCE(rp.voters, 0) AS voters, 
+      rp.stars AS stars,
+      COALESCE(psi.colors, ARRAY[]::text[]) AS colors -- Returns empty array if no colors
+    FROM products p
+    INNER JOIN productcategories pc ON p.productid = pc.productid
+    LEFT JOIN RatedProducts rp ON p.productid = rp.productid
+    LEFT JOIN ProductStockInfo psi ON p.productid = psi.productid
+    WHERE pc.categoryid = ${categoryId}
+  `;
+
+  return data;
+}
+
+export async function fetchCategoryById(categoryId: number) {
+  const data = await sql<{ category: string }[]>`
+    SELECT category
+    FROM categories
+    WHERE categoryid = ${categoryId}
+  `;
+
+  return data;
+}
+
+export async function fetchProductById(productId: number) {
+  const data = await sql<FETCHED_PRODUCT_BY_ID_TYPE[]>`
+WITH ProductRatings AS (
+    -- Calculate total voters and most common rating (mode) per product
+    SELECT 
+        pr.productid, COUNT(pr.userid) AS voters, -- MODE() returns the most frequent value
+        MODE() WITHIN GROUP (ORDER BY r.ratingvalue) AS stars 
+    FROM productratings pr
+    JOIN ratings r ON pr.ratingid = r.ratingid
+    GROUP BY pr.productid
+), ProductStock AS (
+    -- Aggregate stock data into a JSON array of objects
+    SELECT 
+        s.productid, jsonb_agg(
+            jsonb_build_object(
+                'color', c.colorhex,
+				'size', sz.size,
+				'quantity', s.quantity
+            )
+        ) AS stock_array
+    FROM stock s
+    JOIN colors c ON s.colorid = c.colorid
+    JOIN sizes sz ON s.sizeid = sz.sizeid
+    GROUP BY s.productid
+)
+SELECT 
+    p.productid, 
+      p.productname,
+      p.productdescription,
+      p.productimages, 
+      p.productprice, 
+      p.productdiscount,
+      p.newproduct,
+    COALESCE(pr.voters, 0) AS voters, COALESCE(pr.stars, 0) AS stars, COALESCE(ps.stock_array,'[]'::jsonb) AS stock
+FROM products p
+LEFT JOIN ProductRatings pr ON p.productid = pr.productid
+LEFT JOIN ProductStock ps ON p.productid = ps.productid
+where p.productid = ${productId};
+
+  `;
+
+  return data;
+}
+
+export async function fetchProductsBySubCategoryId(subCategoryId: number) {
+  const data = await sql<FETCHED_PRODUCT_CARD_TYPE[]>`
+    WITH RatedProducts AS (
+      -- Calculate rating count and the most common (max counted) rating value
+      SELECT 
+        productid, 
+        COUNT(ratingid) AS voters,
+        MODE() WITHIN GROUP (ORDER BY ratingid) AS stars
+      FROM productratings
+      GROUP BY productid
+    ),
+    ProductStockInfo AS (
+      -- Aggregate distinct colors and sizes for each product
+      SELECT 
+        s.productid,
+        ARRAY_AGG(DISTINCT c.colorHex) AS colors
+      FROM stock s
+      LEFT JOIN colors c ON s.colorid = c.colorid
+      GROUP BY s.productid
+    )
+    SELECT 
+      p.productid, 
+      p.productname, 
+      p.productimages, 
+      p.productprice, 
+      p.productdiscount,
+      p.newproduct,
+      COALESCE(rp.voters, 0) AS voters, 
+      rp.stars AS stars,
+      COALESCE(psi.colors, ARRAY[]::text[]) AS colors -- Returns empty array if no colors
+    FROM products p
+    INNER JOIN productcategories pc ON p.productid = pc.productid
+    LEFT JOIN RatedProducts rp ON p.productid = rp.productid
+    LEFT JOIN ProductStockInfo psi ON p.productid = psi.productid
+    WHERE pc.subcategoryid = ${subCategoryId}
+  `;
+
+  return data;
+}
+
+export async function fetchSubCategoryById(subCategoryId: number) {
+  const data = await sql<{ subcategory: string }[]>`
+    SELECT subcategory
+    FROM subcategories
+    WHERE subcategoryid = ${subCategoryId}
+  `;
+
+  return data;
+}
+
+export async function fetchProductsByCategoryIdLimited(
+  categoryId: number,
+  subCategoryId: number,
+) {
+  const data = await sql<FETCHED_PRODUCT_CARD_TYPE[]>`
+    WITH RatedProducts AS (
+      -- Calculate rating count and the most common (max counted) rating value
+      SELECT 
+        productid, 
+        COUNT(ratingid) AS voters,
+        MODE() WITHIN GROUP (ORDER BY ratingid) AS stars
+      FROM productratings
+      GROUP BY productid
+    ),
+    ProductStockInfo AS (
+      -- Aggregate distinct colors and sizes for each product
+      SELECT 
+        s.productid,
+        ARRAY_AGG(DISTINCT c.colorHex) AS colors
+      FROM stock s
+      LEFT JOIN colors c ON s.colorid = c.colorid
+      GROUP BY s.productid
+    )
+    SELECT 
+      p.productid, 
+      p.productname, 
+      p.productimages, 
+      p.productprice, 
+      p.productdiscount,
+      p.newproduct,
+      COALESCE(rp.voters, 0) AS voters, 
+      rp.stars AS stars,
+      COALESCE(psi.colors, ARRAY[]::text[]) AS colors -- Returns empty array if no colors
+    FROM products p
+    INNER JOIN productcategories pc ON p.productid = pc.productid
+    LEFT JOIN RatedProducts rp ON p.productid = rp.productid
+    LEFT JOIN ProductStockInfo psi ON p.productid = psi.productid
+    WHERE pc.categoryid = ${categoryId} and pc.subcategoryid != ${subCategoryId}
+    limit 4
   `;
 
   return data;

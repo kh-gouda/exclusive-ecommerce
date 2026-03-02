@@ -19,7 +19,7 @@ export default function ProductInfo({
             voters={info.productRating.voters}
             reviewsString
           />
-          {info.stock ? (
+          {info.stock && info.stock.length ? (
             <>
               <span>|</span>
               <span className="text-sm text-[#00FF66]">In Stock</span>
@@ -31,7 +31,11 @@ export default function ProductInfo({
         </p>
         <p className="my-6 text-sm">{info.productDescription}</p>
       </div>
-      <PurchaseForm colors={info.colors} sizes={info.sizes} />
+      {info.stock && info.stock.length ? (
+        <PurchaseForm stock={info.stock} />
+      ) : (
+        <p className="text-identity">Sorry Out Of Stock</p>
+      )}
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function FirstAd({ AD }: { AD: FIRST_AD }) {
             href={AD.link}
             className="font-medium text-base pb-1 border-b border-white-color "
           >
-            Shop Now
+            {AD.link === "/preserve-ad" ? "Preserve Ad" : "Shop Now"}
           </Link>
           <ArrowRightIcon className="w-5 h-5" />
         </div>

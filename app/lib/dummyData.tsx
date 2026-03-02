@@ -653,7 +653,12 @@ export const PRODUCT_DETAILS_DATA: PRODUCT_DETAILS_Type = {
     voters: 150,
     stars: 4,
   },
-  colors: ["#A0BCE0", "#E07575"],
-  sizes: ["XS", "S", "M", "L", "XL"],
-  stock: true,
+  stock: [
+    { color: "#A0BCE0", size: "S", quantity: 10 },
+    { color: "#A0BCE0", size: "M", quantity: 15 },
+    { color: "#A0BCE0", size: "L", quantity: 8 },
+    { color: "#E07575", size: "M", quantity: 15 },
+    { color: "#E07575", size: "L", quantity: 12 },
+    { color: "#E07575", size: "XL", quantity: 20 },
+  ],
 };
