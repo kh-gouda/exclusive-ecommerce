@@ -142,6 +142,7 @@ export type FETCHED_PRODUCT_BY_ID_TYPE = {
   productprice: string;
   productdiscount: number;
   newproduct: boolean;
+  categoryid: number;
   voters: string;
   stars: number;
   stock: {
@@ -149,4 +150,16 @@ export type FETCHED_PRODUCT_BY_ID_TYPE = {
     color: string;
     quantity: number;
   }[];
+};
+
+export type FETCHED_STAFF_TYPE = {
+  id: number;
+  name: string;
+  image: string;
+  jobtitle: string;
+  sociallinks: {
+    twitterLink: string;
+    instagramLink: string;
+    linkedinLink: string;
+  };
 };

@@ -3,12 +3,12 @@ import { CldImage } from "next-cloudinary";
 
 export default function MainImagePreview({ image }: { image: string }) {
   return (
-    <div className="w-125 h-150 bg-gray-bg flex items-center justify-center">
+    <div className="w-125  bg-gray-bg flex items-center justify-center">
       <CldImage
         width="446"
         height="315"
         src={image}
-        crop="fill"
+        crop="fit"
         format="webp"
         sizes="100vw"
         alt={image}

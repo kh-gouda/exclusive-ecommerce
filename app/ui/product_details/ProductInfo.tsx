@@ -1,4 +1,5 @@
 import { PRODUCT_DETAILS_Type } from "@/app/lib/typeDefinitions";
+import DeliveryFeatures from "@ui/product_details/DeliveryFeatures";
 import PurchaseForm from "@ui/product_details/PurchaseForm";
 import Rating from "@ui/productCard/Rating";
 import { inter } from "@ui/shared/fonts";
@@ -36,6 +37,7 @@ export default function ProductInfo({
       ) : (
         <p className="text-identity">Sorry Out Of Stock</p>
       )}
+      <DeliveryFeatures />
     </div>
   );
 }
