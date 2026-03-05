@@ -1,39 +1,36 @@
-import NextAuth from "next-auth";
-import Credentials from "next-auth/providers/credentials";
-import Google from "next-auth/providers/google";
+import NextAuth, { Account, User, Session } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
+
 import bcrypt from "bcryptjs";
 import sql from "@/app/lib/db";
+import { AdapterUser } from "next-auth/adapters";
+import { JWT } from "next-auth/jwt";
 
-export const { handlers, auth, signIn, signOut } = NextAuth({
+export const authOptions = {
   session: {
-    strategy: "jwt",
+    strategy: "jwt" as const,
   },
 
   providers: [
-    Credentials({
+    CredentialsProvider({
+      name: "credentials",
+
       credentials: {
         authenticator: {},
         password: {},
       },
 
       async authorize(credentials) {
-        const authenticator = credentials?.authenticator as string;
+        if (!credentials) return null;
 
-        const password = credentials?.password as string;
-
-        if (!authenticator || !password) return null;
+        const { authenticator, password } = credentials;
 
         const result = await sql`
-          SELECT 
-            userid,
-            firstname,
-            lastname,
-            email,
-            phone,
-            password,
-            role
+          SELECT *
           FROM users
-          WHERE email = ${authenticator} OR phone = ${authenticator}
+          WHERE email = ${authenticator}
+          OR phone = ${authenticator}
           LIMIT 1
         `;
 
@@ -41,9 +38,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         if (!user || !user.password) return null;
 
-        const validPassword = await bcrypt.compare(password, user.password);
+        const valid = await bcrypt.compare(password, user.password);
 
-        if (!validPassword) return null;
+        if (!valid) return null;
 
         return {
           id: user.userid.toString(),
@@ -56,15 +53,24 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
     }),
 
-    Google({
+    GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
 
+  pages: {
+    signIn: "/login",
+  },
+
   callbacks: {
-    async signIn({ user, account }) {
-      // GOOGLE LOGIN
+    async signIn({
+      user,
+      account,
+    }: {
+      user: User | AdapterUser;
+      account: Account | null;
+    }) {
       if (account?.provider === "google") {
         const existing = await sql`
           SELECT *
@@ -87,23 +93,19 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
               ${user.email},
               'user'
             )
-            RETURNING id, role
+            RETURNING userid, role
           `;
 
-          user.id = inserted[0].id.toString();
-
-          user.role = inserted[0].role;
+          user.id = inserted[0].userid.toString();
         } else {
-          user.id = existing[0].id.toString();
-
-          user.role = existing[0].role;
+          user.id = existing[0].userid.toString();
         }
       }
 
       return true;
     },
 
-    async jwt({ token, user }) {
+    async jwt({ token, user }: { token: JWT; user: User | AdapterUser }) {
       if (user) {
         token.id = user.id;
         token.role = user.role;
@@ -113,16 +115,20 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return token;
     },
 
-    async session({ session, token }) {
-      session.user.id = token.id as string;
+    async session({ session, token }: { session: Session; token: JWT }) {
+      if (session.user) {
+        session.user.id = token.id as string;
 
-      session.user.role = token.role as string;
+        session.user.role = token.role as string;
 
-      session.user.firstname = token.firstname as string;
+        session.user.firstname = token.firstname as string;
 
-      session.user.lastname = token.lastname as string;
+        session.user.lastname = token.lastname as string;
+      }
 
       return session;
     },
   },
-});
+};
+
+export default NextAuth(authOptions);

@@ -47,6 +47,18 @@
   @apply w-0 opacity-0 group-hover:animate-card-button;
 }
 
+@utility shared-btn {
+  @apply py-4 px-12  font-medium text-base  rounded-sm cursor-pointer flex items-center justify-center gap-2;
+}
+
+@utility shared-btn-transparent {
+  @apply border border-gray-300;
+}
+
+@utility shared-btn-solid {
+  @apply bg-identity text-white-text;
+}
+
 @utility time {
   @apply bg-white-color flex flex-col items-center justify-center w-15.5 h-15.5 rounded-full text-black-color;
 }

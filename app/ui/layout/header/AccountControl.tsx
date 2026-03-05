@@ -7,12 +7,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
-  ArrowLeftEndOnRectangleIcon,
   ClipboardDocumentCheckIcon,
   StarIcon,
   UserIcon,
   XCircleIcon,
 } from "@heroicons/react/24/outline";
+import LogoutButton from "@ui/layout/header/LogoutButton";
 import clsx from "clsx";
 import Link from "next/link";
 import { useState } from "react";
@@ -74,10 +74,7 @@ export default function AccountControl() {
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={handleItemClick}>
-            <div className="flex gap-2 items-center">
-              <ArrowLeftEndOnRectangleIcon className="text-white-color" />
-              <span>Logout</span>
-            </div>
+            <LogoutButton />
           </DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>

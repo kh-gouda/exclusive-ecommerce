@@ -1,42 +1,31 @@
+import { authOptions } from "@/app/lib/auth";
+import LogoutButton from "@ui/layout/header/LogoutButton";
+import LoginForm from "@ui/login/LoginForm";
 import SectionTitle from "@ui/shared/SectionTitle";
-import SharedButton from "@ui/shared/SharedButton";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 
-export default function Login() {
+export default async function Login() {
+  const session = await getServerSession(authOptions);
   return (
     <section className="">
-      <SectionTitle weight={500}>Log in to Exclusive</SectionTitle>
-      <p className="text-base">Enter your details below</p>
-
-      <form className="mt-12" action="">
-        <input
-          type="text"
-          name="authinticator"
-          id="authinticator"
-          placeholder="Email or Phone Number"
-          className="form-input"
-          aria-label="authinticator"
-          autoComplete="mobile email"
-        />
-
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Password"
-          className="form-input"
-          aria-label="userpassword"
-          autoComplete="current-password"
-        />
-
-        <p className="flex items-center justify-between">
-          <SharedButton task="Login">Login</SharedButton>
-
-          <Link className="text-identity" href="/reset-password">
-            Forget Password?
-          </Link>
-        </p>
-      </form>
+      {session ? (
+        <>
+          <SectionTitle weight={500}>You Have Already Logged In</SectionTitle>
+          <p className="flex items-center gap-4">
+            <p className="shared-btn shared-btn-solid">
+              <LogoutButton />
+            </p>
+            <Link href="/">Or Go Back Home</Link>
+          </p>
+        </>
+      ) : (
+        <>
+          <SectionTitle weight={500}>Log in to Exclusive</SectionTitle>
+          <p className="text-base">Enter your details below</p>
+          <LoginForm />
+        </>
+      )}
     </section>
   );
 }
