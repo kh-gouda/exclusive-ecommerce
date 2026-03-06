@@ -1,6 +1,6 @@
 import Container from "@ui/shared/Container";
 import SectionTitle from "@ui/shared/SectionTitle";
-import SharedButton from "@ui/shared/SharedButton";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -12,7 +12,9 @@ export default function NotFound() {
         <p className="pt-10 pb-20">
           Your visited page not found. You may go home page.
         </p>
-        <SharedButton task="Back to home page">Back to home page</SharedButton>
+        <Link href="/" className="shared-btn shared-btn-solid">
+          Back to home page
+        </Link>
       </main>
     </Container>
   );

@@ -7,22 +7,22 @@ import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import {
   createSlides,
-  fetchAllProducts,
-  fetchBestSellingProducts,
+  fetchAllProductsLimited,
+  fetchBestSellingProductsLimited,
   fetchFirstAd,
-  fetchFlashSalesProducts,
+  fetchFlashSalesProductsLimited,
   fetchNewArrivals,
   fetchNewCollection,
   fetchSubCategories,
 } from "@/app/lib/utils";
 import { CATEGORY_TYPE, ProductCardType } from "@/app/lib/typeDefinitions";
 import Cards from "@ui/productCard/Cards";
-import SharedButton from "@ui/shared/SharedButton";
 import Categories from "@ui/home/Categories";
 import SectionTitle from "@ui/shared/SectionTitle";
 import NewArrivals from "@ui/home/NewArrivals";
 import Features from "@ui/shared/Features";
 import ScrollToTopButton from "@ui/shared/ScrollToTopButton";
+import Link from "next/link";
 
 export default async function Home() {
   const firstAdData = await fetchFirstAd();
@@ -44,7 +44,7 @@ export default async function Home() {
   };
   const NEW_FIRST_AD_AREA_LIST = [...FIRST_AD_AREA_LIST, adForm];
 
-  const fsProducts = await fetchFlashSalesProducts();
+  const fsProducts = await fetchFlashSalesProductsLimited();
   const FLASH_SALES_PRODUCTS = fsProducts.map((product) => ({
     productID: product.productid,
     productTitle: product.productname,
@@ -76,7 +76,7 @@ export default async function Home() {
     <Categories key={index} categories={slide} />
   ));
 
-  const bestSelling_Products = await fetchBestSellingProducts();
+  const bestSelling_Products = await fetchBestSellingProductsLimited();
   const BEST_SELLING_PRODUCTS = bestSelling_Products.map((product) => ({
     productID: product.productid,
     productTitle: product.productname,
@@ -91,7 +91,7 @@ export default async function Home() {
 
   const bestSellingProducts = BEST_SELLING_PRODUCTS;
 
-  const allProducts = await fetchAllProducts();
+  const allProducts = await fetchAllProductsLimited();
   const ALL_PRODUCTS = allProducts.map((product) => ({
     productID: product.productid,
     productTitle: product.productname,
@@ -150,9 +150,11 @@ export default async function Home() {
             flashSalesTimer={fsProducts[0]?.endtime}
           />
           <div className="flex justify-center items-center">
-            <SharedButton task="fetch All Flash Sales Products">
-              View All Products
-            </SharedButton>
+            {flashSalesProducts && flashSalesProducts.length ? (
+              <Link href="/flash-sales" className="shared-btn shared-btn-solid">
+                View All Products
+              </Link>
+            ) : null}
           </div>
         </Section>
 
@@ -165,9 +167,9 @@ export default async function Home() {
           <SectionLabel>This Month</SectionLabel>
           <div className="flex items-center justify-between">
             <SectionTitle>Best Selling Products</SectionTitle>
-            <SharedButton task="fetch All Best Selling Products">
-              View All
-            </SharedButton>
+            <Link href="/best-selling" className="shared-btn shared-btn-solid">
+              View All Products
+            </Link>
           </div>
           <Cards products={bestSellingProducts} />
         </Section>
@@ -178,9 +180,12 @@ export default async function Home() {
           <SectionLabel>Our Products</SectionLabel>
           <Carusel title="Explore Our Products" slides={exploreSlides} />
           <div className="flex justify-center items-center">
-            <SharedButton task="fetch All Products">
+            <Link href="/shop" className="shared-btn shared-btn-solid">
               View All Products
-            </SharedButton>
+            </Link>
+            {/* <SharedButton task="fetch All Products">
+              View All Products
+            </SharedButton> */}
           </div>
         </Section>
 

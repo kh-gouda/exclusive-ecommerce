@@ -30,7 +30,9 @@ export function Carusel({
       <div className="flex items-center justify-between">
         <SectionTitle>
           {title}
-          {flashSalesTimer ? <FlashSalesTimer targetDate={flashSalesTimer} /> : null}
+          {flashSalesTimer ? (
+            <FlashSalesTimer targetDate={flashSalesTimer} />
+          ) : null}
         </SectionTitle>
         <div className="flex items-center justify-center gap-1">
           <button
@@ -49,13 +51,17 @@ export function Carusel({
       </div>
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {slides && slides.length
-            ? slides.map((slide, index) => (
-                <div key={index} className="embla__slide">
-                  {slide}
-                </div>
-              ))
-            : null}
+          {slides && slides.length ? (
+            slides.map((slide, index) => (
+              <div key={index} className="embla__slide">
+                {slide}
+              </div>
+            ))
+          ) : title === "Flash Sales" ? (
+            <p className="text-center text-identity mt-10">
+              Waiting For The Next Flash Sales.
+            </p>
+          ) : null}
         </div>
       </div>
     </div>

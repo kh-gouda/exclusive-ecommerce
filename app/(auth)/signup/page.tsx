@@ -1,6 +1,5 @@
 import SectionTitle from "@ui/shared/SectionTitle";
-import SharedButton from "@ui/shared/SharedButton";
-import Image from "next/image";
+import SignupForm from "@ui/signup/SignupForm";
 import Link from "next/link";
 
 export default function Signup() {
@@ -9,52 +8,8 @@ export default function Signup() {
       <SectionTitle weight={500}>Create an account</SectionTitle>
       <p className="text-base">Enter your details below</p>
 
-      <form className="mt-12" action="">
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Name"
-          className="form-input"
-          aria-label="new username"
-          autoComplete="username"
-        />
+      <SignupForm />
 
-        <input
-          type="text"
-          name="authinticator"
-          id="authinticator"
-          placeholder="Email or Phone Number"
-          className="form-input"
-          aria-label="authinticator"
-          autoComplete="mobile email"
-        />
-
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Password"
-          className="form-input"
-          aria-label="new userpassword"
-          autoComplete="new-password"
-        />
-
-        <SharedButton full task="create account">
-          Create Account
-        </SharedButton>
-        <div className="mt-4">
-          <SharedButton transparent full task="create account">
-            <Image
-              width={24}
-              height={24}
-              src="/images/Icon-Google.png"
-              alt="google icon"
-            />
-            Sign up with Google
-          </SharedButton>
-        </div>
-      </form>
       <p className="mt-8.5 text-center">
         <span>Already have account?</span>
         <Link

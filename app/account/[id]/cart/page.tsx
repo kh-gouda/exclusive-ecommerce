@@ -1,10 +1,18 @@
+import { authOptions } from "@/app/lib/auth";
 import { CART_DATA } from "@/app/lib/dummyData";
 import Cart from "@ui/cart/Cart";
 import Container from "@ui/shared/Container";
 import SharedButton from "@ui/shared/SharedButton";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-export default function CartPage() {
+export default async function CartPage() {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    redirect("/account/cart");
+  }
   const cartProducts = CART_DATA;
   return (
     <main className="pt-20 pb-35">

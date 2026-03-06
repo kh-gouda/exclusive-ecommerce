@@ -1,15 +1,12 @@
 import { HeartIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
 import AccountControl from "@ui/layout/header/AccountControl";
-// import clsx from "clsx";
 import Link from "next/link";
-// import { getServerSession } from "next-auth";
-// import { authOptions } from "@/app/lib/auth";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/lib/auth";
 
 export default async function UserLinks() {
-  const session = true;
-  const id = 1;
-  // const session = await getServerSession(authOptions);
-  // const id = session.id;
+  const session = await getServerSession(authOptions);
+  const id = session?.user.id || "";
   return (
     <ul className="flex items-center gap-4">
       <li>
@@ -27,14 +24,6 @@ export default async function UserLinks() {
           <AccountControl />
         </li>
       ) : null}
-      {/* <li
-        className={clsx("", {
-          block: isLogged,
-          hidden: !isLogged,
-        })}
-      >
-        <AccountControl />
-      </li> */}
     </ul>
   );
 }

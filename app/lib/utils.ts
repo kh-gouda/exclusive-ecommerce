@@ -33,6 +33,45 @@ export async function fetchCategories() {
   }
 }
 
+export async function fetchFlashSalesProductsLimited() {
+  const data = await sql<FETCHED_PRODUCT_CARD_TYPE[]>`
+  WITH RatedProducts AS (
+    -- Calculate rating count and the most common (max counted) rating value
+    SELECT 
+        productid, 
+        COUNT(ratingid) AS voters,
+        -- MODE() WITHIN GROUP calculates the most frequent value
+        MODE() WITHIN GROUP (ORDER BY ratingid) AS stars
+    FROM productratings
+    GROUP BY productid
+  )
+    SELECT 
+      fs.flashsaleid,
+      fs.endtime,
+      p.productid,
+      p.productname,
+      p.productimages,
+      p.productprice,
+      fsp.productdiscount,
+      COALESCE(rp.voters, 0) AS voters,
+      rp.stars AS stars
+    FROM 
+      flashsalesproducts fsp
+    INNER JOIN 
+      products p ON fsp.productid = p.productid
+    INNER JOIN 
+      flashsales fs ON fsp.flashsaleid = fs.flashsaleid
+    INNER JOIN 
+      RatedProducts rp ON fsp.productid = rp.productid
+    WHERE 
+      fs.endtime > NOW()
+    ORDER BY 
+    fs.endtime ASC, fsp.productdiscount DESC
+    limit 8;
+  `;
+
+  return data;
+}
 export async function fetchFlashSalesProducts() {
   const data = await sql<FETCHED_PRODUCT_CARD_TYPE[]>`
   WITH RatedProducts AS (
@@ -80,7 +119,7 @@ export async function fetchSubCategories() {
   return data;
 }
 
-export async function fetchBestSellingProducts() {
+export async function fetchBestSellingProductsLimited() {
   const data = await sql<FETCHED_BEST_SELLING_PRODUCT_TYPE[]>`
     WITH TopSellingProducts AS (
     -- Calculate total quantity sold per product and get top 4
@@ -122,6 +161,86 @@ ORDER BY
 
   return data;
 }
+export async function fetchBestSellingProducts() {
+  const data = await sql<FETCHED_BEST_SELLING_PRODUCT_TYPE[]>`
+    WITH TopSellingProducts AS (
+    -- Calculate total quantity sold per product and get top 4
+    SELECT 
+        productid, 
+        SUM(quantity) AS total_sold
+    FROM orderitems
+    GROUP BY productid
+    ORDER BY total_sold DESC
+),
+RatedProducts AS (
+    -- Calculate rating count and the most common rating value
+    SELECT 
+        productid, 
+        COUNT(ratingid) AS voters,
+        MODE() WITHIN GROUP (ORDER BY ratingid) AS stars
+    FROM productratings
+    GROUP BY productid
+)
+SELECT 
+    p.productid,
+    p.productname,
+    p.productimages,
+    p.productprice,
+	p.productdiscount,
+    tsp.total_sold,
+    COALESCE(rp.voters, 0) AS voters,
+    rp.stars AS stars
+FROM 
+    TopSellingProducts tsp
+INNER JOIN 
+    products p ON tsp.productid = p.productid
+LEFT JOIN 
+    RatedProducts rp ON tsp.productid = rp.productid
+ORDER BY 
+    tsp.total_sold DESC;
+  `;
+
+  return data;
+}
+
+export async function fetchAllProductsLimited() {
+  const data = await sql<FETCHED_PRODUCT_CARD_TYPE[]>`
+    WITH RatedProducts AS (
+      -- Calculate rating count and the most common (max counted) rating value
+      SELECT 
+        productid, 
+        COUNT(ratingid) AS voters,
+        MODE() WITHIN GROUP (ORDER BY ratingid) AS stars
+      FROM productratings
+      GROUP BY productid
+    ),
+    ProductStockInfo AS (
+      -- Aggregate distinct colors and sizes for each product
+      SELECT 
+        s.productid,
+        ARRAY_AGG(DISTINCT c.colorHex) AS colors
+      FROM stock s
+      LEFT JOIN colors c ON s.colorid = c.colorid
+      GROUP BY s.productid
+    )
+    SELECT 
+      p.productid, 
+      p.productname, 
+      p.productimages, 
+      p.productprice, 
+      p.productdiscount,
+      p.newproduct,
+      COALESCE(rp.voters, 0) AS voters, 
+      rp.stars AS stars,
+      COALESCE(psi.colors, ARRAY[]::text[]) AS colors -- Returns empty array if no colors
+    FROM products p
+    LEFT JOIN RatedProducts rp ON p.productid = rp.productid
+    LEFT JOIN ProductStockInfo psi ON p.productid = psi.productid
+    LIMIT 16;
+  `;
+
+  return data;
+}
 
 export async function fetchAllProducts() {
   const data = await sql<FETCHED_PRODUCT_CARD_TYPE[]>`
@@ -156,7 +275,6 @@ export async function fetchAllProducts() {
     FROM products p
     LEFT JOIN RatedProducts rp ON p.productid = rp.productid
     LEFT JOIN ProductStockInfo psi ON p.productid = psi.productid
-    LIMIT 16;
   `;
 
   return data;
@@ -446,6 +564,41 @@ export async function fetchStaff() {
     staff 
   WHERE 
     employeestatus = 'active';
+  `;
+
+  return data;
+}
+
+export async function fetchWishList(id: number) {
+  const data = await sql<FETCHED_PRODUCT_CARD_TYPE[]>`
+  WITH RatedProducts AS (
+    -- Calculate rating count and the most common (max counted) rating value
+    SELECT 
+        productid, 
+        COUNT(ratingid) AS voters,
+        -- MODE() WITHIN GROUP calculates the most frequent value
+        MODE() WITHIN GROUP (ORDER BY ratingid) AS stars
+    FROM productratings
+    GROUP BY productid
+  )
+    SELECT 
+      wl.productid,
+      p.productid,
+      p.productname,
+      p.productimages,
+      p.productprice,
+      COALESCE(rp.voters, 0) AS voters,
+      rp.stars AS stars
+    FROM  
+      products p 
+    INNER JOIN 
+      wishlist wl ON wl.productid = p.productid
+    INNER JOIN 
+      RatedProducts rp ON p.productid = rp.productid
+    WHERE 
+      wl.userid = ${id}
+    ORDER BY 
+    p.productid ASC;
   `;
 
   return data;

@@ -12,12 +12,12 @@ export default async function Login() {
       {session ? (
         <>
           <SectionTitle weight={500}>You Have Already Logged In</SectionTitle>
-          <p className="flex items-center gap-4">
+          <div className="flex items-center gap-4">
             <p className="shared-btn shared-btn-solid">
               <LogoutButton />
             </p>
             <Link href="/">Or Go Back Home</Link>
-          </p>
+          </div>
         </>
       ) : (
         <>

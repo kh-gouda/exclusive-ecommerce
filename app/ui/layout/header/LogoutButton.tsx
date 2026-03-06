@@ -6,7 +6,7 @@ import { signOut } from "next-auth/react";
 export default function LogoutButton() {
   return (
     <button
-      className="flex gap-2 items-center cursor-pointer"
+      className="flex gap-2 items-center cursor-pointer w-full"
       onClick={() =>
         signOut({
           callbackUrl: "/",

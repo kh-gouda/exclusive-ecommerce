@@ -12,61 +12,73 @@ export const CATEGORIES: CATEGORY_TYPE[] = [
     id: 1,
     title: "Phones",
     icon: "Category-CellPhone_cnog2x",
+    categoryid: 2,
   },
   {
     id: 2,
     title: "Computers",
     icon: "Category-Computer_ugrrnb",
+    categoryid: 2,
   },
   {
     id: 3,
     title: "SmartWatch",
     icon: "Category-SmartWatch_orvmqt",
+    categoryid: 2,
   },
   {
     id: 4,
     title: "Camera",
     icon: "Category-Camera_ao1jhm",
+    categoryid: 2,
   },
   {
     id: 5,
     title: "HeadPhones",
     icon: "Category-Headphone_giwx9d",
+    categoryid: 2,
   },
   {
     id: 6,
     title: "Gaming",
     icon: "Category-Gamepad_dzdvtv",
+    categoryid: 2,
   },
   {
     id: 7,
     title: "Phones",
     icon: "Category-CellPhone_cnog2x",
+    categoryid: 2,
   },
   {
     id: 8,
     title: "Computers",
     icon: "Category-Computer_ugrrnb",
+    categoryid: 2,
   },
   {
     id: 9,
     title: "SmartWatch",
     icon: "Category-SmartWatch_orvmqt",
+    categoryid: 2,
   },
   {
     id: 10,
     title: "Camera",
     icon: "Category-Camera_ao1jhm",
+    categoryid: 2,
   },
   {
     id: 11,
     title: "HeadPhones",
     icon: "Category-Headphone_giwx9d",
+    categoryid: 2,
   },
   {
     id: 12,
     title: "Gaming",
     icon: "Category-Gamepad_dzdvtv",
+    categoryid: 2,
   },
 ];
 
