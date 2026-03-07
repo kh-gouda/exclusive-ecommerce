@@ -1,6 +1,9 @@
 import { authOptions } from "@/app/lib/auth";
-import { JUST_FOR_YOU_PRODUCTS } from "@/app/lib/dummyData";
-import { fetchWishList } from "@/app/lib/utils";
+import { FETCHED_PRODUCT_CARD_TYPE } from "@/app/lib/typeDefinitions";
+import {
+  fetchProductsByCategoryId2Limited,
+  fetchWishList,
+} from "@/app/lib/utils";
 import Cards from "@ui/productCard/Cards";
 import Container from "@ui/shared/Container";
 import Section from "@ui/shared/Section";
@@ -18,15 +21,55 @@ export default async function WishList() {
 
   const fetchedWishListProducts = await fetchWishList(+session.user.id);
   const wishListProducts = fetchedWishListProducts.map((product) => ({
-    productID: +product.productid,
+    productID: Number(product.productid),
     productTitle: product.productname,
     productImage: product.productimages[0],
     price: parseFloat(product.productprice),
-    discount: +product.productdiscount,
+    discount: Number(product.productdiscount),
   }));
   const wishListProductsCount = wishListProducts.length;
 
-  const justForUProducts = JUST_FOR_YOU_PRODUCTS;
+  function getForUCategoryId(
+    productsArray: FETCHED_PRODUCT_CARD_TYPE[],
+  ): number {
+    const categoryReputation: Record<string, number> = productsArray.reduce(
+      (acc, product) => {
+        const key = String(product.categoryid);
+        acc[key] = (acc[key] || 0) + 1;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
+
+    let maxCategoryCount = 0;
+    let mostRepeatedCategory = "";
+
+    Object.keys(categoryReputation).forEach((key) => {
+      if (categoryReputation[key] > maxCategoryCount) {
+        maxCategoryCount = categoryReputation[key];
+        mostRepeatedCategory = key;
+      }
+    });
+
+    return Number(mostRepeatedCategory);
+  }
+
+  const forUCategoryId = getForUCategoryId(fetchedWishListProducts);
+
+  const fetchedJustForUProducts =
+    await fetchProductsByCategoryId2Limited(forUCategoryId);
+  const justForUProducts = fetchedJustForUProducts.map((product) => ({
+    productID: Number(product.productid),
+    productTitle: product.productname,
+    productImage: product.productimages[0],
+    price: parseFloat(product.productprice),
+    discount: Number(product.productdiscount),
+    rating: {
+      stars: Number(product.stars),
+      voters: Number(product.voters),
+    },
+  }));
+
   return (
     <Container>
       <Section>

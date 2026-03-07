@@ -78,8 +78,8 @@ export type PRODUCT_DETAILS_Type = {
 };
 
 export type FETCHED_PRODUCT_CARD_TYPE = {
-  flashsaleid: number;
-  endtime: string;
+  flashsaleid?: number;
+  endtime?: string;
   productid: number;
   productname: string;
   productimages: string[];
@@ -89,6 +89,7 @@ export type FETCHED_PRODUCT_CARD_TYPE = {
   stars: number;
   colors?: string[];
   newproduct?: boolean;
+  categoryid?: number;
 };
 
 export type FETCHED_CATEGORY_TYPE = {

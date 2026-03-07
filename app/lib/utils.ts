@@ -582,19 +582,22 @@ export async function fetchWishList(id: number) {
     GROUP BY productid
   )
     SELECT 
-      wl.productid,
       p.productid,
       p.productname,
       p.productimages,
       p.productprice,
+      p.productdiscount,
       COALESCE(rp.voters, 0) AS voters,
-      rp.stars AS stars
+      rp.stars AS stars,
+      pc.categoryid
     FROM  
       products p 
     INNER JOIN 
       wishlist wl ON wl.productid = p.productid
     INNER JOIN 
       RatedProducts rp ON p.productid = rp.productid
+    INNER JOIN
+	    productcategories pc on pc.productid = p.productid
     WHERE 
       wl.userid = ${id}
     ORDER BY 
