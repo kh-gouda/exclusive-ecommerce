@@ -90,6 +90,7 @@ export type FETCHED_PRODUCT_CARD_TYPE = {
   colors?: string[];
   newproduct?: boolean;
   categoryid?: number;
+  quantity?: number;
 };
 
 export type FETCHED_CATEGORY_TYPE = {

@@ -606,3 +606,42 @@ export async function fetchWishList(id: number) {
 
   return data;
 }
+
+export async function fetchCartProducts(id: number) {
+  const data = await sql<FETCHED_PRODUCT_CARD_TYPE[]>`
+  WITH RatedProducts AS (
+    -- Calculate rating count and the most common (max counted) rating value
+    SELECT 
+        productid, 
+        COUNT(ratingid) AS voters,
+        -- MODE() WITHIN GROUP calculates the most frequent value
+        MODE() WITHIN GROUP (ORDER BY ratingid) AS stars
+    FROM productratings
+    GROUP BY productid
+  )
+    SELECT 
+      p.productid,
+      p.productname,
+      p.productimages,
+      p.productprice,
+      p.productdiscount,
+      COALESCE(rp.voters, 0) AS voters,
+      rp.stars AS stars,
+      pc.categoryid,
+      sc.quantity
+    FROM  
+      products p 
+    INNER JOIN 
+      shoppingcart sc ON sc.productid = p.productid
+    INNER JOIN 
+      RatedProducts rp ON p.productid = rp.productid
+    INNER JOIN
+	    productcategories pc on pc.productid = p.productid
+    WHERE 
+      sc.userid = ${id}
+    ORDER BY 
+    p.productid ASC;
+  `;
+
+  return data;
+}

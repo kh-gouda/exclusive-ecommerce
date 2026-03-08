@@ -1,10 +1,8 @@
 import { authOptions } from "@/app/lib/auth";
-import { CART_DATA } from "@/app/lib/dummyData";
-import Cart from "@ui/cart/Cart";
+import { fetchCartProducts } from "@/app/lib/utils";
+import CartDetails from "@ui/cart/CartDetails";
 import Container from "@ui/shared/Container";
-import SharedButton from "@ui/shared/SharedButton";
 import { getServerSession } from "next-auth";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function CartPage() {
@@ -13,7 +11,17 @@ export default async function CartPage() {
   if (!session) {
     redirect("/account/cart");
   }
-  const cartProducts = CART_DATA;
+
+  const fetchedCartProducts = await fetchCartProducts(Number(session.user.id));
+  const cartProducts = fetchedCartProducts.map((product) => ({
+    id: product.productid,
+    title: product.productname,
+    image: product.productimages[0],
+    price: Number(product.productprice),
+    quantity: Number(product.quantity),
+    subtotal: Number(product.productprice) * Number(product.quantity),
+  }));
+
   return (
     <main className="pt-20 pb-35">
       <Container>
@@ -24,50 +32,8 @@ export default async function CartPage() {
             <div className="text-center">Quantity</div>
             <div className="text-right">Subtotal</div>
           </div>
-          <Cart products={cartProducts} />
-          <div className="flex justify-between items-center mt-6">
-            <SharedButton transparent task="return to shop">
-              Return To Shop
-            </SharedButton>
-            <SharedButton transparent task="update Cart">
-              Update Cart
-            </SharedButton>
-          </div>
-          <div className="mt-20 flex items-start *:flex-1">
-            <form action="" className="flex gap-4">
-              <input
-                type="text"
-                name="coupon"
-                id="coupon"
-                placeholder="Coupon Code"
-                className="w-75 h-14 border rounded-sm py-4 px-6"
-              />
-              <SharedButton task="apply Coupon">Apply Coupon</SharedButton>
-            </form>
-            <div className="border rounded-sm py-8 px-6">
-              <h3 className="font-medium text-xl ">Cart Total</h3>
-              <div className="flex items-center justify-between py-4 border-b">
-                <p>Subtotal:</p>
-                <p>$1750</p>
-              </div>
-              <div className="flex items-center justify-between py-4 border-b">
-                <p>Shipping:</p>
-                <p>Free</p>
-              </div>
-              <div className="flex items-center justify-between py-4 border-b">
-                <p>Total:</p>
-                <p>$1750</p>
-              </div>
-              <div className="mt-4 flex items-center justify-center">
-                <Link href="/checkout">
-                  <SharedButton task="Procees to checkout">
-                    Procees to checkout
-                  </SharedButton>
-                </Link>
-              </div>
-            </div>
-          </div>
         </section>
+        <CartDetails userid={Number(session.user.id)} products={cartProducts} />
       </Container>
     </main>
   );
