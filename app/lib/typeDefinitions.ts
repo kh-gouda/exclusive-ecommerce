@@ -54,6 +54,12 @@ export type CART_TYPE = {
   subtotal: number;
 };
 
+export type COUPON_TYPE = {
+  couponid: number;
+  coupon: string;
+  coupondiscount: number;
+};
+
 export type STAFF_TYPE = {
   id: number;
   name: string;

@@ -13,14 +13,20 @@ export default async function CartPage() {
   }
 
   const fetchedCartProducts = await fetchCartProducts(Number(session.user.id));
-  const cartProducts = fetchedCartProducts.map((product) => ({
-    id: product.productid,
-    title: product.productname,
-    image: product.productimages[0],
-    price: Number(product.productprice),
-    quantity: Number(product.quantity),
-    subtotal: Number(product.productprice) * Number(product.quantity),
-  }));
+  const cartProducts = fetchedCartProducts.map((product) => {
+    const productPrice =
+      Number(product.productprice) -
+      Number(product.productprice) * (Number(product.productdiscount) / 100);
+
+    return {
+      id: product.productid,
+      title: product.productname,
+      image: product.productimages[0],
+      price: productPrice,
+      quantity: Number(product.quantity),
+      subtotal: productPrice * Number(product.quantity),
+    };
+  });
 
   return (
     <main className="pt-20 pb-35">
