@@ -1,14 +1,127 @@
-import SharedButton from "@ui/shared/SharedButton";
+"use client";
+import {
+  fetchUserByEmail,
+  fetchUserById,
+  updateUserProfile,
+  updateUserProfileAndPassword,
+} from "@/app/actions/fetchAndUpdateUser";
+import bcrypt from "bcryptjs";
+import { signOut, useSession } from "next-auth/react";
+import { ChangeEvent, SubmitEvent, useState } from "react";
 
 export default function EditProfileForm() {
-  const user = {
-    fName: "Md",
-    lName: "Rimel",
-    email: "rimel1111@gmail.com",
-    address: "Kingston, 5236, United State",
+  const { data: session } = useSession();
+  const [user, setUser] = useState(session?.user);
+
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [isValid, setIsValid] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChangeFName = (e: ChangeEvent<HTMLInputElement>) => {
+    if (user) {
+      setUser({
+        ...user,
+        firstname: e.target.value || session?.user.firstname || "",
+      });
+    }
   };
+
+  const handleChangeLName = (e: ChangeEvent<HTMLInputElement>) => {
+    if (user) {
+      setUser({
+        ...user,
+        lastname: e.target.value || session?.user.lastname || "",
+      });
+    }
+  };
+
+  const handleChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
+    if (user) {
+      setUser({ ...user, email: e.target.value || session?.user.email });
+    }
+  };
+
+  const handleChangeCurrentPassword = (e: ChangeEvent<HTMLInputElement>) => {
+    setCurrentPassword(e.target.value);
+  };
+
+  const handleChangeNewPassword = (e: ChangeEvent<HTMLInputElement>) => {
+    setNewPassword(e.target.value);
+  };
+
+  const handleChangeConfirmPassword = (e: ChangeEvent<HTMLInputElement>) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  async function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
+    e.preventDefault();
+    try {
+      if (user) {
+        if (user.email) {
+          const fetchedUserByEmail = await fetchUserByEmail(user.email);
+          const existing = fetchedUserByEmail.filter(
+            (fetchedUser) => fetchedUser.userid !== Number(user.id),
+          );
+          if (existing && existing.length) {
+            throw new Error("Email already exist with different user");
+          }
+        }
+
+        const userById = await fetchUserById(Number(user.id));
+        const newHashedPassword = await bcrypt.hash(newPassword, 10);
+        const userToUpdate = {
+          userId: Number(user.id),
+          firstName: user.firstname,
+          lastName: user.lastname,
+          email: user.email || "",
+          password: newHashedPassword,
+        };
+
+        if (currentPassword || newPassword || confirmPassword) {
+          const validCurrentPassword = await bcrypt.compare(
+            currentPassword,
+            userById[0].password,
+          );
+          const validNewPassword = await bcrypt.compare(
+            newPassword,
+            confirmPassword,
+          );
+          if (!validCurrentPassword || !validNewPassword) {
+            throw new Error(
+              "Incorrect Current Password Or New Password Not Identical To Confirm Password",
+            );
+          }
+        }
+
+        setIsValid(true);
+
+        if (isValid) {
+          if (newPassword) {
+            await updateUserProfileAndPassword(userToUpdate);
+          } else {
+            await updateUserProfile(userToUpdate);
+          }
+
+          signOut({
+            callbackUrl: "/login",
+          });
+        }
+      }
+    } catch (err) {
+      setError(JSON.stringify(err));
+    }
+  }
+
+  console.log(error);
+
   return (
-    <form action="">
+    <form
+      action=""
+      onSubmit={(e: SubmitEvent<HTMLFormElement>) => handleSubmit(e)}
+    >
       <div className="flex items-center justify-between mb-6">
         <div className=" w-[45%]">
           <label htmlFor="fname">First Name</label>
@@ -17,7 +130,11 @@ export default function EditProfileForm() {
             type="text"
             name="fname"
             id="fname"
-            placeholder={user.fName}
+            placeholder={user?.firstname}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              handleChangeFName(e)
+            }
+            autoComplete="off"
           />
         </div>
         <div className=" w-[45%]">
@@ -27,7 +144,11 @@ export default function EditProfileForm() {
             type="text"
             name="lname"
             id="lname"
-            placeholder={user.lName}
+            placeholder={user?.lastname}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              handleChangeLName(e)
+            }
+            autoComplete="off"
           />
         </div>
       </div>
@@ -39,17 +160,28 @@ export default function EditProfileForm() {
             type="email"
             name="email"
             id="email"
-            placeholder={user.email}
+            placeholder={user?.email || ""}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              handleChangeEmail(e)
+            }
+            autoComplete="off"
           />
         </div>
         <div className=" w-[45%]">
-          <label htmlFor="address">Address</label>
+          <label htmlFor="address">
+            Address{" "}
+            <span className="text-identity">
+              (read only - you can change from address book)
+            </span>
+          </label>
           <input
             className="profile-form-input"
             type="text"
             name="address"
             id="address"
-            placeholder={user.address}
+            placeholder={`${user?.address?.street}, ${user?.address?.building}, ${user?.address?.city}, ${user?.address?.country}`}
+            readOnly
+            autoComplete="off"
           />
         </div>
       </div>
@@ -61,6 +193,10 @@ export default function EditProfileForm() {
           id="current-password"
           placeholder="Current Passwod"
           className="profile-form-input"
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            handleChangeCurrentPassword(e)
+          }
+          autoComplete="off"
         />
         <input
           type="password"
@@ -68,6 +204,10 @@ export default function EditProfileForm() {
           id="new-password"
           placeholder="New Passwod"
           className="profile-form-input"
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            handleChangeNewPassword(e)
+          }
+          autoComplete="off"
         />
         <input
           type="password"
@@ -75,11 +215,15 @@ export default function EditProfileForm() {
           id="confirm-new-password"
           placeholder="Confirm New Passwod"
           className="profile-form-input"
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            handleChangeConfirmPassword(e)
+          }
+          autoComplete="off"
         />
       </div>
       <div className="flex gap-8 items-center justify-end">
         <input className="cursor-pointer" type="reset" value="Cancel" />
-        <SharedButton task="save changes">Save Changes</SharedButton>
+        <button className="shared-btn shared-btn-solid">Save Changes</button>
       </div>
     </form>
   );

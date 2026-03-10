@@ -3,6 +3,9 @@ import { poppins } from "@shared/fonts";
 import "@ui/globals.css";
 import Header from "@layout/header/Header";
 import Footer from "@ui/layout/footer/Footer";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/lib/auth";
+import NextAuthSessionProvider from "@/app/providers";
 
 export const metadata: Metadata = {
   title: {
@@ -13,17 +16,20 @@ export const metadata: Metadata = {
     "This Is Exclusive ECommerce Platform Where You Can Find Any Product You Wish And Enjoy Smooth Online Shopping Experience",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession(authOptions);
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased font-normal`}>
-        <Header />
-        {children}
-        <Footer />
+        <NextAuthSessionProvider session={session}>
+          <Header />
+          {children}
+          <Footer />
+        </NextAuthSessionProvider>
       </body>
     </html>
   );

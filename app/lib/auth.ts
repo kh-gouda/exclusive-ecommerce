@@ -49,6 +49,12 @@ export const authOptions = {
           firstname: user.firstname,
           lastname: user.lastname,
           name: `${user.firstname} ${user.lastname}`,
+          address: {
+            city: user.address.city,
+            street: user.address.street,
+            country: user.address.country,
+            building: user.address.building,
+          },
         };
       },
     }),
@@ -111,6 +117,12 @@ export const authOptions = {
         token.role = user.role;
         token.firstname = user.firstname;
         token.lastname = user.lastname;
+        token.address = {
+          city: user.address?.city,
+          street: user.address?.street,
+          country: user.address?.country,
+          building: user.address?.building,
+        };
       }
       return token;
     },
@@ -124,6 +136,15 @@ export const authOptions = {
         session.user.firstname = token.firstname as string;
 
         session.user.lastname = token.lastname as string;
+
+        session.user.address =
+          token.address ||
+          ({ city: "", street: "", country: "", building: "" } as {
+            city: string;
+            street: string;
+            country: string;
+            building: string;
+          });
       }
 
       return session;

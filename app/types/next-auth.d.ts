@@ -7,6 +7,12 @@ declare module "next-auth" {
       role: string;
       firstname: string;
       lastname: string;
+      address?: {
+        city?: string;
+        street?: string;
+        country?: string;
+        building?: string;
+      };
     } & DefaultSession["user"];
   }
 
@@ -15,5 +21,11 @@ declare module "next-auth" {
     role: string;
     firstname: string;
     lastname: string;
+    address?: {
+      city?: string;
+      street?: string;
+      country?: string;
+      building?: string;
+    };
   }
 }
