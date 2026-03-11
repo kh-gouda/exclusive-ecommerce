@@ -1,7 +1,7 @@
 "use client";
 import { addToCart } from "@/app/actions/addToCart";
 import clsx from "clsx";
-import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function AddToCartButton({
   showAddToCartButton,
@@ -12,7 +12,8 @@ export default function AddToCartButton({
   productId: number;
   userId?: string;
 }) {
-  const router = useRouter();
+  const notifySuccess = () => toast.success("product added successfully");
+  const notifyError = (error: string) => toast.error(error);
   async function handleClick(productId: number, userId?: number) {
     try {
       if (!userId) {
@@ -20,9 +21,9 @@ export default function AddToCartButton({
       }
       await addToCart(userId, productId);
 
-      router.push(`/account/${userId}/cart`);
-    } catch (error) {
-      console.log(error);
+      notifySuccess();
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
     }
   }
   return (

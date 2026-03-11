@@ -1,12 +1,14 @@
 "use client";
 import clsx from "clsx";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function AccountSideNav() {
   const pathname = usePathname();
+  const { data: session } = useSession();
 
-  const id = 1;
+  const id = session?.user.id;
 
   return (
     <div>

@@ -111,32 +111,69 @@ export const authOptions = {
       return true;
     },
 
-    async jwt({ token, user }: { token: JWT; user: User | AdapterUser }) {
+    async jwt({
+      token,
+      user,
+      trigger,
+    }: {
+      token: JWT;
+      user?: User | AdapterUser;
+      trigger?: "signIn" | "update" | "signUp";
+    }) {
+      // Initial login
       if (user) {
         token.id = user.id;
+        token.email = user.email;
         token.role = user.role;
         token.firstname = user.firstname;
         token.lastname = user.lastname;
-        token.address = {
-          city: user.address?.city,
-          street: user.address?.street,
-          country: user.address?.country,
-          building: user.address?.building,
-        };
+        token.name = user.name;
+        token.address = user.address;
       }
+
+      // Session update trigger
+      if (trigger === "update") {
+        const result = await sql`
+      SELECT email, firstname, lastname, address
+      FROM users
+      WHERE userid = ${Number(token.id)}
+    `;
+
+        const updatedUser = result[0];
+
+        token.email = updatedUser.email;
+        token.firstname = updatedUser.firstname;
+        token.lastname = updatedUser.lastname;
+        token.name = `${updatedUser.firstname} ${updatedUser.lastname}`;
+        token.address = updatedUser.address;
+      }
+
       return token;
     },
+
+    // async jwt({ token, user }: { token: JWT; user: User | AdapterUser }) {
+    //   if (user) {
+    //     token.id = user.id;
+    //     token.role = user.role;
+    //     token.firstname = user.firstname;
+    //     token.lastname = user.lastname;
+    //     token.address = {
+    //       city: user.address?.city,
+    //       street: user.address?.street,
+    //       country: user.address?.country,
+    //       building: user.address?.building,
+    //     };
+    //   }
+    //   return token;
+    // },
 
     async session({ session, token }: { session: Session; token: JWT }) {
       if (session.user) {
         session.user.id = token.id as string;
-
+        session.user.email = token.email as string;
         session.user.role = token.role as string;
-
         session.user.firstname = token.firstname as string;
-
         session.user.lastname = token.lastname as string;
-
         session.user.address =
           token.address ||
           ({ city: "", street: "", country: "", building: "" } as {
@@ -149,6 +186,29 @@ export const authOptions = {
 
       return session;
     },
+
+    // async session({ session, token }: { session: Session; token: JWT }) {
+    //   if (session.user) {
+    //     session.user.id = token.id as string;
+
+    //     session.user.role = token.role as string;
+
+    //     session.user.firstname = token.firstname as string;
+
+    //     session.user.lastname = token.lastname as string;
+
+    //     session.user.address =
+    //       token.address ||
+    //       ({ city: "", street: "", country: "", building: "" } as {
+    //         city: string;
+    //         street: string;
+    //         country: string;
+    //         building: string;
+    //       });
+    //   }
+
+    //   return session;
+    // },
   },
 };
 

@@ -18,6 +18,7 @@ import {
   useEffectEvent,
   useState,
 } from "react";
+import { toast } from "react-toastify";
 
 export default function CartDetails({
   userid,
@@ -38,6 +39,8 @@ export default function CartDetails({
   const [couponDiscount, setCouponDiscount] = useState(0);
 
   const [isCouponApplied, setIsCouponApplied] = useState(false);
+
+  const notifyDeleteItem = () => toast.success("Item Deleted Successfully");
 
   const applyCoupon = useEffectEvent(() => {
     const AppliedCoupon = totalInvoice - totalInvoice * (couponDiscount / 100);
@@ -88,7 +91,7 @@ export default function CartDetails({
   async function handleDeleteItem(productId: number) {
     await deleteCartItem(userid, productId);
     deleteProductFromState(productId);
-    router.push(`/account/${userid}/cart`);
+    notifyDeleteItem();
   }
 
   async function handleApplyCoupon(e: SubmitEvent<HTMLFormElement>) {

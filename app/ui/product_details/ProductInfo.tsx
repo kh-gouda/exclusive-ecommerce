@@ -10,6 +10,14 @@ export default function ProductInfo({
 }: {
   info: Omit<PRODUCT_DETAILS_Type, "productImages">;
 }) {
+  const orderInfo = {
+    id: info.productId,
+    title: info.productName,
+    image: "",
+    price: info.productPrice,
+    quantity: 0,
+    subtotal: 0,
+  };
   return (
     <div>
       <div className="border-b">
@@ -33,7 +41,7 @@ export default function ProductInfo({
         <p className="my-6 text-sm">{info.productDescription}</p>
       </div>
       {info.stock && info.stock.length ? (
-        <PurchaseForm stock={info.stock} />
+        <PurchaseForm stock={info.stock} orderInfo={orderInfo} />
       ) : (
         <p className="text-identity">Sorry Out Of Stock</p>
       )}

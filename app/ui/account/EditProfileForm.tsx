@@ -6,11 +6,11 @@ import {
   updateUserProfileAndPassword,
 } from "@/app/actions/fetchAndUpdateUser";
 import bcrypt from "bcryptjs";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { ChangeEvent, SubmitEvent, useState } from "react";
 
 export default function EditProfileForm() {
-  const { data: session } = useSession();
+  const { data: session, update } = useSession();
   const [user, setUser] = useState(session?.user);
 
   const [currentPassword, setCurrentPassword] = useState("");
@@ -105,9 +105,7 @@ export default function EditProfileForm() {
             await updateUserProfile(userToUpdate);
           }
 
-          signOut({
-            callbackUrl: "/login",
-          });
+          await update();
         }
       }
     } catch (err) {

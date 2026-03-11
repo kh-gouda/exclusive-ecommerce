@@ -6,6 +6,8 @@ import Footer from "@ui/layout/footer/Footer";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/lib/auth";
 import NextAuthSessionProvider from "@/app/providers";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: {
@@ -28,6 +30,7 @@ export default async function RootLayout({
         <NextAuthSessionProvider session={session}>
           <Header />
           {children}
+          <ToastContainer />
           <Footer />
         </NextAuthSessionProvider>
       </body>

@@ -1,15 +1,27 @@
 "use client";
+import { addOrder, addOrderItems } from "@/app/actions/addOrder";
+import { CART_TYPE } from "@/app/lib/typeDefinitions";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import ProductColors from "@ui/product_details/ProductColors";
 import ProductSizes from "@ui/product_details/ProductSizes";
 import { inter } from "@ui/shared/fonts";
-import SharedButton from "@ui/shared/SharedButton";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useEffect, useEffectEvent, useState } from "react";
+import { toast } from "react-toastify";
 export default function PurchaseForm({
   stock,
+  orderInfo,
 }: {
   stock: { color: string; size: string; quantity: number }[];
+  orderInfo: CART_TYPE;
 }) {
+  const { data: session } = useSession();
+  const userId = session?.user.id;
+
+  const router = useRouter();
+  const notifyError = (error: string) => toast.error(error);
+
   const colorsGroup = Object.groupBy(stock, (item) => item.color);
   const colors = Object.keys(colorsGroup);
 
@@ -81,6 +93,34 @@ export default function PurchaseForm({
       orderQuantity > 1 ? orderQuantity - 1 : 1,
     );
 
+  async function handleBuyNow() {
+    try {
+      if (session && userId) {
+        const insertedOrder = await addOrder(Number(userId), "", 0);
+
+        const cartProducts = [
+          {
+            id: orderInfo.id,
+            title: orderInfo.title,
+            image: orderInfo.image,
+            price: orderInfo.price,
+            quantity: orderQuantity,
+            subtotal: orderInfo.subtotal,
+          },
+        ];
+
+        await addOrderItems(insertedOrder[0].orderid, cartProducts);
+        router.push(
+          `/account/${userId}/checkout?orderid=${insertedOrder[0].orderid}`,
+        );
+      } else {
+        throw new Error("You Have To Login to Buy Products");
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
+  }
+
   return (
     <form onClick={(e) => e.preventDefault()}>
       <div className="flex items-center gap-6 my-6">
@@ -121,7 +161,9 @@ export default function PurchaseForm({
             +
           </button>
         </div>
-        <SharedButton task="Buy Now">Buy Now</SharedButton>
+        <button className="shared-btn shared-btn-solid" onClick={handleBuyNow}>
+          Buy Now
+        </button>
         <div className="w-10 h-10 rounded-sm border flex items-center justify-center hover:bg-identity hover:text-white-text cursor-pointer">
           <HeartIcon className="w-5 h-5 cursor-pointer" />
         </div>

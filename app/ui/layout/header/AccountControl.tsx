@@ -52,7 +52,7 @@ export default function AccountControl() {
           <DropdownMenuItem onClick={handleItemClick}>
             <Link
               href={`/account/${id}/profile`}
-              className="flex gap-2 items-center"
+              className="flex gap-2 items-center w-full"
             >
               <UserIcon className="text-white-color" />
               <span>Manage My Account</span>
@@ -61,7 +61,7 @@ export default function AccountControl() {
           <DropdownMenuItem onClick={handleItemClick}>
             <Link
               href={`/account/${id}/orders/in-progress`}
-              className="flex gap-2 items-center"
+              className="flex gap-2 items-center w-full"
             >
               <ClipboardDocumentCheckIcon className="text-white-color" />
               <span>My Orders</span>
@@ -70,7 +70,7 @@ export default function AccountControl() {
           <DropdownMenuItem onClick={handleItemClick}>
             <Link
               href={`/account/${id}/orders/cancellations`}
-              className="flex gap-2 items-center"
+              className="flex gap-2 items-center w-full"
             >
               <XCircleIcon className="text-white-color" />
               <span>My cancellations</span>
@@ -79,7 +79,7 @@ export default function AccountControl() {
           <DropdownMenuItem onClick={handleItemClick}>
             <Link
               href={`/account/${id}/reviews`}
-              className="flex gap-2 items-center"
+              className="flex gap-2 items-center w-full"
             >
               <StarIcon className="text-white-color" />
               <span>My Reviews</span>

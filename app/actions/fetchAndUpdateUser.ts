@@ -1,5 +1,6 @@
 "use server";
 import sql from "@/app/lib/db";
+import { revalidatePath } from "next/cache";
 
 export async function fetchUserById(userId: number) {
   const user = await sql`
@@ -31,7 +32,7 @@ export async function updateUserProfile(newUserData: {
   email = ${newUserData.email}
   where userid = ${newUserData.userId}
   `;
-
+  revalidatePath(`/account/${newUserData.userId}/profile`);
   return { success: true };
 }
 
@@ -49,6 +50,29 @@ export async function updateUserProfileAndPassword(newUserData: {
   email = ${newUserData.email},
   password = ${newUserData.password}
   where userid = ${newUserData.userId}
+  `;
+
+  return { success: true };
+}
+
+export async function updateUserAddress(
+  userId: number,
+  newAddress: {
+    city: string;
+    street: string;
+    country: string;
+    building: string;
+  },
+) {
+  await sql`
+  update users set address = ${JSON.stringify(newAddress)}::jsonb
+  where userid = ${userId}
+  `;
+
+  await sql`
+  UPDATE users
+SET address = (address #>> '{}')::jsonb
+WHERE jsonb_typeof(address) = 'string';
   `;
 
   return { success: true };
