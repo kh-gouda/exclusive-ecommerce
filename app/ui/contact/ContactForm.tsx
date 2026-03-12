@@ -1,38 +1,67 @@
-import SharedButton from "@ui/shared/SharedButton";
+"use client";
+import { sendContactMessage } from "@/app/actions/sendContactMessage";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function ContactForm() {
+  const router = useRouter();
+
+  const notifySuccess = () => toast.success("Your Message Sent Successfully");
+  const notifyError = (error: string) => toast.error(error);
+
+  const handleSubmit = async (formData: FormData) => {
+    try {
+      const data = {
+        name: formData.get("name") as string,
+        email: formData.get("email") as string,
+        phone: formData.get("phone") as string,
+        message: formData.get("message") as string,
+      };
+
+      if (!data.name || !data.email || !data.phone || !data.message) {
+        throw new Error("You Have To Fill All Fields");
+      }
+
+      await sendContactMessage(data);
+      notifySuccess();
+      router.push("/");
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
+  };
+
   return (
-    <form className="p-10 shadow flex-1">
+    <form action={handleSubmit} className="p-10 shadow flex-1">
       <div className="flex items-center gap-4 *:flex-1">
         <input
           type="text"
-          name="username"
-          id="username"
+          name="name"
+          id="name"
           placeholder="Your Name"
           className="bg-gray-bg rounded-sm p-4"
         />
         <input
           type="email"
-          name="useremail"
-          id="useremail"
+          name="email"
+          id="email"
           placeholder="Your Email"
           className="bg-gray-bg rounded-sm p-4"
         />
         <input
           type="tel"
-          name="userphone"
-          id="userphone"
+          name="phone"
+          id="phone"
           placeholder="Your Phone"
           className="bg-gray-bg rounded-sm p-4"
         />
       </div>
       <textarea
-        name="msg"
-        id="msg"
-        className="my-8 w-full h-57.75 rounded-sm resize-none bg-gray-bg"
+        name="message"
+        id="message"
+        className="my-8 w-full h-57.75 rounded-sm resize-none bg-gray-bg p-4"
       ></textarea>
       <div className="flex items-center justify-end">
-        <SharedButton task="Send Massage">Send Massage</SharedButton>
+        <button className="shared-btn shared-btn-solid">Send Massage</button>
       </div>
     </form>
   );

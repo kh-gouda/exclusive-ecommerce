@@ -16,20 +16,11 @@ import LogoutButton from "@ui/layout/header/LogoutButton";
 import clsx from "clsx";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function AccountControl() {
-  const router = useRouter();
-  const params = useParams<{ id: string }>();
   const { data: session } = useSession();
   const id = session?.user.id;
-
-  useEffect(() => {
-    if (params.id !== id) {
-      router.push("/");
-    }
-  }, [id, params.id, router]);
 
   const [isOpen, setIsOpen] = useState(false);
   const handleItemClick = () => {

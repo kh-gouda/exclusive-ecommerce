@@ -109,7 +109,7 @@ export default function PurchaseForm({
           },
         ];
 
-        await addOrderItems(insertedOrder[0].orderid, cartProducts);
+        await addOrderItems(Number(insertedOrder[0].orderid), cartProducts);
         router.push(
           `/account/${userId}/checkout?orderid=${insertedOrder[0].orderid}`,
         );
@@ -122,7 +122,7 @@ export default function PurchaseForm({
   }
 
   return (
-    <form onClick={(e) => e.preventDefault()}>
+    <form onSubmit={(e) => e.preventDefault()}>
       <div className="flex items-center gap-6 my-6">
         <p className={`${inter.className} font-normal text-xl`}>Colours: </p>
         <ProductColors
