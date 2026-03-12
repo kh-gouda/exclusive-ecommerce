@@ -5,6 +5,7 @@ import {
   FETCHED_CATEGORY_TYPE,
   FETCHED_NEW_ARRIVALS_TYPE,
   FETCHED_NEW_COLLECTION_TYPE,
+  FETCHED_ORDER_TYPE,
   FETCHED_PRODUCT_BY_ID_TYPE,
   FETCHED_PRODUCT_CARD_TYPE,
   FETCHED_STAFF_TYPE,
@@ -644,4 +645,38 @@ export async function fetchCartProducts(id: number) {
   `;
 
   return data;
+}
+
+export async function fetchOrderById(orderId: number) {
+  const order = await sql<FETCHED_ORDER_TYPE[]>`
+SELECT
+    o.orderid,
+	  o.userid,
+    o.orderstatus,
+    o.orderdate,
+    o.paymentmethod,
+    o.appliedcoupon,
+    o.appliedcoupondiscount,
+    o.orderpaid,
+    o.orderconfirmed,
+    json_agg(
+        json_build_object(
+            'productid', oi.productid,
+            'quantity', oi.quantity,
+            'unit_price', oi.unitprice,
+            'productname', p.productname,
+            'productimages', p.productimages
+        )
+    ) AS orderitems
+FROM
+    orders o
+JOIN
+    orderitems oi ON o.orderid = oi.orderid
+JOIN
+    products p ON oi.productid = p.productid
+where o.orderid = ${orderId}
+GROUP BY
+    o.orderid; 
+`;
+  return order;
 }

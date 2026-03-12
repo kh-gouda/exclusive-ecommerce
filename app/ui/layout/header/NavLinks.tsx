@@ -57,7 +57,7 @@ export default function NavLinks() {
           )}
           href="/signup"
         >
-          SignUp
+          Sign(Up/In)
         </Link>
       </li>
     </ul>

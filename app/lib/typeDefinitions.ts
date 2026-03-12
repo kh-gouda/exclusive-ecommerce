@@ -171,3 +171,58 @@ export type FETCHED_STAFF_TYPE = {
     linkedinLink: string;
   };
 };
+
+export type FETCHED_ORDER_TYPE = {
+  orderid: number;
+  userid: number;
+  orderstatus: string;
+  orderdate: Date;
+  paymentmethod: string;
+  appliedcoupon: string;
+  appliedcoupondiscount: number;
+  orderpaid: boolean;
+  orderconfirmed: boolean;
+  orderitems: {
+    productid: number;
+    quantity: number;
+    unit_price: number;
+    productname: string;
+    productimages: string[];
+  }[];
+};
+
+export type ORDER_DETAILS_TYPE = {
+  orderid: number;
+  userid: number;
+  orderstatus: string;
+  orderdate: Date;
+  paymentmethod: string;
+  appliedcoupon: string;
+  appliedcoupondiscount: number;
+  orderpaid: boolean;
+  orderconfirmed: boolean;
+  orderitems: {
+    productid: number;
+    quantity: number;
+    unit_price: number;
+    productname: string;
+    productimages: string[];
+  }[];
+  userData: {
+    name: string;
+    email: string;
+    phone: string;
+    company: string;
+    image?: string;
+    id: string;
+    role: string;
+    firstname: string;
+    lastname: string;
+    address?: {
+      city?: string;
+      street?: string;
+      country?: string;
+      building?: string;
+    };
+  };
+};
