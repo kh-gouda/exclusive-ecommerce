@@ -652,6 +652,7 @@ export async function fetchOrderById(orderId: number) {
 SELECT
     o.orderid,
 	  o.userid,
+    u.phone,
     o.orderstatus,
     o.orderdate,
     o.paymentmethod,
@@ -671,12 +672,14 @@ SELECT
 FROM
     orders o
 JOIN
+    users u ON o.userid = u.userid
+JOIN
     orderitems oi ON o.orderid = oi.orderid
 JOIN
     products p ON oi.productid = p.productid
 where o.orderid = ${orderId}
 GROUP BY
-    o.orderid; 
+    o.orderid, u.phone; 
 `;
   return order;
 }

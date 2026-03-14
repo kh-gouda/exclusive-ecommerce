@@ -5,6 +5,7 @@ async function listStudents() {
 SELECT
     o.orderid,
 	  o.userid,
+    u.phone,
     o.orderstatus,
     o.orderdate,
     o.paymentmethod,
@@ -26,10 +27,12 @@ FROM
 JOIN
     orderitems oi ON o.orderid = oi.orderid
 JOIN
+    users u ON o.userid = u.userid
+JOIN
     products p ON oi.productid = p.productid
 where o.orderid = 14
 GROUP BY
-    o.orderid; 
+    o.orderid, u.phone;
 `;
   return data;
 }

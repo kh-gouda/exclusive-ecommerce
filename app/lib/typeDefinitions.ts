@@ -175,6 +175,7 @@ export type FETCHED_STAFF_TYPE = {
 export type FETCHED_ORDER_TYPE = {
   orderid: number;
   userid: number;
+  phone: string;
   orderstatus: string;
   orderdate: Date;
   paymentmethod: string;
@@ -212,7 +213,6 @@ export type ORDER_DETAILS_TYPE = {
     name: string;
     email: string;
     phone: string;
-    company: string;
     image?: string;
     id: string;
     role: string;

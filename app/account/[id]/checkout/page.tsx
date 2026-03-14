@@ -16,13 +16,23 @@ export default async function Checkout(props: { searchParams: SearchParams }) {
 
   const order = await fetchOrderById(orderId);
 
+  if (!order.length) {
+    return (
+      <main className="pt-20 pb-35">
+        <Container>
+          <SectionTitle weight={500}>Billing Details</SectionTitle>
+          <div className="text-identity">No Order Meet This OrderId</div>
+        </Container>
+      </main>
+    );
+  }
+
   const orderDetails: ORDER_DETAILS_TYPE = {
     ...order[0],
     userData: {
       name: user?.name || "",
       email: user?.email || "",
-      phone: "",
-      company: "",
+      phone: order[0].phone,
       image: user?.image || "",
       id: user?.id || "",
       role: user?.role || "",

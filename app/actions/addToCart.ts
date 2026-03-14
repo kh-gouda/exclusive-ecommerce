@@ -7,8 +7,6 @@ export async function addToCart(userid: number, productid: number) {
   select * from shoppingcart where userid = ${userid} and productid = ${productid}`;
 
   if (!exist.length) {
-    //   await sql`update shoppingcart set quantity = quantity + 1 where userid = ${userid} and productid = ${productid}`;
-    // } else {
     await sql`insert into shoppingcart (userid, productid, quantity) values (${userid}, ${productid}, 1)`;
   }
 

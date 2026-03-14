@@ -151,22 +151,6 @@ export const authOptions = {
       return token;
     },
 
-    // async jwt({ token, user }: { token: JWT; user: User | AdapterUser }) {
-    //   if (user) {
-    //     token.id = user.id;
-    //     token.role = user.role;
-    //     token.firstname = user.firstname;
-    //     token.lastname = user.lastname;
-    //     token.address = {
-    //       city: user.address?.city,
-    //       street: user.address?.street,
-    //       country: user.address?.country,
-    //       building: user.address?.building,
-    //     };
-    //   }
-    //   return token;
-    // },
-
     async session({ session, token }: { session: Session; token: JWT }) {
       if (session.user) {
         session.user.id = token.id as string;
@@ -186,29 +170,6 @@ export const authOptions = {
 
       return session;
     },
-
-    // async session({ session, token }: { session: Session; token: JWT }) {
-    //   if (session.user) {
-    //     session.user.id = token.id as string;
-
-    //     session.user.role = token.role as string;
-
-    //     session.user.firstname = token.firstname as string;
-
-    //     session.user.lastname = token.lastname as string;
-
-    //     session.user.address =
-    //       token.address ||
-    //       ({ city: "", street: "", country: "", building: "" } as {
-    //         city: string;
-    //         street: string;
-    //         country: string;
-    //         building: string;
-    //       });
-    //   }
-
-    //   return session;
-    // },
   },
 };
 

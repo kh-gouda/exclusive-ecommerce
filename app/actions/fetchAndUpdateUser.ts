@@ -18,6 +18,14 @@ export async function fetchUserByEmail(userEmail: string) {
   return user;
 }
 
+export async function fetchUserByPhone(Phone: string) {
+  const user = await sql`
+  select * from users where phone = ${Phone}
+  `;
+
+  return user;
+}
+
 export async function updateUserProfile(newUserData: {
   userId: number;
   firstName: string;
@@ -71,8 +79,36 @@ export async function updateUserAddress(
 
   await sql`
   UPDATE users
-SET address = (address #>> '{}')::jsonb
-WHERE jsonb_typeof(address) = 'string';
+  SET address = (address #>> '{}')::jsonb
+  WHERE jsonb_typeof(address) = 'string';
+  `;
+
+  return { success: true };
+}
+
+export async function updateUserForDelivery(user: {
+  userId: number;
+  userEmail: string;
+  userPhone: string;
+  userAddress: {
+    city: string;
+    street: string;
+    country: string;
+    building?: string;
+  };
+}) {
+  await sql`
+  update users set
+  email = ${user.userEmail},
+  phone = ${user.userPhone},
+  address = ${JSON.stringify(user.userAddress)}::jsonb
+  where userid = ${user.userId}
+  `;
+
+  await sql`
+  UPDATE users
+  SET address = (address #>> '{}')::jsonb
+  WHERE jsonb_typeof(address) = 'string';
   `;
 
   return { success: true };

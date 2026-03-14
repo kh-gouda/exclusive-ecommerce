@@ -1,16 +1,47 @@
 "use client";
+import {
+  applyCouponOnOrder,
+  confirmOrder,
+  setPaymentMethod,
+  setTotalAmount,
+} from "@/app/actions/addOrder";
+import { createStripeCheckoutSession } from "@/app/actions/createStripeCheckoutSession";
+import {
+  fetchUserByEmail,
+  fetchUserByPhone,
+  updateUserForDelivery,
+} from "@/app/actions/fetchAndUpdateUser";
+import { fetchCoupon } from "@/app/actions/fetchCoupon";
+import { revalidate } from "@/app/actions/revalidatePath";
 import { ORDER_DETAILS_TYPE } from "@/app/lib/typeDefinitions";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import CheckoutImage from "@ui/checkout/CheckoutImage";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { ChangeEvent, SubmitEvent, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function CheckoutForm({
   orderDetails,
 }: {
   orderDetails: ORDER_DETAILS_TYPE;
 }) {
+  const { update } = useSession();
   const [orderState, setOrderState] = useState(orderDetails);
+
+  const shipping = 0;
+  const itemsCostNoCoupon = orderState.orderitems.reduce((acc, item) => {
+    return acc + item.unit_price * item.quantity;
+  }, 0);
+
+  const itemsCostWithCoupon =
+    itemsCostNoCoupon -
+    itemsCostNoCoupon * (orderState.appliedcoupondiscount / 100);
+  const totalInvoice = itemsCostWithCoupon + shipping;
+
+  const notifySuccess = () =>
+    toast.success("Your Order Is Placed And Will Be Processed Soon");
+  const notifyError = (error: string) => toast.error(error);
 
   const handleChangeUserDataInput = (
     e: ChangeEvent<HTMLInputElement>,
@@ -42,9 +73,112 @@ export default function CheckoutForm({
     }));
   };
 
-  const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
+  const handleChangeCoupon = (coupon: string) => {
+    setOrderState((prev) => ({
+      ...prev,
+      appliedcoupon: coupon,
+    }));
+  };
+
+  const handleApplyCoupon = async (coupon: string) => {
+    try {
+      const fetchedCoupon = await fetchCoupon(coupon);
+      const fetchedCouponDiscount = fetchedCoupon[0]?.coupondiscount || 0;
+      if (fetchedCouponDiscount) {
+        setOrderState((prev) => ({
+          ...prev,
+          appliedcoupondiscount: fetchedCouponDiscount,
+        }));
+        await applyCouponOnOrder(
+          Number(orderState.orderid),
+          orderState.appliedcoupon,
+          fetchedCouponDiscount,
+        );
+      } else {
+        setOrderState((prev) => ({
+          ...prev,
+          appliedcoupon: "",
+        }));
+        throw new Error("Your Coupon Is Not Found");
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
+  };
+
+  const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(orderState);
+    try {
+      if (
+        !orderState.userData.firstname ||
+        !orderState.userData.phone ||
+        !orderState.userData.email ||
+        !orderState.userData.address?.street ||
+        !orderState.userData.address?.city ||
+        !orderState.userData.address?.country
+      ) {
+        throw new Error("All required Inputs Cant Be Empty");
+      }
+
+      const fetchedUserByEmail = await fetchUserByEmail(
+        orderState.userData.email,
+      );
+      const existingEmail = fetchedUserByEmail.filter(
+        (fetchedUser) => fetchedUser.userid !== Number(orderState.userid),
+      );
+      if (existingEmail && existingEmail.length) {
+        throw new Error("Email already exist with different user");
+      }
+
+      const fetchedUserByPhone = await fetchUserByPhone(
+        orderState.userData.phone,
+      );
+      const existingPhone = fetchedUserByPhone.filter(
+        (fetchedUser) => fetchedUser.userid !== Number(orderState.userid),
+      );
+      if (existingPhone && existingPhone.length) {
+        throw new Error("Phone already exist with different user");
+      }
+
+      const userToUpdate = {
+        userId: Number(orderState.userid),
+        userEmail: orderState.userData.email,
+        userPhone: orderState.userData.phone,
+        userAddress: {
+          city: orderState.userData.address.city,
+          street: orderState.userData.address.street,
+          country: orderState.userData.address.country,
+          building: orderState.userData.address.building,
+        },
+      };
+      await updateUserForDelivery(userToUpdate);
+
+      await setTotalAmount(Number(orderState.orderid), totalInvoice);
+
+      if (orderState.paymentmethod === "cash on delivery") {
+        await confirmOrder(Number(orderState.orderid), true);
+      } else {
+        await setPaymentMethod(Number(orderState.orderid), "bank");
+        const stripeSession = await createStripeCheckoutSession(
+          Number(orderState.orderid),
+          orderState.userid.toString(),
+        );
+
+        if (stripeSession && stripeSession.url) {
+          window.location.href = stripeSession.url;
+        }
+      }
+
+      await revalidate(
+        `/account/${orderState.userid}/checkout?orderid=${orderState.orderid}`,
+      );
+
+      await update();
+
+      notifySuccess();
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
   };
 
   return (
@@ -61,24 +195,11 @@ export default function CheckoutForm({
           type="text"
           name="fname"
           id="fname"
-          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8"
+          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8 p-2"
           value={orderState.userData.firstname}
           required
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             handleChangeUserDataInput(e, "firstname")
-          }
-        />
-
-        <label htmlFor="comp-name" className="billing-data-label">
-          Company Name
-        </label>
-        <input
-          type="text"
-          name="comp-name"
-          id="comp-name"
-          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8"
-          onChange={(e: ChangeEvent<HTMLInputElement>) =>
-            handleChangeUserDataInput(e, "company")
           }
         />
 
@@ -89,7 +210,7 @@ export default function CheckoutForm({
           type="text"
           name="st-address"
           id="st-address"
-          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8"
+          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8 p-2"
           value={orderState.userData.address?.street}
           required
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -104,7 +225,7 @@ export default function CheckoutForm({
           type="text"
           name="apartment"
           id="apartment"
-          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8"
+          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8 p-2"
           value={orderState.userData.address?.building}
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             handleChangeUserAddressInput(e, "building")
@@ -118,11 +239,26 @@ export default function CheckoutForm({
           type="text"
           name="town-city"
           id="town-city"
-          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8"
+          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8 p-2"
           value={orderState.userData.address?.city}
           required
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             handleChangeUserAddressInput(e, "city")
+          }
+        />
+
+        <label htmlFor="country" className="billing-data-label">
+          Country<span className="text-identity">*</span>
+        </label>
+        <input
+          type="text"
+          name="country"
+          id="country"
+          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8 p-2"
+          value={orderState.userData.address?.country}
+          required
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            handleChangeUserAddressInput(e, "country")
           }
         />
 
@@ -133,7 +269,7 @@ export default function CheckoutForm({
           type="tel"
           name="phone"
           id="phone"
-          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8"
+          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8 p-2"
           value={orderState.userData.phone}
           required
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -148,7 +284,7 @@ export default function CheckoutForm({
           type="email"
           name="email"
           id="email"
-          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8"
+          className="bg-gray-bg rounded-sm h-12.5 w-full mt-2 mb-8 p-2"
           value={orderState.userData.email}
           required
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -190,15 +326,15 @@ export default function CheckoutForm({
         ))}
         <div className="flex items-center justify-between py-4 border-b">
           <p>Subtotal:</p>
-          <p>$1750</p>
+          <p>${itemsCostWithCoupon}</p>
         </div>
         <div className="flex items-center justify-between py-4 border-b">
           <p>Shipping:</p>
-          <p>Free</p>
+          <p>{shipping ? shipping : "Free"}</p>
         </div>
         <div className="flex items-center justify-between py-4 border-b">
           <p>Total:</p>
-          <p>$1750</p>
+          <p>${totalInvoice}</p>
         </div>
         <div>
           <div className="flex items-center justify-between my-8">
@@ -254,18 +390,56 @@ export default function CheckoutForm({
             </label>
           </div>
           <div className="flex items-center justify-between py-8">
-            <input
-              type="text"
-              name="coupon"
-              id="coupon"
-              placeholder="Coupon Code"
-              className="h-14 border rounded-sm py-4 px-6"
-            />
-            {/* <button className="shared-btn shared-btn-solid">
-              Apply Coupon
-            </button> */}
+            {orderState.appliedcoupondiscount ? (
+              <div>
+                <p className="my-4">
+                  Applied Coupon :{" "}
+                  <span className="text-green-500">
+                    {" "}
+                    {orderState.appliedcoupon}
+                  </span>
+                </p>
+                <p className="my-4">
+                  Applied Coupon Discount :{" "}
+                  <span className="text-green-500">
+                    {" "}
+                    %{orderState.appliedcoupondiscount}
+                  </span>
+                </p>
+              </div>
+            ) : (
+              <>
+                <input
+                  type="text"
+                  name="coupon"
+                  id="coupon"
+                  placeholder="Coupon Code"
+                  className="h-14 border rounded-sm py-4 px-6"
+                  value={orderState.appliedcoupon}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                    handleChangeCoupon(e.target.value)
+                  }
+                />
+                <button
+                  className="shared-btn shared-btn-solid"
+                  type="button"
+                  onClick={() => handleApplyCoupon(orderState.appliedcoupon)}
+                >
+                  Apply Coupon
+                </button>
+              </>
+            )}
           </div>
-          <button className="shared-btn shared-btn-solid">Place Order</button>
+          {!orderState.orderconfirmed ? (
+            <button className="shared-btn shared-btn-solid" type="submit">
+              Place Order
+            </button>
+          ) : (
+            <div className="text-green-500">
+              Your Order Is Already Placed And Confirmed And Moved To The Next
+              Process
+            </div>
+          )}
         </div>
       </div>
     </form>
