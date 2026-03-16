@@ -305,7 +305,7 @@ export async function fetchNewCollection() {
 
 export async function fetchFirstAd() {
   const data = await sql<FETCHED_AD_TYPE[]>`
-    select * from ads where adarea = 1 and endtime > now();
+    select * from ads where adarea = 1 and endtime > now() and adpaid = true;
   `;
 
   return data;
@@ -313,7 +313,7 @@ export async function fetchFirstAd() {
 
 export async function fetchSecondAd() {
   const data = await sql<FETCHED_AD_TYPE[]>`
-    select * from ads where adarea = 2 and endtime > now();
+    select * from ads where adarea = 2 and endtime > now() and adpaid = true;
   `;
 
   return data;

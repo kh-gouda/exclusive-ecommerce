@@ -1,3 +1,4 @@
+"use server";
 import cloudinary from "@/app/lib/cloudinary";
 
 type CloudinaryDeleteResult = {

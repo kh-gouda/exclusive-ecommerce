@@ -4,9 +4,9 @@ import cloudinary from "@/app/lib/cloudinary";
 import { fileToBuffer } from "@/app/lib/fileToBuffer";
 import { UploadApiResponse } from "cloudinary";
 
-export async function uploadAdImage(formData: FormData) {
+export async function uploadAdImage(file: File) {
   try {
-    const file = formData.get("image") as File;
+    // const file = formData.get("image") as File;
 
     if (!file || file.size === 0) {
       throw new Error("No image uploaded");
@@ -32,8 +32,8 @@ export async function uploadAdImage(formData: FormData) {
       success: true,
       publicId: result.public_id,
     };
-  } catch (error) {
-    console.error("Ad image upload failed:", error);
+  } catch (error: unknown) {
+    if (error instanceof Error) throw new Error(error.message);
 
     return {
       success: false,

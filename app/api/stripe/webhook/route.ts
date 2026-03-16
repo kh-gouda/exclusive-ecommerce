@@ -34,6 +34,7 @@ export async function POST(req: Request) {
         const session = event.data.object as Stripe.Checkout.Session;
 
         const orderid = Number(session.metadata?.orderid);
+        const adid = Number(session.metadata?.adid);
 
         if (orderid) {
           await sql`
@@ -41,6 +42,14 @@ export async function POST(req: Request) {
             orderpaid = true,
             orderconfirmed = true
             WHERE orderid = ${orderid}
+          `;
+        }
+
+        if (adid) {
+          await sql`
+            UPDATE ads SET
+            adpaid = true
+            WHERE adid = ${adid}
           `;
         }
 
