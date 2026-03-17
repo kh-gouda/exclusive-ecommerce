@@ -134,13 +134,13 @@ export default async function Home() {
   return (
     <div className="">
       <Container>
-        <main className="flex pb-12.5">
+        <div className="flex pb-12.5">
           <SideNav />
           <FirstAdArea
             slides={NEW_FIRST_AD_AREA_LIST}
             options={{ loop: true, duration: 60 }}
           />
-        </main>
+        </div>
 
         <Section withBorder>
           <SectionLabel>Today&apos;s</SectionLabel>
