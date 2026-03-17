@@ -226,3 +226,18 @@ export type ORDER_DETAILS_TYPE = {
     };
   };
 };
+
+export type FETCHED_USER_ORDERS = {
+  orderid: number;
+  userid: number;
+  orderstatus: string;
+  orderdate: string;
+  paymentmethod: string;
+  appliedcoupon: string;
+  appliedcoupondiscount: number;
+  orderpaid: boolean;
+  orderconfirmed: boolean;
+  totalamount: string;
+  stripe_session_id: string;
+  stripe_session_expires_at: string;
+};

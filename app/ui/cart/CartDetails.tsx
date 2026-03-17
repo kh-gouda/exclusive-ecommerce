@@ -105,7 +105,13 @@ export default function CartDetails({
   }
 
   async function handleProcessToCheckOut() {
-    const insertedOrder = await addOrder(userid, coupon, couponDiscount);
+    const totalAmount = totalInvoice + shippingCost;
+    const insertedOrder = await addOrder(
+      userid,
+      coupon,
+      couponDiscount,
+      totalAmount,
+    );
 
     await addOrderItems(insertedOrder[0].orderid, cartProducts);
     await clearShoppingCart(userid);

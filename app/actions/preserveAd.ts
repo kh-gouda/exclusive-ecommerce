@@ -19,3 +19,11 @@ export async function preserveAd(ad: {
 
   return preservedAd;
 }
+
+export async function confirmAd(adId: number) {
+  await sql`
+  update ads set
+  adpaid = true
+  where adid = ${adId}
+  `;
+}

@@ -51,7 +51,7 @@ export default function AccountControl() {
           </DropdownMenuItem>
           <DropdownMenuItem onClick={handleItemClick}>
             <Link
-              href={`/account/${id}/orders/in-progress`}
+              href={`/account/${id}/orders/pending`}
               className="flex gap-2 items-center w-full"
             >
               <ClipboardDocumentCheckIcon className="text-white-color" />

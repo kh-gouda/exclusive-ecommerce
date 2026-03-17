@@ -9,6 +9,7 @@ import {
   FETCHED_PRODUCT_BY_ID_TYPE,
   FETCHED_PRODUCT_CARD_TYPE,
   FETCHED_STAFF_TYPE,
+  FETCHED_USER_ORDERS,
 } from "@/app/lib/typeDefinitions";
 
 export function createSlides<T>(arr: T[], slideSize: number): T[][] {
@@ -682,4 +683,12 @@ GROUP BY
     o.orderid, u.phone; 
 `;
   return order;
+}
+
+export async function fetchUserOrders(userId: number) {
+  const orders = await sql<FETCHED_USER_ORDERS[]>`
+  select * from orders where userid = ${userId} order by orderid
+  `;
+
+  return orders;
 }

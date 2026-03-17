@@ -1,7 +1,7 @@
 import { fetchUserOrders } from "@/app/lib/utils";
 import Link from "next/link";
 
-export default async function OrdersCancellations(props: {
+export default async function OrdersPending(props: {
   params: Promise<{ id: string }>;
 }) {
   const params = await props.params;
@@ -9,8 +9,8 @@ export default async function OrdersCancellations(props: {
 
   const orders = await fetchUserOrders(id);
 
-  const cancelledOrders = orders.filter(
-    (order) => order.orderstatus === "cancelled",
+  const pendingOrders = orders.filter(
+    (order) => order.orderstatus === "pending",
   );
 
   return (
@@ -23,8 +23,8 @@ export default async function OrdersCancellations(props: {
         <li>Check Details</li>
       </ul>
 
-      {cancelledOrders && cancelledOrders.length ? (
-        cancelledOrders.map((order) => (
+      {pendingOrders && pendingOrders.length ? (
+        pendingOrders.map((order) => (
           <ul
             key={order.orderid}
             className="flex items-center *:flex-1 *:text-center mb-6"
@@ -45,7 +45,7 @@ export default async function OrdersCancellations(props: {
         ))
       ) : (
         <div className="text-identity text-center">
-          There Is No Cancelled Orders
+          There Is No Pending Orders
         </div>
       )}
     </div>

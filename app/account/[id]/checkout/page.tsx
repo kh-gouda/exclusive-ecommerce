@@ -5,11 +5,18 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/lib/auth";
 import CheckoutForm from "@ui/checkout/CheckoutForm";
 import { ORDER_DETAILS_TYPE } from "@/app/lib/typeDefinitions";
+import { confirmOrder, confirmPayment } from "@/app/actions/addOrder";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 export default async function Checkout(props: { searchParams: SearchParams }) {
   const searchParams = await props.searchParams;
   const orderId = Number(searchParams.orderid);
+  const paymentSuccess = searchParams.success;
+
+  if (paymentSuccess) {
+    await confirmPayment(orderId, true);
+    await confirmOrder(orderId, true);
+  }
 
   const session = await getServerSession(authOptions);
   const user = session?.user;

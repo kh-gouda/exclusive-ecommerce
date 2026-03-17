@@ -7,9 +7,10 @@ export async function addOrder(
   userid: number,
   appliedCoupon: string,
   appliedCouponDiscount: number,
+  totalAmount: number,
 ) {
   const insertedOrder = await sql`
-  insert into orders (userid, appliedcoupon, appliedcoupondiscount) values (${userid}, ${appliedCoupon}, ${appliedCouponDiscount}) returning orderid
+  insert into orders (userid, appliedcoupon, appliedcoupondiscount, totalamount) values (${userid}, ${appliedCoupon}, ${appliedCouponDiscount}, ${totalAmount}) returning orderid
   `;
 
   return insertedOrder;

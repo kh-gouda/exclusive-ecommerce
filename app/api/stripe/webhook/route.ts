@@ -33,15 +33,18 @@ export async function POST(req: Request) {
       case "checkout.session.completed": {
         const session = event.data.object as Stripe.Checkout.Session;
 
-        const orderid = Number(session.metadata?.orderid);
-        const adid = Number(session.metadata?.adid);
+        const orderid = session.metadata?.orderid;
+        const adid = session.metadata?.adid;
+
+        console.log(session.metadata);
+        console.log(orderid);
 
         if (orderid) {
           await sql`
             UPDATE orders SET
             orderpaid = true,
             orderconfirmed = true
-            WHERE orderid = ${orderid}
+            WHERE orderid = ${Number(orderid)} AND orderpaid = false
           `;
         }
 
@@ -49,7 +52,7 @@ export async function POST(req: Request) {
           await sql`
             UPDATE ads SET
             adpaid = true
-            WHERE adid = ${adid}
+            WHERE adid = ${Number(adid)} AND adpaid = false
           `;
         }
 
@@ -63,7 +66,6 @@ export async function POST(req: Request) {
 
         if (orderid) {
           throw new Error("Payment Failed");
-
           // await sql`
           //   UPDATE orders
           //   SET payment_status = 'failed'
@@ -93,8 +95,10 @@ export async function POST(req: Request) {
       }
 
       default:
-        console.log(`Unhandled event type: ${event.type}`);
-        throw new Error(event.type);
+        console.log(event.type);
+
+      // console.log(`Unhandled event type: ${event.type}`);
+      // throw new Error(event.type);
     }
   } catch (err) {
     console.error("Webhook handler error", err);

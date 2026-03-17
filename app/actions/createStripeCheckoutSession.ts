@@ -34,15 +34,30 @@ export async function createStripeCheckoutSession(
     const expiration = new Date(orderData.stripe_session_expires_at);
 
     if (expiration > now) {
-      const session = await stripe.checkout.sessions.retrieve(
-        orderData.stripe_session_id,
-      );
+      // const session = await stripe.checkout.sessions.retrieve(
+      //   orderData.stripe_session_id,
+      // );
 
-      if (session.url) {
-        return {
-          status: "existing_session",
-          url: session.url,
-        };
+      // if (session.status === "open" && session.url) {
+      //   return {
+      //     status: "existing_session",
+      //     url: session.url,
+      //   };
+      // }
+      try {
+        const session = await stripe.checkout.sessions.retrieve(
+          orderData.stripe_session_id,
+        );
+
+        if (session.status === "open" && session.url) {
+          return {
+            status: "existing_session",
+            url: session.url,
+          };
+        }
+      } catch (error) {
+        // Session might be invalid/expired in Stripe, continue to create new one
+        console.log("Failed to retrieve session, creating new one:", error);
       }
     }
   }
@@ -60,26 +75,35 @@ export async function createStripeCheckoutSession(
           product_data: {
             name: `Order #${orderData.orderid}`,
           },
-          unit_amount: orderData.totalamount * 100, // Stripe uses cents
+          unit_amount: Math.round(orderData.totalamount * 100), // Stripe uses cents
         },
         quantity: 1,
       },
     ],
 
-    success_url: `${process.env.NEXT_PUBLIC_APP_URL}/account/${userid}/checkout?orderid=${orderid}`,
+    success_url: `${process.env.NEXT_PUBLIC_APP_URL}/account/${userid}/checkout?orderid=${orderid}&success=true`,
 
-    cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/account/${userid}/checkout?orderid=${orderid}`,
+    cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/account/${userid}/checkout?orderid=${orderid}&canceled=true`,
 
     metadata: {
       orderid: orderData.orderid.toString(),
       userid: userid,
     },
+
+    payment_intent_data: {
+      metadata: {
+        orderid: orderData.orderid.toString(),
+        userid,
+      },
+    },
   });
 
   // Save stripe session id in DB
+  const expiresAt = new Date(session.expires_at * 1000);
   await sql`
-    UPDATE orders
-    SET stripe_session_id = ${session.id}
+    UPDATE orders SET
+    stripe_session_id = ${session.id},
+    stripe_session_expires_at = ${expiresAt}
     WHERE orderid = ${orderid}
   `;
 

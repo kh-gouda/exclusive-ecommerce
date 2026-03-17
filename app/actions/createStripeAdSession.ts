@@ -31,15 +31,31 @@ export async function createStripeAdSession(adId: number) {
     const expiration = new Date(adData.stripe_session_expires_at);
 
     if (expiration > now) {
-      const session = await stripe.checkout.sessions.retrieve(
-        adData.stripe_session_id,
-      );
+      // const session = await stripe.checkout.sessions.retrieve(
+      //   adData.stripe_session_id,
+      // );
 
-      if (session.url) {
-        return {
-          status: "existing_session",
-          url: session.url,
-        };
+      // if (session.status === "open" && session.url) {
+      //   return {
+      //     status: "existing_session",
+      //     url: session.url,
+      //   };
+      // }
+
+      try {
+        const session = await stripe.checkout.sessions.retrieve(
+          adData.stripe_session_id,
+        );
+
+        if (session.status === "open" && session.url) {
+          return {
+            status: "existing_session",
+            url: session.url,
+          };
+        }
+      } catch (error) {
+        // Session might be invalid/expired in Stripe, continue to create new one
+        console.log("Failed to retrieve session, creating new one:", error);
       }
     }
   }
@@ -63,12 +79,18 @@ export async function createStripeAdSession(adId: number) {
       },
     ],
 
-    success_url: `${process.env.NEXT_PUBLIC_APP_URL}/preserve-ad`,
+    success_url: `${process.env.NEXT_PUBLIC_APP_URL}/preserve-ad?adid=${adId}&success=true`,
 
-    cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/preserve-ad`,
+    cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/preserve-ad?adid=${adId}&canceled=true`,
 
     metadata: {
       adid: adData.adid.toString(),
+    },
+
+    payment_intent_data: {
+      metadata: {
+        adid: adData.adid.toString(),
+      },
     },
   });
 

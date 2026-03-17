@@ -34,7 +34,7 @@ export default function AccountSideNav() {
             Address Book
           </Link>
         </li>
-        <li className="my-2">
+        {/* <li className="my-2">
           <Link
             className={clsx("text-gray-500", {
               "text-identity": pathname.endsWith("payment-options"),
@@ -43,11 +43,21 @@ export default function AccountSideNav() {
           >
             My Payment Options
           </Link>
-        </li>
+        </li> */}
       </ul>
 
       <h3 className="font-medium">My Orders</h3>
       <ul className="pl-8.25">
+        <li className="my-2">
+          <Link
+            className={clsx("text-gray-500", {
+              "text-identity": pathname.endsWith("pending"),
+            })}
+            href={`/account/${id}/orders/pending`}
+          >
+            Pending
+          </Link>
+        </li>
         <li className="my-2">
           <Link
             className={clsx("text-gray-500", {

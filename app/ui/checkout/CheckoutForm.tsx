@@ -407,7 +407,7 @@ export default function CheckoutForm({
                   </span>
                 </p>
               </div>
-            ) : (
+            ) : !orderState.orderconfirmed ? (
               <>
                 <input
                   type="text"
@@ -428,7 +428,7 @@ export default function CheckoutForm({
                   Apply Coupon
                 </button>
               </>
-            )}
+            ) : null}
           </div>
           {!orderState.orderconfirmed ? (
             <button className="shared-btn shared-btn-solid" type="submit">
