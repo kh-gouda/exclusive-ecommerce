@@ -1,4 +1,5 @@
 import DashBoardSideNav from "@ui/dashboard/DashBoardSideNav";
+import BreadCrumbs from "@ui/shared/BreadCrumbs";
 import SectionTitle from "@ui/shared/SectionTitle";
 import Image from "next/image";
 import { ReactNode } from "react";
@@ -6,7 +7,7 @@ import { ReactNode } from "react";
 export default function DashBoardLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <div className="flex gap-25 px-4">
+      <div className="flex gap-25 px-4 bg-identity">
         <div className="w-50 text-center ">
           <Image
             width={512}
@@ -15,11 +16,13 @@ export default function DashBoardLayout({ children }: { children: ReactNode }) {
             src={"/images/dashboard.png"}
             alt="dashboard icon"
           />
-          <SectionTitle>Dashbaord</SectionTitle>
         </div>
-        <div className="flex-1 pl-10 pt-10">Bread Crumbs</div>
+        <div className="flex-1 pl-10 pt-10 text-white">
+          <SectionTitle>Exclusive Dashbaord</SectionTitle>
+          <BreadCrumbs />
+        </div>
       </div>
-      <div className="flex gap-25 py-20 px-4">
+      <div className="flex gap-25 py-10 px-4">
         <DashBoardSideNav />
         <div className="flex-1 shadow p-10 rounded-sm">{children}</div>
       </div>

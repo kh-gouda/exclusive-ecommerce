@@ -6,6 +6,7 @@ import { authOptions } from "@/app/lib/auth";
 import CheckoutForm from "@ui/checkout/CheckoutForm";
 import { ORDER_DETAILS_TYPE } from "@/app/lib/typeDefinitions";
 import { confirmOrder, confirmPayment } from "@/app/actions/addOrder";
+import BreadCrumbs from "@ui/shared/BreadCrumbs";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 export default async function Checkout(props: { searchParams: SearchParams }) {
@@ -57,6 +58,7 @@ export default async function Checkout(props: { searchParams: SearchParams }) {
   return (
     <main className="pt-20 pb-35">
       <Container>
+        <BreadCrumbs />
         <SectionTitle weight={500}>Billing Details</SectionTitle>
         <CheckoutForm orderDetails={orderDetails} />
       </Container>

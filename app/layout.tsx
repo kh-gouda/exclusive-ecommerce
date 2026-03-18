@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { poppins } from "@shared/fonts";
 import "@ui/globals.css";
-import Header from "@layout/header/Header";
-import Footer from "@ui/layout/footer/Footer";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/lib/auth";
 import NextAuthSessionProvider from "@/app/providers";
@@ -28,10 +26,8 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} antialiased font-normal`}>
         <NextAuthSessionProvider session={session}>
-          <Header />
           {children}
           <ToastContainer />
-          <Footer />
         </NextAuthSessionProvider>
       </body>
     </html>

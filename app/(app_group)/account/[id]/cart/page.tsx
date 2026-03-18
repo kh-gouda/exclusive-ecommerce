@@ -1,6 +1,7 @@
 import { authOptions } from "@/app/lib/auth";
 import { fetchCartProducts } from "@/app/lib/utils";
 import CartDetails from "@ui/cart/CartDetails";
+import BreadCrumbs from "@ui/shared/BreadCrumbs";
 import Container from "@ui/shared/Container";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
@@ -31,6 +32,7 @@ export default async function CartPage() {
   return (
     <main className="pt-20 pb-35">
       <Container>
+        <BreadCrumbs />
         <section className="mt-20">
           <div className="flex items-center justify-between *:flex-1 shadow py-6 px-9.5">
             <div>Product</div>

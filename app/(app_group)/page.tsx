@@ -183,9 +183,6 @@ export default async function Home() {
             <Link href="/shop" className="shared-btn shared-btn-solid">
               View All Products
             </Link>
-            {/* <SharedButton task="fetch All Products">
-              View All Products
-            </SharedButton> */}
           </div>
         </Section>
 
