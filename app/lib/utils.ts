@@ -27,7 +27,9 @@ export function createSlides<T>(arr: T[], slideSize: number): T[][] {
 
 export async function fetchCategories() {
   try {
-    const response = await sql`select * from categories`;
+    const response = await sql<
+      { categoryid: number; category: string }[]
+    >`select * from categories`;
     return response;
   } catch (error) {
     console.error("Error fetching categories:", error);
@@ -692,4 +694,67 @@ export async function fetchUserOrders(userId: number) {
   `;
 
   return orders;
+}
+
+export async function fetchDashBoardProducts() {
+  const data = await sql<FETCHED_PRODUCT_BY_ID_TYPE[]>`
+WITH ProductRatings AS (
+    -- Calculate total voters and most common rating (mode) per product
+    SELECT 
+        pr.productid, COUNT(pr.userid) AS voters, -- MODE() returns the most frequent value
+        MODE() WITHIN GROUP (ORDER BY r.ratingvalue) AS stars 
+    FROM productratings pr
+    JOIN ratings r ON pr.ratingid = r.ratingid
+    GROUP BY pr.productid
+), ProductStock AS (
+    -- Aggregate stock data into a JSON array of objects
+    SELECT 
+        s.productid, jsonb_agg(
+            jsonb_build_object(
+                'color', c.colorhex,
+				'size', sz.size,
+				'quantity', s.quantity
+            )
+        ) AS stock_array
+    FROM stock s
+    JOIN colors c ON s.colorid = c.colorid
+    JOIN sizes sz ON s.sizeid = sz.sizeid
+    GROUP BY s.productid
+), productCategory as (
+select
+categoryid, productid from productcategories pc
+)
+SELECT 
+    p.productid, 
+      p.productname,
+      p.productdescription,
+      p.productimages, 
+      p.productprice, 
+      p.productdiscount,
+      p.newproduct,
+      pc.categoryid,
+    COALESCE(pr.voters, 0) AS voters, COALESCE(pr.stars, 0) AS stars, COALESCE(ps.stock_array,'[]'::jsonb) AS stock
+FROM products p
+LEFT JOIN ProductRatings pr ON p.productid = pr.productid
+LEFT JOIN ProductStock ps ON p.productid = ps.productid
+left join productcategories pc on pc.productid = p.productid
+  `;
+
+  return data;
+}
+
+export async function fetchColors() {
+  const colors = await sql<{ colorid: number; colorhex: string }[]>`
+  select * from colors
+  `;
+
+  return colors;
+}
+
+export async function fetchSizes() {
+  const sizes = await sql<{ sizeid: number; size: string }[]>`
+  select * from sizes
+  `;
+
+  return sizes;
 }

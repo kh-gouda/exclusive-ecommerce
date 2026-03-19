@@ -16,7 +16,7 @@ export default function DashBoardSideNav() {
             })}
             href={`/dashboard`}
           >
-            Home
+            Dashboard Home
           </Link>
         </li>
         <li className="my-2">
@@ -32,21 +32,11 @@ export default function DashBoardSideNav() {
         <li className="my-2">
           <Link
             className={clsx("text-gray-500", {
-              "text-identity": pathname.endsWith("add-product"),
+              "text-identity": pathname.endsWith("add-new"),
             })}
-            href={`/dashboard/add-product`}
+            href={`/dashboard/products/add-new`}
           >
-            Add Product
-          </Link>
-        </li>
-        <li className="my-2">
-          <Link
-            className={clsx("text-gray-500", {
-              "text-identity": pathname.endsWith("edit-product"),
-            })}
-            href={`/dashboard/edit-product`}
-          >
-            Edit Product
+            Add New Product
           </Link>
         </li>
       </ul>
