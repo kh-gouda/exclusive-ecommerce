@@ -26,12 +26,12 @@ export default async function Checkout(props: { searchParams: SearchParams }) {
 
   if (!order.length) {
     return (
-      <main className="pt-20 pb-35">
+      <div className="pt-20 pb-35">
         <Container>
           <SectionTitle weight={500}>Billing Details</SectionTitle>
           <div className="text-identity">No Order Meet This OrderId</div>
         </Container>
-      </main>
+      </div>
     );
   }
 
@@ -56,12 +56,12 @@ export default async function Checkout(props: { searchParams: SearchParams }) {
   };
 
   return (
-    <main className="pt-20 pb-35">
+    <div className="pt-20 pb-35">
       <Container>
         <BreadCrumbs />
         <SectionTitle weight={500}>Billing Details</SectionTitle>
         <CheckoutForm orderDetails={orderDetails} />
       </Container>
-    </main>
+    </div>
   );
 }

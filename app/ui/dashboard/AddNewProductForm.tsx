@@ -1,7 +1,11 @@
 "use client";
 
+import { addNewProduct } from "@/app/actions/addNewProduct";
+import { uploadProductImages } from "@/app/actions/uploadProductImages";
+import { deleteMultipleImages } from "@/app/lib/cloudinaryDelete";
 import { FETCHED_CATEGORY_TYPE } from "@/app/lib/typeDefinitions";
 import { TrashIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, MouseEvent, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -16,6 +20,8 @@ export default function AddNewProductForm({
   colors: { colorid: number; colorhex: string }[];
   sizes: { sizeid: number; size: string }[];
 }) {
+  const router = useRouter();
+  const notifySuccess = () => toast.success("Product Added Successfully");
   const notifyEror = (error: string) => toast.error(error);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -33,8 +39,6 @@ export default function AddNewProductForm({
     prop: string,
     color?: string,
   ) => {
-    console.log(color);
-
     const newStock = stock.map((stock) => {
       if (stock.stockId === id) {
         if (color && e.target.dataset) {
@@ -78,8 +82,70 @@ export default function AddNewProductForm({
     ];
     setStock(newStock);
   };
+
+  // const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  // };
+
+  const handleSubmit = async (formData: FormData) => {
+    // e: SubmitEvent<HTMLFormElement>
+    // e.preventDefault()
+    const product = {
+      name: name,
+      description: description,
+      price: price,
+      discount: discount,
+      category: category,
+      subCategory: subCategory,
+      stock: stock,
+      images: [""],
+    };
+
+    try {
+      const validStock = stock.map((stock) => {
+        if (!stock.sizeid || !stock.colorid || !stock.quantity) {
+          return "notValid";
+        } else {
+          return "valid";
+        }
+      });
+
+      if (
+        !name ||
+        !description ||
+        !price ||
+        !category ||
+        !subCategory ||
+        validStock.includes("notValid")
+      ) {
+        throw new Error("All Required Fields Cant Be Empty");
+      }
+
+      const imagesUpload = await uploadProductImages(formData);
+      if (!imagesUpload.success) {
+        throw new Error("Image upload failed");
+      }
+      product.images = imagesUpload.publicIds;
+
+      const insertedProduct = await addNewProduct(product);
+      if (insertedProduct.success) {
+        notifySuccess();
+        router.push("/dashboard/products");
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyEror(error.message);
+      const imagesToDelete = product.images.filter((image) => image !== "");
+      if (imagesToDelete.length) {
+        await deleteMultipleImages(product.images);
+      }
+    }
+  };
+
   return (
-    <form action="">
+    <form
+      action={handleSubmit}
+      // onSubmit={(e: SubmitEvent<HTMLFormElement>, formData: FormData) => handleSubmit(e, formData)}
+    >
       <div className="mb-6">
         <label htmlFor="name">
           Product Name <span className="text-identity">(*)</span>
@@ -149,7 +215,7 @@ export default function AddNewProductForm({
           name="category"
           id="category"
           className="profile-form-input"
-          defaultValue={category}
+          value={category}
           onChange={(e: ChangeEvent<HTMLSelectElement>) =>
             setCategory(Number(e.target.value))
           }
@@ -170,7 +236,7 @@ export default function AddNewProductForm({
           name="subCategory"
           id="subCategory"
           className="profile-form-input"
-          defaultValue={subCategory}
+          value={subCategory}
           onChange={(e: ChangeEvent<HTMLSelectElement>) =>
             setSubCategory(Number(e.target.value))
           }
@@ -197,7 +263,7 @@ export default function AddNewProductForm({
               name={`size-${stock.stockId}`}
               id={`size-${stock.stockId}`}
               className="profile-form-input"
-              defaultValue={stock.sizeid}
+              value={stock.sizeid}
               onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                 handleChangeStock(e, stock.stockId, "sizeid")
               }
@@ -219,7 +285,7 @@ export default function AddNewProductForm({
               id={`color-${stock.stockId}`}
               className="profile-form-input"
               style={{ backgroundColor: stock.colorHex }}
-              defaultValue={stock.colorid}
+              value={stock.colorid}
               onChange={(e: ChangeEvent<HTMLSelectElement>) =>
                 handleChangeStock(
                   e,
@@ -286,6 +352,7 @@ export default function AddNewProductForm({
           name="images"
           className="profile-form-input"
           multiple
+          accept="image/*"
         />
       </div>
       <div className="mb-6 flex items-center gap-2 justify-end">

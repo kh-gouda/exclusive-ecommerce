@@ -732,12 +732,14 @@ SELECT
       p.productprice, 
       p.productdiscount,
       p.newproduct,
+      p.editable,
       pc.categoryid,
     COALESCE(pr.voters, 0) AS voters, COALESCE(pr.stars, 0) AS stars, COALESCE(ps.stock_array,'[]'::jsonb) AS stock
 FROM products p
 LEFT JOIN ProductRatings pr ON p.productid = pr.productid
 LEFT JOIN ProductStock ps ON p.productid = ps.productid
 left join productcategories pc on pc.productid = p.productid
+order by p.productid desc
   `;
 
   return data;

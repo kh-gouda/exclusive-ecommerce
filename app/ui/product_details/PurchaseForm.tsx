@@ -96,7 +96,12 @@ export default function PurchaseForm({
   async function handleBuyNow() {
     try {
       if (session && userId) {
-        const insertedOrder = await addOrder(Number(userId), "", 0);
+        const insertedOrder = await addOrder(
+          Number(userId),
+          "",
+          0,
+          orderInfo.price * orderQuantity,
+        );
 
         const cartProducts = [
           {

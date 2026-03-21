@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <main className="flex items-center gap-25 min-h-195 mt-15 mb-35 flex-wrap">
+    <div className="flex items-center gap-25 min-h-195 mt-15 mb-35 flex-wrap">
       <Image
         width={805}
         height={781}
@@ -12,6 +12,6 @@ export default function Layout({ children }: { children: ReactNode }) {
         alt="shopping car"
       />
       <div>{children}</div>
-    </main>
+    </div>
   );
 }

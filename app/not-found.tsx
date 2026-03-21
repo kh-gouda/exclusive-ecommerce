@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <Container>
-      <main className="py-35 flex flex-col items-center justify-center">
+      <div className="py-35 flex flex-col items-center justify-center">
         <SectionTitle size="110px" weight={500}>
           404 Not Found
         </SectionTitle>
@@ -15,7 +15,7 @@ export default function NotFound() {
         <Link href="/" className="shared-btn shared-btn-solid">
           Back to home page
         </Link>
-      </main>
+      </div>
     </Container>
   );
 }

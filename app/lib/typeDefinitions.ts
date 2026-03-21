@@ -158,6 +158,7 @@ export type FETCHED_PRODUCT_BY_ID_TYPE = {
     color: string;
     quantity: number;
   }[];
+  editable: boolean;
 };
 
 export type FETCHED_STAFF_TYPE = {
@@ -240,4 +241,21 @@ export type FETCHED_USER_ORDERS = {
   totalamount: string;
   stripe_session_id: string;
   stripe_session_expires_at: string;
+};
+
+export type NEW_PRODUCT_TYPE = {
+  name: string;
+  description: string;
+  price: number;
+  discount: number;
+  category: number;
+  subCategory: number;
+  stock: {
+    stockId: string;
+    sizeid: number;
+    colorid: number;
+    colorHex: string;
+    quantity: number;
+  }[];
+  images: string[];
 };

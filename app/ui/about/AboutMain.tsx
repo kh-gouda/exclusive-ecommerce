@@ -2,7 +2,7 @@ import SectionTitle from "@ui/shared/SectionTitle";
 
 export default function AboutMain() {
   return (
-    <main className="flex *:flex-1 min-h-176.25 gap-25 pt-20 pb-35">
+    <div className="flex *:flex-1 min-h-176.25 gap-25 pt-20 pb-35">
       <div className="flex items-center justify-end">
         <div className="max-w-131.25">
           <SectionTitle size="54px" weight={500}>
@@ -23,6 +23,6 @@ export default function AboutMain() {
         </div>
       </div>
       <div className="bg-about-area rounded-l-sm"></div>
-    </main>
+    </div>
   );
 }

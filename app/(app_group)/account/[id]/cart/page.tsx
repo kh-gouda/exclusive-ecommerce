@@ -30,7 +30,7 @@ export default async function CartPage() {
   });
 
   return (
-    <main className="pt-20 pb-35">
+    <div className="pt-20 pb-35">
       <Container>
         <BreadCrumbs />
         <section className="mt-20">
@@ -43,6 +43,6 @@ export default async function CartPage() {
         </section>
         <CartDetails userid={Number(session.user.id)} products={cartProducts} />
       </Container>
-    </main>
+    </div>
   );
 }

@@ -25,10 +25,10 @@ export default async function AccountLayout({
           Welcome! <span className="text-identity text-sm">{username}</span>
         </div>
       </section>
-      <main className="flex gap-25 pt-20 pb-35">
+      <div className="flex gap-25 pt-20 pb-35">
         <AccountSideNav />
         <div className="flex-1 shadow p-10 rounded-sm">{children}</div>
-      </main>
+      </div>
     </Container>
   );
 }

@@ -113,7 +113,6 @@ export default function EditProfileForm() {
     }
   }
 
-  console.log(error);
 
   return (
     <form
