@@ -161,6 +161,27 @@ export type FETCHED_PRODUCT_BY_ID_TYPE = {
   editable: boolean;
 };
 
+export type FETCHED_DASHBOARD_PRODUCT_BY_ID_TYPE = {
+  productid: number;
+  productname: string;
+  productdescription: string;
+  productimages: string[];
+  productprice: string;
+  productdiscount: number;
+  newproduct: boolean;
+  editable: boolean;
+  categoryid: number;
+  subcategoryid: number;
+  stock: {
+    stockid: number;
+    size: string;
+    color: string;
+    sizeid: number;
+    colorid: number;
+    quantity: number;
+  }[];
+};
+
 export type FETCHED_STAFF_TYPE = {
   id: number;
   name: string;
