@@ -1,10 +1,17 @@
 "use client";
 import {
+  updateProductDescription,
+  updateProductDiscount,
+  updateProductName,
+  updateProductPrice,
+} from "@/app/actions/editProduct";
+import {
   FETCHED_CATEGORY_TYPE,
   FETCHED_DASHBOARD_PRODUCT_BY_ID_TYPE,
 } from "@/app/lib/typeDefinitions";
 import ImagesPreview from "@ui/product_details/ImagesPreview";
 import { ChangeEvent, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function EditProductForm({
   product,
@@ -19,6 +26,8 @@ export default function EditProductForm({
   colors: { colorid: number; colorhex: string }[];
   sizes: { sizeid: number; size: string }[];
 }) {
+  const notifySuccess = (msg: string) => toast.success(msg);
+  const notifyError = (error: string) => toast.error(error);
   const [name, setName] = useState(product.productname);
   const [editName, setEditName] = useState(false);
   const handleEditName = () => {
@@ -28,8 +37,14 @@ export default function EditProductForm({
     setName(product.productname);
     setEditName(false);
   };
-  const handleSaveName = () => {
-    setEditName(false);
+  const handleSaveName = async () => {
+    try {
+      await updateProductName(product.productid, name);
+      notifySuccess("Product Name Changed Successfully");
+      location.reload();
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
   };
 
   const [description, setDescription] = useState(product.productdescription);
@@ -41,8 +56,14 @@ export default function EditProductForm({
     setDescription(product.productdescription);
     setEditDescription(false);
   };
-  const handleSaveDescription = () => {
-    setEditDescription(false);
+  const handleSaveDescription = async () => {
+    try {
+      await updateProductDescription(product.productid, description);
+      notifySuccess("Product Description Changed Successfully");
+      location.reload();
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
   };
 
   const [price, setPrice] = useState(product.productprice);
@@ -54,8 +75,13 @@ export default function EditProductForm({
     setPrice(product.productprice);
     setEditPrice(false);
   };
-  const handleSavePrice = () => {
-    setEditPrice(false);
+  const handleSavePrice = async () => {
+    try {
+      await updateProductPrice(product.productid, Number(price));
+      notifySuccess("Product Price Changed Successfully");
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
   };
 
   const [discount, setDiscount] = useState(product.productdiscount);
@@ -67,8 +93,14 @@ export default function EditProductForm({
     setDiscount(product.productdiscount);
     setEditDiscount(false);
   };
-  const handleSaveDiscount = () => {
-    setEditDiscount(false);
+  const handleSaveDiscount = async () => {
+    try {
+      await updateProductDiscount(product.productid, discount);
+      notifySuccess("Product Discount Changed Successfully");
+      location.reload();
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
   };
 
   const [category, setCategory] = useState(
@@ -92,6 +124,7 @@ export default function EditProductForm({
   };
   const handleSaveCategory = () => {
     setEditCategory(false);
+    notifySuccess("Product Category Changed Successfully");
   };
 
   const [subCategory, setSubCategory] = useState(
@@ -115,32 +148,104 @@ export default function EditProductForm({
   };
   const handleSaveSubCategory = () => {
     setEditSubCategory(false);
+    notifySuccess("Product SubCategory Changed Successfully");
   };
 
   const [stock, setStock] = useState(product.stock);
-  const [editStock, setEditStock] = useState(false);
-  const handleEditStock = () => {
-    setEditStock(true);
+  const [editStock, setEditStock] = useState(0);
+  const handleEditStock = (stockID: number) => {
+    setEditStock(stockID);
   };
   const handleCancelEditStock = () => {
     setStock(product.stock);
-    setEditStock(false);
+    setEditStock(0);
   };
   const handleSaveStock = () => {
-    setEditStock(false);
+    setEditStock(0);
+    notifySuccess("Product Stock Changed Successfully");
   };
 
-  const [newStock, setNewStock] = useState([
+  const [newStock, setNewStock] = useState<
     {
-      id: 1,
-      size: "string",
-      color: "string",
-      sizeid: 0,
-      colorid: 0,
-      quantity: 0,
-    },
-  ]);
-  const [addNewStock, setAddNewStock] = useState(false);
+      stockid: number;
+      size: string;
+      color: string;
+      sizeid: number;
+      colorid: number;
+      quantity: number;
+    }[]
+  >([]);
+  const handleAddNewStock = () => {
+    const newStockId = newStock.length
+      ? newStock[newStock.length - 1].stockid > stock[stock.length - 1].stockid
+        ? newStock[newStock.length - 1].stockid + 1
+        : stock[stock.length - 1].stockid + 1
+      : stock[stock.length - 1].stockid + 1;
+
+    const addedNewStock = [
+      ...newStock,
+      {
+        stockid: newStockId,
+        size: "",
+        color: "",
+        sizeid: 0,
+        colorid: 0,
+        quantity: 0,
+      },
+    ];
+    setNewStock(addedNewStock);
+  };
+  const handleChangeNewStock = (
+    stockId: number,
+    prop1: string,
+    val1: number,
+    prop2?: string,
+    val2?: string,
+  ) => {
+    const changedStock = newStock.map((stock) => {
+      if (stock.stockid === stockId) {
+        if (prop2 && val2) {
+          return { ...stock, [prop1]: val1, [prop2]: val2 };
+        }
+        return { ...stock, [prop1]: val1 };
+      }
+      return stock;
+    });
+    setNewStock(changedStock);
+  };
+
+  const handleCancelAddNewStock = (stockId: number) => {
+    const cancelledNewStock = newStock.filter(
+      (stock) => stock.stockid !== stockId,
+    );
+    setNewStock(cancelledNewStock);
+  };
+  const handleSaveNewStock = (newStock: {
+    stockid: number;
+    size: string;
+    color: string;
+    sizeid: number;
+    colorid: number;
+    quantity: number;
+  }) => {
+    try {
+      if (
+        !newStock.sizeid ||
+        !newStock.size ||
+        !newStock.colorid ||
+        !newStock.color ||
+        !newStock.quantity
+      ) {
+        throw new Error("All Stock Data Should be Provided");
+      }
+      const savedNewStock = [...stock, newStock];
+      setStock(savedNewStock);
+      handleCancelAddNewStock(newStock.stockid);
+      notifySuccess("Product New Stock Added Successfully");
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
+  };
 
   return (
     <>
@@ -148,281 +253,302 @@ export default function EditProductForm({
         <ImagesPreview images={product.productimages} />
       </div>
       <div className="edit-product-container">
-        <p className="edit-product-title">Product Name :-</p>
-        {!editName ? (
-          <>
-            <p className="edit-data">{name}</p>
+        <div className="flex items-center justify-between">
+          <p className="edit-product-title">Product Name :-</p>
+          {!editName ? (
             <button
               className="text-green-600 cursor-pointer"
               onClick={handleEditName}
             >
               Edit
             </button>
-          </>
+          ) : (
+            <div>
+              <button
+                className="text-identity cursor-pointer mr-4"
+                onClick={handleCancelEditName}
+              >
+                Cancel
+              </button>
+              <button
+                className="text-green-600 cursor-pointer"
+                onClick={handleSaveName}
+              >
+                Save
+              </button>
+            </div>
+          )}
+        </div>
+        {!editName ? (
+          <p className="edit-data">{name}</p>
         ) : (
-          <>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={name}
-              className="profile-form-input"
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setName(e.target.value)
-              }
-            />
-            <button
-              className="text-identity cursor-pointer"
-              onClick={handleCancelEditName}
-            >
-              Cancel
-            </button>
-            <button
-              className="text-green-600 cursor-pointer"
-              onClick={handleSaveName}
-            >
-              Save
-            </button>
-          </>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={name}
+            className="profile-form-input"
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setName(e.target.value)
+            }
+          />
         )}
       </div>
       <div className="edit-product-container">
-        <p className="edit-product-title">Product Description :-</p>
-        {!editDescription ? (
-          <>
-            <p className="edit-data">{description}</p>
+        <div className="flex items-center justify-between">
+          <p className="edit-product-title">Product Description :-</p>
+          {!editDescription ? (
             <button
               className="text-green-600 cursor-pointer"
               onClick={handleEditDescription}
             >
               Edit
             </button>
-          </>
+          ) : (
+            <div>
+              <button
+                className="text-identity cursor-pointer mr-4"
+                onClick={handleCancelEditDescription}
+              >
+                Cancel
+              </button>
+              <button
+                className="text-green-600 cursor-pointer"
+                onClick={handleSaveDescription}
+              >
+                Save
+              </button>
+            </div>
+          )}
+        </div>
+        {!editDescription ? (
+          <p className="edit-data">{description}</p>
         ) : (
-          <>
-            <input
-              type="text"
-              name="description"
-              id="description"
-              value={description}
-              className="profile-form-input"
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setDescription(e.target.value)
-              }
-            />
-            <button
-              className="text-identity cursor-pointer"
-              onClick={handleCancelEditDescription}
-            >
-              Cancel
-            </button>
-            <button
-              className="text-green-600 cursor-pointer"
-              onClick={handleSaveDescription}
-            >
-              Save
-            </button>
-          </>
+          <input
+            type="text"
+            name="description"
+            id="description"
+            value={description}
+            className="profile-form-input"
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setDescription(e.target.value)
+            }
+          />
         )}
       </div>
       <div className="edit-product-container">
-        <p className="edit-product-title">Product Price :-</p>
-        {!editPrice ? (
-          <>
-            <p className="edit-data">$ {price}</p>
+        <div className="flex items-center justify-between">
+          <p className="edit-product-title">Product Price :-</p>
+          {!editPrice ? (
             <button
               className="text-green-600 cursor-pointer"
               onClick={handleEditPrice}
             >
               Edit
             </button>
-          </>
+          ) : (
+            <div>
+              <button
+                className="text-identity cursor-pointer mr-4"
+                onClick={handleCancelEditPrice}
+              >
+                Cancel
+              </button>
+              <button
+                className="text-green-600 cursor-pointer"
+                onClick={handleSavePrice}
+              >
+                Save
+              </button>
+            </div>
+          )}
+        </div>
+        {!editPrice ? (
+          <p className="edit-data">$ {price}</p>
         ) : (
-          <>
-            <input
-              type="number"
-              name="price"
-              id="price"
-              value={price}
-              className="profile-form-input"
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setPrice(e.target.value)
-              }
-            />
-            <button
-              className="text-identity cursor-pointer"
-              onClick={handleCancelEditPrice}
-            >
-              Cancel
-            </button>
-            <button
-              className="text-green-600 cursor-pointer"
-              onClick={handleSavePrice}
-            >
-              Save
-            </button>
-          </>
+          <input
+            type="number"
+            name="price"
+            id="price"
+            value={price}
+            className="profile-form-input"
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setPrice(e.target.value)
+            }
+          />
         )}
       </div>
       <div className="edit-product-container">
-        <p className="edit-product-title">Product Discount :-</p>
-        {!editDiscount ? (
-          <>
-            <p className="edit-data">% {discount}</p>
+        <div className="flex items-center justify-between">
+          <p className="edit-product-title">Product Discount :-</p>
+          {!editDiscount ? (
             <button
               className="text-green-600 cursor-pointer"
               onClick={handleEditDiscount}
             >
               Edit
             </button>
-          </>
+          ) : (
+            <div>
+              <button
+                className="text-identity cursor-pointer mr-4"
+                onClick={handleCancelEditDiscount}
+              >
+                Cancel
+              </button>
+              <button
+                className="text-green-600 cursor-pointer"
+                onClick={handleSaveDiscount}
+              >
+                Save
+              </button>
+            </div>
+          )}
+        </div>
+        {!editDiscount ? (
+          <p className="edit-data">% {discount}</p>
         ) : (
-          <>
-            <input
-              type="number"
-              name="discount"
-              id="discount"
-              value={discount}
-              className="profile-form-input"
-              onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                setDiscount(Number(e.target.value))
-              }
-            />
-            <button
-              className="text-identity cursor-pointer"
-              onClick={handleCancelEditDiscount}
-            >
-              Cancel
-            </button>
-            <button
-              className="text-green-600 cursor-pointer"
-              onClick={handleSaveDiscount}
-            >
-              Save
-            </button>
-          </>
+          <input
+            type="number"
+            name="discount"
+            id="discount"
+            value={discount}
+            className="profile-form-input"
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setDiscount(Number(e.target.value))
+            }
+          />
         )}
       </div>
       <div className="edit-product-container">
-        <p className="edit-product-title">Product Category :-</p>
-        {!editCategory ? (
-          <>
-            <p className="edit-data">{category.category}</p>
+        <div className="flex items-center justify-between">
+          <p className="edit-product-title">Product Category :-</p>
+          {!editCategory ? (
             <button
               className="text-green-600 cursor-pointer"
               onClick={handleEditCategory}
             >
               Edit
             </button>
-          </>
+          ) : (
+            <div>
+              <button
+                className="text-identity cursor-pointer mr-4"
+                onClick={handleCancelEditCategory}
+              >
+                Cancel
+              </button>
+              <button
+                className="text-green-600 cursor-pointer"
+                onClick={handleSaveCategory}
+              >
+                Save
+              </button>
+            </div>
+          )}
+        </div>
+        {!editCategory ? (
+          <p className="edit-data">{category.category}</p>
         ) : (
-          <>
-            <select
-              name="category"
-              id="category"
-              value={category.categoryid}
-              className="profile-form-input"
-              onChange={(e: ChangeEvent<HTMLSelectElement>) => {
-                const selectedCategory = categories.filter(
-                  (category) => category.categoryid === Number(e.target.value),
-                )[0];
-                setCategory(selectedCategory);
-              }}
-            >
-              {categories.map((category) => (
-                <option key={category.categoryid} value={category.categoryid}>
-                  {category.category}
-                </option>
-              ))}
-            </select>
-            <button
-              className="text-identity cursor-pointer"
-              onClick={handleCancelEditCategory}
-            >
-              Cancel
-            </button>
-            <button
-              className="text-green-600 cursor-pointer"
-              onClick={handleSaveCategory}
-            >
-              Save
-            </button>
-          </>
+          <select
+            name="category"
+            id="category"
+            value={category.categoryid}
+            className="profile-form-input"
+            onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+              const selectedCategory = categories.filter(
+                (category) => category.categoryid === Number(e.target.value),
+              )[0];
+              setCategory(selectedCategory);
+            }}
+          >
+            <option value="0">Select Category</option>
+            {categories.map((category) => (
+              <option key={category.categoryid} value={category.categoryid}>
+                {category.category}
+              </option>
+            ))}
+          </select>
         )}
       </div>
       <div className="edit-product-container">
-        <p className="edit-product-title">Product SubCategory :-</p>
-        {!editSubCategory ? (
-          <>
-            <p className="edit-data">{subCategory.subcategory}</p>
+        <div className="flex items-center justify-between">
+          <p className="edit-product-title">Product SubCategory :-</p>
+          {!editSubCategory ? (
             <button
               className="text-green-600 cursor-pointer"
               onClick={handleEditSubCategory}
             >
               Edit
             </button>
-          </>
+          ) : (
+            <div>
+              <button
+                className="text-identity cursor-pointer mr-4"
+                onClick={handleCancelEditSubCategory}
+              >
+                Cancel
+              </button>
+              <button
+                className="text-green-600 cursor-pointer"
+                onClick={handleSaveSubCategory}
+              >
+                Save
+              </button>
+            </div>
+          )}
+        </div>
+        {!editSubCategory ? (
+          <p className="edit-data">{subCategory.subcategory}</p>
         ) : (
-          <>
-            <select
-              name="subCategory"
-              id="subCategory"
-              value={subCategory.subcategoryid}
-              className="profile-form-input"
-              onChange={(e: ChangeEvent<HTMLSelectElement>) => {
-                const selectedSubCategory = subcategories.filter(
-                  (subCategory) =>
-                    subCategory.subcategoryid === Number(e.target.value),
-                )[0];
-                setSubCategory(selectedSubCategory);
-              }}
-            >
-              {subcategories.map((subcategory) => (
-                <option
-                  key={subcategory.subcategoryid}
-                  value={subcategory.subcategoryid}
-                >
-                  {subcategory.subcategory}
-                </option>
-              ))}
-            </select>
-            <button
-              className="text-identity cursor-pointer"
-              onClick={handleCancelEditSubCategory}
-            >
-              Cancel
-            </button>
-            <button
-              className="text-green-600 cursor-pointer"
-              onClick={handleSaveSubCategory}
-            >
-              Save
-            </button>
-          </>
+          <select
+            name="subCategory"
+            id="subCategory"
+            value={subCategory.subcategoryid}
+            className="profile-form-input"
+            onChange={(e: ChangeEvent<HTMLSelectElement>) => {
+              const selectedSubCategory = subcategories.filter(
+                (subCategory) =>
+                  subCategory.subcategoryid === Number(e.target.value),
+              )[0];
+              setSubCategory(selectedSubCategory);
+            }}
+          >
+            <option value="0">Select SubCategory</option>
+            {subcategories.map((subcategory) => (
+              <option
+                key={subcategory.subcategoryid}
+                value={subcategory.subcategoryid}
+              >
+                {subcategory.subcategory}
+              </option>
+            ))}
+          </select>
         )}
       </div>
-      <div>
-        <p className="edit-product-title">Product Stock :-</p>
-
+      <div className="edit-product-container">
+        <div className="flex items-center justify-between">
+          <p className="edit-product-title">Product Stock :-</p>
+        </div>
         {stock.map((stockItem) => (
           <div
             key={stockItem.stockid}
-            className="edit-product-container justify-evenly"
+            className="flex items-center justify-evenly"
           >
-            <div className="edit-product-container">
+            <div className="flex items-center gap-2">
               <p className="edit-product-title">Size :-</p>
               <p>{stockItem.size}</p>
             </div>
-            <div className="edit-product-container">
+            <div className="flex items-center gap-2">
               <p className="edit-product-title">Color :-</p>
               <p
                 className="w-7.5 h-7.5 rounded-full"
                 style={{ backgroundColor: stockItem.color }}
               ></p>
             </div>
-            <div className="edit-product-container">
+            <div className="flex items-center gap-2">
               <p className="edit-product-title">Quantity :-</p>
-              {!editStock ? (
+              {editStock !== stockItem.stockid ? (
                 <p className="edit-data">{stockItem.quantity}</p>
               ) : (
                 <input
@@ -442,17 +568,17 @@ export default function EditProductForm({
                 />
               )}
             </div>
-            {!editStock ? (
+            {editStock !== stockItem.stockid ? (
               <button
                 className="text-green-600 cursor-pointer"
-                onClick={handleEditStock}
+                onClick={() => handleEditStock(stockItem.stockid)}
               >
                 Edit
               </button>
             ) : (
               <>
                 <button
-                  className="text-identity cursor-pointer"
+                  className="text-identity cursor-pointer mr-4"
                   onClick={handleCancelEditStock}
                 >
                   Cancel
@@ -467,30 +593,118 @@ export default function EditProductForm({
             )}
           </div>
         ))}
-        {newStock.length ? (
-          <div>
-            <p className="edit-product-title">New Stock Variants :-</p>
-            {newStock.map((stock) => (
-              <div
-                key={stock.id}
-                className="edit-product-container justify-evenly"
-              >
-                <div className="edit-product-container">
-                  <p className="edit-product-title">Size :-</p>
-                  <p>{stock.size}</p>
-                </div>
-                <div className="edit-product-container">
-                  <p className="edit-product-title">Color :-</p>
-                  <p>{stock.color}</p>
-                </div>
-                <div className="edit-product-container">
-                  <p className="edit-product-title">Quantity :-</p>
-                  <p>{stock.quantity}</p>
-                </div>
+      </div>
+      {newStock.length ? (
+        <div className="edit-product-container">
+          <p className="edit-product-title">New Stock Variants :-</p>
+          {newStock.map((stock) => (
+            <div
+              key={stock.stockid}
+              className="flex items-center justify-evenly my-7.5"
+            >
+              <div className="flex items-center gap-2">
+                <p className="edit-product-title">Size :-</p>
+                <select
+                  name={`stock-${stock.stockid}-size`}
+                  id={`stock-${stock.stockid}-size`}
+                  value={stock.sizeid}
+                  onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                    handleChangeNewStock(
+                      stock.stockid,
+                      "sizeid",
+                      Number(e.target.value),
+                      "size",
+                      e.target[e.target.selectedIndex].getAttribute(
+                        "data-size",
+                      ) || "",
+                    )
+                  }
+                >
+                  <option value="0">Select Size</option>
+                  {sizes.map((size) => (
+                    <option
+                      key={size.sizeid}
+                      value={size.sizeid}
+                      data-size={size.size}
+                    >
+                      {size.size}
+                    </option>
+                  ))}
+                </select>
               </div>
-            ))}
-          </div>
-        ) : null}
+              <div className="flex items-center gap-2">
+                <p className="edit-product-title">Color :-</p>
+                <select
+                  name={`stock-${stock.stockid}-color`}
+                  id={`stock-${stock.stockid}-color`}
+                  value={stock.colorid}
+                  onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                    handleChangeNewStock(
+                      stock.stockid,
+                      "colorid",
+                      Number(e.target.value),
+                      "color",
+                      e.target[e.target.selectedIndex].getAttribute(
+                        "data-color",
+                      ) || "",
+                    )
+                  }
+                >
+                  <option value="0">Select Color</option>
+                  {colors.map((color) => (
+                    <option
+                      key={color.colorid}
+                      value={color.colorid}
+                      data-color={color.colorhex}
+                      style={{
+                        backgroundColor: color.colorhex,
+                      }}
+                    >
+                      {color.colorhex}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="flex items-center gap-2">
+                <p className="edit-product-title">Quantity :-</p>
+                <input
+                  type="number"
+                  name={`stock-${stock.stockid}-quantity`}
+                  id={`stock-${stock.stockid}-quantity`}
+                  value={stock.quantity}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                    handleChangeNewStock(
+                      stock.stockid,
+                      "quantity",
+                      Number(e.target.value),
+                    )
+                  }
+                />
+              </div>
+              <button
+                className="text-identity cursor-pointer"
+                onClick={() => handleCancelAddNewStock(stock.stockid)}
+              >
+                Cancel
+              </button>
+              <button
+                className="text-green-600 cursor-pointer mr-4"
+                onClick={() => handleSaveNewStock(stock)}
+              >
+                Save
+              </button>
+            </div>
+          ))}
+        </div>
+      ) : null}
+      <div className="mb-6 flex items-center justify-end">
+        <button
+          className="shared-btn shared-btn-transparent"
+          role="button"
+          onClick={handleAddNewStock}
+        >
+          Add Stock Variants
+        </button>
       </div>
     </>
   );
