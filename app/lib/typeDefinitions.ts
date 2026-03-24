@@ -280,3 +280,18 @@ export type NEW_PRODUCT_TYPE = {
   }[];
   images: string[];
 };
+
+export type FETCHED_DASHBOARD_ORDERS = {
+  orderid: number;
+  userid: number;
+  orderstatus: string;
+  orderdate: string;
+  paymentmethod: string;
+  appliedcoupon: string;
+  appliedcoupondiscount: number;
+  orderpaid: boolean;
+  orderconfirmed: boolean;
+  totalamount: string;
+  stripe_session_id: string;
+  stripe_session_expires_at: string;
+};

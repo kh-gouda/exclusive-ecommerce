@@ -3,6 +3,7 @@ import {
   FETCHED_AD_TYPE,
   FETCHED_BEST_SELLING_PRODUCT_TYPE,
   FETCHED_CATEGORY_TYPE,
+  FETCHED_DASHBOARD_ORDERS,
   FETCHED_DASHBOARD_PRODUCT_BY_ID_TYPE,
   FETCHED_NEW_ARRIVALS_TYPE,
   FETCHED_NEW_COLLECTION_TYPE,
@@ -802,4 +803,84 @@ export async function fetchSizes() {
   `;
 
   return sizes;
+}
+
+export async function countProducts() {
+  const count = await sql`
+  select count(1) from products
+  `;
+
+  return count;
+}
+
+export async function countUsers() {
+  const count = await sql`
+  select count(1) from users
+  `;
+
+  return count;
+}
+
+export async function countActiveUsers() {
+  const count = await sql`
+  select count(distinct userid) from orders
+  `;
+
+  return count;
+}
+
+export async function sumTotalOrderAmounts() {
+  const total = await sql`
+  select sum(totalamount) from orders
+  `;
+
+  return total;
+}
+
+export async function sumTotalOrderAmountsCurrentYear() {
+  const total = await sql`
+  select sum(totalamount) from orders
+  WHERE orderdate >= DATE_TRUNC('year', CURRENT_DATE)
+  AND orderdate < DATE_TRUNC('year', CURRENT_DATE) + INTERVAL '1 year';
+  `;
+
+  return total;
+}
+
+export async function fetchRevenueChartData() {
+  const data = await sql`
+SELECT 
+    TO_CHAR(orderdate, 'Mon') AS month,
+    SUM(totalamount) AS totalamount
+FROM orders
+WHERE EXTRACT(YEAR FROM orderdate) = EXTRACT(YEAR FROM CURRENT_DATE)
+GROUP BY EXTRACT(MONTH FROM orderdate), TO_CHAR(orderdate, 'Mon')
+ORDER BY EXTRACT(MONTH FROM orderdate)`;
+
+  return data;
+}
+
+export const generateYAxis = (
+  revenue: { month: string; totalamount: number }[],
+) => {
+  // Calculate what labels we need to display on the y-axis
+  // based on highest record and in 1000s
+  const yAxisLabels = [];
+  const highestRecord = Math.max(...revenue.map((month) => month.totalamount));
+  const topLabel = Math.ceil(highestRecord / 1000) * 1000;
+
+  for (let i = topLabel; i >= 0; i -= 1000) {
+    yAxisLabels.push(`$${i / 1000}K`);
+  }
+
+  return { yAxisLabels, topLabel };
+};
+
+export async function fetchDashBoardOrders() {
+  const orders = await sql<FETCHED_DASHBOARD_ORDERS[]>`
+  select * from orders
+  order by orderid desc
+  `;
+
+  return orders;
 }

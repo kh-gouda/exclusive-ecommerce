@@ -39,6 +39,16 @@ export default function DashBoardSideNav() {
             Add New Product
           </Link>
         </li>
+        <li className="my-2">
+          <Link
+            className={clsx("text-gray-500", {
+              "text-identity": pathname.endsWith("orders"),
+            })}
+            href={`/dashboard/orders`}
+          >
+            Orders
+          </Link>
+        </li>
       </ul>
     </div>
   );

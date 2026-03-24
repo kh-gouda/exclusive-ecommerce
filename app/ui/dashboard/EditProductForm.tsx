@@ -1,9 +1,13 @@
 "use client";
 import {
+  addNewStock,
+  updateProductCategory,
   updateProductDescription,
   updateProductDiscount,
   updateProductName,
   updateProductPrice,
+  updateProductStock,
+  updateProductSubCategory,
 } from "@/app/actions/editProduct";
 import {
   FETCHED_CATEGORY_TYPE,
@@ -79,6 +83,7 @@ export default function EditProductForm({
     try {
       await updateProductPrice(product.productid, Number(price));
       notifySuccess("Product Price Changed Successfully");
+      location.reload();
     } catch (error: unknown) {
       if (error instanceof Error) notifyError(error.message);
     }
@@ -122,9 +127,14 @@ export default function EditProductForm({
     );
     setEditCategory(false);
   };
-  const handleSaveCategory = () => {
-    setEditCategory(false);
-    notifySuccess("Product Category Changed Successfully");
+  const handleSaveCategory = async () => {
+    try {
+      await updateProductCategory(product.productid, category.categoryid);
+      notifySuccess("Product Category Changed Successfully");
+      location.reload();
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
   };
 
   const [subCategory, setSubCategory] = useState(
@@ -146,9 +156,17 @@ export default function EditProductForm({
     );
     setEditSubCategory(false);
   };
-  const handleSaveSubCategory = () => {
-    setEditSubCategory(false);
-    notifySuccess("Product SubCategory Changed Successfully");
+  const handleSaveSubCategory = async () => {
+    try {
+      await updateProductSubCategory(
+        product.productid,
+        subCategory.subcategoryid,
+      );
+      notifySuccess("Product SubCategory Changed Successfully");
+      location.reload();
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
   };
 
   const [stock, setStock] = useState(product.stock);
@@ -160,9 +178,19 @@ export default function EditProductForm({
     setStock(product.stock);
     setEditStock(0);
   };
-  const handleSaveStock = () => {
-    setEditStock(0);
-    notifySuccess("Product Stock Changed Successfully");
+  const handleSaveStock = async () => {
+    try {
+      const editedStock = stock.filter((stock) => stock.stockid === editStock);
+      await updateProductStock(
+        editStock,
+        product.productid,
+        editedStock[0].quantity,
+      );
+      notifySuccess("Product Stock Changed Successfully");
+      location.reload();
+    } catch (error: unknown) {
+      if (error instanceof Error) notifyError(error.message);
+    }
   };
 
   const [newStock, setNewStock] = useState<
@@ -220,7 +248,7 @@ export default function EditProductForm({
     );
     setNewStock(cancelledNewStock);
   };
-  const handleSaveNewStock = (newStock: {
+  const handleSaveNewStock = async (newStock: {
     stockid: number;
     size: string;
     color: string;
@@ -238,10 +266,17 @@ export default function EditProductForm({
       ) {
         throw new Error("All Stock Data Should be Provided");
       }
-      const savedNewStock = [...stock, newStock];
-      setStock(savedNewStock);
-      handleCancelAddNewStock(newStock.stockid);
+      // const savedNewStock = [...stock, newStock];
+      // setStock(savedNewStock);
+      // handleCancelAddNewStock(newStock.stockid);
+      await addNewStock(
+        product.productid,
+        newStock.sizeid,
+        newStock.colorid,
+        newStock.quantity,
+      );
       notifySuccess("Product New Stock Added Successfully");
+      location.reload();
     } catch (error: unknown) {
       if (error instanceof Error) notifyError(error.message);
     }

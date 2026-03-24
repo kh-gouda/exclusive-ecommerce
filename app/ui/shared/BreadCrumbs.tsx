@@ -8,7 +8,6 @@ import { FaAngleRight } from "react-icons/fa";
 export default function BreadCrumbs() {
   const pathName = usePathname();
   const links = pathName.split("/");
-  console.log(links);
 
   return (
     <ul className="flex items-center gap-2">

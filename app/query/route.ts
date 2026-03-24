@@ -2,42 +2,38 @@ import sql from "@/app/lib/db";
 
 async function listStudents() {
   const data = await sql`
-  with ProductStock AS (
-      -- Aggregate stock data into a JSON array of objects
-      SELECT 
-          s.productid, jsonb_agg(
-              jsonb_build_object(
-          'colorid', c.colorid,
-                  'color', c.colorhex,
-          'sizeid', sz.sizeid,
-          'size', sz.size,
-          'quantity', s.quantity
-              )
-          ) AS stock_array
-      FROM stock s
-      JOIN colors c ON s.colorid = c.colorid
-      JOIN sizes sz ON s.sizeid = sz.sizeid
-      GROUP BY s.productid
-  ), productCategory as (
-  select
-  categoryid, productid, subcategoryid from productcategories pc
-  )
-  SELECT 
-      p.productid, 
-        p.productname,
-        p.productdescription,
-        p.productimages, 
-        p.productprice, 
-        p.productdiscount,
-        p.newproduct,
-        p.editable,
-        pc.categoryid,
-        pc.subcategoryid, 
-    COALESCE(ps.stock_array,'[]'::jsonb) AS stock
-  FROM products p
-  LEFT JOIN ProductStock ps ON p.productid = ps.productid
-  left join productcategories pc on pc.productid = p.productid
-  where p.productid = 1`;
+SELECT
+    o.orderid,
+	  o.userid,
+    u.phone,
+    o.orderstatus,
+    o.orderdate,
+    o.paymentmethod,
+    o.appliedcoupon,
+    o.appliedcoupondiscount,
+    o.orderpaid,
+    o.orderconfirmed,
+    json_agg(
+        json_build_object(
+            'productid', oi.productid,
+            'quantity', oi.quantity,
+            'unit_price', oi.unitprice,
+            'productname', p.productname,
+            'productimages', p.productimages
+        )
+    ) AS orderitems
+FROM
+    orders o
+JOIN
+    users u ON o.userid = u.userid
+JOIN
+    orderitems oi ON o.orderid = oi.orderid
+JOIN
+    products p ON oi.productid = p.productid
+where o.orderid = 18
+GROUP BY
+    o.orderid, u.phone; 
+`;
 
   return data;
 }

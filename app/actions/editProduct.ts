@@ -1,6 +1,7 @@
 "use server";
 
 import sql from "@/app/lib/db";
+import { revalidatePath } from "next/cache";
 
 export async function updateProductName(
   productId: number,
@@ -11,6 +12,9 @@ export async function updateProductName(
   set productname = ${productName}
   where productid = ${productId}
   `;
+  revalidatePath(`/dashboard/products/edit?productid=${productId}`);
+
+  return { success: true };
 }
 
 export async function updateProductDescription(
@@ -22,6 +26,9 @@ export async function updateProductDescription(
   set productdescription = ${productDescription}
   where productid = ${productId}
   `;
+  revalidatePath(`/dashboard/products/edit?productid=${productId}`);
+
+  return { success: true };
 }
 
 export async function updateProductPrice(
@@ -33,6 +40,9 @@ export async function updateProductPrice(
   set productprice = ${productPrice}
   where productid = ${productId}
   `;
+  revalidatePath(`/dashboard/products/edit?productid=${productId}`);
+
+  return { success: true };
 }
 
 export async function updateProductDiscount(
@@ -44,14 +54,50 @@ export async function updateProductDiscount(
   set productdiscount = ${productDiscount}
   where productid = ${productId}
   `;
+  revalidatePath(`/dashboard/products/edit?productid=${productId}`);
+
+  return { success: true };
 }
 
-export async function updateProductStock(stockId: number, quantity: number) {
+export async function updateProductCategory(
+  productId: number,
+  categoryId: number,
+) {
+  await sql`
+  update productcategories set categoryid = ${categoryId} where productid = ${productId}
+  `;
+
+  revalidatePath(`/dashboard/products/edit?productid=${productId}`);
+
+  return { success: true };
+}
+
+export async function updateProductSubCategory(
+  productId: number,
+  subcategoryId: number,
+) {
+  await sql`
+  update productcategories set subcategoryid = ${subcategoryId} where productid = ${productId}
+  `;
+
+  revalidatePath(`/dashboard/products/edit?productid=${productId}`);
+
+  return { success: true };
+}
+
+export async function updateProductStock(
+  stockId: number,
+  productId: number,
+  quantity: number,
+) {
   await sql`
   update stock
   set quantity = ${quantity}
   where stockid = ${stockId}
   `;
+  revalidatePath(`/dashboard/products/edit?productid=${productId}`);
+
+  return { success: true };
 }
 
 export async function addNewStock(
@@ -64,13 +110,18 @@ export async function addNewStock(
   select * from stock where productid = ${productId} and sizeid = ${sizeId} and colorid = ${colorId}
   `;
   if (exist.length) {
-    throw new Error("Stock Variants Already Exist, You Can Edit Quantity");
+    await sql`
+    update stock
+    set quantity = quantity + ${quantity}
+    where stockid = ${exist[0].stockid}
+    `;
   } else {
     await sql`
     insert into stock (productid, sizeid, colorid, quantity)
     values (${productId}, ${sizeId}, ${colorId}, ${quantity})
     `;
   }
+  revalidatePath(`/dashboard/products/edit?productid=${productId}`);
 
   return { success: true };
 }

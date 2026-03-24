@@ -81,3 +81,21 @@ export async function confirmPayment(orderId: number, state: boolean) {
 
   return { success: true };
 }
+
+export async function updateOrderStatus(orderId: number, status: string) {
+  if (status === "completed") {
+    await sql`
+  update orders set 
+  orderstatus = ${status},
+  orderpaid = true
+  where orderid = ${orderId}
+  `;
+  } else {
+    await sql`
+  update orders set orderstatus = ${status}
+  where orderid = ${orderId}
+  `;
+  }
+
+  return { success: true };
+}
