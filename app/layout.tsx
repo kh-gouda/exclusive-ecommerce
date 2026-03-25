@@ -23,7 +23,7 @@ export default async function RootLayout({
 }>) {
   const session = await getServerSession(authOptions);
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr">
       <body className={`${poppins.className} antialiased font-normal`}>
         <NextAuthSessionProvider session={session}>
           {children}

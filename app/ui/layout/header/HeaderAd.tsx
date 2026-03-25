@@ -1,19 +1,21 @@
 import Container from "@shared/Container";
 import Link from "next/link";
 import SelectLanguage from "@layout/header/SelectLanguage";
+import { getTranslations } from "next-intl/server";
 
-export default function HeaderAd() {
-  const ADVERTISEMENT =
-    "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!";
+export default async function HeaderAd() {
+  const t = await getTranslations("headerAD");
+  // const ADVERTISEMENT =
+  //   "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!";
 
   return (
     <div className="bg-black-color">
       <Container>
         <div className="flex items-center py-3">
           <p className={` text-white-text flex-1 text-center text-sm`}>
-            {ADVERTISEMENT}
+            {t("ADVERTISEMENT")}
             <Link className="underline font-semibold ml-2" href="/shop">
-              ShopNow
+              {t("shopnow")}
             </Link>
           </p>
           <SelectLanguage />

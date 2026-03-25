@@ -3,8 +3,10 @@ import clsx from "clsx";
 import Link from "next/link";
 import { poppins } from "@shared/fonts";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function NavLinks() {
+  const t = useTranslations("navLinks");
   const pathname = usePathname();
   return (
     <ul className="flex items-center gap-10">
@@ -18,7 +20,7 @@ export default function NavLinks() {
           )}
           href="/"
         >
-          Home
+          {t("home")}
         </Link>
       </li>
       <li>
@@ -31,7 +33,7 @@ export default function NavLinks() {
           )}
           href="/contact"
         >
-          Contact
+          {t("contact")}
         </Link>
       </li>
       <li>
@@ -44,7 +46,7 @@ export default function NavLinks() {
           )}
           href="/about"
         >
-          About
+          {t("about")}
         </Link>
       </li>
       <li>
@@ -57,7 +59,7 @@ export default function NavLinks() {
           )}
           href="/signup"
         >
-          Sign(Up/In)
+          {t("signUpIn")}
         </Link>
       </li>
     </ul>

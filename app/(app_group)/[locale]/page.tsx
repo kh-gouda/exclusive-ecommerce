@@ -134,7 +134,10 @@ export default async function Home() {
   return (
     <div className="">
       <Container>
-        <div className="flex pb-12.5">
+        <div
+          // className="w-292.5 max-w-full mx-auto"
+          className="flex pb-12.5"
+        >
           <SideNav />
           <FirstAdArea
             slides={NEW_FIRST_AD_AREA_LIST}

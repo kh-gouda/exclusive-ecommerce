@@ -286,8 +286,9 @@ export async function fetchAllProducts() {
   return data;
 }
 
+// <FETCHED_NEW_ARRIVALS_TYPE[]>
 export async function fetchNewArrivals() {
-  const data = await sql<FETCHED_NEW_ARRIVALS_TYPE[]>`
+  const data = await sql`
   select p.productid, p.productname, p.productdescription, p.productimages
   from products p
   join newarrivals n on n.productid = p.productid
@@ -308,8 +309,9 @@ export async function fetchNewCollection() {
   return data;
 }
 
+// <FETCHED_AD_TYPE[]>
 export async function fetchFirstAd() {
-  const data = await sql<FETCHED_AD_TYPE[]>`
+  const data = await sql`
     select * from ads where adarea = 1 and endtime > now() and adpaid = true
     order by adid
   `;
