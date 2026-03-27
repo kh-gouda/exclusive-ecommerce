@@ -122,7 +122,7 @@ export default function ProductsDashBoard({
     <div>
       <div className="mb-12 flex items-center justify-between">
         <div>
-          <label htmlFor="category" className="mr-4">
+          <label htmlFor="category" className="me-4">
             Filter By Category
           </label>
           <select

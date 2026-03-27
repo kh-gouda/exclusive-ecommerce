@@ -10,25 +10,21 @@ export default async function Footer() {
   const session = await getServerSession(authOptions);
   const id = session?.user.id || "";
 
-  const SUPPORT_LIST = [
-    "111 Bijoy sarani, Dhaka,  DH 1515, Bangladesh.",
-    "exclusive@gmail.com",
-    "+88015-88888-9999",
-  ];
+  const SUPPORT_LIST = ["supportAddress", "supportEmail", "supportPhone"];
 
   const ACCOUNT_LIST = [
-    { name: "My Account", link: `/account/${id}/profile` },
-    { name: "Login / Register", link: "/login" },
-    { name: "Cart", link: `/account/${id}/cart` },
-    { name: "Wishlist", link: `/account/${id}/wishlist` },
-    { name: "Shop", link: "/shop" },
+    { name: "accountListN1", link: `/account/${id}/profile` },
+    { name: "accountListN2", link: "/login" },
+    { name: "accountListN3", link: `/account/${id}/cart` },
+    { name: "accountListN4", link: `/account/${id}/wishlist` },
+    { name: "accountListN5", link: "/shop" },
   ];
 
   const QUICK_LINKS_LIST = [
-    { name: "Privacy Policy", link: "/privacy-policy" },
-    { name: "Terms Of Use", link: "/terms" },
-    { name: "FAQ", link: "/faq" },
-    { name: "Contact", link: "/contact" },
+    { name: "quickListN1", link: "/privacy-policy" },
+    { name: "quickListN2", link: "/terms" },
+    { name: "quickListN3", link: "/faq" },
+    { name: "quickListN4", link: "/contact" },
   ];
 
   return (
@@ -39,9 +35,9 @@ export default async function Footer() {
             <LogoText parent="footer" />
             <SubscribeForm />
           </div>
-          <FooterList listHeading="Support" listItems={SUPPORT_LIST} />
-          <FooterList listHeading="Account" listItems={ACCOUNT_LIST} />
-          <FooterList listHeading="Quick Links" listItems={QUICK_LINKS_LIST} />
+          <FooterList listHeading="supportHeading" listItems={SUPPORT_LIST} />
+          <FooterList listHeading="accountHeading" listItems={ACCOUNT_LIST} />
+          <FooterList listHeading="quickHeading" listItems={QUICK_LINKS_LIST} />
           <Downloadlinks />
         </div>
       </Container>

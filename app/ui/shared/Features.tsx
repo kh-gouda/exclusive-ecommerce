@@ -1,28 +1,30 @@
 import { PhoneIcon, TruckIcon } from "@heroicons/react/24/outline";
 import { BadgeCheckIcon } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 const FEATURES = [
   {
     id: 1,
-    title: "FREE AND FAST DELIVERY",
-    description: "Free delivery for all orders over $140",
+    title: "feature1",
+    description: "description1",
     icon: <TruckIcon className="w-10 h-10 text-white-color" />,
   },
   {
     id: 2,
-    title: "24/7 CUSTOMER SERVICE",
-    description: "Friendly 24/7 customer support",
+    title: "feature2",
+    description: "description2",
     icon: <PhoneIcon className="w-10 h-10 text-white-color" />,
   },
   {
     id: 3,
-    title: "MONEY BACK GUARANTEE",
-    description: "We reurn money within 30 days",
+    title: "feature3",
+    description: "description3",
     icon: <BadgeCheckIcon className="w-10 h-10 text-white-color" />,
   },
 ];
 
-export default function Features() {
+export default async function Features() {
+  const t = await getTranslations("features");
   return (
     <div className="flex items-center justify-evenly pb-17.5">
       {FEATURES.map((feature) => (
@@ -32,8 +34,8 @@ export default function Features() {
               {feature.icon}
             </div>
           </div>
-          <h3 className="mb-2 text-xl font-semibold">{feature.title}</h3>
-          <p className="text-sm">{feature.description}</p>
+          <h3 className="mb-2 text-xl font-semibold">{t(feature.title)}</h3>
+          <p className="text-sm">{t(feature.description)}</p>
         </div>
       ))}
     </div>

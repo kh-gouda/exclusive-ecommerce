@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { EyeIcon } from "@heroicons/react/24/outline";
 
-export default function VieProductDetailsLink({ id }: { id: number }) {
+export default function ViewProductDetailsLink({ id }: { id: number }) {
   return (
     <Link
       href={`/products/${id}`}

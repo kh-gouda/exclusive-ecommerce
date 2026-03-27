@@ -17,7 +17,7 @@ export default function DashBoardLayout({ children }: { children: ReactNode }) {
             alt="dashboard icon"
           />
         </div>
-        <div className="flex-1 pl-10 pt-10 text-white">
+        <div className="flex-1 ps-10 pt-10 text-white">
           <SectionTitle>Exclusive Dashbaord</SectionTitle>
           <BreadCrumbs />
         </div>

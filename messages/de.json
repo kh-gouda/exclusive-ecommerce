@@ -1,6 +1,181 @@
 {
-  "common": {
-    "hello": "Hallo",
-    "welcome": "Willkommen"
+  "headerAD": {
+    "ADVERTISEMENT": "Sommerverkauf für alle Badeanzüge mit kostenlosem Expressversand - 50% Rabatt!",
+    "shopnow": "Jetzt kaufen"
+  },
+  "selectLangList": {
+    "english": "Englisch",
+    "arabic": "Arabisch",
+    "french": "Französisch",
+    "german": "Deutsch",
+    "spanish": "Spanisch"
+  },
+  "dashboard": {
+    "AdminDashbaord": "Admin-Dashboard"
+  },
+  "logo": {
+    "logoText": "Exclusive"
+  },
+  "navLinks": {
+    "home": "Startseite",
+    "contact": "Kontakt",
+    "about": "Über uns",
+    "signUpIn": "Registrieren / Anmelden"
+  },
+  "accountControl": {
+    "manageMyAccount": "Mein Konto verwalten",
+    "myOrders": "Meine Bestellungen",
+    "myCancellations": "Meine Stornierungen",
+    "myReviews": "Meine Bewertungen",
+    "logout": "Abmelden"
+  },
+  "footer": {
+    "subscribe": "Abonnieren",
+    "subscribeOffer": "Erhalten Sie 10% Rabatt auf Ihre erste Bestellung",
+    "supportHeading": "Support",
+    "supportAddress": "111 Bijoy sarani, Dhaka, DH 1515, Bangladesch.",
+    "supportEmail": "exclusive@gmail.com",
+    "supportPhone": "+88015-88888-9999",
+    "accountHeading": "Konto",
+    "accountListN1": "Mein Konto",
+    "accountListN2": "Anmelden / Registrieren",
+    "accountListN3": "Warenkorb",
+    "accountListN4": "Wunschliste",
+    "accountListN5": "Shop",
+    "quickHeading": "Schnelllinks",
+    "quickListN1": "Datenschutzrichtlinie",
+    "quickListN2": "Nutzungsbedingungen",
+    "quickListN3": "FAQ",
+    "quickListN4": "Kontakt",
+    "downloadHeading": "App herunterladen",
+    "downloadOffer": "Spare 3$ nur für neue App-Nutzer"
+  },
+  "categories": {
+    "1": "Herrenmode",
+    "2": "Elektronik",
+    "3": "Damenmode",
+    "4": "Haus & Lifestyle",
+    "5": "Medizin",
+    "6": "Sport & Outdoor",
+    "7": "Baby & Spielzeug",
+    "8": "Lebensmittel & Haustiere",
+    "9": "Gesundheit & Schönheit"
+  },
+  "subCategories": {
+    "1": "Oberteile",
+    "2": "Kleider",
+    "3": "Unterteile",
+    "4": "Oberbekleidung",
+    "5": "Schuhe",
+    "6": "Bade- & Strandbekleidung",
+    "7": "Accessoires",
+    "8": "Lässig",
+    "9": "Smart Casual",
+    "10": "Business Casual",
+    "11": "Bademode",
+    "12": "Telefone",
+    "13": "Computer",
+    "14": "Smartwatches",
+    "15": "Kameras",
+    "16": "Kopfhörer",
+    "17": "Gaming",
+    "18": "Innenarchitektur & Dekor",
+    "19": "Möbel",
+    "20": "Küche & Esszimmer",
+    "21": "Reinigungsprodukte",
+    "22": "Dienstprogramme",
+    "23": "Sportbekleidung",
+    "24": "Outdoor-Bekleidung"
+  },
+  "sectionLabel": {
+    "Today": "Heute",
+    "Categories": "Kategorien",
+    "ThisMonth": "Diesen Monat",
+    "OurProducts": "Unsere Produkte",
+    "Featured": "Empfohlen"
+  },
+  "sectionTitle": {
+    "flashSales": "Blitzverkäufe",
+    "browseByCategory": "Nach Kategorie durchsuchen",
+    "bestSelling": "Bestseller",
+    "explore": "Unsere Produkte entdecken",
+    "newArrivals": "Neu eingetroffen"
+  },
+  "features": {
+    "feature1": "KOSTENLOSE UND SCHNELLE LIEFERUNG",
+    "description1": "Kostenlose Lieferung für alle Bestellungen über 140$",
+    "feature2": "24/7 KUNDENSERVICE",
+    "description2": "Freundlicher 24/7 Kundensupport",
+    "feature3": "GELD-ZURÜCK-GARANTIE",
+    "description3": "Rückerstattung innerhalb von 30 Tagen"
+  },
+  "general": {
+    "addToCart": "In den Warenkorb",
+    "addToWishlist": "Zur Wunschliste hinzufügen",
+    "viewAllProducts": "Alle Produkte anzeigen",
+    "buyNow": "Jetzt kaufen",
+    "sendMessage": "Nachricht senden",
+    "save": "Speichern",
+    "cancel": "Abbrechen"
+  },
+  "timer": {
+    "days": "Tage",
+    "hours": "Stunden",
+    "minutes": "Minuten",
+    "seconds": "Sekunden"
+  },
+  "products": {
+    "p1name": "IPS LCD Gaming-Monitor",
+    "p1description": "Erleben Sie unvergleichliche Immersion mit dem 27-Zoll IPS Gaming-Monitor mit hoher Farbgenauigkeit, 178° Betrachtungswinkeln und schneller Fast-IPS-Technologie",
+    "p2name": "AK-900 Kabeltastatur",
+    "p2description": "104-Tasten USB-Gaming-Tastatur mit anpassbarer RGB-LED-Beleuchtung und ergonomischem Design",
+    "p3name": "S-Series Komfortstuhl",
+    "p3description": "eine hochwertige ergonomische Sitzlösung für lange Arbeits- oder Gamingstunden",
+    "p4name": "HAVIT HV-G92 Gamepad",
+    "p4description": "preiswertes kabelgebundenes USB-Gamepad mit Dual-Vibrationsmotoren und ergonomischem Design",
+    "p5name": "North Mantel",
+    "p5description": "mit DryVent™-Technologie gefertigt, wodurch der Mantel wasserdicht, winddicht und atmungsaktiv ist",
+    "p6name": "Gucci Reisetasche",
+    "p6description": "glänzendes Leder mit ikonischen Elementen wie Double G und Web-Detail",
+    "p7name": "RGB Flüssigkeits-CPU-Kühler",
+    "p7description": "kombiniert außergewöhnliche Kühlleistung mit anpassbarer RGB-Ästhetik",
+    "p8name": "Kleines Bücherregal",
+    "p8description": "niedriges Bücherregal ideal für kleine Räume wie Wohnungen oder Homeoffices",
+    "p9name": "Breed Trockenfutter für Hunde",
+    "p9description": "natürliches Trockenfutter für erwachsene Hunde mit proteinreicher Formel",
+    "p10name": "Jr. Zoom Fußballschuhe",
+    "p10description": "für junge Athleten entwickelt und bietet explosive Beschleunigung und maximale Kontrolle",
+    "p11name": "CANON EOS DSLR Kamera",
+    "p11description": "leistungsstarke Kamera mit APS-C oder Vollformatsensor und DIGIC-Prozessor",
+    "p12name": "GP11 Shooter USB Gamepad",
+    "p12description": "ergonomischer kabelgebundener Gaming-Controller für PC und PS3 mit 14 Tasten",
+    "p13name": "ASUS FHD Gaming Laptop",
+    "p13description": "leistungsstarker 15,6-Zoll FHD Gaming-Laptop mit 144Hz Display",
+    "p14name": "Havic HV G-92 Gamepad",
+    "p14description": "PlayStation 5 Controller Skin aus hochwertigem Vinyl",
+    "p15name": "Gesteppte Satinjacke",
+    "p15description": "moderne Jacke mit glänzender Oberfläche und diamantgestepptem Design",
+    "p16name": "Curology Produktset",
+    "p16description": "3-Schritte-Hautpflegeroutine zur Reinigung, Feuchtigkeitspflege und Behandlung von Akne",
+    "p17name": "PlayStation 5",
+    "p17description": "Schwarz-weiße Version der PS5 im Verkauf",
+    "p18name": "Elektrisches Kinderauto",
+    "p18description": "bietet Kindern von 2 bis 8 Jahren ein realistisches Fahrerlebnis",
+    "p19name": "Lautsprecher",
+    "p19description": "kabellose Amazon-Lautsprecher",
+    "p20name": "Parfüm",
+    "p20description": "GUCCI INTENSE OUD EDP",
+    "p41name": "iPhone 14 Pro Max",
+    "p41description": "Premium-Flaggschiff mit 6,7-Zoll Display und A16 Bionic Chip",
+    "p42name": "Galaxy S24 Ultra",
+    "p42description": "High-End 5G Smartphone mit Titanrahmen und Snapdragon 8 Gen 3",
+    "p43name": "JBL Lautsprecher",
+    "p43description": "leistungsstarker Sound mit tiefem Bass und wasserdichtem Design",
+    "p55name": "Rasiermaschine",
+    "p55description": "elektrisches Pflegegerät zum Entfernen von Gesichts- oder Körperhaaren"
+  },
+  "collection": {
+    "colection1name": "Kollektionen für Damen",
+    "colection1description": "Ausgewählte Damenkollektionen, die Ihnen ein ganz anderes Flair verleihen."
   }
 }

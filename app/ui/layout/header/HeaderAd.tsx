@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 
 export default async function HeaderAd() {
   const t = await getTranslations("headerAD");
+  const t2 = await getTranslations("general");
   // const ADVERTISEMENT =
   //   "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!";
 
@@ -14,8 +15,8 @@ export default async function HeaderAd() {
         <div className="flex items-center py-3">
           <p className={` text-white-text flex-1 text-center text-sm`}>
             {t("ADVERTISEMENT")}
-            <Link className="underline font-semibold ml-2" href="/shop">
-              {t("shopnow")}
+            <Link className="underline font-semibold ms-2" href="/shop">
+              {t2("shopnow")}
             </Link>
           </p>
           <SelectLanguage />

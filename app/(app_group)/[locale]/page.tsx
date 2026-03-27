@@ -23,8 +23,13 @@ import NewArrivals from "@ui/home/NewArrivals";
 import Features from "@ui/shared/Features";
 import ScrollToTopButton from "@ui/shared/ScrollToTopButton";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 export default async function Home() {
+  const t = await getTranslations("sectionLabel");
+  const t2 = await getTranslations("sectionTitle");
+  const t3 = await getTranslations("general");
+
   const firstAdData = await fetchFirstAd();
   const FIRST_AD_AREA_LIST = firstAdData.map((ad) => ({
     productId: ad.productid,
@@ -117,11 +122,13 @@ export default async function Home() {
 
   const NEW_ARRIVAL_DATA = {
     collection: newArrivals[0].map((collection) => ({
+      id: collection.collectionid,
       title: collection.collectiontitle,
       description: collection.collectiondescription,
       categoryid: collection.categoryid,
     }))[0],
     products: newArrivals[1].map((product) => ({
+      id: product.productid,
       title: product.productname,
       description: product.productdescription,
       image: product.productimages[0],
@@ -146,32 +153,32 @@ export default async function Home() {
         </div>
 
         <Section withBorder>
-          <SectionLabel>Today&apos;s</SectionLabel>
+          <SectionLabel>{t("Today")}</SectionLabel>
           <Carusel
-            title="Flash Sales"
+            title={t2("flashSales")}
             slides={flashSalesSlides}
             flashSalesTimer={fsProducts[0]?.endtime}
           />
           <div className="flex justify-center items-center">
             {flashSalesProducts && flashSalesProducts.length ? (
               <Link href="/flash-sales" className="shared-btn shared-btn-solid">
-                View All Products
+                {t3("viewAllProducts")}
               </Link>
             ) : null}
           </div>
         </Section>
 
         <Section withBorder>
-          <SectionLabel>Categories</SectionLabel>
-          <Carusel title="Browse By Category" slides={categoriesSlides} />
+          <SectionLabel>{t("Categories")}</SectionLabel>
+          <Carusel title={t2("browseByCategory")} slides={categoriesSlides} />
         </Section>
 
         <Section>
-          <SectionLabel>This Month</SectionLabel>
+          <SectionLabel>{t("ThisMonth")}</SectionLabel>
           <div className="flex items-center justify-between">
-            <SectionTitle>Best Selling Products</SectionTitle>
+            <SectionTitle>{t2("bestSelling")}</SectionTitle>
             <Link href="/best-selling" className="shared-btn shared-btn-solid">
-              View All Products
+              {t3("viewAllProducts")}
             </Link>
           </div>
           <Cards products={bestSellingProducts} />
@@ -180,18 +187,18 @@ export default async function Home() {
         <SecondAdArea />
 
         <Section>
-          <SectionLabel>Our Products</SectionLabel>
-          <Carusel title="Explore Our Products" slides={exploreSlides} />
+          <SectionLabel>{t("OurProducts")}</SectionLabel>
+          <Carusel title={t2("explore")} slides={exploreSlides} />
           <div className="flex justify-center items-center">
             <Link href="/shop" className="shared-btn shared-btn-solid">
-              View All Products
+              {t3("viewAllProducts")}
             </Link>
           </div>
         </Section>
 
         <Section>
-          <SectionLabel>Featured</SectionLabel>
-          <SectionTitle>New Arrivals</SectionTitle>
+          <SectionLabel>{t("Featured")}</SectionLabel>
+          <SectionTitle>{t2("newArrivals")}</SectionTitle>
           <NewArrivals newArrivals={newArrivalData} />
         </Section>
 

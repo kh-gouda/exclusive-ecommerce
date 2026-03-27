@@ -31,7 +31,7 @@ export default function OrdersDashBoard({
     <div>
       <div className="mb-12 flex items-center justify-between">
         <div>
-          <label htmlFor="status" className="mr-4">
+          <label htmlFor="status" className="me-4">
             Filter By Order Status
           </label>
           <select

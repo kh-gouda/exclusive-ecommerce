@@ -1,6 +1,181 @@
 {
-  "common": {
-    "hello": "Bonjour",
-    "welcome": "Bienvenue"
+  "headerAD": {
+    "ADVERTISEMENT": "Soldes d'été sur tous les maillots de bain avec livraison express gratuite - 50% de réduction !",
+    "shopnow": "Acheter maintenant"
+  },
+  "selectLangList": {
+    "english": "Anglais",
+    "arabic": "Arabe",
+    "french": "Français",
+    "german": "Allemand",
+    "spanish": "Espagnol"
+  },
+  "dashboard": {
+    "AdminDashbaord": "Tableau de bord administrateur"
+  },
+  "logo": {
+    "logoText": "Exclusive"
+  },
+  "navLinks": {
+    "home": "Accueil",
+    "contact": "Contact",
+    "about": "À propos",
+    "signUpIn": "S'inscrire / Se connecter"
+  },
+  "accountControl": {
+    "manageMyAccount": "Gérer mon compte",
+    "myOrders": "Mes commandes",
+    "myCancellations": "Mes annulations",
+    "myReviews": "Mes avis",
+    "logout": "Se déconnecter"
+  },
+  "footer": {
+    "subscribe": "S'abonner",
+    "subscribeOffer": "Obtenez 10% de réduction sur votre première commande",
+    "supportHeading": "Support",
+    "supportAddress": "111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.",
+    "supportEmail": "exclusive@gmail.com",
+    "supportPhone": "+88015-88888-9999",
+    "accountHeading": "Compte",
+    "accountListN1": "Mon compte",
+    "accountListN2": "Connexion / Inscription",
+    "accountListN3": "Panier",
+    "accountListN4": "Liste de souhaits",
+    "accountListN5": "Boutique",
+    "quickHeading": "Liens rapides",
+    "quickListN1": "Politique de confidentialité",
+    "quickListN2": "Conditions d'utilisation",
+    "quickListN3": "FAQ",
+    "quickListN4": "Contact",
+    "downloadHeading": "Télécharger l'application",
+    "downloadOffer": "Économisez 3$ pour les nouveaux utilisateurs de l'application"
+  },
+  "categories": {
+    "1": "Mode homme",
+    "2": "Électronique",
+    "3": "Mode femme",
+    "4": "Maison et style de vie",
+    "5": "Médicaments",
+    "6": "Sport et plein air",
+    "7": "Bébés et jouets",
+    "8": "Épicerie et animaux",
+    "9": "Santé et beauté"
+  },
+  "subCategories": {
+    "1": "Hauts",
+    "2": "Robes",
+    "3": "Bas",
+    "4": "Vêtements d'extérieur",
+    "5": "Chaussures",
+    "6": "Maillots et plage",
+    "7": "Accessoires",
+    "8": "Décontracté",
+    "9": "Décontracté chic",
+    "10": "Business casual",
+    "11": "Maillots de bain",
+    "12": "Téléphones",
+    "13": "Ordinateurs",
+    "14": "Montres intelligentes",
+    "15": "Caméras",
+    "16": "Casques",
+    "17": "Jeux",
+    "18": "Design et décoration intérieure",
+    "19": "Meubles",
+    "20": "Cuisine et salle à manger",
+    "21": "Produits de nettoyage",
+    "22": "Utilitaires",
+    "23": "Vêtements de sport",
+    "24": "Vêtements d'extérieur"
+  },
+  "sectionLabel": {
+    "Today": "Aujourd'hui",
+    "Categories": "Catégories",
+    "ThisMonth": "Ce mois-ci",
+    "OurProducts": "Nos produits",
+    "Featured": "En vedette"
+  },
+  "sectionTitle": {
+    "flashSales": "Ventes flash",
+    "browseByCategory": "Parcourir par catégorie",
+    "bestSelling": "Meilleures ventes",
+    "explore": "Explorer nos produits",
+    "newArrivals": "Nouveautés"
+  },
+  "features": {
+    "feature1": "LIVRAISON GRATUITE ET RAPIDE",
+    "description1": "Livraison gratuite pour toutes les commandes de plus de 140$",
+    "feature2": "SERVICE CLIENT 24/7",
+    "description2": "Support client amical 24h/24 et 7j/7",
+    "feature3": "GARANTIE DE REMBOURSEMENT",
+    "description3": "Remboursement sous 30 jours"
+  },
+  "general": {
+    "addToCart": "Ajouter au panier",
+    "addToWishlist": "Ajouter à la liste de souhaits",
+    "viewAllProducts": "Voir tous les produits",
+    "buyNow": "Acheter maintenant",
+    "sendMessage": "Envoyer un message",
+    "save": "Enregistrer",
+    "cancel": "Annuler"
+  },
+  "timer": {
+    "days": "Jours",
+    "hours": "Heures",
+    "minutes": "Minutes",
+    "seconds": "Secondes"
+  },
+  "products": {
+    "p1name": "Moniteur de jeu IPS LCD",
+    "p1description": "Profitez d'une immersion inégalée avec le moniteur de jeu IPS de 27 pouces. Combinant une précision des couleurs supérieure, des angles de vision larges de 178° et la technologie Fast IPS ultra-rapide, ce moniteur est conçu pour les joueurs qui refusent de compromettre la qualité visuelle ou les performances",
+    "p2name": "Clavier filaire AK-900",
+    "p2description": "Clavier de jeu USB filaire à 104 touches avec rétroéclairage RGB LED personnalisable et conception de touches suspendues durable et ergonomique",
+    "p3name": "Chaise confort S-Series",
+    "p3description": "une solution d'assise ergonomique haut de gamme conçue pour de longues heures de travail ou de jeu",
+    "p4name": "Manette HAVIT HV-G92",
+    "p4description": "une manette USB filaire économique avec doubles moteurs de vibration, design ergonomique avec poignées en caoutchouc et 12 boutons d'action dont 2 sticks analogiques et un D-pad",
+    "p5name": "Manteau The North",
+    "p5description": "Construit avec la technologie DryVent™, rendant le manteau imperméable, coupe-vent et respirant",
+    "p6name": "Sac de voyage Gucci",
+    "p6description": "cuir brillant avec des éléments emblématiques de la maison comme le Double G et le détail Web, combinant design classique et luxe moderne fonctionnel",
+    "p7name": "Refroidisseur CPU liquide RGB",
+    "p7description": "combine une dissipation thermique exceptionnelle avec une esthétique vibrante et personnalisable pour garder les PC de jeu frais et silencieux",
+    "p8name": "Petite bibliothèque",
+    "p8description": "bibliothèque basse qui s'intègre parfaitement dans les petits espaces, idéale pour les petits appartements, chambres confortables ou bureaux à domicile",
+    "p9name": "Croquettes Breed pour chien",
+    "p9description": "Nourriture sèche naturelle pour chiens adultes (20 kg) offrant une formule équilibrée riche en protéines pour soutenir les besoins alimentaires quotidiens",
+    "p10name": "Chaussures de football Jr. Zoom",
+    "p10description": "Conçues pour les jeunes athlètes obsédés par la vitesse, offrant accélération explosive et contrôle maximal",
+    "p11name": "Appareil photo CANON EOS DSLR",
+    "p11description": "imagerie polyvalente haute performance avec capteurs APS-C ou plein format et processeur DIGIC pour des images superbes avec peu de bruit",
+    "p12name": "Manette GP11 Shooter USB",
+    "p12description": "manette de jeu filaire ergonomique pour PC et PS3 avec 14 boutons, retour de vibration et câble de 2 mètres",
+    "p13name": "Ordinateur portable gaming ASUS FHD",
+    "p13description": "machine de jeu haute performance de 15,6 pouces FHD avec taux de rafraîchissement 144Hz et écran IPS",
+    "p14name": "Manette Havic HV G-92",
+    "p14description": "Skin de manette PlayStation 5 en vinyle haute qualité avec adhésif à canal d'air pour installation facile sans bulles",
+    "p15name": "Veste satin matelassée",
+    "p15description": "mode contemporaine audacieuse avec confort supérieur et motif matelassé en losange",
+    "p16name": "Ensemble de produits Curology",
+    "p16description": "routine de soins de la peau en 3 étapes conçue par des dermatologues pour nettoyer, hydrater et traiter l'acné",
+    "p17name": "PlayStation 5",
+    "p17description": "Version noire et blanche de la PS5 disponible à la vente",
+    "p18name": "Voiture électrique pour enfants",
+    "p18description": "offre aux enfants de 2 à 8 ans une expérience de conduite réaliste et sûre avec télécommande parentale et connectivité Bluetooth/MP3",
+    "p19name": "Haut-parleurs",
+    "p19description": "haut-parleurs sans fil Amazon",
+    "p20name": "Parfum",
+    "p20description": "GUCCI INTENSE OUD EDP",
+    "p41name": "iPhone 14 Pro Max",
+    "p41description": "appareil phare premium de 6,7 pouces avec puce A16 Bionic et appareil photo principal 48MP",
+    "p42name": "Galaxy S24 Ultra",
+    "p42description": "smartphone 5G haut de gamme avec cadre en titane et écran QHD+ 120Hz de 6,8 pouces",
+    "p43name": "Haut-parleurs JBL",
+    "p43description": "son puissant avec basses profondes et conception étanche et résistante à la poussière",
+    "p55name": "Machine à raser",
+    "p55description": "appareil de toilettage conçu pour enlever les poils du visage ou du corps avec des lames motorisées"
+  },
+  "collection": {
+    "colection1name": "Collections Femme",
+    "colection1description": "Des collections de femmes en vedette qui vous donnent une autre dimension."
   }
 }

@@ -2,9 +2,12 @@ import { fetchSecondAd } from "@/app/lib/utils";
 import SecondAdImage from "@ui/home/SecondAdImage";
 import SecondAdTimer from "@ui/home/SecondAdTimer";
 import { inter } from "@ui/shared/fonts";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
 export default async function SecondAdArea() {
+  const t = await getTranslations("general");
+
   const ad = await fetchSecondAd();
   const adData = ad[0];
 
@@ -20,13 +23,13 @@ export default async function SecondAdArea() {
           <p>{adData?.adtitle}</p>
         </h2>
 
-        <SecondAdTimer targetDate={adData?.endtime} />
+        <SecondAdTimer targetDate={"adData?.endtime"} />
 
         <Link
           href={`/products/${adData.productid}`}
           className="bg-green-color text-white-text py-4 px-12 rounded-sm font-medium text-base my-10 cursor-pointer inline-block"
         >
-          Buy Now
+          {t("buyNow")}
         </Link>
       </div>
 

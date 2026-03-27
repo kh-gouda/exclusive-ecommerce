@@ -8,10 +8,10 @@ import Link from "next/link";
 export default function FirstAd({ AD }: { AD: FIRST_AD }) {
   return (
     <div className="flex items-center justify-center">
-      <div className="text-white-text flex-1 pl-16">
+      <div className="text-white-text flex-1 ps-16">
         <div className="flex items-center">
           <FirstAdLogo logo={AD.productLogo || ""} />
-          <span className="text-base ml-6">{AD.product}</span>
+          <span className="text-base ms-6">{AD.product}</span>
         </div>
         <div className={`${inter.className} font-semibold text-[48px] my-5`}>
           {AD.details}

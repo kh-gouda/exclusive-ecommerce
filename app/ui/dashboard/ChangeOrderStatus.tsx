@@ -41,7 +41,7 @@ export default function ChangeOrderStatus({
   return (
     <>
       <select
-        className="border mr-4"
+        className="border me-4"
         name="set-status"
         id="set-status"
         value={status}

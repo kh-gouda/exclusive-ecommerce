@@ -25,7 +25,7 @@ export default async function FlashSalesProducts() {
         <SectionTitle>
           Flash Sales Products
           {flashSales && flashSales.length ? (
-            <FlashSalesTimer targetDate={flashSales[0].endtime} />
+            <FlashSalesTimer targetDate={"flashSales[0].endtime"} />
           ) : null}
         </SectionTitle>
       </div>

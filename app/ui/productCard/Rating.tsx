@@ -19,7 +19,7 @@ export default function Rating({
           <StarIcon key={i} className="h-5 w-5 opacity-40" />
         );
       })}
-      <span className="ml-3 opacity-40">
+      <span className="ms-3 opacity-40">
         ({voters} {reviewsString ? "reviews" : null})
       </span>
     </p>

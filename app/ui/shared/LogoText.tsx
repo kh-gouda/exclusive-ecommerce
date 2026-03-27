@@ -1,7 +1,9 @@
 import clsx from "clsx";
 import { inter } from "@shared/fonts";
+import { getTranslations } from "next-intl/server";
 
-export default function LogoText({ parent }: { parent: string }) {
+export default async function LogoText({ parent }: { parent: string }) {
+  const t = await getTranslations("logo");
   return (
     <h2
       className={clsx(`${inter.className} text-2xl font-bold`, {
@@ -9,7 +11,7 @@ export default function LogoText({ parent }: { parent: string }) {
         "text-white-text": parent === "footer",
       })}
     >
-      Exclusive
+      {t("logoText")}
     </h2>
   );
 }

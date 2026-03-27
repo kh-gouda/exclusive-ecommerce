@@ -1,4 +1,10 @@
 "use client";
+import {
+  TranslatedDays,
+  TranslatedHours,
+  TranslatedMinutes,
+  TranslatedSeconds,
+} from "@ui/home/TranslatedUnits";
 import { FC, useEffect, useEffectEvent, useState } from "react";
 import Countdown, { CountdownRendererFn } from "react-countdown";
 
@@ -20,26 +26,26 @@ const renderer: CountdownRendererFn = ({
       <div className="flex gap-5">
         <div className="time">
           <span className="text-base font-semibold">{days}</span>
-          <span className="text-xs">Days</span>
+          <TranslatedDays />
         </div>
         <div className="time">
           <span className="text-base font-semibold">{hours}</span>
-          <span className="text-xs">Hours</span>
+          <TranslatedHours />
         </div>
         <div className="time">
           <span className="text-base font-semibold">{minutes}</span>
-          <span className="text-xs">Minutes</span>
+          <TranslatedMinutes />
         </div>
         <div className="time">
           <span className="text-base font-semibold">{seconds}</span>
-          <span className="text-xs">Seconds</span>
+          <TranslatedSeconds />
         </div>
       </div>
     );
   }
 };
 
-const SecondAdTimer: FC<CountdownProps> = ({ targetDate }) => {
+const SecondAdTimer: FC<CountdownProps> = () => {
   const [isClient, setIsClient] = useState(false);
 
   const setClient = useEffectEvent(() => setIsClient(true));
@@ -52,7 +58,10 @@ const SecondAdTimer: FC<CountdownProps> = ({ targetDate }) => {
     return null;
   }
 
-  return <Countdown date={new Date(targetDate)} renderer={renderer} />;
+  const date = new Date();
+  date.setDate(date.getDate() + 4);
+
+  return <Countdown date={date} renderer={renderer} />;
 };
 
 export default SecondAdTimer;

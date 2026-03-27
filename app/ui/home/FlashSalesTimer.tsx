@@ -1,4 +1,10 @@
 "use client";
+import {
+  TranslatedDays,
+  TranslatedHours,
+  TranslatedMinutes,
+  TranslatedSeconds,
+} from "@ui/home/TranslatedUnits";
 import { inter, poppins } from "@ui/shared/fonts";
 import { FC, useEffect, useEffectEvent, useState } from "react";
 import Countdown, { CountdownRendererFn } from "react-countdown";
@@ -21,21 +27,21 @@ const renderer: CountdownRendererFn = ({
       <div className="flex items-center gap-2 *:text-center">
         <div>
           <p className={`${poppins.className} font-medium text-xs mb-1`}>
-            Days
+            <TranslatedDays />
           </p>
           <p className={`${inter.className} font-bold text-[32px]`}>{days}</p>
         </div>
         <span className="text-identity">:</span>
         <div>
           <p className={`${poppins.className} font-medium text-xs mb-1`}>
-            Hours
+            <TranslatedHours />
           </p>
           <p className={`${inter.className} font-bold text-[32px]`}>{hours}</p>
         </div>
         <span className="text-identity">:</span>
         <div>
           <p className={`${poppins.className} font-medium text-xs mb-1`}>
-            Minutes
+            <TranslatedMinutes />
           </p>
           <p className={`${inter.className} font-bold text-[32px]`}>
             {minutes}
@@ -44,7 +50,7 @@ const renderer: CountdownRendererFn = ({
         <span className="text-identity">:</span>
         <div>
           <p className={`${poppins.className} font-medium text-xs mb-1`}>
-            Seconds
+            <TranslatedSeconds />
           </p>
           <p className={`${inter.className} font-bold text-[32px]`}>
             {seconds}
@@ -55,7 +61,7 @@ const renderer: CountdownRendererFn = ({
   }
 };
 
-const FlashSalesTimer: FC<CountdownProps> = ({ targetDate }) => {
+const FlashSalesTimer: FC<CountdownProps> = () => {
   const [isClient, setIsClient] = useState(false);
 
   const setClient = useEffectEvent(() => setIsClient(true));
@@ -68,7 +74,9 @@ const FlashSalesTimer: FC<CountdownProps> = ({ targetDate }) => {
     return null;
   }
 
-  return <Countdown date={new Date(targetDate)} renderer={renderer} />;
+  const date = new Date();
+  date.setDate(date.getDate() + 4);
+  return <Countdown date={date} renderer={renderer} />;
 };
 
 export default FlashSalesTimer;

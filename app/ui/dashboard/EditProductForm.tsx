@@ -300,7 +300,7 @@ export default function EditProductForm({
           ) : (
             <div>
               <button
-                className="text-identity cursor-pointer mr-4"
+                className="text-identity cursor-pointer me-4"
                 onClick={handleCancelEditName}
               >
                 Cancel
@@ -342,7 +342,7 @@ export default function EditProductForm({
           ) : (
             <div>
               <button
-                className="text-identity cursor-pointer mr-4"
+                className="text-identity cursor-pointer me-4"
                 onClick={handleCancelEditDescription}
               >
                 Cancel
@@ -384,7 +384,7 @@ export default function EditProductForm({
           ) : (
             <div>
               <button
-                className="text-identity cursor-pointer mr-4"
+                className="text-identity cursor-pointer me-4"
                 onClick={handleCancelEditPrice}
               >
                 Cancel
@@ -426,7 +426,7 @@ export default function EditProductForm({
           ) : (
             <div>
               <button
-                className="text-identity cursor-pointer mr-4"
+                className="text-identity cursor-pointer me-4"
                 onClick={handleCancelEditDiscount}
               >
                 Cancel
@@ -468,7 +468,7 @@ export default function EditProductForm({
           ) : (
             <div>
               <button
-                className="text-identity cursor-pointer mr-4"
+                className="text-identity cursor-pointer me-4"
                 onClick={handleCancelEditCategory}
               >
                 Cancel
@@ -519,7 +519,7 @@ export default function EditProductForm({
           ) : (
             <div>
               <button
-                className="text-identity cursor-pointer mr-4"
+                className="text-identity cursor-pointer me-4"
                 onClick={handleCancelEditSubCategory}
               >
                 Cancel
@@ -613,7 +613,7 @@ export default function EditProductForm({
             ) : (
               <>
                 <button
-                  className="text-identity cursor-pointer mr-4"
+                  className="text-identity cursor-pointer me-4"
                   onClick={handleCancelEditStock}
                 >
                   Cancel
@@ -723,7 +723,7 @@ export default function EditProductForm({
                 Cancel
               </button>
               <button
-                className="text-green-600 cursor-pointer mr-4"
+                className="text-green-600 cursor-pointer me-4"
                 onClick={() => handleSaveNewStock(stock)}
               >
                 Save

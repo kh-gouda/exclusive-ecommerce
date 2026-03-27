@@ -13,7 +13,7 @@ export default function AccountSideNav() {
   return (
     <div>
       <h3 className="font-medium">Manage My Account</h3>
-      <ul className="pl-8.25">
+      <ul className="ps-8.25">
         <li className="my-2">
           <Link
             className={clsx("text-gray-500", {
@@ -47,7 +47,7 @@ export default function AccountSideNav() {
       </ul>
 
       <h3 className="font-medium">My Orders</h3>
-      <ul className="pl-8.25">
+      <ul className="ps-8.25">
         <li className="my-2">
           <Link
             className={clsx("text-gray-500", {

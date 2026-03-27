@@ -1,6 +1,181 @@
 {
-  "common": {
-    "hello": "Hola",
-    "welcome": "bienvenida"
+  "headerAD": {
+    "ADVERTISEMENT": "Venta de verano en todos los trajes de baño con envío exprés gratis - ¡50% de descuento!",
+    "shopnow": "Comprar ahora"
+  },
+  "selectLangList": {
+    "english": "Inglés",
+    "arabic": "Árabe",
+    "french": "Francés",
+    "german": "Alemán",
+    "spanish": "Español"
+  },
+  "dashboard": {
+    "AdminDashbaord": "Panel de administrador"
+  },
+  "logo": {
+    "logoText": "Exclusive"
+  },
+  "navLinks": {
+    "home": "Inicio",
+    "contact": "Contacto",
+    "about": "Acerca de",
+    "signUpIn": "Registrarse / Iniciar sesión"
+  },
+  "accountControl": {
+    "manageMyAccount": "Gestionar mi cuenta",
+    "myOrders": "Mis pedidos",
+    "myCancellations": "Mis cancelaciones",
+    "myReviews": "Mis reseñas",
+    "logout": "Cerrar sesión"
+  },
+  "footer": {
+    "subscribe": "Suscribirse",
+    "subscribeOffer": "Obtén 10% de descuento en tu primer pedido",
+    "supportHeading": "Soporte",
+    "supportAddress": "111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.",
+    "supportEmail": "exclusive@gmail.com",
+    "supportPhone": "+88015-88888-9999",
+    "accountHeading": "Cuenta",
+    "accountListN1": "Mi cuenta",
+    "accountListN2": "Iniciar sesión / Registrarse",
+    "accountListN3": "Carrito",
+    "accountListN4": "Lista de deseos",
+    "accountListN5": "Tienda",
+    "quickHeading": "Enlaces rápidos",
+    "quickListN1": "Política de privacidad",
+    "quickListN2": "Términos de uso",
+    "quickListN3": "FAQ",
+    "quickListN4": "Contacto",
+    "downloadHeading": "Descargar app",
+    "downloadOffer": "Ahorra $3 solo para nuevos usuarios de la app"
+  },
+  "categories": {
+    "1": "Moda masculina",
+    "2": "Electrónica",
+    "3": "Moda femenina",
+    "4": "Hogar y estilo de vida",
+    "5": "Medicina",
+    "6": "Deportes y aire libre",
+    "7": "Bebés y juguetes",
+    "8": "Comestibles y mascotas",
+    "9": "Salud y belleza"
+  },
+  "subCategories": {
+    "1": "Prendas superiores",
+    "2": "Vestidos",
+    "3": "Prendas inferiores",
+    "4": "Ropa exterior",
+    "5": "Calzado",
+    "6": "Ropa de playa y baño",
+    "7": "Accesorios",
+    "8": "Casual",
+    "9": "Casual elegante",
+    "10": "Business casual",
+    "11": "Trajes de baño",
+    "12": "Teléfonos",
+    "13": "Computadoras",
+    "14": "Relojes inteligentes",
+    "15": "Cámaras",
+    "16": "Auriculares",
+    "17": "Gaming",
+    "18": "Diseño y decoración interior",
+    "19": "Muebles",
+    "20": "Cocina y comedor",
+    "21": "Productos de limpieza",
+    "22": "Servicios",
+    "23": "Ropa deportiva",
+    "24": "Ropa para exteriores"
+  },
+  "sectionLabel": {
+    "Today": "Hoy",
+    "Categories": "Categorías",
+    "ThisMonth": "Este mes",
+    "OurProducts": "Nuestros productos",
+    "Featured": "Destacado"
+  },
+  "sectionTitle": {
+    "flashSales": "Ofertas flash",
+    "browseByCategory": "Explorar por categoría",
+    "bestSelling": "Más vendidos",
+    "explore": "Explora nuestros productos",
+    "newArrivals": "Nuevas llegadas"
+  },
+  "features": {
+    "feature1": "ENVÍO GRATIS Y RÁPIDO",
+    "description1": "Envío gratis en todos los pedidos superiores a $140",
+    "feature2": "SERVICIO AL CLIENTE 24/7",
+    "description2": "Soporte al cliente amable 24/7",
+    "feature3": "GARANTÍA DE DEVOLUCIÓN DE DINERO",
+    "description3": "Devolvemos el dinero dentro de 30 días"
+  },
+  "general": {
+    "addToCart": "Añadir al carrito",
+    "addToWishlist": "Añadir a la lista de deseos",
+    "viewAllProducts": "Ver todos los productos",
+    "buyNow": "Comprar ahora",
+    "sendMessage": "Enviar mensaje",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "timer": {
+    "days": "Días",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "seconds": "Segundos"
+  },
+  "products": {
+    "p1name": "Monitor Gaming IPS LCD",
+    "p1description": "Experimenta una inmersión incomparable con el monitor gaming IPS de 27 pulgadas con colores precisos y tecnología Fast IPS",
+    "p2name": "Teclado con cable AK-900",
+    "p2description": "teclado gaming USB de 104 teclas con iluminación RGB personalizable",
+    "p3name": "Silla de confort S-Series",
+    "p3description": "solución ergonómica premium para largas horas de trabajo o juego",
+    "p4name": "Gamepad HAVIT HV-G92",
+    "p4description": "control USB con vibración dual y diseño ergonómico",
+    "p5name": "Abrigo North",
+    "p5description": "con tecnología DryVent™, impermeable, resistente al viento y transpirable",
+    "p6name": "Bolsa de viaje Gucci",
+    "p6description": "cuero brillante con elementos icónicos como Double G y detalle Web",
+    "p7name": "Enfriador líquido RGB para CPU",
+    "p7description": "combina excelente disipación térmica con estética RGB personalizable",
+    "p8name": "Pequeña estantería",
+    "p8description": "estantería baja ideal para espacios pequeños",
+    "p9name": "Comida seca Breed para perros",
+    "p9description": "alimento seco natural para perros adultos rico en proteínas",
+    "p10name": "Botas de fútbol Jr. Zoom",
+    "p10description": "diseñadas para jóvenes atletas obsesionados con la velocidad",
+    "p11name": "Cámara CANON EOS DSLR",
+    "p11description": "cámara versátil de alto rendimiento con sensores APS-C o full frame",
+    "p12name": "Gamepad USB GP11 Shooter",
+    "p12description": "control gaming con cable para PC y PS3 con vibración",
+    "p13name": "Laptop Gaming ASUS FHD",
+    "p13description": "portátil gaming de alto rendimiento con pantalla FHD de 15.6 pulgadas",
+    "p14name": "Gamepad Havic HV G-92",
+    "p14description": "protector para control de PlayStation 5 de vinilo de alta calidad",
+    "p15name": "Chaqueta satinada acolchada",
+    "p15description": "moda moderna con brillo elegante y acolchado en forma de diamante",
+    "p16name": "Set de productos Curology",
+    "p16description": "rutina de cuidado de la piel en 3 pasos diseñada por dermatólogos",
+    "p17name": "PlayStation 5",
+    "p17description": "versión blanca y negra de PS5 en venta",
+    "p18name": "Coche eléctrico para niños",
+    "p18description": "experiencia de conducción segura y realista para niños de 2 a 8 años",
+    "p19name": "Altavoces",
+    "p19description": "altavoces inalámbricos Amazon",
+    "p20name": "Perfume",
+    "p20description": "GUCCI INTENSE OUD EDP",
+    "p41name": "iPhone 14 Pro Max",
+    "p41description": "dispositivo insignia de 6.7 pulgadas con chip A16 Bionic",
+    "p42name": "Galaxy S24 Ultra",
+    "p42description": "smartphone 5G de gama alta con marco de titanio",
+    "p43name": "Altavoces JBL",
+    "p43description": "sonido potente con graves profundos y diseño resistente al agua",
+    "p55name": "Máquina de afeitar",
+    "p55description": "dispositivo eléctrico de cuidado personal para eliminar el vello"
+  },
+  "collection": {
+    "colection1name": "Colecciones para mujer",
+    "colection1description": "Colecciones femeninas destacadas que te transmiten una vibra diferente."
   }
 }

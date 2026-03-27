@@ -300,7 +300,7 @@ export default function CheckoutForm({
           hidden
         />
         <label htmlFor="save-data" className="flex items-center gap-2">
-          <span className="w-6 h-6 rounded-sm bg-identity border inline-block mr-2">
+          <span className="w-6 h-6 rounded-sm bg-identity border inline-block me-2">
             <CheckIcon className="text-white-text w-5 h-5" />
           </span>
           Save this information for faster check-out next time
@@ -346,7 +346,7 @@ export default function CheckoutForm({
                 checked={orderState.paymentmethod === "bank"}
                 onChange={() => handleChangePaymentMethod("bank")}
               />
-              <label className="ml-2" htmlFor="bank">
+              <label className="ms-2" htmlFor="bank">
                 Bank
               </label>
             </div>
@@ -385,7 +385,7 @@ export default function CheckoutForm({
               checked={orderState.paymentmethod === "cash on delivery"}
               onChange={() => handleChangePaymentMethod("cash on delivery")}
             />
-            <label className="ml-2" htmlFor="cash">
+            <label className="ms-2" htmlFor="cash">
               Cash on delivery
             </label>
           </div>

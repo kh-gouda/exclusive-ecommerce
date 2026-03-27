@@ -1,6 +1,7 @@
 "use client";
 import { addToCart } from "@/app/actions/addToCart";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 import { toast } from "react-toastify";
 
 export default function AddToCartButton({
@@ -12,6 +13,7 @@ export default function AddToCartButton({
   productId: number;
   userId?: string;
 }) {
+  const t = useTranslations("general");
   const notifySuccess = () => toast.success("product added successfully");
   const notifyError = (error: string) => toast.error(error);
   async function handleClick(productId: number, userId?: number) {
@@ -34,7 +36,7 @@ export default function AddToCartButton({
       })}
       onClick={() => handleClick(productId, Number(userId))}
     >
-      Add To Cart
+      {t("addToCart")}
     </button>
   );
 }

@@ -15,10 +15,13 @@ import {
 import LogoutButton from "@ui/layout/header/LogoutButton";
 import clsx from "clsx";
 import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function AccountControl() {
+  const t = useTranslations("accountControl");
+
   const { data: session } = useSession();
   const id = session?.user.id;
 
@@ -46,7 +49,7 @@ export default function AccountControl() {
               className="flex gap-2 items-center w-full"
             >
               <UserIcon className="text-white-color" />
-              <span>Manage My Account</span>
+              <span>{t("manageMyAccount")}</span>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={handleItemClick}>
@@ -55,7 +58,7 @@ export default function AccountControl() {
               className="flex gap-2 items-center w-full"
             >
               <ClipboardDocumentCheckIcon className="text-white-color" />
-              <span>My Orders</span>
+              <span>{t("myOrders")}</span>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={handleItemClick}>
@@ -64,7 +67,7 @@ export default function AccountControl() {
               className="flex gap-2 items-center w-full"
             >
               <XCircleIcon className="text-white-color" />
-              <span>My cancellations</span>
+              <span>{t("myCancellations")}</span>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={handleItemClick}>
@@ -73,7 +76,7 @@ export default function AccountControl() {
               className="flex gap-2 items-center w-full"
             >
               <StarIcon className="text-white-color" />
-              <span>My Reviews</span>
+              <span>{t("myReviews")}</span>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={handleItemClick}>

@@ -20,11 +20,6 @@ export default async function UserLinks() {
           <ShoppingCartIcon className="h-5 w-5 cursor-pointer hover:fill-identity hover:text-identity" />
         </Link>
       </li>
-      {/* {session ? (
-        <li>
-          <AccountControl />
-        </li>
-      ) : null} */}
       <li
         className={clsx("", {
           block: session,

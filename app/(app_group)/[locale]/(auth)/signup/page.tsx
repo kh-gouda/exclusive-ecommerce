@@ -29,7 +29,7 @@ export default async function Signup() {
           <p className="mt-8.5 text-center">
             <span>Already have account?</span>
             <Link
-              className="font-medium border-b border-gray-300 ml-2 pb-1"
+              className="font-medium border-b border-gray-300 ms-2 pb-1"
               href="/login"
             >
               Login

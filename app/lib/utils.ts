@@ -69,13 +69,13 @@ export async function fetchFlashSalesProductsLimited() {
       flashsales fs ON fsp.flashsaleid = fs.flashsaleid
     INNER JOIN 
       RatedProducts rp ON fsp.productid = rp.productid
-    WHERE 
-      fs.endtime > NOW()
-    ORDER BY 
-    fs.endtime ASC, fsp.productdiscount DESC
-    limit 8;
-  `;
+      ORDER BY 
+      fs.endtime ASC, fsp.productdiscount DESC
+      limit 8;
+      `;
 
+  // WHERE
+  //   fs.endtime > NOW()
   return data;
 }
 export async function fetchFlashSalesProducts() {
@@ -108,12 +108,12 @@ export async function fetchFlashSalesProducts() {
       flashsales fs ON fsp.flashsaleid = fs.flashsaleid
     INNER JOIN 
       RatedProducts rp ON fsp.productid = rp.productid
-    WHERE 
-      fs.endtime > NOW()
-    ORDER BY 
-    fs.endtime ASC, fsp.productdiscount DESC;
-  `;
+      ORDER BY 
+      fs.endtime ASC, fsp.productdiscount DESC;
+      `;
 
+  // WHERE
+  //   fs.endtime > NOW()
   return data;
 }
 
@@ -288,14 +288,14 @@ export async function fetchAllProducts() {
 
 // <FETCHED_NEW_ARRIVALS_TYPE[]>
 export async function fetchNewArrivals() {
-  const data = await sql`
+  const data = await sql<FETCHED_NEW_ARRIVALS_TYPE[]>`
   select p.productid, p.productname, p.productdescription, p.productimages
   from products p
   join newarrivals n on n.productid = p.productid
-  where now() - n.arriveat < interval '1 months'
   order by productid
   limit 3;`;
 
+  // where now() - n.arriveat < interval '1 months'
   return data;
 }
 
@@ -303,27 +303,30 @@ export async function fetchNewCollection() {
   const data = await sql<FETCHED_NEW_COLLECTION_TYPE[]>`
   select collectionid, collectiontitle, collectiondescription, categoryid
   from newcollections
-  where now() - arriveat < interval '1 months'
   limit 1;`;
 
+  // where now() - arriveat < interval '1 months'
   return data;
 }
 
 // <FETCHED_AD_TYPE[]>
 export async function fetchFirstAd() {
   const data = await sql`
-    select * from ads where adarea = 1 and endtime > now() and adpaid = true
+    select * from ads where adarea = 1  and adpaid = true
     order by adid
   `;
+
+  // and endtime > now()
 
   return data;
 }
 
 export async function fetchSecondAd() {
   const data = await sql<FETCHED_AD_TYPE[]>`
-    select * from ads where adarea = 2 and endtime > now() and adpaid = true;
+    select * from ads where adarea = 2 and adpaid = true;
   `;
 
+  //  and endtime > now()
   return data;
 }
 

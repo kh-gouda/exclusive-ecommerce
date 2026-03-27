@@ -31,10 +31,10 @@ export function Carusel({
         <SectionTitle>
           {title}
           {flashSalesTimer ? (
-            <FlashSalesTimer targetDate={flashSalesTimer} />
+            <FlashSalesTimer targetDate={"flashSalesTimer"} />
           ) : null}
         </SectionTitle>
-        <div className="flex items-center justify-center gap-1">
+        <div className="flex items-center justify-center gap-1 [direction:ltr]">
           <button
             className="embla__prev cursor-pointer w-11.5 h-11.5 bg-gray-bg rounded-full flex items-center justify-center"
             onClick={goToPrev}
@@ -49,7 +49,7 @@ export function Carusel({
           </button>
         </div>
       </div>
-      <div className="embla__viewport" ref={emblaRef}>
+      <div className="embla__viewport [direction:ltr]" ref={emblaRef}>
         <div className="embla__container">
           {slides && slides.length ? (
             slides.map((slide, index) => (

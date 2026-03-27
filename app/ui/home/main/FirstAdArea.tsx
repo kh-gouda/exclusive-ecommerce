@@ -28,10 +28,10 @@ export default function FirstAdArea(props: PropType) {
   }, [emblaApi]);
 
   return (
-    <div className="pl-10 flex-1 pt-11.25">
+    <div className="ps-10 flex-1 pt-11.25">
       <div className="w-full h-full bg-black-color ">
         <div className="embla">
-          <div className="embla__viewport" ref={emblaRef}>
+          <div className="embla__viewport [direction:ltr]" ref={emblaRef}>
             <div className="embla__container">
               {slides.map((slide) => (
                 <div className="embla__slide" key={slide.productId}>
@@ -41,7 +41,7 @@ export default function FirstAdArea(props: PropType) {
             </div>
           </div>
 
-          <div className="embla__controls">
+          <div className="embla__controls [direction:ltr]">
             <div className="embla__dots">
               {scrollSnaps.map((_, index) => (
                 <DotButton

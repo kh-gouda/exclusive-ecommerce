@@ -7,10 +7,11 @@ import { ProductCardType } from "@/app/lib/typeDefinitions";
 import NewLabel from "@ui/productCard/NewLabel";
 import ProductColor from "@ui/productCard/ProductColor";
 import CardImage from "@ui/productCard/CardImage";
-import VieProductDetailsLink from "@ui/productCard/ViewProductDetilsLink";
+import ViewProductDetailsLink from "@ui/productCard/ViewProductDetilsLink";
 import AddToWishListButton from "@ui/productCard/AddToWishListButton";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/lib/auth";
+import { getTranslations } from "next-intl/server";
 
 export default async function ProductCard({
   product,
@@ -23,11 +24,12 @@ export default async function ProductCard({
   showNewLabel?: boolean;
   showAddToCartButton?: boolean;
 }) {
+  const t = await getTranslations("products");
   const session = await getServerSession(authOptions);
   const userId = session?.user.id;
 
   return (
-    <div className="group w-67.5 cursor-pointer">
+    <div className="group w-67.5 cursor-pointer group-rtl/layoutdir:[direction:rtl]">
       <div className="relative w-full h-62.5 bg-gray-bg flex justify-center items-center mb-4 rounded-sm">
         <CardImage productImage={product.productImage} />
 
@@ -39,7 +41,7 @@ export default async function ProductCard({
 
         <div className="absolute right-3 top-3">
           <AddToWishListButton productId={product.productID} userId={userId} />
-          <VieProductDetailsLink id={product.productID} />
+          <ViewProductDetailsLink id={product.productID} />
         </div>
         <AddToCartButton
           showAddToCartButton={showAddToCartButton}
@@ -48,7 +50,13 @@ export default async function ProductCard({
         />
       </div>
 
-      <ProductTitle title={product.productTitle} />
+      <ProductTitle
+        title={
+          product.productID < 44
+            ? t(`p${product.productID}name`)
+            : product.productTitle
+        }
+      />
 
       <PriceLbel price={product.price} discount={product.discount} />
 

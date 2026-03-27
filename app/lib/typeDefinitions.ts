@@ -33,11 +33,13 @@ export type FOOTER_LIST = {
 
 export type NEW_ARRIVAL_TYPE = {
   collection: {
+    id: number;
     title: string;
     description: string;
     categoryid: number;
   };
   products: {
+    id: number;
     title: string;
     description: string;
     image: string;

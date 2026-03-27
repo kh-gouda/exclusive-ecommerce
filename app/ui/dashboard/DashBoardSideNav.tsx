@@ -8,7 +8,7 @@ export default function DashBoardSideNav() {
 
   return (
     <div>
-      <ul className="pl-8.25">
+      <ul className="ps-8.25">
         <li className="my-2">
           <Link
             className={clsx("text-gray-500", {

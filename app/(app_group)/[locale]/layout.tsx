@@ -12,7 +12,7 @@ export default function LocaleLayout({
   const locale = useLocale();
 
   return (
-    <div dir={locale === "ar" ? "rtl" : "ltr"}>
+    <div dir={locale === "ar" ? "rtl" : "ltr"} className="group/layoutdir">
       <NextIntlClientProvider>
         <Header />
         {children}
