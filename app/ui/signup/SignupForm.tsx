@@ -5,8 +5,12 @@ import { SubmitEvent, useState } from "react";
 import { signup } from "@/app/actions/signup";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function SignupForm() {
+  const t = useTranslations("placeHolders");
+  const t2 = useTranslations("auth");
+
   const router = useRouter();
 
   const [firstname, setFirstname] = useState("");
@@ -45,7 +49,7 @@ export default function SignupForm() {
           type="text"
           name="fname"
           id="fname"
-          placeholder="First Name"
+          placeholder={t("fname")}
           className="form-input"
           aria-label="new user first name"
           autoComplete="username"
@@ -57,7 +61,7 @@ export default function SignupForm() {
           type="text"
           name="lname"
           id="lname"
-          placeholder="Last Name"
+          placeholder={t("lname")}
           className="form-input"
           aria-label="new user last name"
           autoComplete="username"
@@ -69,7 +73,7 @@ export default function SignupForm() {
           type="text"
           name="authinticator"
           id="authinticator"
-          placeholder="Email or Phone Number"
+          placeholder={t("emailOrPhone")}
           className="form-input"
           aria-label="authinticator"
           autoComplete="mobile email"
@@ -81,7 +85,7 @@ export default function SignupForm() {
           type="password"
           name="password"
           id="password"
-          placeholder="Password"
+          placeholder={t("password")}
           className="form-input"
           aria-label="new userpassword"
           autoComplete="new-password"
@@ -90,7 +94,7 @@ export default function SignupForm() {
         />
 
         <SharedButton full task="create account">
-          Create Account
+          {t2("createAccount")}
         </SharedButton>
       </form>
 
@@ -109,7 +113,7 @@ export default function SignupForm() {
             src="/images/Icon-Google.png"
             alt="google icon"
           />
-          Sign up with Google
+          {t2("signUpWithGoogle")}
         </button>
       </div>
     </>

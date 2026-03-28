@@ -1,9 +1,13 @@
 "use client";
 import { sendContactMessage } from "@/app/actions/sendContactMessage";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 export default function ContactForm() {
+  const t = useTranslations("placeHolders");
+  const t2 = useTranslations("general");
+
   const router = useRouter();
 
   const notifySuccess = () => toast.success("Your Message Sent Successfully");
@@ -37,21 +41,21 @@ export default function ContactForm() {
           type="text"
           name="name"
           id="name"
-          placeholder="Your Name"
+          placeholder={t("yourName")}
           className="bg-gray-bg rounded-sm p-4"
         />
         <input
           type="email"
           name="email"
           id="email"
-          placeholder="Your Email"
+          placeholder={t("yourEmail")}
           className="bg-gray-bg rounded-sm p-4"
         />
         <input
           type="tel"
           name="phone"
           id="phone"
-          placeholder="Your Phone"
+          placeholder={t("yourPhone")}
           className="bg-gray-bg rounded-sm p-4"
         />
       </div>
@@ -61,7 +65,9 @@ export default function ContactForm() {
         className="my-8 w-full h-57.75 rounded-sm resize-none bg-gray-bg p-4"
       ></textarea>
       <div className="flex items-center justify-end">
-        <button className="shared-btn shared-btn-solid">Send Massage</button>
+        <button className="shared-btn shared-btn-solid">
+          {t2("sendMessage")}
+        </button>
       </div>
     </form>
   );

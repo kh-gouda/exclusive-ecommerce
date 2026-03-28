@@ -18,8 +18,7 @@ export default async function SideNav() {
             className="text-base not-last:mb-4 block"
             href={`/categories/${category.categoryid}`}
           >
-            {/* {category.category} */}
-            {t(category.categoryid.toString())}
+            {t(`category${category.categoryid}`)}
           </Link>
         ))}
       </Suspense>

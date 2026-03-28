@@ -1,7 +1,6 @@
 {
   "headerAD": {
-    "ADVERTISEMENT": "Venta de verano en todos los trajes de baño con envío exprés gratis - ¡50% de descuento!",
-    "shopnow": "Comprar ahora"
+    "ADVERTISEMENT": "Venta de verano en todos los trajes de baño con envío exprés gratis - ¡50% de descuento!"
   },
   "selectLangList": {
     "english": "Inglés",
@@ -51,55 +50,60 @@
     "downloadOffer": "Ahorra $3 solo para nuevos usuarios de la app"
   },
   "categories": {
-    "1": "Moda masculina",
-    "2": "Electrónica",
-    "3": "Moda femenina",
-    "4": "Hogar y estilo de vida",
-    "5": "Medicina",
-    "6": "Deportes y aire libre",
-    "7": "Bebés y juguetes",
-    "8": "Comestibles y mascotas",
-    "9": "Salud y belleza"
+    "category1": "Moda masculina",
+    "category2": "Electrónica",
+    "category3": "Moda femenina",
+    "category4": "Hogar y estilo de vida",
+    "category5": "Medicina",
+    "category6": "Deportes y aire libre",
+    "category7": "Bebés y juguetes",
+    "category8": "Comestibles y mascotas",
+    "category9": "Salud y belleza"
   },
   "subCategories": {
-    "1": "Prendas superiores",
-    "2": "Vestidos",
-    "3": "Prendas inferiores",
-    "4": "Ropa exterior",
-    "5": "Calzado",
-    "6": "Ropa de playa y baño",
-    "7": "Accesorios",
-    "8": "Casual",
-    "9": "Casual elegante",
-    "10": "Business casual",
-    "11": "Trajes de baño",
-    "12": "Teléfonos",
-    "13": "Computadoras",
-    "14": "Relojes inteligentes",
-    "15": "Cámaras",
-    "16": "Auriculares",
-    "17": "Gaming",
-    "18": "Diseño y decoración interior",
-    "19": "Muebles",
-    "20": "Cocina y comedor",
-    "21": "Productos de limpieza",
-    "22": "Servicios",
-    "23": "Ropa deportiva",
-    "24": "Ropa para exteriores"
+    "subcategory1": "Prendas superiores",
+    "subcategory2": "Vestidos",
+    "subcategory3": "Prendas inferiores",
+    "subcategory4": "Ropa exterior",
+    "subcategory5": "Calzado",
+    "subcategory6": "Ropa de playa y baño",
+    "subcategory7": "Accesorios",
+    "subcategory8": "Casual",
+    "subcategory9": "Casual elegante",
+    "subcategory10": "Business casual",
+    "subcategory11": "Trajes de baño",
+    "subcategory12": "Teléfonos",
+    "subcategory13": "Computadoras",
+    "subcategory14": "Relojes inteligentes",
+    "subcategory15": "Cámaras",
+    "subcategory16": "Auriculares",
+    "subcategory17": "Gaming",
+    "subcategory18": "Diseño y decoración interior",
+    "subcategory19": "Muebles",
+    "subcategory20": "Cocina y comedor",
+    "subcategory21": "Productos de limpieza",
+    "subcategory22": "Servicios",
+    "subcategory23": "Ropa deportiva",
+    "subcategory24": "Ropa para exteriores"
   },
   "sectionLabel": {
     "Today": "Hoy",
     "Categories": "Categorías",
     "ThisMonth": "Este mes",
     "OurProducts": "Nuestros productos",
-    "Featured": "Destacado"
+    "Featured": "Destacado",
+    "shop": "Comercio"
   },
   "sectionTitle": {
     "flashSales": "Ofertas flash",
     "browseByCategory": "Explorar por categoría",
     "bestSelling": "Más vendidos",
     "explore": "Explora nuestros productos",
-    "newArrivals": "Nuevas llegadas"
+    "newArrivals": "Nuevas llegadas",
+    "allProducts": "Todos los productos",
+    "ourStory": "Nuestra historia",
+    "alreadyIn": "Ya has iniciado sesión",
+    "createAccount": "Crea una cuenta"
   },
   "features": {
     "feature1": "ENVÍO GRATIS Y RÁPIDO",
@@ -110,6 +114,7 @@
     "description3": "Devolvemos el dinero dentro de 30 días"
   },
   "general": {
+    "shopnow": "Comprar ahora",
     "addToCart": "Añadir al carrito",
     "addToWishlist": "Añadir a la lista de deseos",
     "viewAllProducts": "Ver todos los productos",
@@ -177,5 +182,18 @@
   "collection": {
     "colection1name": "Colecciones para mujer",
     "colection1description": "Colecciones femeninas destacadas que te transmiten una vibra diferente."
+  },
+  "ads": {
+    "ad4title": "Serie iPhone 14",
+    "ad4details": "Cupón de hasta 10% de descuento",
+    "ad5title": "Galaxy S24 Ultra",
+    "ad5details": "Cupón de hasta 10% de descuento",
+    "ad6title": "Mejora tu experiencia musical",
+    "ad6details": "",
+    "adformtitle": "Título del anuncio",
+    "adformdetails": "Aquí puedes añadir los detalles de tus anuncios.",
+    "adaction": "Comprar ahora",
+    "adformaction": "Reservar anuncios",
+    "categories": "categorias"
   }
 }

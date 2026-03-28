@@ -7,6 +7,7 @@ import Link from "next/link";
 
 export default async function SecondAdArea() {
   const t = await getTranslations("general");
+  const t2 = await getTranslations("ads");
 
   const ad = await fetchSecondAd();
   const adData = ad[0];
@@ -15,12 +16,14 @@ export default async function SecondAdArea() {
     <section className="bg-black-color p-12.5 flex items-center gap-5 my-25">
       <div className="flex-1 text-white-text">
         <div className="text-base font-semibold text-green-color">
-          Categories
+          {t2("categories")}
         </div>
         <h2
           className={`${inter.className} font-semibold text-white-text text-5xl my-8`}
         >
-          <p>{adData?.adtitle}</p>
+          <p>
+            {adData?.adid === 6 ? t2(`ad${adData.adid}title`) : adData?.adtitle}
+          </p>
         </h2>
 
         <SecondAdTimer targetDate={"adData?.endtime"} />

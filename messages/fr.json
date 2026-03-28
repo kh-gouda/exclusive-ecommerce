@@ -1,7 +1,6 @@
 {
   "headerAD": {
-    "ADVERTISEMENT": "Soldes d'été sur tous les maillots de bain avec livraison express gratuite - 50% de réduction !",
-    "shopnow": "Acheter maintenant"
+    "ADVERTISEMENT": "Soldes d'été sur tous les maillots de bain avec livraison express gratuite - 50% de réduction !"
   },
   "selectLangList": {
     "english": "Anglais",
@@ -51,55 +50,60 @@
     "downloadOffer": "Économisez 3$ pour les nouveaux utilisateurs de l'application"
   },
   "categories": {
-    "1": "Mode homme",
-    "2": "Électronique",
-    "3": "Mode femme",
-    "4": "Maison et style de vie",
-    "5": "Médicaments",
-    "6": "Sport et plein air",
-    "7": "Bébés et jouets",
-    "8": "Épicerie et animaux",
-    "9": "Santé et beauté"
+    "category1": "Mode homme",
+    "category2": "Électronique",
+    "category3": "Mode femme",
+    "category4": "Maison et style de vie",
+    "category5": "Médicaments",
+    "category6": "Sport et plein air",
+    "category7": "Bébés et jouets",
+    "category8": "Épicerie et animaux",
+    "category9": "Santé et beauté"
   },
   "subCategories": {
-    "1": "Hauts",
-    "2": "Robes",
-    "3": "Bas",
-    "4": "Vêtements d'extérieur",
-    "5": "Chaussures",
-    "6": "Maillots et plage",
-    "7": "Accessoires",
-    "8": "Décontracté",
-    "9": "Décontracté chic",
-    "10": "Business casual",
-    "11": "Maillots de bain",
-    "12": "Téléphones",
-    "13": "Ordinateurs",
-    "14": "Montres intelligentes",
-    "15": "Caméras",
-    "16": "Casques",
-    "17": "Jeux",
-    "18": "Design et décoration intérieure",
-    "19": "Meubles",
-    "20": "Cuisine et salle à manger",
-    "21": "Produits de nettoyage",
-    "22": "Utilitaires",
-    "23": "Vêtements de sport",
-    "24": "Vêtements d'extérieur"
+    "subcategory1": "Hauts",
+    "subcategory2": "Robes",
+    "subcategory3": "Bas",
+    "subcategory4": "Vêtements d'extérieur",
+    "subcategory5": "Chaussures",
+    "subcategory6": "Maillots et plage",
+    "subcategory7": "Accessoires",
+    "subcategory8": "Décontracté",
+    "subcategory9": "Décontracté chic",
+    "subcategory10": "Business casual",
+    "subcategory11": "Maillots de bain",
+    "subcategory12": "Téléphones",
+    "subcategory13": "Ordinateurs",
+    "subcategory14": "Montres intelligentes",
+    "subcategory15": "Caméras",
+    "subcategory16": "Casques",
+    "subcategory17": "Jeux",
+    "subcategory18": "Design et décoration intérieure",
+    "subcategory19": "Meubles",
+    "subcategory20": "Cuisine et salle à manger",
+    "subcategory21": "Produits de nettoyage",
+    "subcategory22": "Utilitaires",
+    "subcategory23": "Vêtements de sport",
+    "subcategory24": "Vêtements d'extérieur"
   },
   "sectionLabel": {
     "Today": "Aujourd'hui",
     "Categories": "Catégories",
     "ThisMonth": "Ce mois-ci",
     "OurProducts": "Nos produits",
-    "Featured": "En vedette"
+    "Featured": "En vedette",
+    "shop": "Boutique"
   },
   "sectionTitle": {
     "flashSales": "Ventes flash",
     "browseByCategory": "Parcourir par catégorie",
     "bestSelling": "Meilleures ventes",
     "explore": "Explorer nos produits",
-    "newArrivals": "Nouveautés"
+    "newArrivals": "Nouveautés",
+    "allProducts": "Tous les produits",
+    "ourStory": "Notre histoire",
+    "alreadyIn": "Vous êtes déjà connecté(e)",
+    "createAccount": "Créer un compte"
   },
   "features": {
     "feature1": "LIVRAISON GRATUITE ET RAPIDE",
@@ -110,6 +114,7 @@
     "description3": "Remboursement sous 30 jours"
   },
   "general": {
+    "shopnow": "Acheter maintenant",
     "addToCart": "Ajouter au panier",
     "addToWishlist": "Ajouter à la liste de souhaits",
     "viewAllProducts": "Voir tous les produits",
@@ -177,5 +182,18 @@
   "collection": {
     "colection1name": "Collections Femme",
     "colection1description": "Des collections de femmes en vedette qui vous donnent une autre dimension."
+  },
+  "ads": {
+    "ad4title": "Série iPhone 14",
+    "ad4details": "Bon de réduction jusqu'à 10 %",
+    "ad5title": "Galaxy S24 Ultra",
+    "ad5details": "Bon de réduction jusqu'à 10 %",
+    "ad6title": "Améliorez votre expérience musicale",
+    "ad6details": "",
+    "adformtitle": "Titre de l'annonce",
+    "adformdetails": "Vous pouvez ajouter les détails de vos annonces ici.",
+    "adaction": "Acheter maintenant",
+    "adformaction": "Réserver des annonces",
+    "categories": "catégories"
   }
 }

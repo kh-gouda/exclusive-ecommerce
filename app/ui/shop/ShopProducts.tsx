@@ -3,7 +3,11 @@ import Cards from "@ui/productCard/Cards";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import SectionTitle from "@ui/shared/SectionTitle";
+import { getTranslations } from "next-intl/server";
 export default async function ShopProducts() {
+  const t = await getTranslations("sectionLabel");
+  const t2 = await getTranslations("sectionTitle");
+
   const allProducts = await fetchAllProducts();
   const products = allProducts.map((product) => ({
     productID: product.productid,
@@ -21,9 +25,9 @@ export default async function ShopProducts() {
 
   return (
     <Section>
-      <SectionLabel>Shop</SectionLabel>
+      <SectionLabel>{t("shop")}</SectionLabel>
       <div className="flex items-center justify-between">
-        <SectionTitle>All Products</SectionTitle>
+        <SectionTitle>{t2("allProducts")}</SectionTitle>
       </div>
       {products && products.length ? (
         <Cards products={products} showDiscountLabel />

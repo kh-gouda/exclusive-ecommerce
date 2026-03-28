@@ -1,4 +1,5 @@
 export type FIRST_AD = {
+  adid: string;
   productId: number;
   product: string;
   productLogo?: string;

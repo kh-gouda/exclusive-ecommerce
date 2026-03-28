@@ -19,7 +19,7 @@ export default async function Categories({
         >
           <CategoryIcon categoryIcon={category.icon} />
           <div className="text-base text-center">
-            {t(category.id.toString())}
+            {t(`subcategory${category.id}`)}
           </div>
         </Link>
       ))}

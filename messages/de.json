@@ -1,7 +1,6 @@
 {
   "headerAD": {
-    "ADVERTISEMENT": "Sommerverkauf für alle Badeanzüge mit kostenlosem Expressversand - 50% Rabatt!",
-    "shopnow": "Jetzt kaufen"
+    "ADVERTISEMENT": "Sommerverkauf für alle Badeanzüge mit kostenlosem Expressversand - 50% Rabatt!"
   },
   "selectLangList": {
     "english": "Englisch",
@@ -51,55 +50,60 @@
     "downloadOffer": "Spare 3$ nur für neue App-Nutzer"
   },
   "categories": {
-    "1": "Herrenmode",
-    "2": "Elektronik",
-    "3": "Damenmode",
-    "4": "Haus & Lifestyle",
-    "5": "Medizin",
-    "6": "Sport & Outdoor",
-    "7": "Baby & Spielzeug",
-    "8": "Lebensmittel & Haustiere",
-    "9": "Gesundheit & Schönheit"
+    "category1": "Herrenmode",
+    "category2": "Elektronik",
+    "category3": "Damenmode",
+    "category4": "Haus & Lifestyle",
+    "category5": "Medizin",
+    "category6": "Sport & Outdoor",
+    "category7": "Baby & Spielzeug",
+    "category8": "Lebensmittel & Haustiere",
+    "category9": "Gesundheit & Schönheit"
   },
   "subCategories": {
-    "1": "Oberteile",
-    "2": "Kleider",
-    "3": "Unterteile",
-    "4": "Oberbekleidung",
-    "5": "Schuhe",
-    "6": "Bade- & Strandbekleidung",
-    "7": "Accessoires",
-    "8": "Lässig",
-    "9": "Smart Casual",
-    "10": "Business Casual",
-    "11": "Bademode",
-    "12": "Telefone",
-    "13": "Computer",
-    "14": "Smartwatches",
-    "15": "Kameras",
-    "16": "Kopfhörer",
-    "17": "Gaming",
-    "18": "Innenarchitektur & Dekor",
-    "19": "Möbel",
-    "20": "Küche & Esszimmer",
-    "21": "Reinigungsprodukte",
-    "22": "Dienstprogramme",
-    "23": "Sportbekleidung",
-    "24": "Outdoor-Bekleidung"
+    "subcategory1": "Oberteile",
+    "subcategory2": "Kleider",
+    "subcategory3": "Unterteile",
+    "subcategory4": "Oberbekleidung",
+    "subcategory5": "Schuhe",
+    "subcategory6": "Bade- & Strandbekleidung",
+    "subcategory7": "Accessoires",
+    "subcategory8": "Lässig",
+    "subcategory9": "Smart Casual",
+    "subcategory10": "Business Casual",
+    "subcategory11": "Bademode",
+    "subcategory12": "Telefone",
+    "subcategory13": "Computer",
+    "subcategory14": "Smartwatches",
+    "subcategory15": "Kameras",
+    "subcategory16": "Kopfhörer",
+    "subcategory17": "Gaming",
+    "subcategory18": "Innenarchitektur & Dekor",
+    "subcategory19": "Möbel",
+    "subcategory20": "Küche & Esszimmer",
+    "subcategory21": "Reinigungsprodukte",
+    "subcategory22": "Dienstprogramme",
+    "subcategory23": "Sportbekleidung",
+    "subcategory24": "Outdoor-Bekleidung"
   },
   "sectionLabel": {
     "Today": "Heute",
     "Categories": "Kategorien",
     "ThisMonth": "Diesen Monat",
     "OurProducts": "Unsere Produkte",
-    "Featured": "Empfohlen"
+    "Featured": "Empfohlen",
+    "shop": "Geschäft"
   },
   "sectionTitle": {
     "flashSales": "Blitzverkäufe",
     "browseByCategory": "Nach Kategorie durchsuchen",
     "bestSelling": "Bestseller",
     "explore": "Unsere Produkte entdecken",
-    "newArrivals": "Neu eingetroffen"
+    "newArrivals": "Neu eingetroffen",
+    "allProducts": "Alle Produkte",
+    "ourStory": "Unsere Geschichte",
+    "alreadyIn": "Sie sind bereits angemeldet",
+    "createAccount": "Ein Konto erstellen"
   },
   "features": {
     "feature1": "KOSTENLOSE UND SCHNELLE LIEFERUNG",
@@ -110,6 +114,7 @@
     "description3": "Rückerstattung innerhalb von 30 Tagen"
   },
   "general": {
+    "shopnow": "Jetzt kaufen",
     "addToCart": "In den Warenkorb",
     "addToWishlist": "Zur Wunschliste hinzufügen",
     "viewAllProducts": "Alle Produkte anzeigen",
@@ -177,5 +182,18 @@
   "collection": {
     "colection1name": "Kollektionen für Damen",
     "colection1description": "Ausgewählte Damenkollektionen, die Ihnen ein ganz anderes Flair verleihen."
+  },
+  "ads": {
+    "ad4title": "iPhone 14 Serie",
+    "ad4details": "Gutschein bis zu 10 % Rabatt",
+    "ad5title": "Galaxy S24 Ultra",
+    "ad5details": "Gutschein bis zu 10 % Rabatt",
+    "ad6title": "Verbessern Sie Ihr Musikerlebnis",
+    "ad6details": "",
+    "adformtitle": "Anzeigentitel",
+    "adformdetails": "Hier können Sie Ihre Anzeigendetails hinzufügen.",
+    "adaction": "Jetzt kaufen",
+    "adformaction": "Anzeigen reservieren",
+    "categories": "Kategorien"
   }
 }

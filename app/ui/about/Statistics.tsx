@@ -4,6 +4,7 @@ import {
   CurrencyDollarIcon,
   Square2StackIcon,
 } from "@heroicons/react/24/outline";
+import { getTranslations } from "next-intl/server";
 
 const STATISTICS = [
   {
@@ -39,7 +40,9 @@ const STATISTICS = [
     ),
   },
 ];
-export default function Statistics() {
+export default async function Statistics() {
+  const t = await getTranslations("aboutPage");
+
   return (
     <section className="flex items-center justify-center gap-7.5 ">
       {STATISTICS.map((stat) => (
@@ -55,7 +58,7 @@ export default function Statistics() {
           <h3 className={`${inter.className} font-bold text-[32px]`}>
             {stat.total}k
           </h3>
-          <p>{stat.description}</p>
+          <p>{t(`stat${stat.id}`)}</p>
         </div>
       ))}
     </section>

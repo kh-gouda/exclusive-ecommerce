@@ -32,6 +32,7 @@ export default async function Home() {
 
   const firstAdData = await fetchFirstAd();
   const FIRST_AD_AREA_LIST = firstAdData.map((ad) => ({
+    adid: ad.adid.toString(),
     productId: ad.productid,
     product: ad.adtitle,
     productLogo: ad.adlogo,
@@ -40,6 +41,7 @@ export default async function Home() {
     imageSrc: ad.adimage,
   }));
   const adForm = {
+    adid: "form",
     productId: FIRST_AD_AREA_LIST.length * 1000,
     product: "Ads Title",
     productLogo: "adlogo_qyqfuy",
