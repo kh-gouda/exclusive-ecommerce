@@ -103,7 +103,9 @@
     "allProducts": "Todos los productos",
     "ourStory": "Nuestra historia",
     "alreadyIn": "Ya has iniciado sesión",
-    "createAccount": "Crea una cuenta"
+    "createAccount": "Crea una cuenta",
+    "loginTo": "Inicie sesión en Exclusive",
+    "resetPassword": "Restablecer contraseña"
   },
   "features": {
     "feature1": "ENVÍO GRATIS Y RÁPIDO",
@@ -121,7 +123,9 @@
     "buyNow": "Comprar ahora",
     "sendMessage": "Enviar mensaje",
     "save": "Guardar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "sendEmail": "Enviar correo electrónico",
+    "verifyEmail": "Verificar correo electrónico"
   },
   "timer": {
     "days": "Días",

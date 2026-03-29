@@ -6,6 +6,7 @@ import ProductColors from "@ui/product_details/ProductColors";
 import ProductSizes from "@ui/product_details/ProductSizes";
 import { inter } from "@ui/shared/fonts";
 import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useEffectEvent, useState } from "react";
 import { toast } from "react-toastify";
@@ -16,6 +17,7 @@ export default function PurchaseForm({
   stock: { color: string; size: string; quantity: number }[];
   orderInfo: CART_TYPE;
 }) {
+  const t = useTranslations("general");
   const { data: session } = useSession();
   const userId = session?.user.id;
 
@@ -129,7 +131,9 @@ export default function PurchaseForm({
   return (
     <form onSubmit={(e) => e.preventDefault()}>
       <div className="flex items-center gap-6 my-6">
-        <p className={`${inter.className} font-normal text-xl`}>Colours: </p>
+        <p className={`${inter.className} font-normal text-xl`}>
+          {t("colour")}
+        </p>
         <ProductColors
           colors={colors}
           selectedColor={selectedColor}
@@ -137,7 +141,7 @@ export default function PurchaseForm({
         />
       </div>
       <div className="flex items-center gap-6 my-6">
-        <p className={`${inter.className} font-normal text-xl`}>Size: </p>
+        <p className={`${inter.className} font-normal text-xl`}>{t("size")}</p>
         <ProductSizes
           sizes={sizes || ["one size"]}
           selectedSize={selectedSize}
@@ -147,7 +151,7 @@ export default function PurchaseForm({
       <div className="flex items-center gap-4 justify-between">
         <div className="flex items-center">
           <button
-            className="w-10 h-11 rounded-l-sm border flex items-center justify-center cursor-pointer text-2xl"
+            className="w-10 h-11 rounded-s-sm border flex items-center justify-center cursor-pointer text-2xl"
             onClick={handleMinusClick}
           >
             -
@@ -160,14 +164,14 @@ export default function PurchaseForm({
             className="w-20 h-11 border-t border-b text-center text-2xl"
           />
           <button
-            className="w-10 h-11 rounded-r-sm flex items-center justify-center cursor-pointer text-2xl text-white-text bg-identity"
+            className="w-10 h-11 rounded-e-sm flex items-center justify-center cursor-pointer text-2xl text-white-text bg-identity"
             onClick={handlePlusClick}
           >
             +
           </button>
         </div>
         <button className="shared-btn shared-btn-solid" onClick={handleBuyNow}>
-          Buy Now
+          {t("buyNow")}
         </button>
         <div className="w-10 h-10 rounded-sm border flex items-center justify-center hover:bg-identity hover:text-white-text cursor-pointer">
           <HeartIcon className="w-5 h-5 cursor-pointer" />

@@ -2,11 +2,15 @@
 
 import { sendNewPassword } from "@/app/actions/sendNewPassword";
 import { sendVerificationCode } from "@/app/actions/sendVerificationCode";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, SubmitEvent, useState } from "react";
 import { toast } from "react-toastify";
 
 export default function ResetPasswordForm() {
+  const t = useTranslations("placeHolders");
+  const t2 = useTranslations("general");
+
   const router = useRouter();
 
   const [email, setEmail] = useState("");
@@ -72,14 +76,14 @@ export default function ResetPasswordForm() {
           name="email"
           id="email"
           value={email}
-          placeholder="Type Your Email"
+          placeholder={t("typeEmail")}
           onChange={handleEmailChange}
         />
         <button
           className={`shared-btn ${isEmailSent ? "shared-btn-disabled" : "shared-btn-solid"}`}
           disabled={isEmailSent}
         >
-          Send Email
+          {t2("sendEmail")}
         </button>
       </form>
       {isEmailSent ? (
@@ -94,14 +98,14 @@ export default function ResetPasswordForm() {
             name="verification-code"
             id="verification-code"
             value={verificationCode}
-            placeholder="Type Your verification code"
+            placeholder={t("typeVerificationCode")}
             onChange={handleVerificationCodeChange}
           />
           <button
             className={`shared-btn ${!isEmailSent ? "shared-btn-disabled" : "shared-btn-solid"}`}
             disabled={!isEmailSent}
           >
-            Verify Email
+            {t2("verifyEmail")}
           </button>
         </form>
       ) : null}

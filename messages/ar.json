@@ -96,14 +96,18 @@
   },
   "sectionTitle": {
     "flashSales": "عروض سريعة",
+    "flashSalesProducts": "منتجات العروض السريعة",
     "browseByCategory": "تصفح حسب الفئة",
     "bestSelling": "الأكثر مبيعاً",
+    "bestSellingProducts": "المنتجات الأكثر مبيعاً",
     "explore": "استكشف منتجاتنا",
     "newArrivals": "وصل حديثاً",
     "allProducts": "جميع المنتجات",
     "ourStory": "قصتنا",
     "alreadyIn": "لقد قمت بتسجيل الدخول بالفعل",
-    "createAccount": "إنشاء حساب"
+    "createAccount": "إنشاء حساب",
+    "loginTo": "تسجيل الدخول إلى إكسكلوسيف",
+    "resetPassword": "إعادة تعيين كلمة المرور"
   },
   "features": {
     "feature1": "توصيل مجاني وسريع",
@@ -121,7 +125,9 @@
     "buyNow": "اشترِ الآن",
     "sendMessage": "إرسال رسالة",
     "save": "حفظ",
-    "cancel": "إلغاء"
+    "cancel": "إلغاء",
+    "sendEmail": "أرسل البريد",
+    "verifyEmail": "أرسل رمز التحقق"
   },
   "timer": {
     "days": "أيام",

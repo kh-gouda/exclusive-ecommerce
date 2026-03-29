@@ -8,11 +8,12 @@ import Cards from "@ui/productCard/Cards";
 import Container from "@ui/shared/Container";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
-import SharedButton from "@ui/shared/SharedButton";
 import { getServerSession } from "next-auth";
+import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
 
 export default async function WishList() {
+  const t = await getTranslations();
   const session = await getServerSession(authOptions);
 
   if (!session) {
@@ -74,11 +75,13 @@ export default async function WishList() {
     <Container>
       <Section>
         <div className="flex items-center justify-between">
-          <h2>Wishlist ({wishListProductsCount})</h2>
+          <h2>
+            {t("general.wishList")} ({wishListProductsCount})
+          </h2>
           {wishListProductsCount ? (
-            <SharedButton transparent task="Move All To Bag">
-              Move All To Bag
-            </SharedButton>
+            <button className="shared-btn shared-btn-transparent">
+              {t("general.moveToBag")}
+            </button>
           ) : null}
         </div>
         {wishListProductsCount ? (
@@ -89,16 +92,18 @@ export default async function WishList() {
           />
         ) : (
           <p className="text-identity pt-4">
-            No Products Added To Your Wishlist Yet
+            {t("conditionalRender.noWishlist")}
           </p>
         )}
       </Section>
-      <Section>
-        <SectionLabel>Just For You</SectionLabel>
-        <div className="pb-17.5">
-          <Cards products={justForUProducts} showDiscountLabel showNewLabel />
-        </div>
-      </Section>
+      {justForUProducts.length ? (
+        <Section>
+          <SectionLabel>{t("sectionLabel.justForYou")}</SectionLabel>
+          <div className="pb-17.5">
+            <Cards products={justForUProducts} showDiscountLabel showNewLabel />
+          </div>
+        </Section>
+      ) : null}
     </Container>
   );
 }

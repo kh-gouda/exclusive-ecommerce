@@ -92,18 +92,24 @@
     "ThisMonth": "This Month",
     "OurProducts": "Our Products",
     "Featured": "Featured",
-    "shop": "Shop"
+    "shop": "Shop",
+    "relatedItems": "Related Items",
+    "justForYou": "Just For You"
   },
   "sectionTitle": {
     "flashSales": "Flash Sales",
+    "flashSalesProducts": "Flash Sales Products",
     "browseByCategory": "Browse By Category",
-    "bestSelling": "Best Selling Products",
+    "bestSelling": "Best Selling",
+    "bestSellingProducts": "Best Selling Products",
     "explore": "Explore Our Products",
     "newArrivals": "New Arrivals",
     "allProducts": "All Products",
     "ourStory": "Our Story",
     "alreadyIn": "You Have Already Logged In",
-    "createAccount": "Create an account"
+    "createAccount": "Create an account",
+    "loginTo": "Log in to Exclusive",
+    "resetPassword": "Reset Password"
   },
   "features": {
     "feature1": "FREE AND FAST DELIVERY",
@@ -121,7 +127,15 @@
     "buyNow": "Buy Now",
     "sendMessage": "Send Message",
     "save": "Save",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "sendEmail": "Send Email",
+    "verifyEmail": "Verify Email",
+    "reviews": "Reviews",
+    "inStock": "In Stock",
+    "colour": "Colour: ",
+    "size": "Size: ",
+    "wishList": "Wish List",
+    "moveToBag": "Move All To Bag"
   },
   "timer": {
     "days": "Days",
@@ -239,7 +253,9 @@
     "haveAccount?": "Already have account?",
     "login": "Login",
     "createAccount": "Create Account",
-    "signUpWithGoogle": "Sign up with Google"
+    "signUpWithGoogle": "Sign up with Google",
+    "forgetPassword": "Forget Password?",
+    "signInWithGoogle": "Sign in with Google"
   },
   "placeHolders": {
     "headerSearch": "What are you looking for?",
@@ -250,12 +266,29 @@
     "fname": "First Name",
     "lname": "Last Name",
     "emailOrPhone": "Email or Phone Number",
-    "password": "Password"
+    "password": "Password",
+    "typeEmail": "Type Your Email",
+    "typeVerificationCode": "Type Your Verification Code"
   },
-  "successNotifications": {
-    "n": "n"
+  "conditionalRender": {
+    "waitingSales": "Waiting For The Next Flash Sales.",
+    "noProducts": "No Products To Show.",
+    "outOfStock": "Sorry, This Product Is Out Of Stock.",
+    "noRelatedSubCategory": "No products for other sub-category related to this category added yet.",
+    "noWishlist": "No Products Added To Your Wishlist Yet"
   },
-  "errorNotifications": {
-    "n": "n"
+  "deliveryFeatures": {
+    "feature1": "Free Delivery",
+    "description1": "Enter your postal code for Delivery Availability",
+    "feature2": "Return Delivery",
+    "description2": "Free 30 Days Delivery Returns."
+  },
+  "accountNoLogin": {
+    "haveToLogin": "You Have To Login To Visit Your ",
+    "cart": "Cart",
+    "wishlist": "Wishlist",
+    "accountProfile": "Account Profile",
+    "youCan": "You Can ",
+    "loginhere": "Login Here"
   }
 }

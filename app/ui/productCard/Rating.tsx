@@ -1,6 +1,7 @@
 import { StarIcon } from "@heroicons/react/24/solid";
+import { getTranslations } from "next-intl/server";
 
-export default function Rating({
+export default async function Rating({
   stars,
   voters,
   reviewsString = false,
@@ -9,6 +10,7 @@ export default function Rating({
   voters: number;
   reviewsString?: boolean;
 }) {
+  const t = await getTranslations("general");
   const STARS_ARRAY = new Array(5).fill("dummy");
   return (
     <p className="flex items-center">
@@ -20,7 +22,7 @@ export default function Rating({
         );
       })}
       <span className="ms-3 opacity-40">
-        ({voters} {reviewsString ? "reviews" : null})
+        ({voters} {reviewsString ? t("reviews") : null})
       </span>
     </p>
   );

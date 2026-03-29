@@ -103,7 +103,9 @@
     "allProducts": "Alle Produkte",
     "ourStory": "Unsere Geschichte",
     "alreadyIn": "Sie sind bereits angemeldet",
-    "createAccount": "Ein Konto erstellen"
+    "createAccount": "Ein Konto erstellen",
+    "loginTo": "Melden Sie sich bei Exclusive an",
+    "resetPassword": "Passwort zurücksetzen"
   },
   "features": {
     "feature1": "KOSTENLOSE UND SCHNELLE LIEFERUNG",
@@ -121,7 +123,9 @@
     "buyNow": "Jetzt kaufen",
     "sendMessage": "Nachricht senden",
     "save": "Speichern",
-    "cancel": "Abbrechen"
+    "cancel": "Abbrechen",
+    "sendEmail": "E-Mail senden",
+    "verifyEmail": "E-Mail bestätigen"
   },
   "timer": {
     "days": "Tage",

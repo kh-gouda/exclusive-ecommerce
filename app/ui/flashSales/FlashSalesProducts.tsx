@@ -4,7 +4,11 @@ import Cards from "@ui/productCard/Cards";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import SectionTitle from "@ui/shared/SectionTitle";
+import { getTranslations } from "next-intl/server";
 export default async function FlashSalesProducts() {
+  const t = await getTranslations("sectionTitle");
+  const t2 = await getTranslations("conditionalRender");
+
   const flashSales = await fetchFlashSalesProducts();
   const products = flashSales.map((product) => ({
     productID: product.productid,
@@ -20,10 +24,10 @@ export default async function FlashSalesProducts() {
 
   return (
     <Section>
-      <SectionLabel>Flash Sales</SectionLabel>
+      <SectionLabel>{t("flashSales")}</SectionLabel>
       <div className="flex items-center justify-between">
         <SectionTitle>
-          Flash Sales Products
+          {t("flashSalesProducts")}
           {flashSales && flashSales.length ? (
             <FlashSalesTimer targetDate={"flashSales[0].endtime"} />
           ) : null}
@@ -32,9 +36,7 @@ export default async function FlashSalesProducts() {
       {products && products.length ? (
         <Cards products={products} showDiscountLabel />
       ) : (
-        <p className="text-center text-identity mt-10">
-          Waiting For The Next Flash Sales.
-        </p>
+        <p className="text-center text-identity mt-10">{t2("waitingSales")}</p>
       )}
     </Section>
   );

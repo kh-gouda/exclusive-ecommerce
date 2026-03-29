@@ -7,10 +7,14 @@ import Cards from "@ui/productCard/Cards";
 import Container from "@ui/shared/Container";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
+import { getTranslations } from "next-intl/server";
 
 export default async function ProductDetails(props: {
   params: Promise<{ id: string }>;
 }) {
+  const t = await getTranslations("sectionLabel");
+  const t2 = await getTranslations("conditionalRender");
+
   const params = await props.params;
   const id = +params.id;
 
@@ -51,14 +55,13 @@ export default async function ProductDetails(props: {
     <Container>
       <ProductDetailsMain productDetails={PRODUCT_DETAILS_DATA} />
       <Section>
-        <SectionLabel>Related Items</SectionLabel>
+        <SectionLabel>{t("relatedItems")}</SectionLabel>
 
         {products && products.length ? (
           <Cards products={products} showDiscountLabel />
         ) : (
           <p className="text-center text-identity mt-10">
-            No products for other sub-category related to this category added
-            yet.
+            {t2("noRelatedSubCategory")}
           </p>
         )}
       </Section>

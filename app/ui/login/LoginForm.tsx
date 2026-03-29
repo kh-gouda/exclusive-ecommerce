@@ -5,8 +5,12 @@ import { SubmitEvent, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { toast } from "react-toastify";
+import { useTranslations } from "next-intl";
 
 export default function LoginForm() {
+  const t = useTranslations("placeHolders");
+  const t2 = useTranslations("auth");
+
   const [authenticator, setAuthenticator] = useState("");
 
   const [password, setPassword] = useState("");
@@ -31,7 +35,7 @@ export default function LoginForm() {
           type="text"
           name="authinticator"
           id="authinticator"
-          placeholder="Email or Phone Number"
+          placeholder={t("emailOrPhone")}
           className="form-input"
           aria-label="authinticator"
           autoComplete="mobile email"
@@ -42,7 +46,7 @@ export default function LoginForm() {
           type="password"
           name="password"
           id="password"
-          placeholder="Password"
+          placeholder={t("password")}
           className="form-input"
           aria-label="userpassword"
           autoComplete="current-password"
@@ -50,10 +54,10 @@ export default function LoginForm() {
         />
 
         <p className="flex items-center justify-between">
-          <button className="shared-btn shared-btn-solid">Login</button>
+          <button className="shared-btn shared-btn-solid">{t2("login")}</button>
 
           <Link className="text-identity" href="/reset-password">
-            Forget Password?
+            {t2("forgetPassword")}
           </Link>
         </p>
       </form>
@@ -72,7 +76,7 @@ export default function LoginForm() {
             src="/images/Icon-Google.png"
             alt="google icon"
           />
-          Sign in with Google
+          {t2("signInWithGoogle")}
         </button>
       </div>
     </>
