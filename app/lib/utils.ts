@@ -889,3 +889,21 @@ export async function fetchDashBoardOrders() {
 
   return orders;
 }
+
+export async function fetchUserReviews(userId: number) {
+  const reviews = await sql`
+    SELECT p.productid,
+        p.productname,
+        p.productimages,
+        p.productprice,
+        p.productdiscount,
+        r.ratingvalue
+    FROM products AS p
+    join productratings AS pr on p.productid = pr.productid
+    join ratings AS r on pr.ratingid = r.ratingid
+    join users AS u on pr.userid = u.userid
+    WHERE u.userid = ${userId}
+    `;
+
+  return reviews;
+}

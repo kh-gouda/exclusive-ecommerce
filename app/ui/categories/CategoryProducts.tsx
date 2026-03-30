@@ -1,9 +1,12 @@
-import { fetchCategoryById, fetchProductsByCategoryId } from "@/app/lib/utils";
+import { fetchProductsByCategoryId } from "@/app/lib/utils";
 import Cards from "@ui/productCard/Cards";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import SectionTitle from "@ui/shared/SectionTitle";
+import { getTranslations } from "next-intl/server";
 export default async function CategoryProducts({ id }: { id: number }) {
+  const t = await getTranslations();
+
   const categoryProducts = await fetchProductsByCategoryId(id);
   const products = categoryProducts.map((product) => ({
     productID: product.productid,
@@ -19,12 +22,11 @@ export default async function CategoryProducts({ id }: { id: number }) {
     new: product.newproduct,
   }));
 
-  const categoryName = await fetchCategoryById(id);
   return (
     <Section>
-      <SectionLabel>Category</SectionLabel>
+      <SectionLabel>{t("sectionLabel.category")}</SectionLabel>
       <div className="flex items-center justify-between">
-        <SectionTitle>{categoryName[0].category}</SectionTitle>
+        <SectionTitle>{t(`categories.category${id}`)}</SectionTitle>
       </div>
       {products && products.length ? (
         <Cards products={products} showDiscountLabel showNewLabel />

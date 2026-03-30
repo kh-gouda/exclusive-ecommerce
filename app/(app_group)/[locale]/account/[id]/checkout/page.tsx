@@ -7,9 +7,12 @@ import CheckoutForm from "@ui/checkout/CheckoutForm";
 import { ORDER_DETAILS_TYPE } from "@/app/lib/typeDefinitions";
 import { confirmOrder, confirmPayment } from "@/app/actions/addOrder";
 import BreadCrumbs from "@ui/shared/BreadCrumbs";
+import { getTranslations } from "next-intl/server";
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 export default async function Checkout(props: { searchParams: SearchParams }) {
+  const t = await getTranslations();
+
   const searchParams = await props.searchParams;
   const orderId = Number(searchParams.orderid);
   const paymentSuccess = searchParams.success;
@@ -28,8 +31,10 @@ export default async function Checkout(props: { searchParams: SearchParams }) {
     return (
       <div className="pt-20 pb-35">
         <Container>
-          <SectionTitle weight={500}>Billing Details</SectionTitle>
-          <div className="text-identity">No Order Meet This OrderId</div>
+          <SectionTitle weight={500}>
+            {t("sectionTitle.billingDetails")}
+          </SectionTitle>
+          <div className="text-identity">{t("conditionalRender.noOrder")}</div>
         </Container>
       </div>
     );
@@ -59,7 +64,9 @@ export default async function Checkout(props: { searchParams: SearchParams }) {
     <div className="pt-20 pb-35">
       <Container>
         <BreadCrumbs />
-        <SectionTitle weight={500}>Billing Details</SectionTitle>
+        <SectionTitle weight={500}>
+          {t("sectionTitle.billingDetails")}
+        </SectionTitle>
         <CheckoutForm orderDetails={orderDetails} />
       </Container>
     </div>

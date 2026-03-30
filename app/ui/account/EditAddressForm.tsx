@@ -2,10 +2,13 @@
 
 import { updateUserAddress } from "@/app/actions/fetchAndUpdateUser";
 import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import { ChangeEvent, SubmitEvent, useState } from "react";
 import { toast } from "react-toastify";
 
 export default function EditAddressForm() {
+  const t = useTranslations();
+
   const { data: session } = useSession();
   const [user, setUser] = useState(session?.user);
   const notifyUpdate = () => toast.success("Your Address Updated Successfully");
@@ -84,7 +87,7 @@ export default function EditAddressForm() {
     >
       <div className="flex items-center justify-between mb-6">
         <div className=" w-[45%]">
-          <label htmlFor="street">Street</label>
+          <label htmlFor="street">{t("placeHolders.street")}</label>
           <input
             className="profile-form-input"
             type="text"
@@ -98,7 +101,7 @@ export default function EditAddressForm() {
           />
         </div>
         <div className=" w-[45%]">
-          <label htmlFor="building">Building</label>
+          <label htmlFor="building">{t("placeHolders.building")}</label>
           <input
             className="profile-form-input"
             type="text"
@@ -115,7 +118,7 @@ export default function EditAddressForm() {
 
       <div className="flex items-center justify-between mb-6">
         <div className=" w-[45%]">
-          <label htmlFor="city">City</label>
+          <label htmlFor="city">{t("placeHolders.city")}</label>
           <input
             className="profile-form-input"
             type="text"
@@ -127,7 +130,7 @@ export default function EditAddressForm() {
           />
         </div>
         <div className=" w-[45%]">
-          <label htmlFor="country">Country</label>
+          <label htmlFor="country">{t("placeHolders.country")}</label>
           <input
             className="profile-form-input"
             type="text"
@@ -143,8 +146,14 @@ export default function EditAddressForm() {
       </div>
 
       <div className="flex gap-8 items-center justify-end">
-        <input className="cursor-pointer" type="reset" value="Cancel" />
-        <button className="shared-btn shared-btn-solid">Save Changes</button>
+        <input
+          className="cursor-pointer"
+          type="reset"
+          value={t("placeHolders.cancel")}
+        />
+        <button className="shared-btn shared-btn-solid">
+          {t("placeHolders.saveChanges")}
+        </button>
       </div>
     </form>
   );

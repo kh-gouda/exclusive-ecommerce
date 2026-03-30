@@ -1,11 +1,9 @@
-import {
-  fetchCategoryById,
-  fetchProductsByCategoryIdLimited,
-} from "@/app/lib/utils";
+import { fetchProductsByCategoryIdLimited } from "@/app/lib/utils";
 import Cards from "@ui/productCard/Cards";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import SectionTitle from "@ui/shared/SectionTitle";
+import { getTranslations } from "next-intl/server";
 export default async function RelatedCategoryProducts({
   id,
   subCategoryId,
@@ -13,6 +11,8 @@ export default async function RelatedCategoryProducts({
   id: number;
   subCategoryId: number;
 }) {
+  const t = await getTranslations();
+
   const categoryProducts = await fetchProductsByCategoryIdLimited(
     id,
     subCategoryId,
@@ -31,18 +31,17 @@ export default async function RelatedCategoryProducts({
     new: product.newproduct,
   }));
 
-  const categoryName = await fetchCategoryById(id);
   return (
     <Section>
-      <SectionLabel>Related Category</SectionLabel>
+      <SectionLabel>{t("sectionLabel.relatedCategory")}</SectionLabel>
       <div className="flex items-center justify-between">
-        <SectionTitle>{categoryName[0].category}</SectionTitle>
+        <SectionTitle>{t(`categories.category${id}`)}</SectionTitle>
       </div>
       {products && products.length ? (
         <Cards products={products} showDiscountLabel showNewLabel />
       ) : (
         <p className="text-center text-identity mt-10">
-          No products for other sub-category related to this category added yet.
+          {t("conditionalRender.noRelatedSubCategory")}
         </p>
       )}
     </Section>

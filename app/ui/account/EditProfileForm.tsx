@@ -7,9 +7,14 @@ import {
 } from "@/app/actions/fetchAndUpdateUser";
 import bcrypt from "bcryptjs";
 import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import { ChangeEvent, SubmitEvent, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function EditProfileForm() {
+  const t = useTranslations();
+  const notifyError = (error: string) => toast.error(error);
+
   const { data: session, update } = useSession();
   const [user, setUser] = useState(session?.user);
 
@@ -18,7 +23,6 @@ export default function EditProfileForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [isValid, setIsValid] = useState(false);
-  const [error, setError] = useState("");
 
   const handleChangeFName = (e: ChangeEvent<HTMLInputElement>) => {
     if (user) {
@@ -108,11 +112,14 @@ export default function EditProfileForm() {
           await update();
         }
       }
-    } catch (err) {
-      setError(JSON.stringify(err));
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        notifyError(
+          err.message || "An error occurred while updating the profile",
+        );
+      }
     }
   }
-
 
   return (
     <form
@@ -121,7 +128,7 @@ export default function EditProfileForm() {
     >
       <div className="flex items-center justify-between mb-6">
         <div className=" w-[45%]">
-          <label htmlFor="fname">First Name</label>
+          <label htmlFor="fname">{t("placeHolders.fname")}</label>
           <input
             className="profile-form-input"
             type="text"
@@ -135,7 +142,7 @@ export default function EditProfileForm() {
           />
         </div>
         <div className=" w-[45%]">
-          <label htmlFor="lname">Last Name</label>
+          <label htmlFor="lname">{t("placeHolders.lname")}</label>
           <input
             className="profile-form-input"
             type="text"
@@ -151,7 +158,7 @@ export default function EditProfileForm() {
       </div>
       <div className="flex items-center justify-between mb-6">
         <div className=" w-[45%]">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">{t("placeHolders.email")}</label>
           <input
             className="profile-form-input"
             type="email"
@@ -166,9 +173,9 @@ export default function EditProfileForm() {
         </div>
         <div className=" w-[45%]">
           <label htmlFor="address">
-            Address{" "}
+            {t("placeHolders.address")}{" "}
             <span className="text-identity">
-              (read only - you can change from address book)
+              {t("placeHolders.readOnlyAddress")}
             </span>
           </label>
           <input
@@ -183,12 +190,14 @@ export default function EditProfileForm() {
         </div>
       </div>
       <div className="mb-6">
-        <label htmlFor="current-password">Password Change</label>
+        <label htmlFor="current-password">
+          {t("placeHolders.passwordChange")}
+        </label>
         <input
           type="password"
           name="current-password"
           id="current-password"
-          placeholder="Current Passwod"
+          placeholder={t("placeHolders.currentPassword")}
           className="profile-form-input"
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             handleChangeCurrentPassword(e)
@@ -199,7 +208,7 @@ export default function EditProfileForm() {
           type="password"
           name="new-password"
           id="new-password"
-          placeholder="New Passwod"
+          placeholder={t("placeHolders.newPassword")}
           className="profile-form-input"
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             handleChangeNewPassword(e)
@@ -210,7 +219,7 @@ export default function EditProfileForm() {
           type="password"
           name="confirm-new-password"
           id="confirm-new-password"
-          placeholder="Confirm New Passwod"
+          placeholder={t("placeHolders.confirmPassword")}
           className="profile-form-input"
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             handleChangeConfirmPassword(e)
@@ -219,8 +228,14 @@ export default function EditProfileForm() {
         />
       </div>
       <div className="flex gap-8 items-center justify-end">
-        <input className="cursor-pointer" type="reset" value="Cancel" />
-        <button className="shared-btn shared-btn-solid">Save Changes</button>
+        <input
+          className="cursor-pointer"
+          type="reset"
+          value={t("placeHolders.cancel")}
+        />
+        <button className="shared-btn shared-btn-solid">
+          {t("placeHolders.saveChanges")}
+        </button>
       </div>
     </form>
   );

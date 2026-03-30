@@ -35,6 +35,22 @@ export default function SelectLanguage() {
         <SelectItem value="fr">{t("french")}</SelectItem>
         <SelectItem value="de">{t("german")}</SelectItem>
         <SelectItem value="es">{t("spanish")}</SelectItem>
+        <SelectItem value="zh">{t("Chinese(Simplified)")}</SelectItem>
+        <SelectItem value="zh-TW">{t("Chinese(Traditional)")}</SelectItem>
+        <SelectItem value="ja">{t("japanese")}</SelectItem>
+        <SelectItem value="ko">{t("korean")}</SelectItem>
+        <SelectItem value="pt">{t("portuguese")}</SelectItem>
+        <SelectItem value="it">{t("italian")}</SelectItem>
+        <SelectItem value="ru">{t("russian")}</SelectItem>
+        <SelectItem value="bn">{t("bengali")}</SelectItem>
+        <SelectItem value="hi">{t("hindi")}</SelectItem>
+        <SelectItem value="tr">{t("turkish")}</SelectItem>
+        <SelectItem value="nl">{t("dutch")}</SelectItem>
+        <SelectItem value="pl">{t("polish")}</SelectItem>
+        <SelectItem value="id">{t("indonesian")}</SelectItem>
+        <SelectItem value="th">{t("thai")}</SelectItem>
+        <SelectItem value="vi">{t("vietnamese")}</SelectItem>
+        <SelectItem value="sv">{t("swedish")}</SelectItem>
       </SelectContent>
     </Select>
   );

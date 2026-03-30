@@ -1,12 +1,12 @@
-import {
-  fetchProductsBySubCategoryId,
-  fetchSubCategoryById,
-} from "@/app/lib/utils";
+import { fetchProductsBySubCategoryId } from "@/app/lib/utils";
 import Cards from "@ui/productCard/Cards";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import SectionTitle from "@ui/shared/SectionTitle";
+import { getTranslations } from "next-intl/server";
 export default async function SubCategoryProducts({ id }: { id: number }) {
+  const t = await getTranslations();
+
   const subCategoryProducts = await fetchProductsBySubCategoryId(id);
   const products = subCategoryProducts.map((product) => ({
     productID: product.productid,
@@ -22,18 +22,17 @@ export default async function SubCategoryProducts({ id }: { id: number }) {
     new: product.newproduct,
   }));
 
-  const subCategoryName = await fetchSubCategoryById(id);
   return (
     <Section>
-      <SectionLabel>Sub Category</SectionLabel>
+      <SectionLabel>{t("sectionLabel.subCategory")}</SectionLabel>
       <div className="flex items-center justify-between">
-        <SectionTitle>{subCategoryName[0].subcategory}</SectionTitle>
+        <SectionTitle>{t(`subCategories.subcategory${id}`)}</SectionTitle>
       </div>
       {products && products.length ? (
         <Cards products={products} showDiscountLabel showNewLabel />
       ) : (
         <p className="text-center text-identity mt-10">
-          No products related to this sub category added yet.
+          {t("conditionalRender.noRelatedSubCategoryProducts")}
         </p>
       )}
     </Section>

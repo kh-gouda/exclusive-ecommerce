@@ -4,9 +4,11 @@ import CartDetails from "@ui/cart/CartDetails";
 import BreadCrumbs from "@ui/shared/BreadCrumbs";
 import Container from "@ui/shared/Container";
 import { getServerSession } from "next-auth";
+import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
 
 export default async function CartPage() {
+  const t = await getTranslations("listHeading");
   const session = await getServerSession(authOptions);
 
   if (!session) {
@@ -35,10 +37,10 @@ export default async function CartPage() {
         <BreadCrumbs />
         <section className="mt-20">
           <div className="flex items-center justify-between *:flex-1 shadow py-6 px-9.5">
-            <div>Product</div>
-            <div className="text-center">Price</div>
-            <div className="text-center">Quantity</div>
-            <div className="text-right">Subtotal</div>
+            <div>{t("product")}</div>
+            <div className="text-center">{t("price")}</div>
+            <div className="text-center">{t("quantity")}</div>
+            <div className="text-end">{t("subTotal")}</div>
           </div>
         </section>
         <CartDetails userid={Number(session.user.id)} products={cartProducts} />

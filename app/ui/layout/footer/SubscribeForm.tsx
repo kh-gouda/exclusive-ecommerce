@@ -61,7 +61,7 @@ export default function SubscribeForm() {
           onChange={(e: ChangeEvent<HTMLInputElement>) => handleEmailChange(e)}
         />
         <PaperAirplaneIcon
-          className="w-5 h-5 text-white-text absolute top-1/2 end-0 rtl:end-3 rtl:rotate-180 -translate-1/2 cursor-pointer"
+          className="w-5 h-5 text-white-text absolute top-1/2 end-0 group-rtl/layoutdir:end-3 group-rtl/layoutdir:rotate-180 -translate-1/2 cursor-pointer"
           role="button"
           onClick={handleIconClick}
         />

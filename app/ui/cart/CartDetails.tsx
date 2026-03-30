@@ -9,6 +9,7 @@ import { fetchCoupon } from "@/app/actions/fetchCoupon";
 import { updateCart } from "@/app/actions/updateCart";
 import { CART_TYPE } from "@/app/lib/typeDefinitions";
 import Cart from "@ui/cart/Cart";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
@@ -27,6 +28,7 @@ export default function CartDetails({
   userid: number;
   products: CART_TYPE[];
 }) {
+  const t = useTranslations();
   const router = useRouter();
   const [cartProducts, setCartProducts] = useState(products);
   const [totalInvoice, setTotalInvoice] = useState(() =>
@@ -130,34 +132,27 @@ export default function CartDetails({
         />
       ) : (
         <div className="text-identity my-4 text-center">
-          No Products Added To Your Cart Yet
+          {t("conditionalRender.noCart")}
         </div>
       )}
       <div className="flex justify-between items-center mt-6">
         <Link href="/shop" className="shared-btn shared-btn-transparent">
-          Return To Shop
+          {t("general.returnToShop")}
         </Link>
         {cartProducts && cartProducts.length ? (
           <button
             className="shared-btn shared-btn-transparent"
             onClick={handleUpdateCart}
           >
-            Update Cart
+            {t("general.updateCart")}
           </button>
         ) : null}
       </div>
       <div className="mt-20 flex items-start *:flex-1">
-        {isCouponApplied ? (
-          <div>
-            <p className="my-4">
-              Applied Coupon : <span className="text-green-500"> {coupon}</span>
-            </p>
-            <p className="my-4">
-              Applied Coupon Discount :{" "}
-              <span className="text-green-500"> %{couponDiscount}</span>
-            </p>
-          </div>
-        ) : cartProducts && cartProducts.length ? (
+        {isCouponApplied ? null : //     <span className="text-green-500"> %{couponDiscount}</span> //     Applied Coupon Discount :{" "} //   <p className="my-4"> //   </p> //     Applied Coupon : <span className="text-green-500"> {coupon}</span> //   <p className="my-4"> // <div>
+        //   </p>
+        // </div>
+        cartProducts && cartProducts.length ? (
           <form
             action=""
             className="flex gap-4"
@@ -167,7 +162,7 @@ export default function CartDetails({
               type="text"
               name="coupon"
               id="coupon"
-              placeholder="Coupon Code"
+              placeholder={t("placeHolders.couponCode")}
               className="w-75 h-14 border rounded-sm py-4 px-6"
               value={coupon}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -175,22 +170,24 @@ export default function CartDetails({
               }
             />
             <button className="shared-btn shared-btn-solid">
-              Apply Coupon
+              {t("general.applyCoupon")}
             </button>
           </form>
         ) : null}
         <div className="border rounded-sm py-8 px-6">
-          <h3 className="font-medium text-xl ">Cart Total</h3>
+          <h3 className="font-medium text-xl ">
+            {t("listHeading.cartTotal")}:
+          </h3>
           <div className="flex items-center justify-between py-4 border-b">
-            <p>Subtotal:</p>
+            <p>{t("listHeading.subTotal")}:</p>
             <p>${totalInvoice}</p>
           </div>
           <div className="flex items-center justify-between py-4 border-b">
-            <p>Shipping:</p>
-            <p>{!shippingCost ? "Free" : `$  ${shippingCost}`}</p>
+            <p>{t("listHeading.shipping")}:</p>
+            <p>{!shippingCost ? t("general.free") : `$  ${shippingCost}`}</p>
           </div>
           <div className="flex items-center justify-between py-4 border-b">
-            <p>Total:</p>
+            <p>{t("listHeading.total")}:</p>
             <p>${!shippingCost ? totalInvoice : totalInvoice + shippingCost}</p>
           </div>
           <div className="mt-4 flex items-center justify-center">
@@ -199,7 +196,7 @@ export default function CartDetails({
                 className="shared-btn shared-btn-solid"
                 onClick={handleProcessToCheckOut}
               >
-                Procees to checkout
+                {t("general.proceedToCheckout")}
               </button>
             ) : null}
           </div>

@@ -8,6 +8,7 @@ import Cards from "@ui/productCard/Cards";
 import Container from "@ui/shared/Container";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
+import MoveAllToBagBtn from "@ui/wishlist/MoveAllToBagBtn";
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
@@ -79,9 +80,10 @@ export default async function WishList() {
             {t("general.wishList")} ({wishListProductsCount})
           </h2>
           {wishListProductsCount ? (
-            <button className="shared-btn shared-btn-transparent">
-              {t("general.moveToBag")}
-            </button>
+            <MoveAllToBagBtn
+              userId={Number(session.user.id)}
+              productsIds={wishListProducts.map((p) => p.productID)}
+            />
           ) : null}
         </div>
         {wishListProductsCount ? (

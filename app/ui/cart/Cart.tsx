@@ -1,6 +1,7 @@
 "use client";
 import { CART_TYPE } from "@/app/lib/typeDefinitions";
 import ShoppingCartImage from "@ui/cart/ShoppingCartImage";
+import { useTranslations } from "next-intl";
 import { ChangeEvent } from "react";
 
 export default function Cart({
@@ -12,6 +13,7 @@ export default function Cart({
   changeState: (id: number, quantity: number) => void;
   deleteItem: (productid: number) => void;
 }) {
+  const t = useTranslations("products");
   return (
     <>
       {products.map((product) => (
@@ -23,7 +25,7 @@ export default function Cart({
             <div className="w-12.5 h-12.5">
               <ShoppingCartImage productImage={product.image} />
             </div>
-            {product.title}
+            {product.id < 44 ? t(`p${product.id}name`) : product.title}
           </div>
           <div className="text-center">${product.price}</div>
           <input
@@ -34,9 +36,9 @@ export default function Cart({
               changeState(product.id, Number(e.currentTarget.value))
             }
           />
-          <div className="text-right">${product.subtotal}</div>
+          <div className="text-end">${product.subtotal}</div>
           <button
-            className="absolute w-5 h-5 rounded-full flex items-center justify-center top-50% left-4 -translate-1/2 bg-identity cursor-pointer text-white"
+            className="absolute w-5 h-5 rounded-full flex items-center justify-center top-50% start-4 -translate-1/2 bg-identity cursor-pointer text-white"
             onClick={() => deleteItem(product.id)}
           >
             X

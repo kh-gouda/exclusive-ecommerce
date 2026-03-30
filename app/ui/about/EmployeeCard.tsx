@@ -12,7 +12,7 @@ export default async function EmployeeCard({
 }) {
   const t = await getTranslations("aboutPage");
   return (
-    <div className="rtl:[direction:rtl]">
+    <div className="group-rtl/layoutdir:[direction:rtl]">
       <div className="w-92.5 h-107.5 bg-gray-bg flex items-end justify-center">
         <EmployeeImage image={employee.image} />
       </div>

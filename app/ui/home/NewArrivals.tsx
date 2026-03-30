@@ -48,7 +48,7 @@ export default async function NewArrivals({
               : newArrivals.collection.description}
           </p>
           <Link
-            href={`/categories/${newArrivals.collection.categoryid}/new`}
+            href={`/categories/${newArrivals.collection.categoryid}`}
             className="border-b border-white-text text-base font-medium"
           >
             {t("shopnow")}

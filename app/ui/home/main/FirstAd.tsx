@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function FirstAd({ AD }: { AD: FIRST_AD }) {
   const t = useTranslations("ads");
   return (
-    <div className="flex items-center justify-center rtl:[direction:rtl]">
+    <div className="flex items-center justify-center group-rtl/layoutdir:[direction:rtl]">
       <div className="text-white-text flex-1 ps-16">
         <div className="flex items-center">
           <FirstAdLogo logo={AD.productLogo || ""} />
@@ -36,7 +36,7 @@ export default function FirstAd({ AD }: { AD: FIRST_AD }) {
           >
             {AD.link === "/preserve-ad" ? t("adformaction") : t("adaction")}
           </Link>
-          <ArrowRightIcon className="w-5 h-5 rtl:rotate-180" />
+          <ArrowRightIcon className="w-5 h-5 group-rtl/layoutdir:rotate-180" />
         </div>
       </div>
       <FirstAdImage image={AD.imageSrc || ""} />

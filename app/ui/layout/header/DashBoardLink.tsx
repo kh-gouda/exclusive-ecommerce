@@ -4,6 +4,7 @@ import Link from "next/link";
 
 export default async function DashBoarddLink() {
   const t = await getTranslations("dashboard");
+
   return (
     <div className="bg-gray-100">
       <Container>

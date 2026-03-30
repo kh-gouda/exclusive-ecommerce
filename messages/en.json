@@ -4,10 +4,26 @@
   },
   "selectLangList": {
     "english": "English",
-    "arabic": "Arabic",
-    "french": "French",
-    "german": "German",
-    "spanish": "Spanish"
+    "arabic": "العربية",
+    "french": "Français",
+    "german": "Deutsch",
+    "spanish": "Español",
+    "Chinese(Simplified)": "中文 (简体)",
+    "Chinese(Traditional)": "中文 (繁體)",
+    "japanese": "日本語",
+    "korean": "한국어",
+    "portuguese": "Português",
+    "italian": "Italiano",
+    "russian": "Русский",
+    "bengali": "বাংলা",
+    "hindi": "हिन्दी",
+    "turkish": "Türkçe",
+    "dutch": "Nederlands",
+    "polish": "Polski",
+    "indonesian": "Bahasa Indonesia",
+    "thai": "ภาษาไทย",
+    "vietnamese": "Tiếng Việt",
+    "swedish": "Svenska"
   },
   "dashboard": {
     "AdminDashbaord": "Admin Dashbaord"
@@ -93,8 +109,12 @@
     "OurProducts": "Our Products",
     "Featured": "Featured",
     "shop": "Shop",
+    "category": "Category",
+    "subCategory": "Sub Category",
     "relatedItems": "Related Items",
-    "justForYou": "Just For You"
+    "justForYou": "Just For You",
+    "myReviews": "My Products Reviews",
+    "relatedCategory": "Related Category"
   },
   "sectionTitle": {
     "flashSales": "Flash Sales",
@@ -109,7 +129,8 @@
     "alreadyIn": "You Have Already Logged In",
     "createAccount": "Create an account",
     "loginTo": "Log in to Exclusive",
-    "resetPassword": "Reset Password"
+    "resetPassword": "Reset Password",
+    "billingDetails": "Billing Details"
   },
   "features": {
     "feature1": "FREE AND FAST DELIVERY",
@@ -135,7 +156,15 @@
     "colour": "Colour: ",
     "size": "Size: ",
     "wishList": "Wish List",
-    "moveToBag": "Move All To Bag"
+    "moveToBag": "Move All To Bag",
+    "returnToShop": "Return To Shop",
+    "updateCart": "Update Cart",
+    "proceedToCheckout": "Process To Checkout",
+    "applyCoupon": "Apply Coupon",
+    "free": "Free",
+    "bank": "Bank",
+    "cashOnDelivery": "Cash On Delivery",
+    "placeOrder": "Place Order"
   },
   "timer": {
     "days": "Days",
@@ -210,7 +239,6 @@
     "adformaction": "Preserve Ad",
     "categories": "categories"
   },
-  "coment": "################## To Be Translated ####################",
   "contactPage": {
     "callUs": "Call To Us",
     "availability": "We are available 24/7, 7 days a week.",
@@ -268,14 +296,36 @@
     "emailOrPhone": "Email or Phone Number",
     "password": "Password",
     "typeEmail": "Type Your Email",
-    "typeVerificationCode": "Type Your Verification Code"
+    "typeVerificationCode": "Type Your Verification Code",
+    "couponCode": "Coupon Code",
+    "streetAddress": "Street Address",
+    "building": "Apartment, suite, etc. (optional)",
+    "city": "Town/City",
+    "country": "Country",
+    "phone": "Phone Number",
+    "emailAddress": "Email Address",
+    "saveInfo": "Save this information for faster check-out next time",
+    "email": "Email",
+    "address": "Address",
+    "readOnlyAddress": "(read only - you can change from address book)",
+    "passwordChange": "Password Change",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel",
+    "street": "Street"
   },
   "conditionalRender": {
     "waitingSales": "Waiting For The Next Flash Sales.",
     "noProducts": "No Products To Show.",
     "outOfStock": "Sorry, This Product Is Out Of Stock.",
     "noRelatedSubCategory": "No products for other sub-category related to this category added yet.",
-    "noWishlist": "No Products Added To Your Wishlist Yet"
+    "noRelatedSubCategoryProducts": "No products related to this sub category added yet.",
+    "noWishlist": "No Products Added To Your Wishlist Yet",
+    "noCart": "No Products Added To Your Cart Yet",
+    "noOrder": "No Order Meet This OrderId",
+    "orderPlaced": "Your Order Is Already Placed And Confirmed And Moved To The Next Process"
   },
   "deliveryFeatures": {
     "feature1": "Free Delivery",
@@ -290,5 +340,44 @@
     "accountProfile": "Account Profile",
     "youCan": "You Can ",
     "loginhere": "Login Here"
+  },
+  "listHeading": {
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "subTotal": "Sub Total",
+    "shipping": "Shipping",
+    "total": "Total",
+    "cartTotal": "Cart Total"
+  },
+  "accountManagement": {
+    "welcome": "Welcome!",
+    "manageMyAccount": "Manage My Account",
+    "myProfile": "My Profile",
+    "addressBook": "Address Book",
+    "myOrders": "My Orders",
+    "pending": "Pending",
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "myReturns": "My Returns",
+    "myCancellations": "My Cancellations",
+    "myWishlist": "My Wishlist",
+    "myReviews": "My Reviews",
+    "editProfile": "Edit Your Profile",
+    "editAddressBook": "Edit Your Address Book"
+  },
+  "accountOrders": {
+    "orderId": "Order_ID",
+    "totalAmount": "Total_Amount",
+    "orderDate": "Order_Date",
+    "orderPaid": "Order Paid",
+    "checkDetails": "Check Details",
+    "true": "True",
+    "false": "False",
+    "noPending": "There Is No Pending Orders",
+    "noInProgress": "There Is No Orders In Progress",
+    "noCompleted": "There Is No Completed Orders",
+    "noReturned": "There Is No Returned Orders",
+    "noCancelled": "There Is No Cancelled Orders"
   }
 }

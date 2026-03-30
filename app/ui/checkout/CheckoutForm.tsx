@@ -17,6 +17,7 @@ import { ORDER_DETAILS_TYPE } from "@/app/lib/typeDefinitions";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import CheckoutImage from "@ui/checkout/CheckoutImage";
 import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { ChangeEvent, SubmitEvent, useState } from "react";
 import { toast } from "react-toastify";
@@ -26,6 +27,8 @@ export default function CheckoutForm({
 }: {
   orderDetails: ORDER_DETAILS_TYPE;
 }) {
+  const t = useTranslations();
+
   const { update } = useSession();
   const [orderState, setOrderState] = useState(orderDetails);
 
@@ -189,7 +192,8 @@ export default function CheckoutForm({
     >
       <div>
         <label htmlFor="fname" className="billing-data-label">
-          First Name<span className="text-identity">*</span>
+          {t("placeHolders.fname")}
+          <span className="text-identity">*</span>
         </label>
         <input
           type="text"
@@ -204,7 +208,8 @@ export default function CheckoutForm({
         />
 
         <label htmlFor="st-address" className="billing-data-label">
-          Street Address<span className="text-identity">*</span>
+          {t("placeHolders.streetAddress")}
+          <span className="text-identity">*</span>
         </label>
         <input
           type="text"
@@ -219,7 +224,7 @@ export default function CheckoutForm({
         />
 
         <label htmlFor="apartment" className="billing-data-label">
-          Apartment, floor, etc. (optional)
+          {t("placeHolders.building")}
         </label>
         <input
           type="text"
@@ -233,7 +238,8 @@ export default function CheckoutForm({
         />
 
         <label htmlFor="town-city" className="billing-data-label">
-          Town/City<span className="text-identity">*</span>
+          {t("placeHolders.city")}
+          <span className="text-identity">*</span>
         </label>
         <input
           type="text"
@@ -248,7 +254,8 @@ export default function CheckoutForm({
         />
 
         <label htmlFor="country" className="billing-data-label">
-          Country<span className="text-identity">*</span>
+          {t("placeHolders.country")}
+          <span className="text-identity">*</span>
         </label>
         <input
           type="text"
@@ -263,7 +270,8 @@ export default function CheckoutForm({
         />
 
         <label htmlFor="phone" className="billing-data-label">
-          Phone Number<span className="text-identity">*</span>
+          {t("placeHolders.phone")}
+          <span className="text-identity">*</span>
         </label>
         <input
           type="tel"
@@ -278,7 +286,8 @@ export default function CheckoutForm({
         />
 
         <label htmlFor="email" className="billing-data-label">
-          Email Address<span className="text-identity">*</span>
+          {t("placeHolders.emailAddress")}
+          <span className="text-identity">*</span>
         </label>
         <input
           type="email"
@@ -303,7 +312,7 @@ export default function CheckoutForm({
           <span className="w-6 h-6 rounded-sm bg-identity border inline-block me-2">
             <CheckIcon className="text-white-text w-5 h-5" />
           </span>
-          Save this information for faster check-out next time
+          {t("placeHolders.saveInfo")}
         </label>
       </div>
       <div>
@@ -316,7 +325,9 @@ export default function CheckoutForm({
               <div className="w-12.5 h-12.5">
                 <CheckoutImage productImage={product.productimages[0]} />
               </div>
-              {product.productname}{" "}
+              {product.productid < 44
+                ? t(`products.p${product.productid}name`)
+                : product.productname}{" "}
               <span className="text-identity"> X {product.quantity}</span>
             </div>
             <div className="text-center">
@@ -325,15 +336,15 @@ export default function CheckoutForm({
           </div>
         ))}
         <div className="flex items-center justify-between py-4 border-b">
-          <p>Subtotal:</p>
+          <p>{t("listHeading.subTotal")}:</p>
           <p>${itemsCostWithCoupon}</p>
         </div>
         <div className="flex items-center justify-between py-4 border-b">
-          <p>Shipping:</p>
-          <p>{shipping ? shipping : "Free"}</p>
+          <p>{t("listHeading.shipping")}:</p>
+          <p>{shipping ? shipping : t("general.free")}</p>
         </div>
         <div className="flex items-center justify-between py-4 border-b">
-          <p>Total:</p>
+          <p>{t("listHeading.total")}:</p>
           <p>${totalInvoice}</p>
         </div>
         <div>
@@ -347,7 +358,7 @@ export default function CheckoutForm({
                 onChange={() => handleChangePaymentMethod("bank")}
               />
               <label className="ms-2" htmlFor="bank">
-                Bank
+                {t("general.bank")}
               </label>
             </div>
             <div className="flex items-center gap-2">
@@ -386,34 +397,30 @@ export default function CheckoutForm({
               onChange={() => handleChangePaymentMethod("cash on delivery")}
             />
             <label className="ms-2" htmlFor="cash">
-              Cash on delivery
+              {t("general.cashOnDelivery")}
             </label>
           </div>
           <div className="flex items-center justify-between py-8">
-            {orderState.appliedcoupondiscount ? (
-              <div>
-                <p className="my-4">
-                  Applied Coupon :{" "}
-                  <span className="text-green-500">
-                    {" "}
-                    {orderState.appliedcoupon}
-                  </span>
-                </p>
-                <p className="my-4">
-                  Applied Coupon Discount :{" "}
-                  <span className="text-green-500">
-                    {" "}
-                    %{orderState.appliedcoupondiscount}
-                  </span>
-                </p>
-              </div>
-            ) : !orderState.orderconfirmed ? (
+            {orderState.appliedcoupondiscount ? //     <span className="text-green-500"> //     Applied Coupon :{" "} //   <p className="my-4"> // <div>
+            //       {" "}
+            //       {orderState.appliedcoupon}
+            //     </span>
+            //   </p>
+            //   <p className="my-4">
+            //     Applied Coupon Discount :{" "}
+            //     <span className="text-green-500">
+            //       {" "}
+            //       %{orderState.appliedcoupondiscount}
+            //     </span>
+            //   </p>
+            // </div>
+            null : !orderState.orderconfirmed ? (
               <>
                 <input
                   type="text"
                   name="coupon"
                   id="coupon"
-                  placeholder="Coupon Code"
+                  placeholder={t("placeHolders.couponCode")}
                   className="h-14 border rounded-sm py-4 px-6"
                   value={orderState.appliedcoupon}
                   onChange={(e: ChangeEvent<HTMLInputElement>) =>
@@ -425,19 +432,18 @@ export default function CheckoutForm({
                   type="button"
                   onClick={() => handleApplyCoupon(orderState.appliedcoupon)}
                 >
-                  Apply Coupon
+                  {t("general.applyCoupon")}
                 </button>
               </>
             ) : null}
           </div>
           {!orderState.orderconfirmed ? (
             <button className="shared-btn shared-btn-solid" type="submit">
-              Place Order
+              {t("general.placeOrder")}
             </button>
           ) : (
             <div className="text-green-500">
-              Your Order Is Already Placed And Confirmed And Moved To The Next
-              Process
+              {t("conditionalRender.orderPlaced")}
             </div>
           )}
         </div>

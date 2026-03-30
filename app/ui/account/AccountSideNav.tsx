@@ -1,10 +1,13 @@
 "use client";
 import clsx from "clsx";
 import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function AccountSideNav() {
+  const t = useTranslations();
+
   const pathname = usePathname();
   const { data: session } = useSession();
 
@@ -12,7 +15,7 @@ export default function AccountSideNav() {
 
   return (
     <div>
-      <h3 className="font-medium">Manage My Account</h3>
+      <h3 className="font-medium">{t("accountManagement.manageMyAccount")}</h3>
       <ul className="ps-8.25">
         <li className="my-2">
           <Link
@@ -21,7 +24,7 @@ export default function AccountSideNav() {
             })}
             href={`/account/${id}/profile`}
           >
-            My Profile
+            {t("accountManagement.myProfile")}
           </Link>
         </li>
         <li className="my-2">
@@ -31,22 +34,12 @@ export default function AccountSideNav() {
             })}
             href={`/account/${id}/address-book`}
           >
-            Address Book
+            {t("accountManagement.addressBook")}
           </Link>
         </li>
-        {/* <li className="my-2">
-          <Link
-            className={clsx("text-gray-500", {
-              "text-identity": pathname.endsWith("payment-options"),
-            })}
-            href={`/account/${id}/payment-options`}
-          >
-            My Payment Options
-          </Link>
-        </li> */}
       </ul>
 
-      <h3 className="font-medium">My Orders</h3>
+      <h3 className="font-medium">{t("accountManagement.myOrders")}</h3>
       <ul className="ps-8.25">
         <li className="my-2">
           <Link
@@ -55,7 +48,7 @@ export default function AccountSideNav() {
             })}
             href={`/account/${id}/orders/pending`}
           >
-            Pending
+            {t("accountManagement.pending")}
           </Link>
         </li>
         <li className="my-2">
@@ -65,7 +58,7 @@ export default function AccountSideNav() {
             })}
             href={`/account/${id}/orders/in-progress`}
           >
-            In Progress
+            {t("accountManagement.inProgress")}
           </Link>
         </li>
         <li className="my-2">
@@ -75,7 +68,7 @@ export default function AccountSideNav() {
             })}
             href={`/account/${id}/orders/completed`}
           >
-            Completed
+            {t("accountManagement.completed")}
           </Link>
         </li>
         <li className="my-2">
@@ -85,7 +78,7 @@ export default function AccountSideNav() {
             })}
             href={`/account/${id}/orders/returns`}
           >
-            My Returns
+            {t("accountManagement.myReturns")}
           </Link>
         </li>
         <li className="my-2">
@@ -95,13 +88,15 @@ export default function AccountSideNav() {
             })}
             href={`/account/${id}/orders/cancellations`}
           >
-            My Cancellations
+            {t("accountManagement.myCancellations")}
           </Link>
         </li>
       </ul>
 
       <h3 className="font-medium">
-        <Link href={`/account/${id}/wishlist`}>My WishList</Link>
+        <Link href={`/account/${id}/wishlist`}>
+          {t("accountManagement.myWishlist")}
+        </Link>
       </h3>
     </div>
   );

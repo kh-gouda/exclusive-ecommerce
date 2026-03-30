@@ -2,6 +2,7 @@
 import { addToCart } from "@/app/actions/addToCart";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 import { toast } from "react-toastify";
 
 export default function AddToCartButton({
@@ -14,6 +15,7 @@ export default function AddToCartButton({
   userId?: string;
 }) {
   const t = useTranslations("general");
+  const pathname = usePathname();
   const notifySuccess = () => toast.success("product added successfully");
   const notifyError = (error: string) => toast.error(error);
   async function handleClick(productId: number, userId?: number) {
@@ -24,6 +26,9 @@ export default function AddToCartButton({
       await addToCart(userId, productId);
 
       notifySuccess();
+      if (pathname.includes("/account/[id]/wishlist")) {
+        location.reload();
+      }
     } catch (error: unknown) {
       if (error instanceof Error) notifyError(error.message);
     }

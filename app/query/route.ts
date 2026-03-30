@@ -2,38 +2,18 @@ import sql from "@/app/lib/db";
 
 async function listStudents() {
   const data = await sql`
-SELECT
-    o.orderid,
-	  o.userid,
-    u.phone,
-    o.orderstatus,
-    o.orderdate,
-    o.paymentmethod,
-    o.appliedcoupon,
-    o.appliedcoupondiscount,
-    o.orderpaid,
-    o.orderconfirmed,
-    json_agg(
-        json_build_object(
-            'productid', oi.productid,
-            'quantity', oi.quantity,
-            'unit_price', oi.unitprice,
-            'productname', p.productname,
-            'productimages', p.productimages
-        )
-    ) AS orderitems
-FROM
-    orders o
-JOIN
-    users u ON o.userid = u.userid
-JOIN
-    orderitems oi ON o.orderid = oi.orderid
-JOIN
-    products p ON oi.productid = p.productid
-where o.orderid = 18
-GROUP BY
-    o.orderid, u.phone; 
-`;
+    SELECT p.productid,
+        p.productname,
+        p.productimages,
+        p.productprice,
+        p.productdiscount,
+        r.ratingvalue
+    FROM products AS p
+    join productratings AS pr on p.productid = pr.productid
+    join ratings AS r on pr.ratingid = r.ratingid
+    join users AS u on pr.userid = u.userid
+    WHERE u.userid = 2
+    `;
 
   return data;
 }
