@@ -23,7 +23,7 @@ const renderer: CountdownRendererFn = ({
     return <span className="text-identity">Ad Expired!</span>;
   } else {
     return (
-      <div className="flex gap-5">
+      <div className="flex gap-5 max-[990px]:gap-2 max-[990px]:justify-center">
         <div className="time">
           <span className="text-base font-semibold">{days}</span>
           <TranslatedDays />

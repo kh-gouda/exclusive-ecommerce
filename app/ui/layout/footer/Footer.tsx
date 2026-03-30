@@ -30,7 +30,7 @@ export default async function Footer() {
   return (
     <footer className="bg-black-color py-20">
       <Container>
-        <div className="flex gap-20 *:flex-1">
+        <div className="flex gap-20 *:flex-1 flex-wrap">
           <div>
             <LogoText parent="footer" />
             <SubscribeForm />

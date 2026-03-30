@@ -14,7 +14,7 @@ export default async function NewArrivals({
   const t3 = await getTranslations("collection");
   return (
     <div className="new-arrivals">
-      <div className="col-span-2 row-span-2">
+      <div className="col-span-2 row-span-2 max-[900px]:row-span-1 max-[670px]:col-span-1">
         <NewArrivalImage productImage={newArrivals.products[0].image} />
         <div className="absolute start-7.5 bottom-7.5  text-white-text">
           <h3 className={`${inter.className} font-semibold text-2xl`}>
@@ -35,7 +35,7 @@ export default async function NewArrivals({
           </Link>
         </div>
       </div>
-      <div className="col-span-2">
+      <div className="col-span-2 max-[670px]:col-span-1">
         <div className="absolute start-7.5 bottom-7.5  text-white-text">
           <h3 className={`${inter.className} font-semibold text-2xl`}>
             {newArrivals.collection.id === 1
@@ -55,7 +55,7 @@ export default async function NewArrivals({
           </Link>
         </div>
       </div>
-      <div className="">
+      <div className="max-[900px]:col-span-2 max-[670px]:col-span-1">
         <NewArrivalImage productImage={newArrivals.products[1].image} />
         <div className="absolute start-7.5 bottom-7.5  text-white-text">
           <h3 className={`${inter.className} font-semibold text-2xl`}>
@@ -76,7 +76,7 @@ export default async function NewArrivals({
           </Link>
         </div>
       </div>
-      <div className="">
+      <div className="max-[900px]:col-span-2 max-[670px]:col-span-1">
         <NewArrivalImage productImage={newArrivals.products[2].image} />
         <div className="absolute start-7.5 bottom-7.5  text-white-text">
           <h3 className={`${inter.className} font-semibold text-2xl`}>

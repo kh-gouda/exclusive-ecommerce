@@ -28,7 +28,7 @@ export default function FirstAdArea(props: PropType) {
   }, [emblaApi]);
 
   return (
-    <div className="ps-10 flex-1 pt-11.25">
+    <div className="ps-10 flex-1 pt-11.25 max-[805px]:ps-0">
       <div className="w-full h-full bg-black-color ">
         <div className="embla">
           <div className="embla__viewport [direction:ltr]" ref={emblaRef}>

@@ -30,7 +30,7 @@ export default async function Downloadlinks() {
           />
         </div>
       </div>
-      <div className="mt-6 flex items-center justify-between *:cursor-pointer">
+      <div className="mt-6 flex items-center gap-4 *:cursor-pointer">
         <Image
           width={24}
           height={24}

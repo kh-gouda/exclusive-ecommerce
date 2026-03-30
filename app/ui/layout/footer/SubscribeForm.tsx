@@ -48,7 +48,7 @@ export default function SubscribeForm() {
       <p className="text-white-text text-base my-6">{t("subscribeOffer")}</p>
       <form
         action=""
-        className="relative"
+        className="relative w-55 max-w-full group"
         onSubmit={(e: SubmitEvent<HTMLFormElement>) => handleSubmit(e)}
       >
         <input

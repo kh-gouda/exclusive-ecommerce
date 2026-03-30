@@ -26,7 +26,7 @@ const FEATURES = [
 export default async function Features() {
   const t = await getTranslations("features");
   return (
-    <div className="flex items-center justify-evenly pb-17.5">
+    <div className="flex flex-wrap gap-4 items-center justify-evenly pb-17.5">
       {FEATURES.map((feature) => (
         <div key={feature.id} className="text-center">
           <div className="w-20 h-20 flex justify-center items-center bg-gray-300 rounded-full mx-auto mb-6">

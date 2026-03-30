@@ -10,8 +10,8 @@ import Link from "next/link";
 export default function FirstAd({ AD }: { AD: FIRST_AD }) {
   const t = useTranslations("ads");
   return (
-    <div className="flex items-center justify-center group-rtl/layoutdir:[direction:rtl]">
-      <div className="text-white-text flex-1 ps-16">
+    <div className="flex items-center justify-center group-rtl/layoutdir:[direction:rtl] max-[800px]:flex-col max-[800px]:items-center max-[800px]:gap-5">
+      <div className="text-white-text flex-1 ps-16 max-[800px]:ps-0">
         <div className="flex items-center">
           <FirstAdLogo logo={AD.productLogo || ""} />
           <span className="text-base ms-6">
@@ -22,7 +22,9 @@ export default function FirstAd({ AD }: { AD: FIRST_AD }) {
                 : t(`ad${AD.adid}title`)}
           </span>
         </div>
-        <div className={`${inter.className} font-semibold text-[48px] my-5`}>
+        <div
+          className={`${inter.className} font-semibold text-[48px] my-5 max-[800px]:text-2xl`}
+        >
           {AD.adid === "form"
             ? t("adformdetails")
             : Number(AD.adid) > 5 || Number(AD.adid) < 4

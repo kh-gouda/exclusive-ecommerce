@@ -10,7 +10,7 @@ export default async function Categories({
 }) {
   const t = await getTranslations("subCategories");
   return (
-    <div className="flex gap-7.5 flex-wrap my-15">
+    <div className="flex gap-6 flex-wrap my-15 justify-center">
       {categories.map((category) => (
         <Link
           href={`/sub-categories/${category.id}?categoryid=${category.categoryid}`}

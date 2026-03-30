@@ -27,7 +27,7 @@ export function Carusel({
 
   return (
     <div className="embla">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between max-[650px]:flex-col max-[650px]:gap-4">
         <SectionTitle>
           {title}
           {flashSalesTimer ? (

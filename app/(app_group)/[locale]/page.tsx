@@ -145,7 +145,7 @@ export default async function Home() {
       <Container>
         <div
           // className="w-292.5 max-w-full mx-auto"
-          className="flex pb-12.5"
+          className="flex pb-12.5 relative"
         >
           <SideNav />
           <FirstAdArea
@@ -177,7 +177,7 @@ export default async function Home() {
 
         <Section>
           <SectionLabel>{t("ThisMonth")}</SectionLabel>
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between max-[650px]:flex-col  max-[650px]:gap-2.5">
             <SectionTitle>{t2("bestSelling")}</SectionTitle>
             <Link href="/best-selling" className="shared-btn shared-btn-solid">
               {t3("viewAllProducts")}

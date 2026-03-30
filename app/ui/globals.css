@@ -68,7 +68,7 @@
 }
 
 @utility new-arrivals {
-  @apply mt-15 grid grid-cols-4 grid-rows-2 gap-7.5 *:bg-black-color min-h-150 *:flex *:items-center *:justify-center *:overflow-hidden *:relative p-7.5;
+  @apply mt-15 grid grid-cols-4 max-[670px]:grid-cols-1 gap-7.5 *:bg-black-color min-h-150 *:flex *:items-center *:justify-center *:overflow-hidden *:relative p-7.5;
 }
 
 @utility scroll-top {

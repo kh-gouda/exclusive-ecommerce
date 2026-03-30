@@ -13,7 +13,7 @@ export default async function SecondAdArea() {
   const adData = ad[0];
 
   return (
-    <section className="bg-black-color p-12.5 flex items-center gap-5 my-25">
+    <section className="bg-black-color p-12.5 flex items-center gap-5 my-25 max-[990px]:flex-col-reverse max-[990px]:text-center max-[990px]:gap-10">
       <div className="flex-1 text-white-text">
         <div className="text-base font-semibold text-green-color">
           {t2("categories")}

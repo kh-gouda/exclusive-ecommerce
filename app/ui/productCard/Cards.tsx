@@ -15,7 +15,7 @@ export default function Cards({
   return (
     <>
       {products && products.length ? (
-        <div className="flex gap-7.5 flex-wrap mt-10 mb-12">
+        <div className="flex gap-6 flex-wrap mt-10 mb-12 justify-center">
           {products.map((product) => (
             <ProductCard
               key={product.productID}
