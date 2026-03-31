@@ -17,7 +17,7 @@ export default async function DashBoardOrderDetailsPage(props: {
         <span className="text-identity">Order Date :-</span>{" "}
         {new Date(order.orderdate).toLocaleDateString()}
       </p>
-      <div className="mb-12 flex items-center *:flex-1">
+      <div className="mb-12 flex flex-wrap text-nowrap overflow-hidden text-ellipsis gap-4 items-center *:flex-1">
         <p>
           <span className="text-identity">Payment Method :-</span>{" "}
           {order.paymentmethod}
@@ -31,7 +31,7 @@ export default async function DashBoardOrderDetailsPage(props: {
           {order.orderconfirmed ? "Confirmed" : "Not Confirmed"}
         </p>
       </div>
-      <div className="mb-12 flex items-center *:flex-1">
+      <div className="mb-12 flex flex-wrap text-nowrap overflow-hidden text-ellipsis gap-4 items-center *:flex-1">
         <p>
           <span className="text-identity">Order Status :-</span>{" "}
           {order.orderstatus}
@@ -47,7 +47,7 @@ export default async function DashBoardOrderDetailsPage(props: {
       </div>
       <ul className="flex items-center gap-4 *:flex-1 *:border *:text-center">
         <li>Product</li>
-        <li className="text-center">Price</li>
+        <li className="text-center max-[600px]:hidden">Price</li>
         <li className="text-center">Quantity</li>
         <li className="text-right">Subtotal</li>
       </ul>
@@ -56,13 +56,13 @@ export default async function DashBoardOrderDetailsPage(props: {
           key={item.productid}
           className="flex items-center gap-4 *:flex-1 *:text-center my-7.5"
         >
-          <li className="flex items-center gap-1">
+          <li className="flex items-center gap-1 max-[750px]:flex-col max-[750px]:gap-2">
             <span className="w-12.5 h-12.5 block">
               <ShoppingCartImage productImage={item.productimages[0]} />
             </span>
             {item.productname}
           </li>
-          <li>{item.unit_price}</li>
+          <li className="max-[600px]:hidden">{item.unit_price}</li>
           <li>{item.quantity}</li>
           <li>{item.quantity * item.unit_price}</li>
         </ul>

@@ -13,7 +13,7 @@ export default function ImagesPreview({ images }: { images: string[] }) {
   };
 
   return (
-    <div className="flex gap-7.5">
+    <div className="flex gap-7.5 max-[1240px]:justify-center max-[800px]:flex-col max-[800px]:items-center max-wfull">
       <Gallery gallery={gallery} clickHandler={handleImageClick} />
       <MainImagePreview image={mainPreviewImage} />
     </div>

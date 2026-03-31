@@ -34,7 +34,7 @@ export default async function RelatedCategoryProducts({
   return (
     <Section>
       <SectionLabel>{t("sectionLabel.relatedCategory")}</SectionLabel>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between max-[650px]:justify-center">
         <SectionTitle>{t(`categories.category${id}`)}</SectionTitle>
       </div>
       {products && products.length ? (

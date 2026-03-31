@@ -44,11 +44,11 @@ export default async function Statistics() {
   const t = await getTranslations("aboutPage");
 
   return (
-    <section className="flex items-center justify-center gap-7.5 ">
+    <section className="flex items-center justify-center gap-7.5 flex-wrap ">
       {STATISTICS.map((stat) => (
         <div
           key={stat.id}
-          className="group border p-7.5 flex flex-col items-center justify-center gap-6 hover:bg-identity hover:*:text-white-color"
+          className="group border p-4 flex flex-col items-center justify-center gap-6 hover:bg-identity hover:*:text-white-color w-66.5"
         >
           <div className="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center group-hover:bg-about-area">
             <div className="w-12.5 h-12.5 rounded-full bg-black-color flex items-center justify-center group-hover:bg-white-color">

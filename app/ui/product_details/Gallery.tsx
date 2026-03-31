@@ -9,7 +9,7 @@ export default function Gallery({
   clickHandler: (e: MouseEvent<HTMLDivElement>) => void;
 }) {
   return (
-    <div className="flex flex-col justify-between">
+    <div className="flex flex-col justify-between max-[800px]:flex-row max-[800px]:flex-wrap max-[800px]:justify-center max-[800px]:gap-2 max-[380px]:hidden">
       {gallery.map((image) => (
         <div
           key={image}

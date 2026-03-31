@@ -35,8 +35,8 @@ export default function ContactForm() {
   };
 
   return (
-    <form action={handleSubmit} className="p-10 shadow flex-1">
-      <div className="flex items-center gap-4 *:flex-1">
+    <form action={handleSubmit} className="p-10 shadow flex-1 max-[850px]:p-5">
+      <div className="flex items-center gap-4 *:flex-1 flex-wrap">
         <input
           type="text"
           name="name"

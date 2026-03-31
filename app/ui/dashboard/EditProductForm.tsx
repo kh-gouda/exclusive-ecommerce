@@ -284,7 +284,7 @@ export default function EditProductForm({
 
   return (
     <>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center max-w-full *:max-w-full">
         <ImagesPreview images={product.productimages} />
       </div>
       <div className="edit-product-container">
@@ -568,23 +568,26 @@ export default function EditProductForm({
         {stock.map((stockItem) => (
           <div
             key={stockItem.stockid}
-            className="flex items-center justify-evenly"
+            className="flex flex-wrap items-center justify-evenly my-8"
           >
-            <div className="flex items-center gap-2">
+            {/* <div className="flex flex-wrap items-center gap-2"> */}
+            <div>
               <p className="edit-product-title">Size :-</p>
-              <p>{stockItem.size}</p>
+              <p className="text-center">{stockItem.size}</p>
             </div>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex flex-wrap items-center gap-2"> */}
+            <div>
               <p className="edit-product-title">Color :-</p>
               <p
-                className="w-7.5 h-7.5 rounded-full"
+                className="w-7.5 h-7.5 rounded-full text-center mx-auto"
                 style={{ backgroundColor: stockItem.color }}
               ></p>
             </div>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex flex-wrap items-center gap-2"> */}
+            <div>
               <p className="edit-product-title">Quantity :-</p>
               {editStock !== stockItem.stockid ? (
-                <p className="edit-data">{stockItem.quantity}</p>
+                <p className="text-center">{stockItem.quantity}</p>
               ) : (
                 <input
                   type="number"
@@ -635,99 +638,109 @@ export default function EditProductForm({
           {newStock.map((stock) => (
             <div
               key={stock.stockid}
-              className="flex items-center justify-evenly my-7.5"
+              className="flex flex-wrap gap-7.5 items-center justify-evenly my-7.5"
             >
+              <div className="flex flex-wrap items-center gap-2">
+                {/* <div className="flex items-center gap-2"> */}
+                <div>
+                  <p className="edit-product-title">Size :-</p>
+                  <select
+                    className="border text-center"
+                    name={`stock-${stock.stockid}-size`}
+                    id={`stock-${stock.stockid}-size`}
+                    value={stock.sizeid}
+                    onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                      handleChangeNewStock(
+                        stock.stockid,
+                        "sizeid",
+                        Number(e.target.value),
+                        "size",
+                        e.target[e.target.selectedIndex].getAttribute(
+                          "data-size",
+                        ) || "",
+                      )
+                    }
+                  >
+                    <option value="0">Select Size</option>
+                    {sizes.map((size) => (
+                      <option
+                        key={size.sizeid}
+                        value={size.sizeid}
+                        data-size={size.size}
+                      >
+                        {size.size}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                {/* <div className="flex items-center gap-2"> */}
+                <div>
+                  <p className="edit-product-title">Color :-</p>
+                  <select
+                    className="border text-center"
+                    name={`stock-${stock.stockid}-color`}
+                    id={`stock-${stock.stockid}-color`}
+                    value={stock.colorid}
+                    onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+                      handleChangeNewStock(
+                        stock.stockid,
+                        "colorid",
+                        Number(e.target.value),
+                        "color",
+                        e.target[e.target.selectedIndex].getAttribute(
+                          "data-color",
+                        ) || "",
+                      )
+                    }
+                  >
+                    <option value="0">Select Color</option>
+                    {colors.map((color) => (
+                      <option
+                        key={color.colorid}
+                        value={color.colorid}
+                        data-color={color.colorhex}
+                        style={{
+                          backgroundColor: color.colorhex,
+                        }}
+                      >
+                        {color.colorhex}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                {/* <div className="flex items-center gap-2"> */}
+                <div>
+                  <p className="edit-product-title">Quantity :-</p>
+                  <input
+                    className="border text-center"
+                    type="number"
+                    name={`stock-${stock.stockid}-quantity`}
+                    id={`stock-${stock.stockid}-quantity`}
+                    value={stock.quantity}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                      handleChangeNewStock(
+                        stock.stockid,
+                        "quantity",
+                        Number(e.target.value),
+                      )
+                    }
+                  />
+                </div>
+              </div>
               <div className="flex items-center gap-2">
-                <p className="edit-product-title">Size :-</p>
-                <select
-                  name={`stock-${stock.stockid}-size`}
-                  id={`stock-${stock.stockid}-size`}
-                  value={stock.sizeid}
-                  onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-                    handleChangeNewStock(
-                      stock.stockid,
-                      "sizeid",
-                      Number(e.target.value),
-                      "size",
-                      e.target[e.target.selectedIndex].getAttribute(
-                        "data-size",
-                      ) || "",
-                    )
-                  }
+                <button
+                  className="text-identity cursor-pointer"
+                  onClick={() => handleCancelAddNewStock(stock.stockid)}
                 >
-                  <option value="0">Select Size</option>
-                  {sizes.map((size) => (
-                    <option
-                      key={size.sizeid}
-                      value={size.sizeid}
-                      data-size={size.size}
-                    >
-                      {size.size}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="flex items-center gap-2">
-                <p className="edit-product-title">Color :-</p>
-                <select
-                  name={`stock-${stock.stockid}-color`}
-                  id={`stock-${stock.stockid}-color`}
-                  value={stock.colorid}
-                  onChange={(e: ChangeEvent<HTMLSelectElement>) =>
-                    handleChangeNewStock(
-                      stock.stockid,
-                      "colorid",
-                      Number(e.target.value),
-                      "color",
-                      e.target[e.target.selectedIndex].getAttribute(
-                        "data-color",
-                      ) || "",
-                    )
-                  }
+                  Cancel
+                </button>
+                <button
+                  className="text-green-600 cursor-pointer me-4"
+                  onClick={() => handleSaveNewStock(stock)}
                 >
-                  <option value="0">Select Color</option>
-                  {colors.map((color) => (
-                    <option
-                      key={color.colorid}
-                      value={color.colorid}
-                      data-color={color.colorhex}
-                      style={{
-                        backgroundColor: color.colorhex,
-                      }}
-                    >
-                      {color.colorhex}
-                    </option>
-                  ))}
-                </select>
+                  Save
+                </button>
               </div>
-              <div className="flex items-center gap-2">
-                <p className="edit-product-title">Quantity :-</p>
-                <input
-                  type="number"
-                  name={`stock-${stock.stockid}-quantity`}
-                  id={`stock-${stock.stockid}-quantity`}
-                  value={stock.quantity}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                    handleChangeNewStock(
-                      stock.stockid,
-                      "quantity",
-                      Number(e.target.value),
-                    )
-                  }
-                />
-              </div>
-              <button
-                className="text-identity cursor-pointer"
-                onClick={() => handleCancelAddNewStock(stock.stockid)}
-              >
-                Cancel
-              </button>
-              <button
-                className="text-green-600 cursor-pointer me-4"
-                onClick={() => handleSaveNewStock(stock)}
-              >
-                Save
-              </button>
             </div>
           ))}
         </div>

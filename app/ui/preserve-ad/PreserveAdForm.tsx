@@ -122,7 +122,7 @@ export default function PreserveAdForm({
           ))}
         </select>
       </div>
-      <div className="mb-6 flex items-center gap-2">
+      <div className="mb-6 flex items-center gap-2 flex-wrap">
         <label htmlFor="duration">Ad Duration</label>
         <input
           className="bg-gray-bg p-4 rounded-sm mt-2 text-gray-500 text-center font-bold"
@@ -163,7 +163,7 @@ export default function PreserveAdForm({
         And After Payment Success The Process Will Complete{" "}
       </p>
 
-      <div className="flex gap-8 items-center justify-end">
+      <div className="flex flex-wrap gap-8 items-center justify-end max-[390px]:justify-center mt-10">
         <input className="cursor-pointer" type="reset" value="Cancel" />
         <button className="shared-btn shared-btn-solid" role="submit">
           Confirm Preservation

@@ -9,7 +9,7 @@ export default async function ProductDetailsMain({
 }) {
   const { productImages, ...productInfo } = productDetails;
   return (
-    <div className="mt-20 mb-35 flex gap-17.5">
+    <div className="mt-20 mb-35 flex gap-17.5 max-[1240px]:flex-col max-[1240px]:justify-center">
       <ImagesPreview images={productImages} />
       <ProductInfo info={productInfo} />
     </div>

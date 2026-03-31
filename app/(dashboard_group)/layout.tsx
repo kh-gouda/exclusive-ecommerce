@@ -7,7 +7,7 @@ import { ReactNode } from "react";
 export default function DashBoardLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <div className="flex gap-25 px-4 bg-identity">
+      <div className="flex flex-wrap gap-25 max-[751px]:gap-7.5 px-4 bg-identity">
         <div className="w-50 text-center ">
           <Image
             width={512}
@@ -17,14 +17,16 @@ export default function DashBoardLayout({ children }: { children: ReactNode }) {
             alt="dashboard icon"
           />
         </div>
-        <div className="flex-1 ps-10 pt-10 text-white">
+        <div className="flex-1 ps-10 pt-10 max-[751px]:ps-2 text-white">
           <SectionTitle>Exclusive Dashbaord</SectionTitle>
           <BreadCrumbs />
         </div>
       </div>
-      <div className="flex gap-25 py-10 px-4">
+      <div className="flex gap-25 py-10 px-4 max-[900px]:px-2 relative">
         <DashBoardSideNav />
-        <div className="flex-1 shadow p-10 rounded-sm">{children}</div>
+        <div className="flex-1 max-w-full shadow p-10 max-[1300px]:px-2 rounded-sm">
+          {children}
+        </div>
       </div>
     </>
   );

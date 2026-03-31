@@ -126,8 +126,8 @@ export default function EditProfileForm() {
       action=""
       onSubmit={(e: SubmitEvent<HTMLFormElement>) => handleSubmit(e)}
     >
-      <div className="flex items-center justify-between mb-6">
-        <div className=" w-[45%]">
+      <div className="flex flex-wrap items-center justify-between mb-6">
+        <div className=" w-[45%] max-[901px]:w-full max-[901px]:mb-6">
           <label htmlFor="fname">{t("placeHolders.fname")}</label>
           <input
             className="profile-form-input"
@@ -141,7 +141,7 @@ export default function EditProfileForm() {
             autoComplete="off"
           />
         </div>
-        <div className=" w-[45%]">
+        <div className=" w-[45%] max-[901px]:w-full max-[901px]:mb-6">
           <label htmlFor="lname">{t("placeHolders.lname")}</label>
           <input
             className="profile-form-input"
@@ -156,8 +156,8 @@ export default function EditProfileForm() {
           />
         </div>
       </div>
-      <div className="flex items-center justify-between mb-6">
-        <div className=" w-[45%]">
+      <div className="flex flex-wrap items-center justify-between mb-6">
+        <div className=" w-[45%] max-[901px]:w-full max-[901px]:mb-6">
           <label htmlFor="email">{t("placeHolders.email")}</label>
           <input
             className="profile-form-input"
@@ -171,7 +171,7 @@ export default function EditProfileForm() {
             autoComplete="off"
           />
         </div>
-        <div className=" w-[45%]">
+        <div className=" w-[45%] max-[901px]:w-full max-[901px]:mb-6">
           <label htmlFor="address">
             {t("placeHolders.address")}{" "}
             <span className="text-identity">
@@ -227,7 +227,7 @@ export default function EditProfileForm() {
           autoComplete="off"
         />
       </div>
-      <div className="flex gap-8 items-center justify-end">
+      <div className="flex flex-wrap gap-8 items-center justify-end max-[350px]:justify-center">
         <input
           className="cursor-pointer"
           type="reset"

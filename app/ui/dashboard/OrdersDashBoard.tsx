@@ -29,7 +29,7 @@ export default function OrdersDashBoard({
 
   return (
     <div>
-      <div className="mb-12 flex items-center justify-between">
+      <div className="mb-12 flex flex-wrap gap-4 items-center justify-between">
         <div>
           <label htmlFor="status" className="me-4">
             Filter By Order Status
@@ -56,21 +56,33 @@ export default function OrdersDashBoard({
           <span className="text-green-600">({ordersList.length}) Orders</span>
         </div>
       </div>
-      <ul className="flex items-center gap-4 *:flex-1 *:border *:text-center">
-        <li>OrderId</li>
-        <li>Order Status</li>
-        <li>Order Date</li>
-        <li>Total Amount</li>
-        <li>Payment Method</li>
-        <li>Payment Status</li>
-        <li>Confirm Status</li>
-        <li>actions</li>
+      <ul className="flex items-center gap-2 *:flex-1 *:border *:text-center">
+        <li className="overflow-hidden text-ellipsis text-nowrap">OrderId</li>
+        <li className="overflow-hidden text-ellipsis text-nowrap">
+          Order Status
+        </li>
+        <li className="overflow-hidden text-ellipsis text-nowrap max-[750px]:hidden">
+          Order Date
+        </li>
+        <li className="overflow-hidden text-ellipsis text-nowrap max-[750px]:hidden">
+          Total Amount
+        </li>
+        <li className="overflow-hidden text-ellipsis text-nowrap max-[750px]:hidden">
+          Payment Method
+        </li>
+        <li className="overflow-hidden text-ellipsis text-nowrap max-[500px]:hidden">
+          Payment Status
+        </li>
+        <li className="overflow-hidden text-ellipsis text-nowrap">
+          Confirm Status
+        </li>
+        <li className="overflow-hidden text-ellipsis text-nowrap">actions</li>
       </ul>
       {ordersList.length ? (
         ordersList.map((order) => (
           <ul
             key={order.orderid}
-            className="flex items-center gap-4 *:flex-1 *:text-center my-7.5"
+            className="flex items-center gap-2 *:flex-1 *:text-center my-7.5"
           >
             <li>{order.orderid}</li>
             <li>
@@ -84,16 +96,18 @@ export default function OrdersDashBoard({
                 <span className="text-blue-600">{order.orderstatus}</span>
               )}
             </li>
-            <li>{new Date(order.orderdate).toLocaleDateString()}</li>
-            <li>$ {order.totalamount}</li>
-            <li>
+            <li className=" max-[750px]:hidden">
+              {new Date(order.orderdate).toLocaleDateString()}
+            </li>
+            <li className=" max-[750px]:hidden">$ {order.totalamount}</li>
+            <li className=" max-[750px]:hidden">
               {order.paymentmethod === "bank" ? (
                 <span className="text-green-600">{order.paymentmethod}</span>
               ) : (
                 <span className="text-identity">{order.paymentmethod}</span>
               )}
             </li>
-            <li>
+            <li className="max-[500px]:hidden">
               {order.orderpaid ? (
                 <span className="text-green-600">Paid</span>
               ) : (

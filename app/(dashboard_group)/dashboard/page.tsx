@@ -19,7 +19,7 @@ export default async function DashBoardPage() {
   const totalRevenuesCurrentYear = await sumTotalOrderAmountsCurrentYear();
   return (
     <div>
-      <div className="flex items-center gap-4 *:flex-1">
+      <div className="flex max-[620px]:flex-col items-center gap-4 *:flex-1">
         <StatisticsCard
           title="Total Products"
           count={productsCount[0].count}
@@ -39,7 +39,7 @@ export default async function DashBoardPage() {
           unitPosition="after"
         />
       </div>
-      <div className="flex items-center gap-4 *:flex-1">
+      <div className="flex max-[620px]:flex-col items-center gap-4 *:flex-1">
         <StatisticsCard
           title="Total Revenues"
           count={totalRevenues[0].sum}

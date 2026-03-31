@@ -5,7 +5,7 @@ import Container from "@ui/shared/Container";
 export default function Contact() {
   return (
     <Container>
-      <div className="pt-20 pb-35 flex gap-7.5">
+      <div className="pt-20 pb-35 flex gap-7.5 max-[1235px]:flex-col">
         <ContactInfo />
         <ContactForm />
       </div>

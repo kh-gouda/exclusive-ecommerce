@@ -85,8 +85,8 @@ export default function EditAddressForm() {
       action=""
       onSubmit={(e: SubmitEvent<HTMLFormElement>) => handleSubmit(e)}
     >
-      <div className="flex items-center justify-between mb-6">
-        <div className=" w-[45%]">
+      <div className="flex flex-wrap items-center justify-between mb-6">
+        <div className=" w-[45%] max-[901px]:w-full max-[901px]:mb-6">
           <label htmlFor="street">{t("placeHolders.street")}</label>
           <input
             className="profile-form-input"
@@ -100,7 +100,7 @@ export default function EditAddressForm() {
             autoComplete="off"
           />
         </div>
-        <div className=" w-[45%]">
+        <div className=" w-[45%] max-[901px]:w-full max-[901px]:mb-6">
           <label htmlFor="building">{t("placeHolders.building")}</label>
           <input
             className="profile-form-input"
@@ -116,8 +116,8 @@ export default function EditAddressForm() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between mb-6">
-        <div className=" w-[45%]">
+      <div className="flex flex-wrap items-center justify-between mb-6">
+        <div className=" w-[45%] max-[901px]:w-full max-[901px]:mb-6">
           <label htmlFor="city">{t("placeHolders.city")}</label>
           <input
             className="profile-form-input"
@@ -129,7 +129,7 @@ export default function EditAddressForm() {
             autoComplete="off"
           />
         </div>
-        <div className=" w-[45%]">
+        <div className=" w-[45%] max-[901px]:w-full max-[901px]:mb-6">
           <label htmlFor="country">{t("placeHolders.country")}</label>
           <input
             className="profile-form-input"
@@ -145,7 +145,7 @@ export default function EditAddressForm() {
         </div>
       </div>
 
-      <div className="flex gap-8 items-center justify-end">
+      <div className="flex flex-wrap gap-8 items-center justify-end max-[350px]:justify-center">
         <input
           className="cursor-pointer"
           type="reset"

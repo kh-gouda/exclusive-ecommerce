@@ -12,7 +12,7 @@ export default async function EmployeeCard({
 }) {
   const t = await getTranslations("aboutPage");
   return (
-    <div className="group-rtl/layoutdir:[direction:rtl]">
+    <div className="group-rtl/layoutdir:[direction:rtl] max-[1182]:text-center">
       <div className="w-92.5 h-107.5 bg-gray-bg flex items-end justify-center">
         <EmployeeImage image={employee.image} />
       </div>
@@ -20,7 +20,7 @@ export default async function EmployeeCard({
         {t(`emp${employee.id}name`)}
       </h3>
       <p className="mt-2 mb-4">{t(`emp${employee.id}title`)}</p>
-      <div className="flex gap-4">
+      <div className="flex gap-4 max-[1182]:justify-center">
         <Link href={employee.twitterLink}>
           <FaTwitter className="h-6 w-6 hover:text-blue-700" />
         </Link>

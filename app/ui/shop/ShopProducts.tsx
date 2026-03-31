@@ -26,7 +26,7 @@ export default async function ShopProducts() {
   return (
     <Section>
       <SectionLabel>{t("shop")}</SectionLabel>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between max-[650px]:justify-center">
         <SectionTitle>{t2("allProducts")}</SectionTitle>
       </div>
       {products && products.length ? (

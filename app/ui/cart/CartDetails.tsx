@@ -135,7 +135,7 @@ export default function CartDetails({
           {t("conditionalRender.noCart")}
         </div>
       )}
-      <div className="flex justify-between items-center mt-6">
+      <div className="flex flex-wrap gap-7.5 justify-between items-center mt-6">
         <Link href="/shop" className="shared-btn shared-btn-transparent">
           {t("general.returnToShop")}
         </Link>
@@ -148,14 +148,11 @@ export default function CartDetails({
           </button>
         ) : null}
       </div>
-      <div className="mt-20 flex items-start *:flex-1">
-        {isCouponApplied ? null : //     <span className="text-green-500"> %{couponDiscount}</span> //     Applied Coupon Discount :{" "} //   <p className="my-4"> //   </p> //     Applied Coupon : <span className="text-green-500"> {coupon}</span> //   <p className="my-4"> // <div>
-        //   </p>
-        // </div>
-        cartProducts && cartProducts.length ? (
+      <div className="mt-20 flex flex-wrap gap-7.5 items-start *:flex-1">
+        {isCouponApplied ? null : cartProducts && cartProducts.length ? ( // </div> //   </p> //     <span className="text-green-500"> %{couponDiscount}</span> //     Applied Coupon Discount :{" "} //   <p className="my-4"> //   </p> //     Applied Coupon : <span className="text-green-500"> {coupon}</span> //   <p className="my-4"> // <div>
           <form
             action=""
-            className="flex gap-4"
+            className="flex gap-4 flex-wrap max-w-full"
             onSubmit={(e: SubmitEvent<HTMLFormElement>) => handleApplyCoupon(e)}
           >
             <input
@@ -163,7 +160,7 @@ export default function CartDetails({
               name="coupon"
               id="coupon"
               placeholder={t("placeHolders.couponCode")}
-              className="w-75 h-14 border rounded-sm py-4 px-6"
+              className="w-75 max-w-full h-14 border rounded-sm py-4 px-6"
               value={coupon}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setCoupon(e.target.value)

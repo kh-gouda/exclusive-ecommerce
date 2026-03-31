@@ -187,10 +187,10 @@ export default function CheckoutForm({
   return (
     <form
       action=""
-      className="flex *:flex-1 gap-20"
+      className="flex max-[750px]:flex-col *:flex-1 gap-20"
       onSubmit={(e: SubmitEvent<HTMLFormElement>) => handleSubmit(e)}
     >
-      <div>
+      <div className="max-[750px]:w-full">
         <label htmlFor="fname" className="billing-data-label">
           {t("placeHolders.fname")}
           <span className="text-identity">*</span>
@@ -315,13 +315,13 @@ export default function CheckoutForm({
           {t("placeHolders.saveInfo")}
         </label>
       </div>
-      <div>
+      <div className="max-[750px]:w-full">
         {orderState.orderitems.map((product) => (
           <div
             key={product.productid}
             className="flex items-center justify-between mb-8"
           >
-            <div className="flex items-center gap-1">
+            <div className="flex flex-wrap items-center gap-1">
               <div className="w-12.5 h-12.5">
                 <CheckoutImage productImage={product.productimages[0]} />
               </div>
@@ -400,15 +400,8 @@ export default function CheckoutForm({
               {t("general.cashOnDelivery")}
             </label>
           </div>
-          <div className="flex items-center justify-between py-8">
-            {orderState.appliedcoupondiscount ? //     <span className="text-green-500"> //     Applied Coupon :{" "} //   <p className="my-4"> // <div>
-            //       {" "}
-            //       {orderState.appliedcoupon}
-            //     </span>
-            //   </p>
-            //   <p className="my-4">
-            //     Applied Coupon Discount :{" "}
-            //     <span className="text-green-500">
+          <div className="flex flex-wrap gap-7.5 items-center justify-between py-8">
+            {orderState.appliedcoupondiscount ? //     <span className="text-green-500"> //     Applied Coupon Discount :{" "} //   <p className="my-4"> //   </p> //     </span> //       {orderState.appliedcoupon} //       {" "} //     <span className="text-green-500"> //     Applied Coupon :{" "} //   <p className="my-4"> // <div>
             //       {" "}
             //       %{orderState.appliedcoupondiscount}
             //     </span>

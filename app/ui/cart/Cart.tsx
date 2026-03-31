@@ -19,9 +19,9 @@ export default function Cart({
       {products.map((product) => (
         <div
           key={product.id}
-          className="relative flex items-center justify-between mt-10 *:flex-1 shadow py-6 px-9.5"
+          className="relative flex items-center justify-between mt-10 *:flex-1 shadow py-6 px-9.5 max-[850px]:px-2"
         >
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 max-[850px]:flex-col max-[850px]:items-start">
             <div className="w-12.5 h-12.5">
               <ShoppingCartImage productImage={product.image} />
             </div>
@@ -31,14 +31,14 @@ export default function Cart({
           <input
             type="number"
             defaultValue={product.quantity}
-            className="text-center border"
+            className="text-center border w-12.5"
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               changeState(product.id, Number(e.currentTarget.value))
             }
           />
           <div className="text-end">${product.subtotal}</div>
           <button
-            className="absolute w-5 h-5 rounded-full flex items-center justify-center top-50% start-4 -translate-1/2 bg-identity cursor-pointer text-white"
+            className="absolute w-5 h-5 rounded-full flex items-center justify-center top-50% max-[850px]:top-0 start-4 -translate-1/2 bg-identity cursor-pointer text-white"
             onClick={() => deleteItem(product.id)}
           >
             X

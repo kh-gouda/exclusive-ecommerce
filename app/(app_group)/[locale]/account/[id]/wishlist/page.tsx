@@ -75,7 +75,7 @@ export default async function WishList() {
   return (
     <Container>
       <Section>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-wrap items-center justify-between">
           <h2>
             {t("general.wishList")} ({wishListProductsCount})
           </h2>

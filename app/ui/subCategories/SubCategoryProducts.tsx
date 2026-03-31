@@ -25,7 +25,7 @@ export default async function SubCategoryProducts({ id }: { id: number }) {
   return (
     <Section>
       <SectionLabel>{t("sectionLabel.subCategory")}</SectionLabel>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between max-[650px]:justify-center">
         <SectionTitle>{t(`subCategories.subcategory${id}`)}</SectionTitle>
       </div>
       {products && products.length ? (

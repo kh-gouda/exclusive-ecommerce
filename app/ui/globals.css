@@ -88,7 +88,7 @@
 }
 
 @utility edit-product-container {
-  @apply my-7.5 shadow p-4;
+  @apply my-7.5 shadow p-4 max-[600px]:p-2;
 }
 
 @utility edit-product-title {
@@ -96,7 +96,7 @@
 }
 
 @utility edit-data {
-  @apply p-8;
+  @apply p-8 max-[600px]:p-2;
 }
 
 @theme inline {

@@ -120,7 +120,7 @@ export default function ProductsDashBoard({
 
   return (
     <div>
-      <div className="mb-12 flex items-center justify-between">
+      <div className="mb-12 flex flex-wrap gap-4 items-center justify-between">
         <div>
           <label htmlFor="category" className="me-4">
             Filter By Category
@@ -151,8 +151,8 @@ export default function ProductsDashBoard({
       </div>
       <ul className="flex items-center gap-4 *:flex-1 *:border *:text-center">
         <li>product</li>
-        <li>price</li>
-        <li>stock</li>
+        <li className="max-[600px]:hidden">price</li>
+        <li className="max-[450px]:hidden">stock</li>
         <li>actions</li>
       </ul>
 
@@ -165,8 +165,8 @@ export default function ProductsDashBoard({
             <DashBoardProductImage image={product.productimages[0]} />
             <span>{product.productname}</span>
           </li>
-          <li>$ {product.productprice}</li>
-          <li>
+          <li className="max-[600px]:hidden">$ {product.productprice}</li>
+          <li className="max-[450px]:hidden">
             <span className="text-green-600">({product.totalStock})</span> Item
           </li>
           <li className="flex items-center justify-center gap-7.5">

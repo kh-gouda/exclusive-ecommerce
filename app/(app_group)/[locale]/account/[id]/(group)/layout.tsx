@@ -22,16 +22,18 @@ export default async function AccountLayout({
 
   return (
     <Container>
-      <section className="pt-20 flex items-center justify-between">
+      <section className="pt-20 flex flex-wrap gap-4 items-center justify-between">
         <div>bread crumbs</div>
         <div>
           {t("accountManagement.welcome")}{" "}
           <span className="text-identity text-sm">{username}</span>
         </div>
       </section>
-      <div className="flex gap-25 pt-20 pb-35">
+      <div className="flex gap-25 pt-20 pb-35 relative">
         <AccountSideNav />
-        <div className="flex-1 shadow p-10 rounded-sm">{children}</div>
+        <div className="flex-1 shadow p-10 rounded-sm max-[450px]:p-2">
+          {children}
+        </div>
       </div>
     </Container>
   );

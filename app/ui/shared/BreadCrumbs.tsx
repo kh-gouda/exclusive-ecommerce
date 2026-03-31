@@ -10,7 +10,7 @@ export default function BreadCrumbs() {
   const links = pathName.split("/");
 
   return (
-    <ul className="flex items-center gap-2">
+    <ul className="flex flex-wrap items-center gap-2">
       {links.map((link, i) => {
         return i === 0 ? (
           <li key={link} className="flex items-center gap-2 opacity-50 text-sm">

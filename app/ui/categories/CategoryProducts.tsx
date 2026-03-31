@@ -25,7 +25,7 @@ export default async function CategoryProducts({ id }: { id: number }) {
   return (
     <Section>
       <SectionLabel>{t("sectionLabel.category")}</SectionLabel>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between max-[650px]:justify-center">
         <SectionTitle>{t(`categories.category${id}`)}</SectionTitle>
       </div>
       {products && products.length ? (

@@ -254,7 +254,10 @@ export default function AddNewProductForm({
       </div>
 
       {stock.map((stock) => (
-        <div key={stock.stockId} className="flex items-center justify-between">
+        <div
+          key={stock.stockId}
+          className="flex flex-wrap mb-6 items-center justify-between"
+        >
           <div className="mb-6">
             <label htmlFor={`size-${stock.stockId}`}>
               stock Size <span className="text-identity">(*)</span>
@@ -355,7 +358,7 @@ export default function AddNewProductForm({
           accept="image/*"
         />
       </div>
-      <div className="mb-6 flex items-center gap-2 justify-end">
+      <div className="mb-6 flex flex-wrap items-center gap-2 justify-end max-[400px]:justify-center">
         <input
           type="reset"
           value="Clear"

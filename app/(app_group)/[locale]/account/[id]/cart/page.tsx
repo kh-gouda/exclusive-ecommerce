@@ -36,7 +36,7 @@ export default async function CartPage() {
       <Container>
         <BreadCrumbs />
         <section className="mt-20">
-          <div className="flex items-center justify-between *:flex-1 shadow py-6 px-9.5">
+          <div className="flex items-center justify-between *:flex-1 shadow py-6 px-9.5 max-[850px]:px-2">
             <div>{t("product")}</div>
             <div className="text-center">{t("price")}</div>
             <div className="text-center">{t("quantity")}</div>

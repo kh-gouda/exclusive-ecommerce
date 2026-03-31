@@ -5,7 +5,7 @@ export default async function ContactInfo() {
   const t = await getTranslations("contactPage");
 
   return (
-    <div className="p-10 shadow">
+    <div className="p-10 shadow max-[1235px]:flex max-[1235px]:flex-wrap max-[1235px]:gap-7.5 max-[1235px]:justify-between">
       <div className="w-65.5">
         <h3 className="flex items-center gap-4">
           <div className="w-10 h-10 bg-identity rounded-full flex items-center justify-center">

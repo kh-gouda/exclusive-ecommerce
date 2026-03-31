@@ -25,9 +25,9 @@ export default async function PreserveAd(props: {
   }));
   return (
     <Container>
-      <div className="flex gap-25 pt-20 pb-35">
+      <div className="flex flex-wrap gap-25 pt-20 pb-35">
         <PreserveAdSideBar />
-        <div className="flex-1 shadow p-10 rounded-sm">
+        <div className="flex-1 max-w-full shadow p-10 max-[781px]:px-2 rounded-sm">
           <PreserveAdForm products={products} />
         </div>
       </div>

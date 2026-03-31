@@ -130,7 +130,7 @@ export default function PurchaseForm({
 
   return (
     <form onSubmit={(e) => e.preventDefault()}>
-      <div className="flex items-center gap-6 my-6">
+      <div className="flex flex-wrap items-center gap-6 my-6">
         <p className={`${inter.className} font-normal text-xl`}>
           {t("colour")}
         </p>
@@ -140,7 +140,7 @@ export default function PurchaseForm({
           clickColor={(color) => setSelectedColor(color)}
         />
       </div>
-      <div className="flex items-center gap-6 my-6">
+      <div className="flex flex-wrap items-center gap-6 my-6">
         <p className={`${inter.className} font-normal text-xl`}>{t("size")}</p>
         <ProductSizes
           sizes={sizes || ["one size"]}
@@ -148,7 +148,7 @@ export default function PurchaseForm({
           clickSize={(size) => setSelectedSize(size)}
         />
       </div>
-      <div className="flex items-center gap-4 justify-between">
+      <div className="flex items-center gap-4 justify-between flex-wrap">
         <div className="flex items-center">
           <button
             className="w-10 h-11 rounded-s-sm border flex items-center justify-center cursor-pointer text-2xl"
