@@ -1,5 +1,6 @@
 import { authOptions } from "@/app/lib/auth";
 import AccountSideNav from "@ui/account/AccountSideNav";
+import BreadCrumbDetector from "@ui/shared/BreadCrumbDetector";
 import Container from "@ui/shared/Container";
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
@@ -23,7 +24,7 @@ export default async function AccountLayout({
   return (
     <Container>
       <section className="pt-20 flex flex-wrap gap-4 items-center justify-between">
-        <div>bread crumbs</div>
+        <BreadCrumbDetector />
         <div>
           {t("accountManagement.welcome")}{" "}
           <span className="text-identity text-sm">{username}</span>

@@ -6,8 +6,11 @@ import { STAFF_TYPE } from "@/app/lib/typeDefinitions";
 import { createSlides, fetchStaff } from "@/app/lib/utils";
 import StaffSlider from "@ui/about/StaffSlider";
 import Features from "@ui/shared/Features";
+import BreadCrumbs from "@ui/shared/BreadCrumbs";
 
 export default async function About() {
+  const breadCrumbs = [{ label: "about", href: "/about" }];
+
   const staff = await fetchStaff();
 
   const STAFF = staff.map((emp) => {
@@ -27,7 +30,11 @@ export default async function About() {
   ));
   return (
     <>
-      <Container>breadcrumbs</Container>
+      <Container>
+        <div className="pt-20">
+          <BreadCrumbs breadCrumbs={breadCrumbs} />
+        </div>
+      </Container>
       <AboutMain />
       <Container>
         <Statistics />

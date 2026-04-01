@@ -90,9 +90,11 @@ export default function EditProfileForm() {
             userById[0].password,
           );
           const validNewPassword = await bcrypt.compare(
-            newPassword,
             confirmPassword,
+            newHashedPassword,
           );
+          console.log(validCurrentPassword, validNewPassword);
+
           if (!validCurrentPassword || !validNewPassword) {
             throw new Error(
               "Incorrect Current Password Or New Password Not Identical To Confirm Password",
@@ -100,7 +102,7 @@ export default function EditProfileForm() {
           }
         }
 
-        setIsValid(true);
+        setIsValid(() => true);
 
         if (isValid) {
           if (newPassword) {

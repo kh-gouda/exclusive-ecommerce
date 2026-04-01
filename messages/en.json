@@ -379,5 +379,44 @@
     "noCompleted": "There Is No Completed Orders",
     "noReturned": "There Is No Returned Orders",
     "noCancelled": "There Is No Cancelled Orders"
+  },
+  "preserveAd": {
+    "p1start": "You Can Preserve Ad Space for ",
+    "p1span": "$10/day",
+    "p1end": " By :",
+    "p2": "Submitting This Form",
+    "p3": "And Watch Your Ad In The Main Ads Area In The Home Page Immediately As Soon As You Finish Payment",
+    "optional": "(Optional)",
+    "logo": "Logo",
+    "image": "Image",
+    "selectProduct": "Select Product",
+    "duration": "Ad Duration",
+    "title": "Ad Title",
+    "adDetails": "Ad Details",
+    "disclaimer": "After You Click Confirm Button You Will Be Redirected To Payment Gateway And After Payment Success The Process Will Complete ",
+    "confirmPreservation": "Confirm Preservation",
+    "titlePlaceholder": "Ad Title Here",
+    "detailsPlaceholder": "Write Your Ad Details Here Max 200 Characters"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "No products related to this category added yet.",
+    "shopNoProducts": "No products added yet."
+  },
+  "breadCrumbs": {
+    "home": "HOME",
+    "contact": "CONTACT",
+    "about": "ABOUT",
+    "cart": "CART",
+    "products": "PRODUCTS",
+    "myAccount": "MY ACCOUNT",
+    "addressBook": "ADDRESS BOOK",
+    "orders": "ORDERS",
+    "pending": "PENDING",
+    "inProgress": "IN PROGRESS",
+    "completed": "COMPLETED",
+    "returns": "My RETURNS",
+    "cancellations": "My CANCELLATIONS",
+    "checkout": "CHECKOUT",
+    "notFound": "NOT FOUND"
   }
 }

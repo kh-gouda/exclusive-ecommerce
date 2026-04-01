@@ -3,6 +3,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import FlashSalesTimer from "@ui/home/FlashSalesTimer";
 import SectionTitle from "@ui/shared/SectionTitle";
 import useEmblaCarousel from "embla-carousel-react";
+import { useTranslations } from "next-intl";
 import { ReactNode, useCallback } from "react";
 
 export function Carusel({
@@ -14,6 +15,8 @@ export function Carusel({
   slides: ReactNode[];
   flashSalesTimer?: string;
 }) {
+  const t = useTranslations();
+
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
   const goToPrev = useCallback(
@@ -59,7 +62,7 @@ export function Carusel({
             ))
           ) : title === "Flash Sales" ? (
             <p className="text-center text-identity mt-10">
-              Waiting For The Next Flash Sales.
+              {t("conditionalRender.waitingSales")}
             </p>
           ) : null}
         </div>

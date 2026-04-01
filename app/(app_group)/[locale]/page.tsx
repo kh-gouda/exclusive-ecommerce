@@ -141,7 +141,7 @@ export default async function Home() {
   const newArrivalData = NEW_ARRIVAL_DATA;
 
   return (
-    <div className="">
+    <>
       <Container>
         <div
           // className="w-292.5 max-w-full mx-auto"
@@ -210,6 +210,6 @@ export default async function Home() {
 
         <ScrollToTopButton />
       </Container>
-    </div>
+    </>
   );
 }

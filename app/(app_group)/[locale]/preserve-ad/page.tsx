@@ -1,23 +1,9 @@
-import { confirmAd } from "@/app/actions/preserveAd";
 import { fetchAllProducts } from "@/app/lib/utils";
 import PreserveAdForm from "@ui/preserve-ad/PreserveAdForm";
 import PreserveAdSideBar from "@ui/preserve-ad/PreserveAdSideBar";
 import Container from "@ui/shared/Container";
-import { redirect } from "next/navigation";
 
-type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
-export default async function PreserveAd(props: {
-  searchParams: SearchParams;
-}) {
-  const searchParams = await props.searchParams;
-  const adId = Number(searchParams.adid);
-  const paymentSuccess = searchParams.success;
-
-  if (paymentSuccess) {
-    await confirmAd(adId);
-    redirect("/");
-  }
-
+export default async function PreserveAd() {
   const fetchedProducts = await fetchAllProducts();
   const products = fetchedProducts.map((product) => ({
     productId: product.productid,

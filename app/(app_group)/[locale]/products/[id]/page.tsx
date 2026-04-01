@@ -4,6 +4,7 @@ import {
 } from "@/app/lib/utils";
 import ProductDetailsMain from "@ui/product_details/ProductDetailsMain";
 import Cards from "@ui/productCard/Cards";
+import BreadCrumbs from "@ui/shared/BreadCrumbs";
 import Container from "@ui/shared/Container";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
@@ -12,11 +13,16 @@ import { getTranslations } from "next-intl/server";
 export default async function ProductDetails(props: {
   params: Promise<{ id: string }>;
 }) {
-  const t = await getTranslations("sectionLabel");
-  const t2 = await getTranslations("conditionalRender");
-
   const params = await props.params;
   const id = +params.id;
+
+  const breadCrumbs = [
+    { label: "products", href: "/shop" },
+    { label: `${id}`, href: `/products/${id}`, number: true },
+  ];
+
+  const t = await getTranslations("sectionLabel");
+  const t2 = await getTranslations("conditionalRender");
 
   const product = await fetchProductById(id);
   const PRODUCT_DETAILS_DATA = {
@@ -53,6 +59,9 @@ export default async function ProductDetails(props: {
 
   return (
     <Container>
+      <div className="pt-20">
+        <BreadCrumbs breadCrumbs={breadCrumbs} />
+      </div>
       <ProductDetailsMain productDetails={PRODUCT_DETAILS_DATA} />
       <Section>
         <SectionLabel>{t("relatedItems")}</SectionLabel>

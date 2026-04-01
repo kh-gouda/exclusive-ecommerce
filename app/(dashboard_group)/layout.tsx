@@ -1,5 +1,5 @@
+import DashBoardBreadCrumbDetector from "@ui/dashboard/DashBoardBreadCrumbDetector";
 import DashBoardSideNav from "@ui/dashboard/DashBoardSideNav";
-import BreadCrumbs from "@ui/shared/BreadCrumbs";
 import SectionTitle from "@ui/shared/SectionTitle";
 import Image from "next/image";
 import { ReactNode } from "react";
@@ -19,7 +19,7 @@ export default function DashBoardLayout({ children }: { children: ReactNode }) {
         </div>
         <div className="flex-1 ps-10 pt-10 max-[751px]:ps-2 text-white">
           <SectionTitle>Exclusive Dashbaord</SectionTitle>
-          <BreadCrumbs />
+          <DashBoardBreadCrumbDetector />
         </div>
       </div>
       <div className="flex gap-25 py-10 px-4 max-[900px]:px-2 relative">

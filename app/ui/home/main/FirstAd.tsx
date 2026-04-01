@@ -10,10 +10,11 @@ import Link from "next/link";
 export default function FirstAd({ AD }: { AD: FIRST_AD }) {
   const t = useTranslations("ads");
   return (
-    <div className="flex items-center justify-center group-rtl/layoutdir:[direction:rtl] max-[800px]:flex-col max-[800px]:items-center max-[800px]:gap-5">
+    <div className="flex items-center justify-center group-rtl/layoutdir:[direction:rtl] max-[800px]:flex-col max-[800px]:items-center max-[800px]:gap-5 max-w-full">
       <div className="text-white-text flex-1 ps-16 max-[800px]:ps-0">
         <div className="flex items-center">
-          <FirstAdLogo logo={AD.productLogo || ""} />
+          {AD.productLogo ? <FirstAdLogo logo={AD.productLogo} /> : null}
+          {/* <FirstAdLogo logo={AD.productLogo || ""} /> */}
           <span className="text-base ms-6">
             {AD.adid === "form"
               ? t("adformtitle")
@@ -41,7 +42,8 @@ export default function FirstAd({ AD }: { AD: FIRST_AD }) {
           <ArrowRightIcon className="w-5 h-5 group-rtl/layoutdir:rotate-180" />
         </div>
       </div>
-      <FirstAdImage image={AD.imageSrc || ""} />
+      {AD.imageSrc ? <FirstAdImage image={AD.imageSrc} /> : null}
+      {/* <FirstAdImage image={AD.imageSrc || ""} /> */}
     </div>
   );
 }

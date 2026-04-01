@@ -27,10 +27,19 @@ export default async function Checkout(props: { searchParams: SearchParams }) {
 
   const order = await fetchOrderById(orderId);
 
+  const breadCrumbs = [
+    { label: "orders", href: `/account/${session?.user.id}/orders/pending` },
+    {
+      label: "checkout",
+      href: `/account/${session?.user.id}/checkout?orderid=${orderId}`,
+    },
+  ];
+
   if (!order.length) {
     return (
       <div className="pt-20 pb-35">
         <Container>
+          <BreadCrumbs breadCrumbs={breadCrumbs} />
           <SectionTitle weight={500}>
             {t("sectionTitle.billingDetails")}
           </SectionTitle>
@@ -63,7 +72,7 @@ export default async function Checkout(props: { searchParams: SearchParams }) {
   return (
     <div className="pt-20 pb-35">
       <Container>
-        <BreadCrumbs />
+        <BreadCrumbs breadCrumbs={breadCrumbs} />
         <SectionTitle weight={500}>
           {t("sectionTitle.billingDetails")}
         </SectionTitle>

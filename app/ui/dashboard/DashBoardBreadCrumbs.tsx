@@ -1,25 +1,18 @@
 // "use client";
 
 import clsx from "clsx";
-import { useTranslations } from "next-intl";
-// import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
 import { FaAngleRight } from "react-icons/fa";
 
-export default function BreadCrumbs({
+export default function DashBoardBreadCrumbs({
   breadCrumbs,
 }: {
   breadCrumbs: { label: string; href: string; number?: boolean }[];
 }) {
-  const t = useTranslations("breadCrumbs");
-  // const pathName = usePathname();
-  // const links = pathName.split("/");
-
   return (
     <ul className="flex flex-wrap items-center gap-2">
       <li className="flex items-center gap-2 opacity-50 text-sm">
-        <Link href={"/"}>{t("home")}</Link>
+        <Link href={"/"}>HOME</Link>
         <FaAngleRight className="text-2xl" />
       </li>
       {breadCrumbs.length
@@ -30,9 +23,7 @@ export default function BreadCrumbs({
                 "opacity-50": i < breadCrumbs.length - 1,
               })}
             >
-              <Link href={crumb.href}>
-                {crumb.number ? crumb.label : t(crumb.label)}
-              </Link>
+              <Link href={crumb.href}>{crumb.label}</Link>
               {i === breadCrumbs.length - 1 ? null : (
                 <FaAngleRight className="text-2xl" />
               )}

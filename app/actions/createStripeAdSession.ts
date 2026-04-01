@@ -3,7 +3,7 @@
 import { stripe } from "@/app/lib/stripe";
 import sql from "@/app/lib/db";
 
-export async function createStripeAdSession(adId: number) {
+export async function createStripeAdSession(adId: number, duration: number) {
   //  Get order from database
   const ad = await sql`
     SELECT adid, totalamount, adpaid, stripe_session_id, stripe_session_expires_at
@@ -79,9 +79,9 @@ export async function createStripeAdSession(adId: number) {
       },
     ],
 
-    success_url: `${process.env.NEXT_PUBLIC_APP_URL}/preserve-ad?adid=${adId}&success=true`,
+    success_url: `${process.env.NEXT_PUBLIC_APP_URL}/preserve-ad?adid=${adId}&success=true&duration=${duration}`,
 
-    cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/preserve-ad?adid=${adId}&canceled=true`,
+    cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/preserve-ad?adid=${adId}&canceled=true&duration=${duration}`,
 
     metadata: {
       adid: adData.adid.toString(),
@@ -95,9 +95,11 @@ export async function createStripeAdSession(adId: number) {
   });
 
   // Save stripe session id in DB
+  const expiresAt = new Date(session.expires_at * 1000);
   await sql`
-    UPDATE ads
-    SET stripe_session_id = ${session.id}
+    UPDATE ads SET 
+    stripe_session_id = ${session.id},
+    stripe_session_expires_at = ${expiresAt}
     WHERE adid = ${adId}
   `;
 

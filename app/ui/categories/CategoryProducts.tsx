@@ -32,7 +32,7 @@ export default async function CategoryProducts({ id }: { id: number }) {
         <Cards products={products} showDiscountLabel showNewLabel />
       ) : (
         <p className="text-center text-identity mt-10">
-          No products related to this category added yet.
+          {t("missedTranslations.noRelatedCategoryProducts")}
         </p>
       )}
     </Section>

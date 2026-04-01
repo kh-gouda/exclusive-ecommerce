@@ -1,10 +1,15 @@
+import BreadCrumbs from "@ui/shared/BreadCrumbs";
 import Container from "@ui/shared/Container";
 import SectionTitle from "@ui/shared/SectionTitle";
 import Link from "next/link";
 
 export default function NotFound() {
+  const breadCrumbs = [{ label: "notFound", href: "/not-found" }];
   return (
     <Container>
+      <div className="pt-20">
+        <BreadCrumbs breadCrumbs={breadCrumbs} />
+      </div>
       <div className="py-35 flex flex-col items-center justify-center">
         <SectionTitle size="110px" weight={500}>
           404 Not Found

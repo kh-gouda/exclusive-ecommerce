@@ -11,6 +11,10 @@ export default async function CartPage() {
   const t = await getTranslations("listHeading");
   const session = await getServerSession(authOptions);
 
+  const breadCrumbs = [
+    { label: "cart", href: `/account/${session?.user.id}/cart` },
+  ];
+
   if (!session) {
     redirect("/account/cart");
   }
@@ -34,7 +38,7 @@ export default async function CartPage() {
   return (
     <div className="pt-20 pb-35">
       <Container>
-        <BreadCrumbs />
+        <BreadCrumbs breadCrumbs={breadCrumbs} />
         <section className="mt-20">
           <div className="flex items-center justify-between *:flex-1 shadow py-6 px-9.5 max-[850px]:px-2">
             <div>{t("product")}</div>

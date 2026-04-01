@@ -7,6 +7,7 @@ import { getTranslations } from "next-intl/server";
 export default async function ShopProducts() {
   const t = await getTranslations("sectionLabel");
   const t2 = await getTranslations("sectionTitle");
+  const t3 = await getTranslations("missedTranslations");
 
   const allProducts = await fetchAllProducts();
   const products = allProducts.map((product) => ({
@@ -33,7 +34,7 @@ export default async function ShopProducts() {
         <Cards products={products} showDiscountLabel />
       ) : (
         <p className="text-center text-identity mt-10">
-          No products added yet.
+          {t3("shopNoProducts")}
         </p>
       )}
     </Section>

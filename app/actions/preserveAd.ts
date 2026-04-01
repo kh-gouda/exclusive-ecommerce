@@ -1,5 +1,6 @@
 "use server";
 
+import { sendAdEmail } from "@/app/actions/sendAdEmail";
 import sql from "@/app/lib/db";
 
 export async function preserveAd(ad: {
@@ -20,10 +21,14 @@ export async function preserveAd(ad: {
   return preservedAd;
 }
 
-export async function confirmAd(adId: number) {
+export async function confirmAd(adId: number, duration: number) {
   await sql`
   update ads set
   adpaid = true
   where adid = ${adId}
   `;
+
+  await sendAdEmail(adId, duration);
+
+  return { success: true };
 }
