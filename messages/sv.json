@@ -379,5 +379,176 @@
     "noCompleted": "Det finns inga slutförda beställningar",
     "noReturned": "Det finns inga returnerade beställningar",
     "noCancelled": "Det finns inga avbokade beställningar"
+  },
+  "preserveAd": {
+    "p1start": "Du Kan Reservera Annonsplats För ",
+    "p1span": "$10/dag",
+    "p1end": " Genom Att:",
+    "p2": "Skicka In Det Här Formuläret",
+    "p3": "Och Se Din Annons I Huvudannonsområdet På Hemsidan Omedelbart När Du Slutfört Betalningen",
+    "optional": "(Valfritt)",
+    "logo": "Logotyp",
+    "image": "Bild",
+    "selectProduct": "Välj Produkt",
+    "duration": "Annonsvaraktighet",
+    "title": "Annonstitel",
+    "adDetails": "Annonsdetaljer",
+    "disclaimer": "När Du Klickar På Bekräfta-knappen Kommer Du Att Omdirigeras Till Betalningsporten Och Efter Lyckad Betalning Kommer Processen Att Slutföras",
+    "confirmPreservation": "Bekräfta Reservation",
+    "titlePlaceholder": "Annonstitel Här",
+    "detailsPlaceholder": "Skriv Dina Annonsdetaljer Här Max 200 Tecken"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "Inga produkter relaterade till den här kategorin har lagts till ännu.",
+    "shopNoProducts": "Inga produkter har lagts till ännu."
+  },
+  "breadCrumbs": {
+    "home": "HEM",
+    "contact": "KONTAKT",
+    "about": "OM OSS",
+    "cart": "VARUKORG",
+    "products": "PRODUKTER",
+    "myAccount": "MITT KONTO",
+    "addressBook": "ADRESSBOK",
+    "orders": "BESTÄLLNINGAR",
+    "pending": "VÄNTANDE",
+    "inProgress": "PÅGÅENDE",
+    "completed": "SLUTFÖRDA",
+    "returns": "MINA RETURER",
+    "cancellations": "MINA AVBOKNINGAR",
+    "checkout": "KASSA",
+    "notFound": "HITTADES INTE"
+  },
+  "searchResult": {
+    "search": "Sök",
+    "searchResult": "Sökresultat",
+    "noSearchResult": "Inga Produkter Matchar Din Sökning"
+  },
+  "metadata": {
+    "home": {
+      "title": "Hem",
+      "description": "Det Här Är Hemsidan För Den Exklusiva E-handelsplattformen Där Du Kan Bläddra Igenom Olika Avsnitt Och Njuta Av Den Fantastiska Shoppingupplevelsen",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "login": {
+      "title": "Logga In",
+      "description": "Här Kan Du Börja Din Resa Till Shoppingvärlden",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "signup": {
+      "title": "Registrera Dig",
+      "description": "Den Verkliga Starten Börjar Med Att Skapa Ett Konto På Exclusive Och Sedan Njuta Av Tjänsterna",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "about": {
+      "title": "Om Oss",
+      "description": "Vi Vill Berätta Om Oss Eftersom Vi Betraktar Våra Kunder Som Familj, Så Du Hittar En Kort Sammanfattning Av Vår Historia Och Lär Känna Vårt Team",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "profile": {
+      "title": "Profil",
+      "description": "Här Kan Du Redigera Och Ha Full Kontroll Över Din Profil",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "addressBook": {
+      "title": "Adressbok",
+      "description": "Här Kan Du Redigera Och Hantera Din Adressbok För Att Underlätta Leveranstjänster",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "pendigOrders": {
+      "title": "Väntande Beställningar",
+      "description": "Här Kan Du Bläddra Igenom Dina Väntande Beställningar Och Följa Deras Framsteg",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "inProgressOrders": {
+      "title": "Pågående Beställningar",
+      "description": "Här Kan Du Följa Dina Beställningar Som För Närvarande Behandlas Och Spåra Dem",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "completedOrders": {
+      "title": "Slutförda Beställningar",
+      "description": "Här Kan Du Bläddra Igenom Dina Slutförda Beställningar Och Granska Deras Detaljer",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "cancelledOrders": {
+      "title": "Avbrutna Beställningar",
+      "description": "Här Kan Du Granska Dina Avbrutna Beställningar Och Kontrollera Deras Artiklar Om Du Vill Beställa Om",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "returnedOrders": {
+      "title": "Returnerade Beställningar",
+      "description": "Här Kan Du Bläddra Igenom Dina Returnerade Beställningar Och Om Du Vill Kan Du Ge Oss Återkoppling För Att Hjälpa Oss Förbättra Våra Tjänster",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "cart": {
+      "title": "Varukorg",
+      "description": "Här Kan Du Bläddra Igenom Din Varukorg Och Fortsätta Till Nästa Steg För Att Lägga Dina Beställningar",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "checkout": {
+      "title": "Kassa",
+      "description": "Här Kan Du Lägga Dina Beställningar Med Olika Betalningsalternativ Som Bankkort Eller Kontant Vid Leverans Och Dra Nytta Av Stora Rabatter Med Kuponger",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "reviews": {
+      "title": "Mina Recensioner",
+      "description": "En Lista Över Dina Recenserade Produkter Där Du Kan Se Dina Favoritprodukter",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "wishlist": {
+      "title": "Önskelista",
+      "description": "Här Kan Du Spara Dina Önskelisteprodukter För Att Flytta Till Varukorgen Senare",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "shop": {
+      "title": "Butik",
+      "description": "Butikssidan Är Där Du Kan Bläddra Igenom Alla Produkter På Vår Plattform Och Hitta Ett Brett Utbud Av Högkvalitativa Produkter",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "bestSelling": {
+      "title": "Bästsäljare",
+      "description": "Du Kan Se Våra Bästsäljande Produkter Ordnade Efter Försäljning I Fallande Ordning Vilket Hjälper Dig Att Veta Vad Kunderna Tycker Mest Om",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "flashSales": {
+      "title": "Blixtrean",
+      "description": "Den Mest Omtyckta Sidan Av Användare Där De Njuter Av De Största Reorna. Du Måste Följa Den Hela Tiden Eftersom Erbjudanden Har Begränsad Tid Och Går Ut Snabbt",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "categories": {
+      "title": "Kategorier",
+      "description": "Sidan Där Du Kan Bläddra Igenom Produkter Efter Kategori För Att Lättare Hitta Dina Önskade Produkter",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "subCategories": {
+      "title": "Underkategorier",
+      "description": "Sidan Där Du Kan Bläddra Igenom Produkter Efter Underkategori För Att Ännu Lättare Hitta Dina Önskade Produkter",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Du Kan Enkelt Hålla Kontakten Och Kontakta Oss Och Berätta Vad Du Vill Ha Och Vi Återkommer Snabbt",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "reserveAds": {
+      "title": "Reservera Annonser",
+      "description": "Det Stora Erbjudandet Är Att Du Kan Reservera Annonsplats På En Av De Mest Besökta Webbplatserna Till Överkomliga Priser Vilket Låter Dig Bli Viral Med Dina Produkter",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "products": {
+      "title": "Produktdetaljer",
+      "description": "Det Här Är Den Detaljerade Sidan Där Du Kan Veta Allt Om Din Föredragna Produkt När Du Klickar På Dess Länk",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "resetPassword": {
+      "title": "Återställ Lösenord",
+      "description": "Om Du Glömt Ditt Lösenord Kan Du Återställa Det Från Den Här Sidan Genom Att Skicka Oss Ett E-postmeddelande Och Vi Hjälper Dig",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    },
+    "searchResult": {
+      "title": "Sökresultat",
+      "description": "Du Kan Skriva Vad Du Letar Efter I Sökfältet Och När Du Trycker Enter Omdirigeras Du Till Den Här Sidan För Att Se Resultat Relaterade Till Din Sökning",
+      "keywords": "exclusive, e-handel, näthandel, shopping, mode, herrmode, dammode, kläder, elektronik, hem och livsstil"
+    }
   }
 }

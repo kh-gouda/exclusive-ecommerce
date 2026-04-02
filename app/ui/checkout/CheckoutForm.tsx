@@ -13,10 +13,10 @@ import {
 } from "@/app/actions/fetchAndUpdateUser";
 import { fetchCoupon } from "@/app/actions/fetchCoupon";
 import { revalidate } from "@/app/actions/revalidatePath";
+import { useSessionUpdate } from "@/app/hooks/useSessionUpdate";
 import { ORDER_DETAILS_TYPE } from "@/app/lib/typeDefinitions";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import CheckoutImage from "@ui/checkout/CheckoutImage";
-import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { ChangeEvent, SubmitEvent, useState } from "react";
@@ -29,7 +29,8 @@ export default function CheckoutForm({
 }) {
   const t = useTranslations();
 
-  const { update } = useSession();
+  const { refreshAll } = useSessionUpdate();
+
   const [orderState, setOrderState] = useState(orderDetails);
 
   const shipping = 0;
@@ -176,9 +177,10 @@ export default function CheckoutForm({
         `/account/${orderState.userid}/checkout?orderid=${orderState.orderid}`,
       );
 
-      await update();
+      await refreshAll();
 
       notifySuccess();
+      location.reload();
     } catch (error: unknown) {
       if (error instanceof Error) notifyError(error.message);
     }
@@ -401,9 +403,7 @@ export default function CheckoutForm({
             </label>
           </div>
           <div className="flex flex-wrap gap-7.5 items-center justify-between py-8">
-            {orderState.appliedcoupondiscount ? //     <span className="text-green-500"> //     Applied Coupon Discount :{" "} //   <p className="my-4"> //   </p> //     </span> //       {orderState.appliedcoupon} //       {" "} //     <span className="text-green-500"> //     Applied Coupon :{" "} //   <p className="my-4"> // <div>
-            //       {" "}
-            //       %{orderState.appliedcoupondiscount}
+            {orderState.appliedcoupondiscount ? //       %{orderState.appliedcoupondiscount} //       {" "} //     <span className="text-green-500"> //     Applied Coupon Discount :{" "} //   <p className="my-4"> //   </p> //     </span> //       {orderState.appliedcoupon} //       {" "} //     <span className="text-green-500"> //     Applied Coupon :{" "} //   <p className="my-4"> // <div>
             //     </span>
             //   </p>
             // </div>

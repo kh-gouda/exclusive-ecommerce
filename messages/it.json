@@ -379,5 +379,176 @@
     "noCompleted": "Non Ci Sono Ordini Completati",
     "noReturned": "Non Ci Sono Ordini Resi",
     "noCancelled": "Non Ci Sono Ordini Cancellati"
+  },
+  "preserveAd": {
+    "p1start": "Puoi riservare spazio pubblicitario per ",
+    "p1span": "$10/giorno",
+    "p1end": " Tramite:",
+    "p2": "Inviando questo modulo",
+    "p3": "E guarda il tuo annuncio nell'area principale degli annunci della home page immediatamente dopo aver completato il pagamento",
+    "optional": "(Opzionale)",
+    "logo": "Logo",
+    "image": "Immagine",
+    "selectProduct": "Seleziona prodotto",
+    "duration": "Durata annuncio",
+    "title": "Titolo annuncio",
+    "adDetails": "Dettagli annuncio",
+    "disclaimer": "Dopo aver fatto clic sul pulsante Conferma, verrai reindirizzato al gateway di pagamento e dopo il successo del pagamento il processo verrà completato",
+    "confirmPreservation": "Conferma prenotazione",
+    "titlePlaceholder": "Titolo annuncio qui",
+    "detailsPlaceholder": "Scrivi qui i dettagli del tuo annuncio (max 200 caratteri)"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "Nessun prodotto relativo a questa categoria è stato ancora aggiunto.",
+    "shopNoProducts": "Nessun prodotto è stato ancora aggiunto."
+  },
+  "breadCrumbs": {
+    "home": "HOME",
+    "contact": "CONTATTI",
+    "about": "CHI SIAMO",
+    "cart": "CARRELLO",
+    "products": "PRODOTTI",
+    "myAccount": "IL MIO ACCOUNT",
+    "addressBook": "RUBRICA",
+    "orders": "ORDINI",
+    "pending": "IN ATTESA",
+    "inProgress": "IN CORSO",
+    "completed": "COMPLETATI",
+    "returns": "I MIEI RESI",
+    "cancellations": "LE MIE CANCELLAZIONI",
+    "checkout": "CHECKOUT",
+    "notFound": "NON TROVATO"
+  },
+  "searchResult": {
+    "search": "Cerca",
+    "searchResult": "Risultato ricerca",
+    "noSearchResult": "Nessun prodotto corrisponde alla tua ricerca"
+  },
+  "metadata": {
+    "home": {
+      "title": "Home",
+      "description": "Questa è la home page della piattaforma di e-commerce Exclusive dove puoi navigare tra diverse sezioni, dare un'ampia occhiata alla piattaforma e goderti il fantastico viaggio dello shopping",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "login": {
+      "title": "Accedi",
+      "description": "Qui puoi iniziare il tuo viaggio nel mondo dello shopping",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "signup": {
+      "title": "Registrati",
+      "description": "Il vero inizio inizia con la creazione di un account su Exclusive e poi goditi le facilitazioni",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "about": {
+      "title": "Chi siamo",
+      "description": "Vogliamo raccontarti di noi perché consideriamo i nostri clienti come la nostra famiglia. Troverai quindi un riassunto della nostra storia, conoscerai il nostro staff e cosa facciamo",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "profile": {
+      "title": "Profilo",
+      "description": "Qui puoi modificare e avere il controllo completo sul tuo profilo come desideri",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "addressBook": {
+      "title": "Rubrica",
+      "description": "Qui puoi modificare e avere il controllo completo sulla tua rubrica per facilitare i servizi di consegna",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "pendigOrders": {
+      "title": "Ordini in attesa",
+      "description": "Qui puoi navigare tra i tuoi ordini in attesa e seguirne i progressi",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "inProgressOrders": {
+      "title": "Ordini in corso",
+      "description": "Qui puoi seguire i tuoi ordini effettivamente in corso e tracciarli",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "completedOrders": {
+      "title": "Ordini completati",
+      "description": "Qui puoi navigare tra i tuoi ordini completati e rivederne i dettagli",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "cancelledOrders": {
+      "title": "Ordini cancellati",
+      "description": "Qui puoi rivedere i tuoi ordini cancellati e rivedere i loro articoli se desideri riordinare",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "returnedOrders": {
+      "title": "Ordini restituiti",
+      "description": "Qui puoi navigare tra i tuoi ordini restituiti e se lo desideri puoi darci un feedback per aiutarci a migliorare i nostri servizi e risolvere i problemi",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "cart": {
+      "title": "Carrello",
+      "description": "Qui puoi navigare nel tuo carrello e procedere al passaggio successivo dove puoi effettuare i tuoi ordini",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "checkout": {
+      "title": "Checkout",
+      "description": "Qui è dove puoi effettivamente effettuare i tuoi ordini con diverse opzioni di metodi di pagamento, sia con carta bancaria che contrassegno. Ed è proprio qui che puoi beneficiare di grandi sconti usando i coupon",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "reviews": {
+      "title": "Le mie recensioni",
+      "description": "Un elenco dei prodotti che hai recensito, dove puoi guardare i tuoi prodotti piacevoli",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "wishlist": {
+      "title": "Lista dei desideri",
+      "description": "Qui puoi salvare i prodotti della tua lista dei desideri per spostarli successivamente nel carrello",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "shop": {
+      "title": "Negozio",
+      "description": "La pagina Negozio è la pagina dove puoi navigare tra tutti i prodotti elencati sulla nostra piattaforma e puoi trovare una vastissima varietà di bellissimi prodotti di alta qualità",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "bestSelling": {
+      "title": "Più venduti",
+      "description": "Puoi dare un'occhiata ai nostri prodotti più venduti ordinati per vendite decrescenti, e questo ti aiuta a sapere cosa piace di più ai clienti",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "flashSales": {
+      "title": "Offerte lampo",
+      "description": "La pagina più amata dagli utenti dove si godono le più grandi offerte di sempre. Devi seguirle tutto il tempo perché le offerte hanno tempo limitato e scadono rapidamente. Ma la cosa più interessante è che esistono sempre col tempo",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "categories": {
+      "title": "Categorie",
+      "description": "La pagina dove puoi navigare i prodotti per categoria per rendere più chiaro e facile raggiungere i prodotti desiderati",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "subCategories": {
+      "title": "Sottocategorie",
+      "description": "La pagina dove puoi navigare i prodotti per sottocategoria per rendere più chiaro e facile raggiungere i prodotti desiderati, come nella pagina delle categorie",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "contact": {
+      "title": "Contatti",
+      "description": "Puoi facilmente rimanere in contatto, contattarci e dirci cosa desideri, e ti contatteremo rapidamente",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "reserveAds": {
+      "title": "Prenota annunci",
+      "description": "L'affare è che puoi prenotare spazio pubblicitario in un luogo dei siti web più frequentati e a prezzi accessibili, il che ti permette di diventare virale con i tuoi prodotti",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "products": {
+      "title": "Dettagli prodotto",
+      "description": "Questa è la pagina dettagliata dove puoi sapere tutto sul tuo prodotto preferito quando fai clic sul suo link",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "resetPassword": {
+      "title": "Reimposta password",
+      "description": "Se hai dimenticato la password, puoi reimpostarla da questa pagina inviandoci un'email e lo faremo per te",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    },
+    "searchResult": {
+      "title": "Risultato ricerca",
+      "description": "Puoi scrivere ciò che stai cercando nella barra di ricerca e quando premi Invio verrai reindirizzato a questa pagina per vedere i risultati relativi al tuo elemento di ricerca",
+      "keywords": "exclusive, e-commerce, acquisti online, shopping, moda uomo, moda donna, abbigliamento, elettronica, casa e stile di vita"
+    }
   }
 }

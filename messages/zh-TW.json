@@ -379,5 +379,176 @@
     "noCompleted": "暫無已完成訂單",
     "noReturned": "暫無退貨訂單",
     "noCancelled": "暫無已取消訂單"
+  },
+  "preserveAd": {
+    "p1start": "您可以保留廣告位，價格為 ",
+    "p1span": "$10/天",
+    "p1end": " 通過：",
+    "p2": "提交此表單",
+    "p3": "並在完成付款後立即在首頁的主要廣告區域觀看您的廣告",
+    "optional": "（可選）",
+    "logo": "標誌",
+    "image": "圖片",
+    "selectProduct": "選擇產品",
+    "duration": "廣告時長",
+    "title": "廣告標題",
+    "adDetails": "廣告詳情",
+    "disclaimer": "點擊確認按鈕後，您將被重新導向到支付閘道，支付成功後流程將完成",
+    "confirmPreservation": "確認保留",
+    "titlePlaceholder": "在此輸入廣告標題",
+    "detailsPlaceholder": "在此輸入您的廣告詳情，最多200個字元"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "尚未添加與此類別相關的產品。",
+    "shopNoProducts": "尚未添加產品。"
+  },
+  "breadCrumbs": {
+    "home": "首頁",
+    "contact": "聯絡我們",
+    "about": "關於我們",
+    "cart": "購物車",
+    "products": "產品",
+    "myAccount": "我的帳戶",
+    "addressBook": "地址簿",
+    "orders": "訂單",
+    "pending": "待處理",
+    "inProgress": "處理中",
+    "completed": "已完成",
+    "returns": "我的退貨",
+    "cancellations": "我的取消",
+    "checkout": "結帳",
+    "notFound": "未找到"
+  },
+  "searchResult": {
+    "search": "搜尋",
+    "searchResult": "搜尋結果",
+    "noSearchResult": "沒有與您的搜尋匹配的產品"
+  },
+  "metadata": {
+    "home": {
+      "title": "首頁",
+      "description": "這是 Exclusive 電商平台首頁，您可以瀏覽不同區塊，全面了解平台，享受美妙的購物之旅",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "login": {
+      "title": "登入",
+      "description": "在這裡您可以開始您的購物世界之旅",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "signup": {
+      "title": "註冊",
+      "description": "真正的開始是在 Exclusive 建立帳戶，然後享受各種便利",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "about": {
+      "title": "關於我們",
+      "description": "我們想向您介紹我們，因為我們把客戶當作家人。您將看到我們故事的簡介，了解我們的員工以及我們的工作",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "profile": {
+      "title": "個人資料",
+      "description": "在這裡您可以隨心所欲地編輯和完全控制您的個人資料",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "addressBook": {
+      "title": "地址簿",
+      "description": "在這裡您可以編輯和完全控制您的地址簿，以方便配送服務",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "pendigOrders": {
+      "title": "待處理訂單",
+      "description": "在這裡您可以瀏覽您的待處理訂單並跟進它們的進度",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "inProgressOrders": {
+      "title": "處理中訂單",
+      "description": "在這裡您可以跟進和追蹤您正在處理中的訂單",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "completedOrders": {
+      "title": "已完成訂單",
+      "description": "在這裡您可以瀏覽您的已完成訂單並查看其詳情",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "cancelledOrders": {
+      "title": "已取消訂單",
+      "description": "在這裡您可以查看您已取消的訂單，如果您想重新下單，可以查看其商品",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "returnedOrders": {
+      "title": "已退貨訂單",
+      "description": "在這裡您可以瀏覽您已退貨的訂單，如果您願意，可以給我們反饋，以幫助我們改進服務和解決問題",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "cart": {
+      "title": "購物車",
+      "description": "在這裡您可以瀏覽您的購物車，並繼續下一步，在那裡您可以下訂單",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "checkout": {
+      "title": "結帳",
+      "description": "在這裡您可以真正地使用不同的支付方式下訂單，無論是銀行卡還是貨到付款。而正是在這裡，您可以使用優惠券享受大幅折扣",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "reviews": {
+      "title": "我的評價",
+      "description": "您評價過的產品列表，在這裡您可以回顧您喜愛的產品",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "wishlist": {
+      "title": "願望清單",
+      "description": "在這裡您可以儲存願望清單中的產品，以便稍後移至購物車",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "shop": {
+      "title": "商店",
+      "description": "商店頁面是您可以瀏覽我們平台上所有產品的頁面，您可以找到種類繁多、可愛的優質產品",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "bestSelling": {
+      "title": "暢銷商品",
+      "description": "您可以查看我們的暢銷商品，按銷量降序排列，這有助於您了解客戶最喜歡什麼",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "flashSales": {
+      "title": "限時搶購",
+      "description": "用戶最喜愛的頁面，他們享受有史以來最大的折扣。您必須一直關注，因為銷售時間有限且很快過期。但最有趣的是，它們總是隨著時間的推移而存在",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "categories": {
+      "title": "分類",
+      "description": "您可以按類別瀏覽產品的頁面，以便清晰地輕鬆找到您想要的產品",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "subCategories": {
+      "title": "子分類",
+      "description": "您可以按子類別瀏覽產品的頁面，以便像分類頁面一樣更輕鬆地找到您想要的產品",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "contact": {
+      "title": "聯絡我們",
+      "description": "您可以輕鬆保持聯繫，聯絡我們，告訴我們您的需求，我們會盡快與您聯繫",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "reserveAds": {
+      "title": "預訂廣告",
+      "description": "好消息是，您可以在最繁忙的網站位置以實惠的價格預訂廣告位，讓您的產品迅速走紅",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "products": {
+      "title": "產品詳情",
+      "description": "這是詳細頁面，當您點擊產品連結時，可以了解關於您偏好的產品的一切資訊",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "resetPassword": {
+      "title": "重設密碼",
+      "description": "如果您忘記了密碼，可以透過此頁面給我們發送電子郵件來重設密碼，我們將為您處理",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    },
+    "searchResult": {
+      "title": "搜尋結果",
+      "description": "您可以在搜尋欄中輸入您要查找的內容，然後按回車鍵，您將被重新導向到此頁面，查看與您搜尋項相關的結果",
+      "keywords": "exclusive，電子商務，線上購物，購物，男士時尚，女士時尚，服裝，電子產品，家居與生活方式"
+    }
   }
 }

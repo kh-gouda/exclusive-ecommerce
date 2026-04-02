@@ -14,7 +14,7 @@ export default async function NewArrivals({
   const t3 = await getTranslations("collection");
   return (
     <div className="new-arrivals">
-      <div className="col-span-2 row-span-2 max-[900px]:row-span-1 max-[670px]:col-span-1 max-[670px]:w-full h-78.5">
+      <div className="col-span-2 row-span-2 max-[900px]:row-span-1 max-[670px]:col-span-1 max-[670px]:w-full max-[670px]:h-78.5">
         <NewArrivalImage productImage={newArrivals.products[0].image} />
         <div className="absolute start-7.5 bottom-7.5  text-white-text">
           <h3 className={`${inter.className} font-semibold text-2xl`}>

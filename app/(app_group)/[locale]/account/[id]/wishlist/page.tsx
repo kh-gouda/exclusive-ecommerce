@@ -12,7 +12,20 @@ import MoveAllToBagBtn from "@ui/wishlist/MoveAllToBagBtn";
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { getPageMetadata } from "@/app/lib/getPageMetadata";
 
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string }>;
+}>) {
+  const param = await params;
+  return getPageMetadata({
+    locale: param.locale,
+    page: "wishlist",
+    path: "/account/[id]/wishlist",
+  });
+}
 export default async function WishList() {
   const t = await getTranslations();
   const session = await getServerSession(authOptions);

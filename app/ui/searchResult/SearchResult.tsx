@@ -1,17 +1,19 @@
-import { fetchAllProducts } from "@/app/lib/utils";
+import { FETCHED_PRODUCT_CARD_TYPE } from "@/app/lib/typeDefinitions";
 import Cards from "@ui/productCard/Cards";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import SectionTitle from "@ui/shared/SectionTitle";
 import { getTranslations } from "next-intl/server";
 
-export default async function ShopProducts() {
-  const t = await getTranslations("sectionLabel");
-  const t2 = await getTranslations("sectionTitle");
-  const t3 = await getTranslations("missedTranslations");
+export default async function SearchResult({
+  searchResult,
+}: {
+  searchResult?: FETCHED_PRODUCT_CARD_TYPE[];
+}) {
+  const t = await getTranslations();
 
-  const allProducts = await fetchAllProducts();
-  const products = allProducts.map((product) => ({
+  const allProducts = searchResult;
+  const products = allProducts?.map((product) => ({
     productID: product.productid,
     productTitle: product.productname,
     productImage: product.productimages[0],
@@ -27,15 +29,15 @@ export default async function ShopProducts() {
 
   return (
     <Section>
-      <SectionLabel>{t("shop")}</SectionLabel>
+      <SectionLabel>{t("searchResult.search")}</SectionLabel>
       <div className="flex items-center justify-between max-[650px]:justify-center">
-        <SectionTitle>{t2("allProducts")}</SectionTitle>
+        <SectionTitle>{t("searchResult.searchResult")}</SectionTitle>
       </div>
       {products && products.length ? (
         <Cards products={products} showDiscountLabel />
       ) : (
         <p className="text-center text-identity mt-10">
-          {t3("shopNoProducts")}
+          {t("searchResult.noSearchResult")}
         </p>
       )}
     </Section>

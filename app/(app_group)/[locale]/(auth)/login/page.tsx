@@ -5,7 +5,20 @@ import SectionTitle from "@ui/shared/SectionTitle";
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { getPageMetadata } from "@/app/lib/getPageMetadata";
 
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string }>;
+}>) {
+  const param = await params;
+  return getPageMetadata({
+    locale: param.locale,
+    page: "login",
+    path: "/login",
+  });
+}
 export default async function Login() {
   const session = await getServerSession(authOptions);
   const t = await getTranslations("sectionTitle");
@@ -19,7 +32,7 @@ export default async function Login() {
             <p className="shared-btn shared-btn-solid">
               <LogoutButton />
             </p>
-            <Link href="/">{t2("goBackHome")}</Link>
+            <Link href="/">{t2("orBackHome")}</Link>
           </div>
         </>
       ) : (

@@ -1,5 +1,6 @@
 "use client";
 import { addToCart } from "@/app/actions/addToCart";
+import { useSessionUpdate } from "@/app/hooks/useSessionUpdate";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
@@ -15,15 +16,21 @@ export default function AddToCartButton({
   userId?: string;
 }) {
   const t = useTranslations("general");
+
   const pathname = usePathname();
+
   const notifySuccess = () => toast.success("product added successfully");
   const notifyError = (error: string) => toast.error(error);
+
+  const { refreshAll } = useSessionUpdate();
   async function handleClick(productId: number, userId?: number) {
     try {
       if (!userId) {
         throw new Error("You Have To Login To Add Product To Your Cart");
       }
       await addToCart(userId, productId);
+
+      await refreshAll();
 
       notifySuccess();
       if (pathname.includes("/account/[id]/wishlist")) {

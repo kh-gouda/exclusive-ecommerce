@@ -379,5 +379,176 @@
     "noCompleted": "Il n'y a aucune commande terminée",
     "noReturned": "Il n'y a aucune commande retournée",
     "noCancelled": "Il n'y a aucune commande annulée"
+  },
+  "preserveAd": {
+    "p1start": "Vous pouvez réserver un espace publicitaire pour ",
+    "p1span": "10 $/jour",
+    "p1end": " Par :",
+    "p2": "Soumettre ce formulaire",
+    "p3": "Et regardez votre annonce dans la zone des principales annonces de la page d'accueil immédiatement après avoir effectué le paiement",
+    "optional": "(Facultatif)",
+    "logo": "Logo",
+    "image": "Image",
+    "selectProduct": "Sélectionner un produit",
+    "duration": "Durée de l'annonce",
+    "title": "Titre de l'annonce",
+    "adDetails": "Détails de l'annonce",
+    "disclaimer": "Après avoir cliqué sur le bouton Confirmer, vous serez redirigé vers la passerelle de paiement et après le succès du paiement, le processus sera terminé",
+    "confirmPreservation": "Confirmer la réservation",
+    "titlePlaceholder": "Titre de l'annonce ici",
+    "detailsPlaceholder": "Écrivez les détails de votre annonce ici (200 caractères max)"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "Aucun produit lié à cette catégorie n'a encore été ajouté.",
+    "shopNoProducts": "Aucun produit n'a encore été ajouté."
+  },
+  "breadCrumbs": {
+    "home": "ACCUEIL",
+    "contact": "CONTACT",
+    "about": "À PROPOS",
+    "cart": "PANIER",
+    "products": "PRODUITS",
+    "myAccount": "MON COMPTE",
+    "addressBook": "CARNET D'ADRESSES",
+    "orders": "COMMANDES",
+    "pending": "EN ATTENTE",
+    "inProgress": "EN COURS",
+    "completed": "TERMINÉES",
+    "returns": "MES RETOURS",
+    "cancellations": "MES ANNULATIONS",
+    "checkout": "PAIEMENT",
+    "notFound": "PAGE NON TROUVÉE"
+  },
+  "searchResult": {
+    "search": "Rechercher",
+    "searchResult": "Résultat de recherche",
+    "noSearchResult": "Aucun produit ne correspond à votre recherche"
+  },
+  "metadata": {
+    "home": {
+      "title": "Accueil",
+      "description": "Ceci est la page d'accueil de la plateforme de commerce électronique Exclusive où vous pouvez parcourir différentes sections, avoir une vue d'ensemble de la plateforme et profiter du merveilleux voyage du shopping",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "login": {
+      "title": "Connexion",
+      "description": "Ici, vous pouvez commencer votre voyage dans le monde du shopping",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "signup": {
+      "title": "Inscription",
+      "description": "Le véritable départ commence par la création d'un compte chez Exclusive, puis profitez des facilités",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "about": {
+      "title": "À propos",
+      "description": "Nous voulons vous parler de nous car nous considérons nos clients comme notre famille. Vous trouverez donc un bref aperçu de notre histoire, découvrirez notre personnel et ce que nous faisons",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "profile": {
+      "title": "Profil",
+      "description": "Ici, vous pouvez modifier et contrôler entièrement votre profil comme vous le souhaitez",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "addressBook": {
+      "title": "Carnet d'adresses",
+      "description": "Ici, vous pouvez modifier et contrôler entièrement votre carnet d'adresses afin de faciliter les services de livraison",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "pendigOrders": {
+      "title": "Commandes en attente",
+      "description": "Ici, vous pouvez parcourir vos commandes en attente et suivre leur progression",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "inProgressOrders": {
+      "title": "Commandes en cours",
+      "description": "Ici, vous pouvez suivre vos commandes réellement en cours et les tracer",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "completedOrders": {
+      "title": "Commandes terminées",
+      "description": "Ici, vous pouvez parcourir vos commandes terminées et consulter leurs détails",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "cancelledOrders": {
+      "title": "Commandes annulées",
+      "description": "Ici, vous pouvez consulter vos commandes annulées et voir leurs articles si vous souhaitez recommander",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "returnedOrders": {
+      "title": "Commandes retournées",
+      "description": "Ici, vous pouvez parcourir vos commandes retournées et si vous le souhaitez, vous pouvez nous donner votre avis pour nous aider à améliorer nos services et résoudre les problèmes",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "cart": {
+      "title": "Panier d'achat",
+      "description": "Ici, vous pouvez parcourir votre panier d'achat et passer à l'étape suivante où vous pouvez passer vos commandes",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "checkout": {
+      "title": "Paiement",
+      "description": "C'est ici que vous pouvez réellement passer vos commandes avec différentes options de méthodes de paiement, que ce soit par carte bancaire ou contre remboursement, et c'est exactement ici que vous pouvez bénéficier de grandes réductions en utilisant des coupons",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "reviews": {
+      "title": "Mes avis",
+      "description": "Une liste des produits que vous avez évalués où vous regardez vos produits agréables",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "wishlist": {
+      "title": "Liste de souhaits",
+      "description": "Ici, vous pouvez enregistrer les produits de votre liste de souhaits pour les déplacer plus tard vers le panier d'achat",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "shop": {
+      "title": "Boutique",
+      "description": "La page Boutique est la page où vous pouvez parcourir tous les produits répertoriés sur notre plateforme et vous pouvez trouver une très grande variété de beaux produits de haute qualité",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "bestSelling": {
+      "title": "Meilleures ventes",
+      "description": "Vous pouvez jeter un œil à nos produits les plus vendus classés par ventes décroissantes, ce qui vous aide à savoir ce que les clients préfèrent",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "flashSales": {
+      "title": "Ventes flash",
+      "description": "La page préférée des utilisateurs où ils profitent des plus grandes ventes jamais réalisées. Vous devez la suivre tout le temps car les ventes ont un temps limité et expirent rapidement, mais le plus intéressant est qu'elles existent toujours au fil du temps",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "categories": {
+      "title": "Catégories",
+      "description": "La page où vous pouvez parcourir les produits par catégorie pour clarifier et atteindre facilement les produits que vous désirez",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "subCategories": {
+      "title": "Sous-catégories",
+      "description": "La page où vous pouvez parcourir les produits par sous-catégorie pour clarifier et atteindre plus facilement les produits que vous désirez, comme la page des catégories",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Vous pouvez facilement rester en contact avec nous, nous contacter et nous dire ce que vous voulez, et nous vous contacterons rapidement",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "reserveAds": {
+      "title": "Réserver des annonces",
+      "description": "La bonne affaire est que vous pouvez réserver un espace publicitaire dans un endroit des sites Web les plus fréquentés et à des prix abordables, ce qui vous permet de devenir viral avec vos produits",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "products": {
+      "title": "Détails du produit",
+      "description": "Il s'agit de la page détaillée où vous pouvez tout savoir sur votre produit préféré lorsque vous cliquez sur son lien",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "resetPassword": {
+      "title": "Réinitialiser le mot de passe",
+      "description": "Si vous avez oublié votre mot de passe, vous pouvez le réinitialiser depuis cette page en nous envoyant un e-mail et nous le ferons pour vous",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    },
+    "searchResult": {
+      "title": "Résultat de recherche",
+      "description": "Vous pouvez écrire ce que vous recherchez dans la barre de recherche et lorsque vous appuyez sur Entrée, vous serez redirigé vers cette page pour voir les résultats liés à votre élément de recherche",
+      "keywords": "exclusive, commerce électronique, achats en ligne, shopping, mode homme, mode femme, vêtements, électronique, maison et style de vie"
+    }
   }
 }

@@ -379,5 +379,176 @@
     "noCompleted": "No hay pedidos completados",
     "noReturned": "No hay pedidos devueltos",
     "noCancelled": "No hay pedidos cancelados"
+  },
+  "preserveAd": {
+    "p1start": "Puede reservar espacio publicitario por ",
+    "p1span": "$10/día",
+    "p1end": " Mediante:",
+    "p2": "Enviar este formulario",
+    "p3": "Y vea su anuncio en el área principal de anuncios de la página de inicio inmediatamente después de completar el pago",
+    "optional": "(Opcional)",
+    "logo": "Logotipo",
+    "image": "Imagen",
+    "selectProduct": "Seleccionar producto",
+    "duration": "Duración del anuncio",
+    "title": "Título del anuncio",
+    "adDetails": "Detalles del anuncio",
+    "disclaimer": "Después de hacer clic en el botón Confirmar, será redirigido a la pasarela de pago y después de que el pago sea exitoso, el proceso se completará",
+    "confirmPreservation": "Confirmar reserva",
+    "titlePlaceholder": "Título del anuncio aquí",
+    "detailsPlaceholder": "Escriba los detalles de su anuncio aquí (máx. 200 caracteres)"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "Aún no se han agregado productos relacionados con esta categoría.",
+    "shopNoProducts": "Aún no se han agregado productos."
+  },
+  "breadCrumbs": {
+    "home": "INICIO",
+    "contact": "CONTACTO",
+    "about": "ACERCA DE",
+    "cart": "CARRITO",
+    "products": "PRODUCTOS",
+    "myAccount": "MI CUENTA",
+    "addressBook": "LIBRETA DE DIRECCIONES",
+    "orders": "PEDIDOS",
+    "pending": "PENDIENTES",
+    "inProgress": "EN PROGRESO",
+    "completed": "COMPLETADOS",
+    "returns": "MIS DEVOLUCIONES",
+    "cancellations": "MIS CANCELACIONES",
+    "checkout": "FINALIZAR COMPRA",
+    "notFound": "NO ENCONTRADO"
+  },
+  "searchResult": {
+    "search": "Buscar",
+    "searchResult": "Resultado de búsqueda",
+    "noSearchResult": "No hay productos que coincidan con su búsqueda"
+  },
+  "metadata": {
+    "home": {
+      "title": "Inicio",
+      "description": "Esta es la página de inicio de la plataforma de comercio electrónico Exclusive, donde puede navegar por diferentes secciones, tener una visión amplia de la plataforma y disfrutar del increíble viaje de las compras",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "login": {
+      "title": "Iniciar sesión",
+      "description": "Aquí puede comenzar su viaje al mundo de las compras",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "signup": {
+      "title": "Registrarse",
+      "description": "El verdadero comienzo empieza con la creación de una cuenta en Exclusive y luego disfrutar de las facilidades",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "about": {
+      "title": "Acerca de",
+      "description": "Queremos contarle sobre nosotros, ya que consideramos a nuestros clientes como nuestra familia. Así que encontrará un resumen de nuestra historia, conocerá a nuestro personal y lo que hacemos",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "profile": {
+      "title": "Perfil",
+      "description": "Aquí puede editar y tener control total sobre su perfil como desee",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "addressBook": {
+      "title": "Libreta de direcciones",
+      "description": "Aquí puede editar y tener control total sobre su libreta de direcciones para facilitar los servicios de entrega",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "pendigOrders": {
+      "title": "Pedidos pendientes",
+      "description": "Aquí puede navegar por sus pedidos pendientes y seguir su progreso",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "inProgressOrders": {
+      "title": "Pedidos en progreso",
+      "description": "Aquí puede seguir sus pedidos que están realmente en progreso y rastrearlos",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "completedOrders": {
+      "title": "Pedidos completados",
+      "description": "Aquí puede navegar por sus pedidos completados y revisar sus detalles",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "cancelledOrders": {
+      "title": "Pedidos cancelados",
+      "description": "Aquí puede revisar sus pedidos cancelados y ver sus artículos si desea volver a pedir",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "returnedOrders": {
+      "title": "Pedidos devueltos",
+      "description": "Aquí puede navegar por sus pedidos devueltos y si lo desea, puede darnos su opinión para ayudarnos a mejorar nuestros servicios y resolver problemas",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "cart": {
+      "title": "Carrito de compras",
+      "description": "Aquí puede navegar por su carrito de compras y continuar al siguiente paso donde puede realizar sus pedidos",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "checkout": {
+      "title": "Finalizar compra",
+      "description": "Aquí es donde realmente puede realizar sus pedidos con diferentes opciones de métodos de pago, ya sea con tarjeta bancaria o contra reembolso. Y aquí es exactamente donde puede beneficiarse de grandes descuentos usando cupones",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "reviews": {
+      "title": "Mis reseñas",
+      "description": "Una lista de los productos que ha reseñado, donde puede ver sus productos agradables",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "wishlist": {
+      "title": "Lista de deseos",
+      "description": "Aquí puede guardar los productos de su lista de deseos para moverlos al carrito de compras más tarde",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "shop": {
+      "title": "Tienda",
+      "description": "La página Tienda es la página donde puede navegar por todos los productos listados en nuestra plataforma y puede encontrar una gran variedad de hermosos productos de alta calidad",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "bestSelling": {
+      "title": "Más vendidos",
+      "description": "Puede echar un vistazo a nuestros productos más vendidos ordenados por ventas descendentes, y eso le ayuda a saber lo que más les gusta a los clientes",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "flashSales": {
+      "title": "Ofertas relámpago",
+      "description": "La página más querida por los usuarios donde disfrutan de las mayores ofertas de la historia. Debe seguirla todo el tiempo, ya que las ofertas tienen tiempo limitado y caducan rápidamente. Pero lo más interesante es que siempre existen con el tiempo",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "categories": {
+      "title": "Categorías",
+      "description": "La página donde puede navegar por productos por categoría para aclarar y alcanzar fácilmente los productos que desea",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "subCategories": {
+      "title": "Subcategorías",
+      "description": "La página donde puede navegar por productos por subcategoría para aclarar y alcanzar más fácilmente los productos que desea, como en la página de categorías",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Puede mantenerse fácilmente en contacto, contactarnos y decirnos lo que desea, y lo contactaremos rápidamente",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "reserveAds": {
+      "title": "Reservar anuncios",
+      "description": "El gran negocio es que puede reservar espacio publicitario en un lugar de los sitios web más concurridos y a precios asequibles, lo que le permite volverse viral con sus productos",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "products": {
+      "title": "Detalles del producto",
+      "description": "Esta es la página detallada donde puede saber todo sobre su producto preferido cuando hace clic en su enlace",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "resetPassword": {
+      "title": "Restablecer contraseña",
+      "description": "Si olvidó su contraseña, puede restablecerla desde esta página enviándonos un correo electrónico y lo haremos por usted",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    },
+    "searchResult": {
+      "title": "Resultado de búsqueda",
+      "description": "Puede escribir lo que está buscando en la barra de búsqueda y cuando presione Entrar, será redirigido a esta página para ver los resultados relacionados con su elemento de búsqueda",
+      "keywords": "exclusive, comercio electrónico, compras en línea, compras, moda masculina, moda femenina, ropa, electrónica, hogar y estilo de vida"
+    }
   }
 }

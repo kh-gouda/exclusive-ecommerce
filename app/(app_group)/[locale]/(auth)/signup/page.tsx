@@ -5,7 +5,20 @@ import SignupForm from "@ui/signup/SignupForm";
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { getPageMetadata } from "@/app/lib/getPageMetadata";
 
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string }>;
+}>) {
+  const param = await params;
+  return getPageMetadata({
+    locale: param.locale,
+    page: "signup",
+    path: "/signup",
+  });
+}
 export default async function Signup() {
   const t = await getTranslations("sectionTitle");
   const t2 = await getTranslations("auth");

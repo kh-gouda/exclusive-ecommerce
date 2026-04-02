@@ -379,5 +379,176 @@
     "noCompleted": "Er zijn geen voltooide bestellingen",
     "noReturned": "Er zijn geen geretourneerde bestellingen",
     "noCancelled": "Er zijn geen geannuleerde bestellingen"
+  },
+  "preserveAd": {
+    "p1start": "U kunt advertentieruimte reserveren voor ",
+    "p1span": "$10/dag",
+    "p1end": " Door:",
+    "p2": "Dit formulier indienen",
+    "p3": "En bekijk uw advertentie onmiddellijk na betaling in het hoofdadvertentiegebied van de homepage",
+    "optional": "(Optioneel)",
+    "logo": "Logo",
+    "image": "Afbeelding",
+    "selectProduct": "Selecteer product",
+    "duration": "Advertentieduur",
+    "title": "Advertentietitel",
+    "adDetails": "Advertentiedetails",
+    "disclaimer": "Nadat u op de knop Bevestigen klikt, wordt u doorgestuurd naar de betalingsgateway en na succesvolle betaling wordt het proces voltooid",
+    "confirmPreservation": "Reservering bevestigen",
+    "titlePlaceholder": "Advertentietitel hier",
+    "detailsPlaceholder": "Schrijf uw advertentiedetails hier (max. 200 tekens)"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "Er zijn nog geen producten gerelateerd aan deze categorie toegevoegd.",
+    "shopNoProducts": "Er zijn nog geen producten toegevoegd."
+  },
+  "breadCrumbs": {
+    "home": "HOME",
+    "contact": "CONTACT",
+    "about": "OVER ONS",
+    "cart": "WINKELWAGEN",
+    "products": "PRODUCTEN",
+    "myAccount": "MIJN ACCOUNT",
+    "addressBook": "ADRESSENBOEK",
+    "orders": "BESTELLINGEN",
+    "pending": "IN AANVRAAG",
+    "inProgress": "BEZIG",
+    "completed": "VOLTOOID",
+    "returns": "MIJN RETOUREN",
+    "cancellations": "MIJN ANNULERINGEN",
+    "checkout": "AFREKENEN",
+    "notFound": "NIET GEVONDEN"
+  },
+  "searchResult": {
+    "search": "Zoeken",
+    "searchResult": "Zoekresultaat",
+    "noSearchResult": "Geen producten gevonden die overeenkomen met uw zoekopdracht"
+  },
+  "metadata": {
+    "home": {
+      "title": "Home",
+      "description": "Dit is de startpagina van het Exclusive E-commerceplatform waar u door verschillende secties kunt bladeren, een breed overzicht van het platform kunt krijgen en kunt genieten van de geweldige winkelreis",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "login": {
+      "title": "Inloggen",
+      "description": "Hier kunt u uw reis naar de wereld van het winkelen beginnen",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "signup": {
+      "title": "Registreren",
+      "description": "De echte start begint met het aanmaken van een account bij Exclusive en geniet vervolgens van de faciliteiten",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "about": {
+      "title": "Over ons",
+      "description": "We willen u over onszelf vertellen omdat we onze klanten als onze familie beschouwen. U vindt dus een korte samenvatting van ons verhaal en leert ons personeel kennen en wat we doen",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "profile": {
+      "title": "Profiel",
+      "description": "Hier kunt u uw profiel bewerken en er volledige controle over hebben zoals u wilt",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "addressBook": {
+      "title": "Adressenboek",
+      "description": "Hier kunt u uw adressenboek bewerken en er volledige controle over hebben om de bezorgdiensten te vergemakkelijken",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "pendigOrders": {
+      "title": "Openstaande bestellingen",
+      "description": "Hier kunt u uw openstaande bestellingen bekijken en hun voortgang volgen",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "inProgressOrders": {
+      "title": "Bestellingen in uitvoering",
+      "description": "Hier kunt u uw bestellingen die daadwerkelijk in uitvoering zijn volgen en traceren",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "completedOrders": {
+      "title": "Voltooide bestellingen",
+      "description": "Hier kunt u uw voltooide bestellingen bekijken en hun details bekijken",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "cancelledOrders": {
+      "title": "Geannuleerde bestellingen",
+      "description": "Hier kunt u uw geannuleerde bestellingen bekijken en hun artikelen bekijken als u opnieuw wilt bestellen",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "returnedOrders": {
+      "title": "Geretourneerde bestellingen",
+      "description": "Hier kunt u uw geretourneerde bestellingen bekijken en als u wilt, kunt u ons feedback geven om ons te helpen onze diensten te verbeteren en problemen op te lossen",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "cart": {
+      "title": "Winkelwagen",
+      "description": "Hier kunt u uw winkelwagen bekijken en doorgaan naar de volgende stap waar u uw bestellingen kunt plaatsen",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "checkout": {
+      "title": "Afrekenen",
+      "description": "Hier kunt u daadwerkelijk uw bestellingen plaatsen met verschillende opties voor betaalmethoden, hetzij met bankkaart of rembours. En hier kunt u precies profiteren van grote kortingen met coupons",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "reviews": {
+      "title": "Mijn beoordelingen",
+      "description": "Een lijst van producten die u heeft beoordeeld, waar u naar uw plezierige producten kijkt",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "wishlist": {
+      "title": "Verlanglijst",
+      "description": "Hier kunt u uw verlanglijstproducten opslaan om later naar de winkelwagen te verplaatsen",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "shop": {
+      "title": "Winkel",
+      "description": "De winkelpagina is de pagina waar u alle producten die op ons platform staan vermeld, kunt bekijken en u kunt een zeer grote verscheidenheid aan mooie hoogwaardige producten vinden",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "bestSelling": {
+      "title": "Bestsellers",
+      "description": "U kunt een kijkje nemen bij onze bestverkochte producten, gesorteerd op afnemende verkoopcijfers, en dat helpt u te weten wat klanten het leukst vinden",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "flashSales": {
+      "title": "Flash-uitverkoop",
+      "description": "De meest geliefde pagina bij gebruikers waar ze genieten van de grootste uitverkopen ooit. U moet het altijd volgen omdat de uitverkopen een beperkte tijd hebben en snel verlopen. Maar het meest interessante is dat ze altijd blijven bestaan na verloop van tijd",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "categories": {
+      "title": "Categorieën",
+      "description": "De pagina waar u producten op categorie kunt bekijken om gemakkelijk bij uw gewenste producten te komen",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "subCategories": {
+      "title": "Subcategorieën",
+      "description": "De pagina waar u producten op subcategorie kunt bekijken om nog gemakkelijker bij uw gewenste producten te komen, zoals op de categoriepagina",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "U kunt gemakkelijk in contact blijven, contact met ons opnemen en ons vertellen wat u wilt, en we nemen snel contact met u op",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "reserveAds": {
+      "title": "Advertenties reserveren",
+      "description": "De grote deal is dat u advertentieruimte kunt reserveren op een van de drukste websites tegen betaalbare prijzen, waardoor u viraal kunt gaan met uw producten",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "products": {
+      "title": "Productdetails",
+      "description": "Dit is de gedetailleerde pagina waar u alles te weten kunt komen over uw favoriete product wanneer u op de link klikt",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "resetPassword": {
+      "title": "Wachtwoord resetten",
+      "description": "Als u uw wachtwoord bent vergeten, kunt u het op deze pagina resetten door ons een e-mail te sturen en wij doen het voor u",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    },
+    "searchResult": {
+      "title": "Zoekresultaat",
+      "description": "U kunt in de zoekbalk schrijven waarnaar u op zoek bent en wanneer u op Enter drukt, wordt u doorgestuurd naar deze pagina om resultaten te zien die verband houden met uw zoekitem",
+      "keywords": "exclusive, e-commerce, online winkelen, winkelen, herenmode, damesmode, kleding, elektronica, huis en levensstijl"
+    }
   }
 }

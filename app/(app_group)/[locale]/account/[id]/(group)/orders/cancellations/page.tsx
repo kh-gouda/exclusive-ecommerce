@@ -1,7 +1,20 @@
 import { fetchUserOrders } from "@/app/lib/utils";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { getPageMetadata } from "@/app/lib/getPageMetadata";
 
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string }>;
+}>) {
+  const param = await params;
+  return getPageMetadata({
+    locale: param.locale,
+    page: "cancelledOrders",
+    path: "/account/[id]/orders/cancellation",
+  });
+}
 export default async function OrdersCancellations(props: {
   params: Promise<{ id: string }>;
 }) {

@@ -298,3 +298,18 @@ export type FETCHED_DASHBOARD_ORDERS = {
   stripe_session_id: string;
   stripe_session_expires_at: string;
 };
+
+export interface SessionUpdateData {
+  refresh?: "wishlist" | "cart" | "all";
+  user?: {
+    email?: string;
+    firstname?: string;
+    lastname?: string;
+    address?: {
+      city?: string;
+      street?: string;
+      country?: string;
+      building?: string;
+    };
+  };
+}

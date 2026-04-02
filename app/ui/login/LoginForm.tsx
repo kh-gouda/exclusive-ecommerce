@@ -4,7 +4,6 @@ import { signIn } from "next-auth/react";
 import { SubmitEvent, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { toast } from "react-toastify";
 import { useTranslations } from "next-intl";
 
 export default function LoginForm() {
@@ -15,8 +14,6 @@ export default function LoginForm() {
 
   const [password, setPassword] = useState("");
 
-  const notify = () => toast.success("logged in successfully");
-
   async function handleSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
 
@@ -25,9 +22,8 @@ export default function LoginForm() {
       password,
       callbackUrl: "/",
     });
-
-    notify();
   }
+
   return (
     <>
       <form className="mt-12" action="" onSubmit={handleSubmit}>

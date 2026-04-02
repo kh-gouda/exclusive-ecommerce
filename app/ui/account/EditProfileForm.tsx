@@ -13,6 +13,8 @@ import { toast } from "react-toastify";
 
 export default function EditProfileForm() {
   const t = useTranslations();
+
+  const notifySuccess = () => toast.success("Your Profie Updated Successfully");
   const notifyError = (error: string) => toast.error(error);
 
   const { data: session, update } = useSession();
@@ -22,7 +24,7 @@ export default function EditProfileForm() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [isValid, setIsValid] = useState(false);
+  // const [isValid, setIsValid] = useState(false);
 
   const handleChangeFName = (e: ChangeEvent<HTMLInputElement>) => {
     if (user) {
@@ -102,17 +104,19 @@ export default function EditProfileForm() {
           }
         }
 
-        setIsValid(() => true);
+        // setIsValid(() => true);
 
-        if (isValid) {
-          if (newPassword) {
-            await updateUserProfileAndPassword(userToUpdate);
-          } else {
-            await updateUserProfile(userToUpdate);
-          }
-
-          await update();
+        // if (isValid) {
+        if (newPassword) {
+          await updateUserProfileAndPassword(userToUpdate);
+        } else {
+          await updateUserProfile(userToUpdate);
         }
+
+        await update();
+        notifySuccess();
+        location.reload();
+        // }
       }
     } catch (err: unknown) {
       if (err instanceof Error) {

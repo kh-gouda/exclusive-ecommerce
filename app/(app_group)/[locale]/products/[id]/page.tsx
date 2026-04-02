@@ -9,7 +9,20 @@ import Container from "@ui/shared/Container";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import { getTranslations } from "next-intl/server";
+import { getPageMetadata } from "@/app/lib/getPageMetadata";
 
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string }>;
+}>) {
+  const param = await params;
+  return getPageMetadata({
+    locale: param.locale,
+    page: "products",
+    path: "/products/[id]",
+  });
+}
 export default async function ProductDetails(props: {
   params: Promise<{ id: string }>;
 }) {

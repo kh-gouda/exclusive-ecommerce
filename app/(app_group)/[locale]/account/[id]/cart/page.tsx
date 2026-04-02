@@ -6,7 +6,20 @@ import Container from "@ui/shared/Container";
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { getPageMetadata } from "@/app/lib/getPageMetadata";
 
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string }>;
+}>) {
+  const param = await params;
+  return getPageMetadata({
+    locale: param.locale,
+    page: "cart",
+    path: "/account/[id]/cart",
+  });
+}
 export default async function CartPage() {
   const t = await getTranslations("listHeading");
   const session = await getServerSession(authOptions);

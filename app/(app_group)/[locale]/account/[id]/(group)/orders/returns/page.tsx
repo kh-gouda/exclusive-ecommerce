@@ -1,7 +1,20 @@
 import { fetchUserOrders } from "@/app/lib/utils";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { getPageMetadata } from "@/app/lib/getPageMetadata";
 
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string }>;
+}>) {
+  const param = await params;
+  return getPageMetadata({
+    locale: param.locale,
+    page: "returnedOrders",
+    path: "/account/[id]/orders/returns",
+  });
+}
 export default async function OrdersReturns(props: {
   params: Promise<{ id: string }>;
 }) {

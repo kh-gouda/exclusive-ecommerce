@@ -6,7 +6,20 @@ import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
+import { getPageMetadata } from "@/app/lib/getPageMetadata";
 
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string }>;
+}>) {
+  const param = await params;
+  return getPageMetadata({
+    locale: param.locale,
+    page: "reviews",
+    path: "/account/[id]/reviews",
+  });
+}
 export default async function MyProductsReviews() {
   const t = await getTranslations("sectionLabel");
 

@@ -1,5 +1,6 @@
 "use client";
 import { updateOrderStatus } from "@/app/actions/addOrder";
+import { sendOrderEmail } from "@/app/actions/sendOrderEmail";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 import { toast } from "react-toastify";
@@ -32,6 +33,9 @@ export default function ChangeOrderStatus({
         );
       }
       await updateOrderStatus(orderId, status);
+      if (status === "in-progress") {
+        await sendOrderEmail(orderId);
+      }
       notifySuccess();
       router.push("/dashboard/orders");
     } catch (error: unknown) {

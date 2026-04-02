@@ -1,8 +1,10 @@
 "use client";
+import { useSessionUpdate } from "@/app/hooks/useSessionUpdate";
 import { CART_TYPE } from "@/app/lib/typeDefinitions";
 import ShoppingCartImage from "@ui/cart/ShoppingCartImage";
 import { useTranslations } from "next-intl";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function Cart({
   products,
@@ -14,6 +16,10 @@ export default function Cart({
   deleteItem: (productid: number) => void;
 }) {
   const t = useTranslations("products");
+  const { refreshAll } = useSessionUpdate();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const notifyError = (error: string) => toast.error(error);
   return (
     <>
       {products.map((product) => (
@@ -39,7 +45,20 @@ export default function Cart({
           <div className="text-end">${product.subtotal}</div>
           <button
             className="absolute w-5 h-5 rounded-full flex items-center justify-center top-50% max-[850px]:top-0 start-4 -translate-1/2 bg-identity cursor-pointer text-white"
-            onClick={() => deleteItem(product.id)}
+            disabled={isLoading}
+            onClick={async () => {
+              try {
+                setIsLoading(true);
+                deleteItem(product.id);
+                await refreshAll();
+              } catch (error: unknown) {
+                if (error instanceof Error) {
+                  notifyError(error.message);
+                }
+              } finally {
+                setIsLoading(false);
+              }
+            }}
           >
             X
           </button>

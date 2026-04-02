@@ -379,5 +379,176 @@
     "noCompleted": "Brak zakończonych zamówień",
     "noReturned": "Brak zwróconych zamówień",
     "noCancelled": "Brak anulowanych zamówień"
+  },
+  "preserveAd": {
+    "p1start": "Możesz Zarezerwować Przestrzeń Reklamową Za ",
+    "p1span": "10 USD/dzień",
+    "p1end": " Przez:",
+    "p2": "Wypełnienie Tego Formularza",
+    "p3": "I Obserwuj Swoją Reklamę W Głównym Obszarze Reklam Na Stronie Głównej Natychmiast Po Zakończeniu Płatności",
+    "optional": "(Opcjonalnie)",
+    "logo": "Logo",
+    "image": "Obraz",
+    "selectProduct": "Wybierz Produkt",
+    "duration": "Czas Trwania Reklamy",
+    "title": "Tytuł Reklamy",
+    "adDetails": "Szczegóły Reklamy",
+    "disclaimer": "Po Kliknięciu Przycisku Potwierdź Zostaniesz Przekierowany Do Bramki Płatności, A Po Pomyślnej Płatności Proces Zostanie Zakończony",
+    "confirmPreservation": "Potwierdź Rezerwację",
+    "titlePlaceholder": "Tytuł Reklamy Tutaj",
+    "detailsPlaceholder": "Napisz Szczegóły Swojej Reklamy Tutaj Maksymalnie 200 Znaków"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "Brak produktów powiązanych z tą kategorią.",
+    "shopNoProducts": "Nie dodano jeszcze żadnych produktów."
+  },
+  "breadCrumbs": {
+    "home": "STRONA GŁÓWNA",
+    "contact": "KONTAKT",
+    "about": "O NAS",
+    "cart": "KOSZYK",
+    "products": "PRODUKTY",
+    "myAccount": "MOJE KONTO",
+    "addressBook": "KSIĄŻKA ADRESOWA",
+    "orders": "ZAMÓWIENIA",
+    "pending": "OCZEKUJĄCE",
+    "inProgress": "W TRAKCIE",
+    "completed": "ZAKOŃCZONE",
+    "returns": "MOJE ZWROTY",
+    "cancellations": "MOJE ANULOWANIA",
+    "checkout": "PŁATNOŚĆ",
+    "notFound": "NIE ZNALEZIONO"
+  },
+  "searchResult": {
+    "search": "Szukaj",
+    "searchResult": "Wyniki Wyszukiwania",
+    "noSearchResult": "Brak Produktów Pasujących Do Twojego Wyszukiwania"
+  },
+  "metadata": {
+    "home": {
+      "title": "Strona Główna",
+      "description": "To Jest Strona Główna Ekskluzywnej Platformy E-Commerce, Gdzie Możesz Przeglądać Różne Sekcje I Delektować Się Niesamowitą Przygodą Zakupową",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "login": {
+      "title": "Logowanie",
+      "description": "Tutaj Możesz Rozpocząć Swoją Podróż Do Świata Zakupów",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "signup": {
+      "title": "Rejestracja",
+      "description": "Prawdziwy Początek Zaczyna Się Od Założenia Konta W Exclusive I Korzystania Z Udogodnień",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "about": {
+      "title": "O Nas",
+      "description": "Chcemy Ci Opowiedzieć O Sobie, Ponieważ Traktujemy Naszych Klientów Jak Rodzinę. Znajdziesz Tu Krótką Historię I Poznasz Nasz Zespół",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "profile": {
+      "title": "Profil",
+      "description": "Tutaj Możesz Edytować I Mieć Pełną Kontrolę Nad Swoim Profilem",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "addressBook": {
+      "title": "Książka Adresowa",
+      "description": "Tutaj Możesz Edytować I Zarządzać Swoją Książką Adresową W Celu Ułatwienia Usług Dostawy",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "pendigOrders": {
+      "title": "Zamówienia Oczekujące",
+      "description": "Tutaj Możesz Przeglądać Swoje Oczekujące Zamówienia I Śledzić Ich Postęp",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "inProgressOrders": {
+      "title": "Zamówienia W Trakcie Realizacji",
+      "description": "Tutaj Możesz Śledzić Swoje Zamówienia Aktualnie W Trakcie Realizacji",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "completedOrders": {
+      "title": "Zamówienia Zakończone",
+      "description": "Tutaj Możesz Przeglądać Swoje Zakończone Zamówienia I Sprawdzać Ich Szczegóły",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "cancelledOrders": {
+      "title": "Zamówienia Anulowane",
+      "description": "Tutaj Możesz Przeglądać Swoje Anulowane Zamówienia I Sprawdzać Ich Pozycje, Jeśli Chcesz Ponownie Zamówić",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "returnedOrders": {
+      "title": "Zamówienia Zwrócone",
+      "description": "Tutaj Możesz Przeglądać Swoje Zwrócone Zamówienia I Jeśli Chcesz, Możesz Przesłać Opinię, Aby Pomóc Nam Ulepszyć Nasze Usługi",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "cart": {
+      "title": "Koszyk",
+      "description": "Tutaj Możesz Przeglądać Swój Koszyk I Przejść Do Kolejnego Kroku, Aby Złożyć Zamówienia",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "checkout": {
+      "title": "Płatność",
+      "description": "Tutaj Możesz Złożyć Zamówienia Z Różnymi Opcjami Płatności, Takimi Jak Karta Bankowa Lub Płatność Przy Odbiorze, I Skorzystać Z Dużych Rabatów Używając Kuponów",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "reviews": {
+      "title": "Moje Opinie",
+      "description": "Lista Ocenionych Przez Ciebie Produktów, Gdzie Możesz Przejrzeć Swoje Ulubione Produkty",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "wishlist": {
+      "title": "Lista Życzeń",
+      "description": "Tutaj Możesz Zapisać Produkty Z Listy Życzeń, Aby Później Przenieść Je Do Koszyka",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "shop": {
+      "title": "Sklep",
+      "description": "Strona Sklepu To Miejsce, Gdzie Możesz Przeglądać Wszystkie Produkty Na Naszej Platformie I Znaleźć Szeroki Wybór Wysokiej Jakości Produktów",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "bestSelling": {
+      "title": "Bestsellery",
+      "description": "Możesz Przejrzeć Nasze Najlepiej Sprzedające Się Produkty Posortowane Według Sprzedaży Malejąco, Co Pomoże Ci Dowiedzieć Się, Co Klienci Lubią Najbardziej",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "flashSales": {
+      "title": "Błyskawiczne Wyprzedaże",
+      "description": "Najbardziej Lubiana Strona Przez Użytkowników, Gdzie Możesz Cieszyć Się Największymi Wyprzedażami. Musisz Śledzić Ją Cały Czas, Ponieważ Oferty Mają Ograniczony Czas I Szybko Wygasają",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "categories": {
+      "title": "Kategorie",
+      "description": "Strona, Gdzie Możesz Przeglądać Produkty Według Kategorii, Aby Łatwiej Dotrzeć Do Pożądanych Produktów",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "subCategories": {
+      "title": "Podkategorie",
+      "description": "Strona, Gdzie Możesz Przeglądać Produkty Według Podkategorii, Aby Jeszcze Łatwiej Dotrzeć Do Pożądanych Produktów",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Możesz Łatwo Skontaktować Się Z Nami I Powiedzieć Nam, Czego Chcesz, A My Szybko Do Ciebie Dotrzemy",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "reserveAds": {
+      "title": "Zarezerwuj Reklamy",
+      "description": "Możesz Zarezerwować Przestrzeń Reklamową Na Jednej Z Najbardziej Odwiedzanych Stron W Przystępnych Cenach, Co Pozwoli Ci Wypromować Swoje Produkty",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "products": {
+      "title": "Szczegóły Produktu",
+      "description": "To Jest Szczegółowa Strona, Gdzie Możesz Dowiedzieć Się Wszystkiego O Wybranym Produkcie Po Kliknięciu Jego Linku",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "resetPassword": {
+      "title": "Resetowanie Hasła",
+      "description": "Jeśli Zapomniałeś Hasła, Możesz Je Zresetować Na Tej Stronie Wysyłając Nam E-Mail, A My To Zrobimy Za Ciebie",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    },
+    "searchResult": {
+      "title": "Wyniki Wyszukiwania",
+      "description": "Możesz Wpisać To, Czego Szukasz W Pasku Wyszukiwania I Po Naciśnięciu Enter Zostaniesz Przekierowany Na Tę Stronę, Aby Zobaczyć Wyniki Powiązane Z Twoim Zapytaniem",
+      "keywords": "exclusive, e-commerce, zakupy online, moda, moda męska, moda damska, ubrania, elektronika, dom i styl życia"
+    }
   }
 }

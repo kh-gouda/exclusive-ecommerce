@@ -379,5 +379,176 @@
     "noCompleted": "Es gibt keine abgeschlossenen Bestellungen",
     "noReturned": "Es gibt keine zurückgesendeten Bestellungen",
     "noCancelled": "Es gibt keine stornierten Bestellungen"
+  },
+  "preserveAd": {
+    "p1start": "Sie können Werbefläche reservieren für ",
+    "p1span": "10 $/Tag",
+    "p1end": " Durch:",
+    "p2": "Einreichen dieses Formulars",
+    "p3": "Und sehen Sie Ihre Anzeige sofort nach Abschluss der Zahlung im Hauptanzeigenbereich der Startseite",
+    "optional": "(Optional)",
+    "logo": "Logo",
+    "image": "Bild",
+    "selectProduct": "Produkt auswählen",
+    "duration": "Anzeigendauer",
+    "title": "Anzeigentitel",
+    "adDetails": "Anzeigendetails",
+    "disclaimer": "Nachdem Sie auf die Schaltfläche „Bestätigen“ geklickt haben, werden Sie zum Zahlungsgateway weitergeleitet. Nach erfolgreicher Zahlung wird der Vorgang abgeschlossen",
+    "confirmPreservation": "Reservierung bestätigen",
+    "titlePlaceholder": "Anzeigentitel hier",
+    "detailsPlaceholder": "Schreiben Sie Ihre Anzeigendetails hier (max. 200 Zeichen)"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "Es wurden noch keine Produkte zu dieser Kategorie hinzugefügt.",
+    "shopNoProducts": "Es wurden noch keine Produkte hinzugefügt."
+  },
+  "breadCrumbs": {
+    "home": "STARTSEITE",
+    "contact": "KONTAKT",
+    "about": "ÜBER UNS",
+    "cart": "WARENKORB",
+    "products": "PRODUKTE",
+    "myAccount": "MEIN KONTO",
+    "addressBook": "ADRESSBUCH",
+    "orders": "BESTELLUNGEN",
+    "pending": "AUSSTEHEND",
+    "inProgress": "IN BEARBEITUNG",
+    "completed": "ABGESCHLOSSEN",
+    "returns": "MEINE RETOUren",
+    "cancellations": "MEINE STORNIERUNGEN",
+    "checkout": "KASSE",
+    "notFound": "NICHT GEFUNDEN"
+  },
+  "searchResult": {
+    "search": "Suche",
+    "searchResult": "Suchergebnis",
+    "noSearchResult": "Keine Produkte entsprechen Ihrer Suche"
+  },
+  "metadata": {
+    "home": {
+      "title": "Startseite",
+      "description": "Dies ist die Startseite der Exclusive E-Commerce-Plattform, auf der Sie verschiedene Bereiche durchstöbern, einen breiten Überblick über die Plattform erhalten und die erstaunliche Reise des Einkaufens genießen können",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "login": {
+      "title": "Anmelden",
+      "description": "Hier können Sie Ihre Reise in die Welt des Einkaufens beginnen",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "signup": {
+      "title": "Registrieren",
+      "description": "Der wirkliche Beginn beginnt mit der Erstellung eines Kontos bei Exclusive und dem anschließenden Genießen der Annehmlichkeiten",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "about": {
+      "title": "Über uns",
+      "description": "Wir möchten Ihnen von uns erzählen, da wir unsere Kunden als unsere Familie betrachten. Sie finden also eine kurze Zusammenfassung unserer Geschichte, lernen unsere Mitarbeiter kennen und erfahren, was wir tun",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "profile": {
+      "title": "Profil",
+      "description": "Hier können Sie Ihr Profil bearbeiten und vollständig kontrollieren, so wie Sie möchten",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "addressBook": {
+      "title": "Adressbuch",
+      "description": "Hier können Sie Ihr Adressbuch bearbeiten und vollständig kontrollieren, um die Lieferdienste zu erleichtern",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "pendigOrders": {
+      "title": "Ausstehende Bestellungen",
+      "description": "Hier können Sie Ihre ausstehenden Bestellungen durchsehen und deren Fortschritt verfolgen",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "inProgressOrders": {
+      "title": "Bestellungen in Bearbeitung",
+      "description": "Hier können Sie Ihre tatsächlich in Bearbeitung befindlichen Bestellungen verfolgen und nachverfolgen",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "completedOrders": {
+      "title": "Abgeschlossene Bestellungen",
+      "description": "Hier können Sie Ihre abgeschlossenen Bestellungen durchsehen und deren Details einsehen",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "cancelledOrders": {
+      "title": "Stornierte Bestellungen",
+      "description": "Hier können Sie Ihre stornierten Bestellungen einsehen und deren Artikel überprüfen, wenn Sie erneut bestellen möchten",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "returnedOrders": {
+      "title": "Retouren",
+      "description": "Hier können Sie Ihre retournierten Bestellungen durchsehen und uns gegebenenfalls Feedback geben, damit wir unsere Dienstleistungen verbessern und Probleme lösen können",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "cart": {
+      "title": "Warenkorb",
+      "description": "Hier können Sie Ihren Warenkorb durchsehen und zum nächsten Schritt übergehen, wo Sie Ihre Bestellungen aufgeben können",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "checkout": {
+      "title": "Kasse",
+      "description": "Hier können Sie tatsächlich Ihre Bestellungen mit verschiedenen Optionen der Zahlungsmethoden aufgeben, sei es Bankkarte oder Nachnahme. Und genau hier können Sie von großen Rabatten mit Gutscheinen profitieren",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "reviews": {
+      "title": "Meine Bewertungen",
+      "description": "Eine Liste Ihrer bewerteten Produkte, bei der Sie auf Ihre erfreulichen Produkte blicken",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "wishlist": {
+      "title": "Wunschliste",
+      "description": "Hier können Sie Ihre Wunschlisten-Produkte speichern, um sie später in den Warenkorb zu verschieben",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "shop": {
+      "title": "Shop",
+      "description": "Die Shop-Seite ist die Seite, auf der Sie alle auf unserer Plattform gelisteten Produkte durchstöbern können. Sie finden eine sehr große Auswahl an schönen, hochwertigen Produkten",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "bestSelling": {
+      "title": "Bestseller",
+      "description": "Sie können sich unsere meistverkauften Produkte ansehen, sortiert nach absteigenden Verkaufszahlen. Das hilft Ihnen zu erfahren, was Kunden am meisten mögen",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "flashSales": {
+      "title": "Blitzangebote",
+      "description": "Die von Nutzern am meisten geliebte Seite, auf der sie die größten Angebote überhaupt genießen. Sie müssen sie ständig verfolgen, da die Angebote zeitlich begrenzt sind und schnell ablaufen. Das Interessanteste ist jedoch, dass sie im Laufe der Zeit immer vorhanden sind",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "categories": {
+      "title": "Kategorien",
+      "description": "Die Seite, auf der Sie Produkte nach Kategorie durchsuchen können, um Ihre gewünschten Produkte leichter zu erreichen",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "subCategories": {
+      "title": "Unterkategorien",
+      "description": "Die Seite, auf der Sie Produkte nach Unterkategorie durchsuchen können, um Ihre gewünschten Produkte noch einfacher zu erreichen, wie auf der Kategorieseite",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Sie können ganz einfach in Kontakt bleiben, uns kontaktieren und uns mitteilen, was Sie möchten. Wir werden Sie schnell erreichen",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "reserveAds": {
+      "title": "Anzeigen reservieren",
+      "description": "Das große Angebot ist, dass Sie Werbefläche an einem Ort der meistbesuchten Websites zu erschwinglichen Preisen reservieren können, was Ihnen ermöglicht, mit Ihren Produkten viral zu gehen",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "products": {
+      "title": "Produktdetails",
+      "description": "Dies ist die detaillierte Seite, auf der Sie alles über Ihr bevorzugtes Produkt erfahren können, wenn Sie auf seinen Link klicken",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "resetPassword": {
+      "title": "Passwort zurücksetzen",
+      "description": "Wenn Sie Ihr Passwort vergessen haben, können Sie es auf dieser Seite zurücksetzen, indem Sie uns eine E-Mail senden. Wir werden es für Sie erledigen",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    },
+    "searchResult": {
+      "title": "Suchergebnis",
+      "description": "Sie können in der Suchleiste eingeben, wonach Sie suchen. Wenn Sie die Eingabetaste drücken, werden Sie zu dieser Seite weitergeleitet, um Ergebnisse zu sehen, die mit Ihrem Suchbegriff zusammenhängen",
+      "keywords": "exclusive, e-commerce, online-shopping, einkaufen, herrenmode, damenmode, kleidung, elektronik, wohnen und lebensstil"
+    }
   }
 }

@@ -1,9 +1,9 @@
 "use client";
 import { addOrder, addOrderItems } from "@/app/actions/addOrder";
 import { CART_TYPE } from "@/app/lib/typeDefinitions";
-import { HeartIcon } from "@heroicons/react/24/outline";
 import ProductColors from "@ui/product_details/ProductColors";
 import ProductSizes from "@ui/product_details/ProductSizes";
+import AddToWishListButton from "@ui/productCard/AddToWishListButton";
 import { inter } from "@ui/shared/fonts";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
@@ -174,7 +174,7 @@ export default function PurchaseForm({
           {t("buyNow")}
         </button>
         <div className="w-10 h-10 rounded-sm border flex items-center justify-center hover:bg-identity hover:text-white-text cursor-pointer">
-          <HeartIcon className="w-5 h-5 cursor-pointer" />
+          <AddToWishListButton productId={orderInfo.id} userId={userId} />
         </div>
       </div>
     </form>

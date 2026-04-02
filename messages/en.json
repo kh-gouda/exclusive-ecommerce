@@ -418,5 +418,137 @@
     "cancellations": "My CANCELLATIONS",
     "checkout": "CHECKOUT",
     "notFound": "NOT FOUND"
+  },
+  "searchResult": {
+    "search": "Search",
+    "searchResult": "Search Result",
+    "noSearchResult": "No Products Match Your Search"
+  },
+  "metadata": {
+    "home": {
+      "title": "Home",
+      "description": "This Is Exclusive ECommerce Platform Home Page Where You Can Browse Different Sections And Have A Wide Look On The Platform And Enjoy The Amazing Journey Of Shopping",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "login": {
+      "title": "Login",
+      "description": "Here You Can Start Your Journey To The World Of Shopping",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "signup": {
+      "title": "Signup",
+      "description": "The Real Start Begins From Creating An Account At Exclusive And Then Enjoy The Facilities",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "about": {
+      "title": "About",
+      "description": "We Want To Tell You About Us As We Consider Our Customers As Our Family, So You Will Find A Brief Of Our Story And Will Know Our Staff And What We Do",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "Here You Can Edit And Have Full Control On Your Profile As You Can",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "addressBook": {
+      "title": "Address Book",
+      "description": "Here You Can Edit And Have Full Control On Your Address Book In Order To Facilitate Delivery Services",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "pendigOrders": {
+      "title": "Pending Orders",
+      "description": "Here Where You Can Browse Your Pending Orders and Follow There Progress",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "inProgressOrders": {
+      "title": "Orders In Progrss",
+      "description": "Here Where You Can Follow Your Orders Actually In Progress And Track Them",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "completedOrders": {
+      "title": "Completed Orders",
+      "description": "Here Where You Can Browse Your Completed Orders And Review Their Details",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "cancelledOrders": {
+      "title": "Cancelled Orders",
+      "description": "Here Where You Can Review Your Cancelled Orders And Review Their Items If You Want To Reorder",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "returnedOrders": {
+      "title": "Returned Orders",
+      "description": "Here Where You Can Browse Your Returned Orders And If You Wish You Can Give Us Feed Back To Let Us Enhance Our Services And Solve Prolems",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "cart": {
+      "title": "Shopping Cart",
+      "description": "Here Where You Can Browse Your Shopping Cart And Continue To Proceeding To The Next Step Where You Can Place Your Orders",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "checkout": {
+      "title": "Checkout",
+      "description": "Here Where You Can Actually Place Your Orders With Different Options Of Payment Methods even Bank Card Or Cash On Delivery And Here Exactly Where You Can Benefit From Big Discounts Using Coupons",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "reviews": {
+      "title": "My Reviews",
+      "description": "A List Of You Reviewed Products Where You Look At Your Enjoyable Products",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "wishlist": {
+      "title": "Wish List",
+      "description": "Here You Can Save Your Wish list Products To Move To Shopping Cart Later",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "shop": {
+      "title": "Shop",
+      "description": "Shop Page Is The Page Where You Can Browse All Products Listed In Our Platform And You Can Find Very Big Variety Of Lovely High Quality Products",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "bestSelling": {
+      "title": "Best Selling",
+      "description": "You Can Have A Look At Our Best Selling Products Ordered By Sales Descending And That Help You To Know About What Customers Most Like",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "flashSales": {
+      "title": "Flash Sales",
+      "description": "The Most Loved Page By Users That They Enjoy The Biggest Sales Ever And You Have To Follow All The Time As Sales Have Limited Time And expires Quickly But The Most Interesting Thing That They Are Always Exist By The Time",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "categories": {
+      "title": "Categories",
+      "description": "The Page Where You Can Browse Products By Category To Make It Clear To Reach Your Desired Products Easily",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "subCategories": {
+      "title": "Sub Categories",
+      "description": "The Page Where You Can Browse Products By Sub Category To Make It Clear To Reach Your Desired Products More Easily As Categories Page",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "You Can Easily Keep On Touch And Contact Us And Tell Us What You Want And We Will Reach You Quickily",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "reserveAds": {
+      "title": "Reserve Ads",
+      "description": "The Big Deal Is That You Can Reserve Ads Area In A Place Of The Most Crowded Websites And With Affordable Prices Which Lets You Go Viral With Your Products",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "products": {
+      "title": "Product Details",
+      "description": "This Is The Detailed Page Where You Can Know Every Thing About Your Preferred Product When You Click Its Link",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "description": "If You Forgot Your Password You Can Resset It From This Page By Sending Us An Email And We Will Do It For You",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    },
+    "searchResult": {
+      "title": "Search Result",
+      "description": "You Can Write What You Are Looking For In The Search Bar And When You Press Enter You Will Be Redirected To This Page To See Results That Related To Your Search Item",
+      "keywords": "exclusive, e-commerce, online shopping, shopping, fashion, mens fashion, womens fashion, cloths, electronics, home and lifestyle"
+    }
   }
 }

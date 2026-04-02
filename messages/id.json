@@ -379,5 +379,176 @@
     "noCompleted": "Tidak Ada Pesanan Selesai",
     "noReturned": "Tidak Ada Pesanan Dikembalikan",
     "noCancelled": "Tidak Ada Pesanan Dibatalkan"
+  },
+  "preserveAd": {
+    "p1start": "Anda Dapat Memesan Ruang Iklan Seharga ",
+    "p1span": "$10/hari",
+    "p1end": " Dengan Cara:",
+    "p2": "Mengisi Formulir Ini",
+    "p3": "Dan Lihat Iklan Anda Di Area Iklan Utama Di Halaman Beranda Segera Setelah Pembayaran Selesai",
+    "optional": "(Opsional)",
+    "logo": "Logo",
+    "image": "Gambar",
+    "selectProduct": "Pilih Produk",
+    "duration": "Durasi Iklan",
+    "title": "Judul Iklan",
+    "adDetails": "Detail Iklan",
+    "disclaimer": "Setelah Anda Mengklik Tombol Konfirmasi, Anda Akan Diarahkan Ke Gateway Pembayaran Dan Setelah Pembayaran Berhasil Proses Akan Selesai",
+    "confirmPreservation": "Konfirmasi Pemesanan",
+    "titlePlaceholder": "Judul Iklan Di Sini",
+    "detailsPlaceholder": "Tulis Detail Iklan Anda Di Sini Maksimal 200 Karakter"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "Belum ada produk yang terkait dengan kategori ini.",
+    "shopNoProducts": "Belum ada produk yang ditambahkan."
+  },
+  "breadCrumbs": {
+    "home": "BERANDA",
+    "contact": "KONTAK",
+    "about": "TENTANG",
+    "cart": "KERANJANG",
+    "products": "PRODUK",
+    "myAccount": "AKUN SAYA",
+    "addressBook": "BUKU ALAMAT",
+    "orders": "PESANAN",
+    "pending": "MENUNGGU",
+    "inProgress": "SEDANG DIPROSES",
+    "completed": "SELESAI",
+    "returns": "PENGEMBALIAN SAYA",
+    "cancellations": "PEMBATALAN SAYA",
+    "checkout": "PEMBAYARAN",
+    "notFound": "TIDAK DITEMUKAN"
+  },
+  "searchResult": {
+    "search": "Cari",
+    "searchResult": "Hasil Pencarian",
+    "noSearchResult": "Tidak Ada Produk Yang Cocok Dengan Pencarian Anda"
+  },
+  "metadata": {
+    "home": {
+      "title": "Beranda",
+      "description": "Ini Adalah Halaman Beranda Platform E-Commerce Eksklusif Di Mana Anda Dapat Menjelajahi Berbagai Bagian Dan Menikmati Pengalaman Belanja Yang Luar Biasa",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "login": {
+      "title": "Masuk",
+      "description": "Di Sini Anda Dapat Memulai Perjalanan Ke Dunia Belanja",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "signup": {
+      "title": "Daftar",
+      "description": "Awal Yang Sebenarnya Dimulai Dari Membuat Akun Di Exclusive Dan Kemudian Menikmati Fasilitasnya",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "about": {
+      "title": "Tentang",
+      "description": "Kami Ingin Menceritakan Tentang Kami Karena Kami Menganggap Pelanggan Kami Sebagai Keluarga, Jadi Anda Akan Menemukan Ringkasan Cerita Kami Dan Mengenal Staf Kami",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "profile": {
+      "title": "Profil",
+      "description": "Di Sini Anda Dapat Mengedit Dan Memiliki Kontrol Penuh Atas Profil Anda",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "addressBook": {
+      "title": "Buku Alamat",
+      "description": "Di Sini Anda Dapat Mengedit Dan Mengelola Buku Alamat Anda Untuk Memudahkan Layanan Pengiriman",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "pendigOrders": {
+      "title": "Pesanan Menunggu",
+      "description": "Di Sini Anda Dapat Melihat Pesanan Yang Menunggu Dan Mengikuti Perkembangannya",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "inProgressOrders": {
+      "title": "Pesanan Sedang Diproses",
+      "description": "Di Sini Anda Dapat Mengikuti Pesanan Yang Sedang Diproses Dan Melacaknya",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "completedOrders": {
+      "title": "Pesanan Selesai",
+      "description": "Di Sini Anda Dapat Melihat Pesanan Yang Telah Selesai Dan Meninjau Detailnya",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "cancelledOrders": {
+      "title": "Pesanan Dibatalkan",
+      "description": "Di Sini Anda Dapat Meninjau Pesanan Yang Dibatalkan Dan Memeriksa Itemnya Jika Ingin Memesan Ulang",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "returnedOrders": {
+      "title": "Pesanan Dikembalikan",
+      "description": "Di Sini Anda Dapat Melihat Pesanan Yang Dikembalikan Dan Jika Mau, Anda Dapat Memberikan Masukan Untuk Membantu Kami Meningkatkan Layanan",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "cart": {
+      "title": "Keranjang Belanja",
+      "description": "Di Sini Anda Dapat Melihat Keranjang Belanja Anda Dan Melanjutkan Ke Langkah Berikutnya Untuk Menempatkan Pesanan",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "checkout": {
+      "title": "Pembayaran",
+      "description": "Di Sini Anda Dapat Menempatkan Pesanan Dengan Berbagai Pilihan Metode Pembayaran Seperti Kartu Bank Atau Bayar Di Tempat, Dan Manfaatkan Diskon Besar Menggunakan Kupon",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "reviews": {
+      "title": "Ulasan Saya",
+      "description": "Daftar Produk Yang Telah Anda Ulas Di Mana Anda Dapat Melihat Produk Favorit Anda",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "wishlist": {
+      "title": "Daftar Keinginan",
+      "description": "Di Sini Anda Dapat Menyimpan Produk Daftar Keinginan Untuk Dipindahkan Ke Keranjang Belanja Nanti",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "shop": {
+      "title": "Toko",
+      "description": "Halaman Toko Adalah Tempat Anda Dapat Menjelajahi Semua Produk Yang Terdaftar Di Platform Kami Dan Menemukan Berbagai Produk Berkualitas Tinggi",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "bestSelling": {
+      "title": "Terlaris",
+      "description": "Anda Dapat Melihat Produk Terlaris Kami Yang Diurutkan Berdasarkan Penjualan Tertinggi Dan Itu Membantu Anda Mengetahui Apa Yang Paling Disukai Pelanggan",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "flashSales": {
+      "title": "Flash Sale",
+      "description": "Halaman Yang Paling Disukai Pengguna Di Mana Mereka Menikmati Diskon Terbesar. Anda Harus Selalu Memantau Karena Penawaran Memiliki Waktu Terbatas Dan Cepat Berakhir",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "categories": {
+      "title": "Kategori",
+      "description": "Halaman Di Mana Anda Dapat Menjelajahi Produk Berdasarkan Kategori Untuk Memudahkan Menemukan Produk Yang Diinginkan",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "subCategories": {
+      "title": "Sub Kategori",
+      "description": "Halaman Di Mana Anda Dapat Menjelajahi Produk Berdasarkan Sub Kategori Untuk Lebih Mudah Menemukan Produk Yang Diinginkan",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "contact": {
+      "title": "Kontak",
+      "description": "Anda Dapat Dengan Mudah Menghubungi Kami Dan Memberi Tahu Apa Yang Anda Inginkan Dan Kami Akan Segera Menghubungi Anda",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "reserveAds": {
+      "title": "Pesan Iklan",
+      "description": "Anda Dapat Memesan Ruang Iklan Di Salah Satu Situs Paling Ramai Dengan Harga Terjangkau Yang Memungkinkan Anda Mempromosikan Produk Anda",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "products": {
+      "title": "Detail Produk",
+      "description": "Ini Adalah Halaman Detail Di Mana Anda Dapat Mengetahui Semua Tentang Produk Pilihan Anda Saat Mengklik Tautannya",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "resetPassword": {
+      "title": "Reset Kata Sandi",
+      "description": "Jika Anda Lupa Kata Sandi, Anda Dapat Meresetnya Dari Halaman Ini Dengan Mengirimkan Email Kepada Kami Dan Kami Akan Melakukannya Untuk Anda",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    },
+    "searchResult": {
+      "title": "Hasil Pencarian",
+      "description": "Anda Dapat Menulis Apa Yang Anda Cari Di Bilah Pencarian Dan Saat Menekan Enter Anda Akan Diarahkan Ke Halaman Ini Untuk Melihat Hasil Yang Terkait Dengan Pencarian Anda",
+      "keywords": "exclusive, e-commerce, belanja online, belanja, fashion, fashion pria, fashion wanita, pakaian, elektronik, rumah dan gaya hidup"
+    }
   }
 }

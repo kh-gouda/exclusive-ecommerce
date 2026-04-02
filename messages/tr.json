@@ -379,5 +379,176 @@
     "noCompleted": "Tamamlanmış Sipariş Yok",
     "noReturned": "İade Edilmiş Sipariş Yok",
     "noCancelled": "İptal Edilmiş Sipariş Yok"
+  },
+  "preserveAd": {
+    "p1start": "Reklam alanı rezerve edebilirsiniz ",
+    "p1span": "$10/gün",
+    "p1end": " Şu şekilde:",
+    "p2": "Bu Formu Göndermek",
+    "p3": "Ve ödemenizi tamamlar tamamlamaz ana sayfadaki ana reklam alanında reklamınızı izleyin",
+    "optional": "(İsteğe bağlı)",
+    "logo": "Logo",
+    "image": "Görsel",
+    "selectProduct": "Ürün Seç",
+    "duration": "Reklam Süresi",
+    "title": "Reklam Başlığı",
+    "adDetails": "Reklam Detayları",
+    "disclaimer": "Onayla butonuna tıkladıktan sonra ödeme sayfasına yönlendirileceksiniz ve ödeme başarılı olduktan sonra işlem tamamlanacaktır",
+    "confirmPreservation": "Rezervasyonu Onayla",
+    "titlePlaceholder": "Reklam Başlığını Buraya Yazın",
+    "detailsPlaceholder": "Reklam detaylarınızı buraya yazın (En fazla 200 karakter)"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "Bu kategoriyle ilgili henüz ürün eklenmemiş.",
+    "shopNoProducts": "Henüz ürün eklenmemiş."
+  },
+  "breadCrumbs": {
+    "home": "ANA SAYFA",
+    "contact": "İLETİŞİM",
+    "about": "HAKKIMIZDA",
+    "cart": "SEPET",
+    "products": "ÜRÜNLER",
+    "myAccount": "HESABIM",
+    "addressBook": "ADRES DEFTERİ",
+    "orders": "SİPARİŞLER",
+    "pending": "BEKLEYENLER",
+    "inProgress": "DEVAM EDENLER",
+    "completed": "TAMAMLANANLAR",
+    "returns": "İADELERİM",
+    "cancellations": "İPTALLERİM",
+    "checkout": "ÖDEME",
+    "notFound": "BULUNAMADI"
+  },
+  "searchResult": {
+    "search": "Ara",
+    "searchResult": "Arama Sonucu",
+    "noSearchResult": "Aramanızla Eşleşen Ürün Yok"
+  },
+  "metadata": {
+    "home": {
+      "title": "Ana Sayfa",
+      "description": "Bu, Exclusive E-ticaret Platformu'nun ana sayfasıdır. Burada farklı bölümlere göz atabilir, platforma geniş bir açıdan bakabilir ve harika alışveriş yolculuğunun tadını çıkarabilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "login": {
+      "title": "Giriş Yap",
+      "description": "Burada alışveriş dünyasına yolculuğunuza başlayabilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "signup": {
+      "title": "Kaydol",
+      "description": "Gerçek başlangıç, Exclusive'de bir hesap oluşturmakla başlar ve ardından kolaylıkların tadını çıkarın",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "about": {
+      "title": "Hakkımızda",
+      "description": "Size kendimizden bahsetmek istiyoruz çünkü müşterilerimizi ailemiz olarak görüyoruz. Bu nedenle hikayemizin bir özetini bulacak, personelimizi ve ne yaptığımızı öğreneceksiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "profile": {
+      "title": "Profil",
+      "description": "Burada dilediğiniz gibi profilinizi düzenleyebilir ve üzerinde tam kontrole sahip olabilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "addressBook": {
+      "title": "Adres Defteri",
+      "description": "Burada teslimat hizmetlerini kolaylaştırmak için adres defterinizi düzenleyebilir ve üzerinde tam kontrole sahip olabilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "pendigOrders": {
+      "title": "Bekleyen Siparişler",
+      "description": "Burada bekleyen siparişlerinizi göz atabilir ve ilerlemelerini takip edebilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "inProgressOrders": {
+      "title": "Devam Eden Siparişler",
+      "description": "Burada fiilen devam eden siparişlerinizi takip edebilir ve izleyebilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "completedOrders": {
+      "title": "Tamamlanan Siparişler",
+      "description": "Burada tamamlanan siparişlerinizi göz atabilir ve detaylarını inceleyebilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "cancelledOrders": {
+      "title": "İptal Edilen Siparişler",
+      "description": "Burada iptal edilen siparişlerinizi inceleyebilir ve yeniden sipariş vermek isterseniz öğelerini gözden geçirebilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "returnedOrders": {
+      "title": "İade Edilen Siparişler",
+      "description": "Burada iade edilen siparişlerinizi göz atabilir ve dilerseniz hizmetlerimizi iyileştirmemize ve sorunları çözmemize yardımcı olması için bize geri bildirimde bulunabilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "cart": {
+      "title": "Alışveriş Sepeti",
+      "description": "Burada alışveriş sepetinizi göz atabilir ve siparişlerinizi verebileceğiniz bir sonraki adıma geçebilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "checkout": {
+      "title": "Ödeme",
+      "description": "İşte tam burada, ister banka kartı ister kapıda ödeme olsun, farklı ödeme yöntemi seçenekleriyle siparişlerinizi verebilirsiniz. Ve işte tam burada kupon kullanarak büyük indirimlerden yararlanabilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "reviews": {
+      "title": "Yorumlarım",
+      "description": "İncelediğiniz ürünlerin bir listesi, keyifli ürünlerinize baktığınız yer",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "wishlist": {
+      "title": "İstek Listesi",
+      "description": "Burada, daha sonra alışveriş sepetine taşımak için istek listenizdeki ürünleri kaydedebilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "shop": {
+      "title": "Mağaza",
+      "description": "Mağaza sayfası, platformumuzda listelenen tüm ürünlere göz atabileceğiniz sayfadır ve çok çeşitli güzel, yüksek kaliteli ürünler bulabilirsiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "bestSelling": {
+      "title": "Çok Satanlar",
+      "description": "Satışlara göre azalan düzende sıralanmış çok satan ürünlerimize göz atabilirsiniz ve bu, müşterilerin en çok neyi sevdiğini bilmenize yardımcı olur",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "flashSales": {
+      "title": "Flaş Satışlar",
+      "description": "Kullanıcıların en sevdiği sayfa, şimdiye kadarki en büyük indirimlerin tadını çıkardıkları yer. Satışların süresi sınırlı olduğu ve hızla sona erdiği için her zaman takip etmelisiniz. Ancak en ilginç şey, zaman içinde her zaman var olmalarıdır",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "categories": {
+      "title": "Kategoriler",
+      "description": "Kategoriye göre ürünlere göz atabileceğiniz, istediğiniz ürünlere kolayca ulaşmanızı sağlayan sayfa",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "subCategories": {
+      "title": "Alt Kategoriler",
+      "description": "Alt kategoriye göre ürünlere göz atabileceğiniz, kategoriler sayfasında olduğu gibi istediğiniz ürünlere daha kolay ulaşmanızı sağlayan sayfa",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "contact": {
+      "title": "İletişim",
+      "description": "Kolayca iletişim halinde kalabilir, bizimle iletişime geçebilir ve ne istediğinizi bize söyleyebilirsiniz, size hızlıca ulaşacağız",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "reserveAds": {
+      "title": "Reklam Rezervasyonu",
+      "description": "Büyük fırsat şu ki, en yoğun web sitelerinin bir yerinde uygun fiyatlarla reklam alanı rezerve edebilirsiniz, bu da ürünlerinizle viral olmanızı sağlar",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "products": {
+      "title": "Ürün Detayları",
+      "description": "Bu, bağlantısını tıkladığınızda tercih ettiğiniz ürün hakkında her şeyi öğrenebileceğiniz ayrıntılı sayfadır",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "resetPassword": {
+      "title": "Şifreyi Sıfırla",
+      "description": "Şifrenizi unuttuysanız, bize bir e-posta göndererek bu sayfadan sıfırlayabilirsiniz ve sizin için yapacağız",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    },
+    "searchResult": {
+      "title": "Arama Sonucu",
+      "description": "Arama çubuğuna ne aradığınızı yazabilirsiniz ve Enter tuşuna bastığınızda, arama öğenizle ilgili sonuçları görmek için bu sayfaya yönlendirileceksiniz",
+      "keywords": "exclusive, e-ticaret, online alışveriş, alışveriş, erkek modası, kadın modası, giyim, elektronik, ev ve yaşam tarzı"
+    }
   }
 }

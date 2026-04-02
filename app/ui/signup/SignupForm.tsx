@@ -6,10 +6,13 @@ import { signup } from "@/app/actions/signup";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { useSessionUpdate } from "@/app/hooks/useSessionUpdate";
 
 export default function SignupForm() {
   const t = useTranslations("placeHolders");
   const t2 = useTranslations("auth");
+
+  const { refreshAll } = useSessionUpdate();
 
   const router = useRouter();
 
@@ -36,7 +39,10 @@ export default function SignupForm() {
         redirect: false,
       });
 
+      await refreshAll();
+
       router.push("/");
+      router.refresh();
     } catch (error) {
       console.error(error);
     }

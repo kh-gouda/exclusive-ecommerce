@@ -7,6 +7,20 @@ import { createSlides, fetchStaff } from "@/app/lib/utils";
 import StaffSlider from "@ui/about/StaffSlider";
 import Features from "@ui/shared/Features";
 import BreadCrumbs from "@ui/shared/BreadCrumbs";
+import { getPageMetadata } from "@/app/lib/getPageMetadata";
+
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string }>;
+}>) {
+  const param = await params;
+  return getPageMetadata({
+    locale: param.locale,
+    page: "about",
+    path: "/about",
+  });
+}
 
 export default async function About() {
   const breadCrumbs = [{ label: "about", href: "/about" }];

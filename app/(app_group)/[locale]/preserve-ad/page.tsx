@@ -2,7 +2,20 @@ import { fetchAllProducts } from "@/app/lib/utils";
 import PreserveAdForm from "@ui/preserve-ad/PreserveAdForm";
 import PreserveAdSideBar from "@ui/preserve-ad/PreserveAdSideBar";
 import Container from "@ui/shared/Container";
+import { getPageMetadata } from "@/app/lib/getPageMetadata";
 
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string }>;
+}>) {
+  const param = await params;
+  return getPageMetadata({
+    locale: param.locale,
+    page: "reserveAds",
+    path: "/preserve-ad",
+  });
+}
 export default async function PreserveAd() {
   const fetchedProducts = await fetchAllProducts();
   const products = fetchedProducts.map((product) => ({

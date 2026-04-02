@@ -1,6 +1,20 @@
 import { fetchUserOrders } from "@/app/lib/utils";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { getPageMetadata } from "@/app/lib/getPageMetadata";
+
+export async function generateMetadata({
+  params,
+}: Readonly<{
+  params: Promise<{ locale: string }>;
+}>) {
+  const param = await params;
+  return getPageMetadata({
+    locale: param.locale,
+    page: "pendigOrders",
+    path: "/account/[id]/orders/pending",
+  });
+}
 
 export default async function OrdersPending(props: {
   params: Promise<{ id: string }>;

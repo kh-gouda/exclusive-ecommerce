@@ -379,5 +379,176 @@
     "noCompleted": "Không có đơn hàng đã hoàn thành",
     "noReturned": "Không có đơn hàng đã trả lại",
     "noCancelled": "Không có đơn hàng đã hủy"
+  },
+  "preserveAd": {
+    "p1start": "Bạn Có Thể Đặt Trước Không Gian Quảng Cáo Với Giá ",
+    "p1span": "$10/ngày",
+    "p1end": " Bằng Cách:",
+    "p2": "Điền Vào Biểu Mẫu Này",
+    "p3": "Và Xem Quảng Cáo Của Bạn Trong Khu Vực Quảng Cáo Chính Trên Trang Chủ Ngay Sau Khi Thanh Toán Hoàn Tất",
+    "optional": "(Tùy Chọn)",
+    "logo": "Logo",
+    "image": "Hình Ảnh",
+    "selectProduct": "Chọn Sản Phẩm",
+    "duration": "Thời Gian Quảng Cáo",
+    "title": "Tiêu Đề Quảng Cáo",
+    "adDetails": "Chi Tiết Quảng Cáo",
+    "disclaimer": "Sau Khi Bạn Nhấp Nút Xác Nhận, Bạn Sẽ Được Chuyển Đến Cổng Thanh Toán Và Sau Khi Thanh Toán Thành Công Quá Trình Sẽ Hoàn Tất",
+    "confirmPreservation": "Xác Nhận Đặt Trước",
+    "titlePlaceholder": "Tiêu Đề Quảng Cáo Tại Đây",
+    "detailsPlaceholder": "Viết Chi Tiết Quảng Cáo Của Bạn Tại Đây Tối Đa 200 Ký Tự"
+  },
+  "missedTranslations": {
+    "noRelatedCategoryProducts": "Chưa có sản phẩm nào liên quan đến danh mục này.",
+    "shopNoProducts": "Chưa có sản phẩm nào được thêm vào."
+  },
+  "breadCrumbs": {
+    "home": "TRANG CHỦ",
+    "contact": "LIÊN HỆ",
+    "about": "GIỚI THIỆU",
+    "cart": "GIỎ HÀNG",
+    "products": "SẢN PHẨM",
+    "myAccount": "TÀI KHOẢN CỦA TÔI",
+    "addressBook": "SỔ ĐỊA CHỈ",
+    "orders": "ĐƠN HÀNG",
+    "pending": "CHỜ XỬ LÝ",
+    "inProgress": "ĐANG XỬ LÝ",
+    "completed": "HOÀN THÀNH",
+    "returns": "ĐỔI TRẢ CỦA TÔI",
+    "cancellations": "HỦY ĐƠN CỦA TÔI",
+    "checkout": "THANH TOÁN",
+    "notFound": "KHÔNG TÌM THẤY"
+  },
+  "searchResult": {
+    "search": "Tìm Kiếm",
+    "searchResult": "Kết Quả Tìm Kiếm",
+    "noSearchResult": "Không Có Sản Phẩm Phù Hợp Với Tìm Kiếm Của Bạn"
+  },
+  "metadata": {
+    "home": {
+      "title": "Trang Chủ",
+      "description": "Đây Là Trang Chủ Của Nền Tảng Thương Mại Điện Tử Độc Quyền Nơi Bạn Có Thể Duyệt Các Mục Khác Nhau Và Tận Hưởng Hành Trình Mua Sắm Tuyệt Vời",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "login": {
+      "title": "Đăng Nhập",
+      "description": "Tại Đây Bạn Có Thể Bắt Đầu Hành Trình Đến Thế Giới Mua Sắm",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "signup": {
+      "title": "Đăng Ký",
+      "description": "Khởi Đầu Thực Sự Bắt Đầu Từ Việc Tạo Tài Khoản Tại Exclusive Và Sau Đó Tận Hưởng Các Tiện Ích",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "about": {
+      "title": "Giới Thiệu",
+      "description": "Chúng Tôi Muốn Kể Cho Bạn Nghe Về Chúng Tôi Vì Chúng Tôi Coi Khách Hàng Như Gia Đình, Vì Vậy Bạn Sẽ Tìm Thấy Tóm Tắt Câu Chuyện Của Chúng Tôi Và Biết Về Đội Ngũ Của Chúng Tôi",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "profile": {
+      "title": "Hồ Sơ",
+      "description": "Tại Đây Bạn Có Thể Chỉnh Sửa Và Kiểm Soát Hoàn Toàn Hồ Sơ Của Mình",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "addressBook": {
+      "title": "Sổ Địa Chỉ",
+      "description": "Tại Đây Bạn Có Thể Chỉnh Sửa Và Quản Lý Sổ Địa Chỉ Của Mình Để Thuận Tiện Cho Dịch Vụ Giao Hàng",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "pendigOrders": {
+      "title": "Đơn Hàng Chờ Xử Lý",
+      "description": "Tại Đây Bạn Có Thể Xem Đơn Hàng Đang Chờ Xử Lý Và Theo Dõi Tiến Trình",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "inProgressOrders": {
+      "title": "Đơn Hàng Đang Xử Lý",
+      "description": "Tại Đây Bạn Có Thể Theo Dõi Đơn Hàng Đang Được Xử Lý Và Theo Dõi Tình Trạng",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "completedOrders": {
+      "title": "Đơn Hàng Hoàn Thành",
+      "description": "Tại Đây Bạn Có Thể Xem Các Đơn Hàng Đã Hoàn Thành Và Xem Lại Chi Tiết Của Chúng",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "cancelledOrders": {
+      "title": "Đơn Hàng Đã Hủy",
+      "description": "Tại Đây Bạn Có Thể Xem Lại Các Đơn Hàng Đã Hủy Và Kiểm Tra Các Mặt Hàng Nếu Bạn Muốn Đặt Lại",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "returnedOrders": {
+      "title": "Đơn Hàng Đã Trả",
+      "description": "Tại Đây Bạn Có Thể Xem Các Đơn Hàng Đã Trả Và Nếu Muốn Có Thể Gửi Phản Hồi Để Giúp Chúng Tôi Cải Thiện Dịch Vụ",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "cart": {
+      "title": "Giỏ Hàng",
+      "description": "Tại Đây Bạn Có Thể Xem Giỏ Hàng Của Mình Và Tiếp Tục Đến Bước Tiếp Theo Để Đặt Đơn Hàng",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "checkout": {
+      "title": "Thanh Toán",
+      "description": "Tại Đây Bạn Có Thể Đặt Đơn Hàng Với Nhiều Phương Thức Thanh Toán Như Thẻ Ngân Hàng Hoặc Tiền Mặt Khi Nhận Hàng Và Hưởng Ưu Đãi Lớn Bằng Mã Giảm Giá",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "reviews": {
+      "title": "Đánh Giá Của Tôi",
+      "description": "Danh Sách Các Sản Phẩm Bạn Đã Đánh Giá Nơi Bạn Có Thể Xem Lại Các Sản Phẩm Yêu Thích",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "wishlist": {
+      "title": "Danh Sách Yêu Thích",
+      "description": "Tại Đây Bạn Có Thể Lưu Các Sản Phẩm Yêu Thích Để Chuyển Vào Giỏ Hàng Sau",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "shop": {
+      "title": "Cửa Hàng",
+      "description": "Trang Cửa Hàng Là Nơi Bạn Có Thể Duyệt Tất Cả Sản Phẩm Được Liệt Kê Trên Nền Tảng Của Chúng Tôi Và Tìm Thấy Nhiều Sản Phẩm Chất Lượng Cao",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "bestSelling": {
+      "title": "Bán Chạy Nhất",
+      "description": "Bạn Có Thể Xem Các Sản Phẩm Bán Chạy Nhất Của Chúng Tôi Được Sắp Xếp Theo Doanh Số Giảm Dần Để Biết Khách Hàng Yêu Thích Gì Nhất",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "flashSales": {
+      "title": "Flash Sale",
+      "description": "Trang Được Người Dùng Yêu Thích Nhất Nơi Họ Tận Hưởng Các Ưu Đãi Lớn Nhất. Bạn Phải Theo Dõi Thường Xuyên Vì Các Ưu Đãi Có Thời Gian Giới Hạn Và Hết Hạn Nhanh",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "categories": {
+      "title": "Danh Mục",
+      "description": "Trang Nơi Bạn Có Thể Duyệt Sản Phẩm Theo Danh Mục Để Dễ Dàng Tìm Thấy Sản Phẩm Mong Muốn",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "subCategories": {
+      "title": "Danh Mục Con",
+      "description": "Trang Nơi Bạn Có Thể Duyệt Sản Phẩm Theo Danh Mục Con Để Dễ Dàng Tìm Thấy Sản Phẩm Mong Muốn Hơn",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "contact": {
+      "title": "Liên Hệ",
+      "description": "Bạn Có Thể Dễ Dàng Liên Hệ Với Chúng Tôi Và Cho Chúng Tôi Biết Bạn Muốn Gì Và Chúng Tôi Sẽ Phản Hồi Nhanh Chóng",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "reserveAds": {
+      "title": "Đặt Trước Quảng Cáo",
+      "description": "Bạn Có Thể Đặt Trước Không Gian Quảng Cáo Trên Một Trong Những Trang Web Đông Người Truy Cập Nhất Với Giá Phải Chăng Giúp Sản Phẩm Của Bạn Được Biết Đến Rộng Rãi",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "products": {
+      "title": "Chi Tiết Sản Phẩm",
+      "description": "Đây Là Trang Chi Tiết Nơi Bạn Có Thể Biết Mọi Thứ Về Sản Phẩm Bạn Thích Khi Nhấp Vào Liên Kết",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "resetPassword": {
+      "title": "Đặt Lại Mật Khẩu",
+      "description": "Nếu Bạn Quên Mật Khẩu Bạn Có Thể Đặt Lại Từ Trang Này Bằng Cách Gửi Email Cho Chúng Tôi Và Chúng Tôi Sẽ Thực Hiện Cho Bạn",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    },
+    "searchResult": {
+      "title": "Kết Quả Tìm Kiếm",
+      "description": "Bạn Có Thể Nhập Thứ Bạn Đang Tìm Kiếm Vào Thanh Tìm Kiếm Và Khi Nhấn Enter Bạn Sẽ Được Chuyển Đến Trang Này Để Xem Kết Quả Liên Quan Đến Mục Tìm Kiếm",
+      "keywords": "exclusive, thương mại điện tử, mua sắm trực tuyến, thời trang, thời trang nam, thời trang nữ, quần áo, điện tử, nhà và phong cách sống"
+    }
   }
 }
