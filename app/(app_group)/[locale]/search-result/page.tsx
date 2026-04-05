@@ -28,7 +28,6 @@ export default async function SearchPage(props: {
 
   if (searchItem && typeof searchItem === "string") {
     products = await fetchSearchResult(searchItem);
-    console.log(searchItem);
   }
 
   return (

@@ -27,7 +27,7 @@ export default function AccountControl() {
 
   const [isOpen, setIsOpen] = useState(false);
   const handleItemClick = () => {
-    setIsOpen(false); // Close the menu
+    setIsOpen(false);
   };
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>

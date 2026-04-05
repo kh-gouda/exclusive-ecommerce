@@ -36,9 +36,6 @@ export async function POST(req: Request) {
         const orderid = session.metadata?.orderid;
         const adid = session.metadata?.adid;
 
-        console.log(session.metadata);
-        console.log(orderid);
-
         if (orderid) {
           await sql`
             UPDATE orders SET
@@ -66,11 +63,6 @@ export async function POST(req: Request) {
 
         if (orderid) {
           throw new Error("Payment Failed");
-          // await sql`
-          //   UPDATE orders
-          //   SET payment_status = 'failed'
-          //   WHERE orderid = ${Number(orderid)}
-          // `;
         }
 
         break;
@@ -83,12 +75,6 @@ export async function POST(req: Request) {
 
         if (orderid) {
           throw new Error("Payment Session Expired");
-
-          // await sql`
-          //   UPDATE orders
-          //   SET payment_status = 'expired'
-          //   WHERE orderid = ${Number(orderid)}
-          // `;
         }
 
         break;
@@ -96,9 +82,6 @@ export async function POST(req: Request) {
 
       default:
         console.log(event.type);
-
-      // console.log(`Unhandled event type: ${event.type}`);
-      // throw new Error(event.type);
     }
   } catch (err) {
     console.error("Webhook handler error", err);

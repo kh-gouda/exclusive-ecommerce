@@ -3,7 +3,9 @@ import Cards from "@ui/productCard/Cards";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import SectionTitle from "@ui/shared/SectionTitle";
+import { CardsSkeleton } from "@ui/skeletons/productCard/skeletons";
 import { getTranslations } from "next-intl/server";
+import { Suspense } from "react";
 export default async function CategoryProducts({ id }: { id: number }) {
   const t = await getTranslations();
 
@@ -26,15 +28,25 @@ export default async function CategoryProducts({ id }: { id: number }) {
     <Section>
       <SectionLabel>{t("sectionLabel.category")}</SectionLabel>
       <div className="flex items-center justify-between max-[650px]:justify-center">
-        <SectionTitle>{t(`categories.category${id}`)}</SectionTitle>
+        <Suspense
+          fallback={
+            <h2
+              className={`my-6 flex items-center gap-10 max-[650px]:flex-col max-[650px]:items-start max-[650px]:gap-2.5`}
+            ></h2>
+          }
+        >
+          <SectionTitle>{t(`categories.category${id}`)}</SectionTitle>
+        </Suspense>
       </div>
-      {products && products.length ? (
-        <Cards products={products} showDiscountLabel showNewLabel />
-      ) : (
-        <p className="text-center text-identity mt-10">
-          {t("missedTranslations.noRelatedCategoryProducts")}
-        </p>
-      )}
+      <Suspense fallback={<CardsSkeleton />}>
+        {products && products.length ? (
+          <Cards products={products} showDiscountLabel showNewLabel />
+        ) : (
+          <p className="text-center text-identity mt-10">
+            {t("missedTranslations.noRelatedCategoryProducts")}
+          </p>
+        )}
+      </Suspense>
     </Section>
   );
 }

@@ -266,9 +266,7 @@ export default function EditProductForm({
       ) {
         throw new Error("All Stock Data Should be Provided");
       }
-      // const savedNewStock = [...stock, newStock];
-      // setStock(savedNewStock);
-      // handleCancelAddNewStock(newStock.stockid);
+      
       await addNewStock(
         product.productid,
         newStock.sizeid,
@@ -570,12 +568,10 @@ export default function EditProductForm({
             key={stockItem.stockid}
             className="flex flex-wrap items-center justify-evenly my-8"
           >
-            {/* <div className="flex flex-wrap items-center gap-2"> */}
             <div>
               <p className="edit-product-title">Size :-</p>
               <p className="text-center">{stockItem.size}</p>
             </div>
-            {/* <div className="flex flex-wrap items-center gap-2"> */}
             <div>
               <p className="edit-product-title">Color :-</p>
               <p
@@ -583,7 +579,6 @@ export default function EditProductForm({
                 style={{ backgroundColor: stockItem.color }}
               ></p>
             </div>
-            {/* <div className="flex flex-wrap items-center gap-2"> */}
             <div>
               <p className="edit-product-title">Quantity :-</p>
               {editStock !== stockItem.stockid ? (
@@ -641,7 +636,6 @@ export default function EditProductForm({
               className="flex flex-wrap gap-7.5 items-center justify-evenly my-7.5"
             >
               <div className="flex flex-wrap items-center gap-2">
-                {/* <div className="flex items-center gap-2"> */}
                 <div>
                   <p className="edit-product-title">Size :-</p>
                   <select
@@ -673,7 +667,6 @@ export default function EditProductForm({
                     ))}
                   </select>
                 </div>
-                {/* <div className="flex items-center gap-2"> */}
                 <div>
                   <p className="edit-product-title">Color :-</p>
                   <select
@@ -708,7 +701,6 @@ export default function EditProductForm({
                     ))}
                   </select>
                 </div>
-                {/* <div className="flex items-center gap-2"> */}
                 <div>
                   <p className="edit-product-title">Quantity :-</p>
                   <input

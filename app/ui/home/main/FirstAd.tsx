@@ -14,7 +14,6 @@ export default function FirstAd({ AD }: { AD: FIRST_AD }) {
       <div className="text-white-text flex-1 ps-16 max-[800px]:ps-0">
         <div className="flex items-center">
           {AD.productLogo ? <FirstAdLogo logo={AD.productLogo} /> : null}
-          {/* <FirstAdLogo logo={AD.productLogo || ""} /> */}
           <span className="text-base ms-6">
             {AD.adid === "form"
               ? t("adformtitle")
@@ -43,7 +42,6 @@ export default function FirstAd({ AD }: { AD: FIRST_AD }) {
         </div>
       </div>
       {AD.imageSrc ? <FirstAdImage image={AD.imageSrc} /> : null}
-      {/* <FirstAdImage image={AD.imageSrc || ""} /> */}
     </div>
   );
 }

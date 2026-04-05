@@ -4,7 +4,9 @@ import Cards from "@ui/productCard/Cards";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import SectionTitle from "@ui/shared/SectionTitle";
+import { CardsSkeleton } from "@ui/skeletons/productCard/skeletons";
 import { getTranslations } from "next-intl/server";
+import { Suspense } from "react";
 export default async function FlashSalesProducts() {
   const t = await getTranslations("sectionTitle");
   const t2 = await getTranslations("conditionalRender");
@@ -28,16 +30,22 @@ export default async function FlashSalesProducts() {
       <div className="flex items-center justify-between max-[650px]:justify-center">
         <SectionTitle>
           {t("flashSalesProducts")}
-          {flashSales && flashSales.length ? (
-            <FlashSalesTimer targetDate={"flashSales[0].endtime"} />
-          ) : null}
+          <Suspense fallback={<></>}>
+            {flashSales && flashSales.length ? (
+              <FlashSalesTimer targetDate={"flashSales[0].endtime"} />
+            ) : null}
+          </Suspense>
         </SectionTitle>
       </div>
-      {products && products.length ? (
-        <Cards products={products} showDiscountLabel />
-      ) : (
-        <p className="text-center text-identity mt-10">{t2("waitingSales")}</p>
-      )}
+      <Suspense fallback={<CardsSkeleton />}>
+        {products && products.length ? (
+          <Cards products={products} showDiscountLabel />
+        ) : (
+          <p className="text-center text-identity mt-10">
+            {t2("waitingSales")}
+          </p>
+        )}
+      </Suspense>
     </Section>
   );
 }

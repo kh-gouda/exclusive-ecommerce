@@ -14,8 +14,6 @@ export default async function DashBoardPage() {
   const activeUsers = await countActiveUsers();
   const totalRevenues = await sumTotalOrderAmounts();
 
-  console.log(totalRevenues[0]);
-
   const totalRevenuesCurrentYear = await sumTotalOrderAmountsCurrentYear();
   return (
     <div>

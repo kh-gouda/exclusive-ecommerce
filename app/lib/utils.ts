@@ -74,8 +74,6 @@ export async function fetchFlashSalesProductsLimited() {
       limit 8;
       `;
 
-  // WHERE
-  //   fs.endtime > NOW()
   return data;
 }
 export async function fetchFlashSalesProducts() {
@@ -112,8 +110,6 @@ export async function fetchFlashSalesProducts() {
       fs.endtime ASC, fsp.productdiscount DESC;
       `;
 
-  // WHERE
-  //   fs.endtime > NOW()
   return data;
 }
 
@@ -286,7 +282,6 @@ export async function fetchAllProducts() {
   return data;
 }
 
-// <FETCHED_NEW_ARRIVALS_TYPE[]>
 export async function fetchNewArrivals() {
   const data = await sql<FETCHED_NEW_ARRIVALS_TYPE[]>`
   select p.productid, p.productname, p.productdescription, p.productimages
@@ -295,7 +290,6 @@ export async function fetchNewArrivals() {
   order by productid
   limit 3;`;
 
-  // where now() - n.arriveat < interval '1 months'
   return data;
 }
 
@@ -305,7 +299,6 @@ export async function fetchNewCollection() {
   from newcollections
   limit 1;`;
 
-  // where now() - arriveat < interval '1 months'
   return data;
 }
 
@@ -316,8 +309,6 @@ export async function fetchFirstAd() {
     order by adid
   `;
 
-  // and endtime > now()
-
   return data;
 }
 
@@ -326,7 +317,6 @@ export async function fetchSecondAd() {
     select * from ads where adarea = 2 and adpaid = true;
   `;
 
-  //  and endtime > now()
   return data;
 }
 

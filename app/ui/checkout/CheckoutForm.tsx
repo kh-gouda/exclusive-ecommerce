@@ -403,10 +403,7 @@ export default function CheckoutForm({
             </label>
           </div>
           <div className="flex flex-wrap gap-7.5 items-center justify-between py-8">
-            {orderState.appliedcoupondiscount ? //       %{orderState.appliedcoupondiscount} //       {" "} //     <span className="text-green-500"> //     Applied Coupon Discount :{" "} //   <p className="my-4"> //   </p> //     </span> //       {orderState.appliedcoupon} //       {" "} //     <span className="text-green-500"> //     Applied Coupon :{" "} //   <p className="my-4"> // <div>
-            //     </span>
-            //   </p>
-            // </div>
+            {orderState.appliedcoupondiscount ? 
             null : !orderState.orderconfirmed ? (
               <>
                 <input

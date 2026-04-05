@@ -4,15 +4,8 @@ import { deleteProductById } from "@/app/actions/deleteProduct";
 import { deleteMultipleImages } from "@/app/lib/cloudinaryDelete";
 import { FETCHED_PRODUCT_BY_ID_TYPE } from "@/app/lib/typeDefinitions";
 import DashBoardProductImage from "@ui/dashboard/DashBoardProductImage";
-// import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  ChangeEvent,
-  useEffect,
-  useEffectEvent,
-  useState,
-  // useTransition,
-} from "react";
+import { ChangeEvent, useEffect, useEffectEvent, useState } from "react";
 import { toast } from "react-toastify";
 
 export default function ProductsDashBoard({
@@ -22,7 +15,6 @@ export default function ProductsDashBoard({
   categories: { categoryid: number; category: string }[];
   products: FETCHED_PRODUCT_BY_ID_TYPE[];
 }) {
-  // const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const notifyDeleted = () => toast.success("Product Deleted Successfully");
   const notifyError = (error: string) => toast.error(error);
@@ -101,17 +93,12 @@ export default function ProductsDashBoard({
         );
       }
 
-      // startTransition(async () => {
       await deleteMultipleImages(productImages);
 
       await deleteProductById(productId);
 
-      // router.refresh();
-
-      // router.push("/dashboard/products");
       notifyDeleted();
       location.reload();
-      // });
     } catch (error: unknown) {
       if (error instanceof Error) notifyError(error.message);
       router.push("/dashboard/products");
@@ -171,7 +158,6 @@ export default function ProductsDashBoard({
           </li>
           <li className="flex items-center justify-center gap-7.5">
             <button
-              // href={`/dashboard/products/edit?productid=${product.productid}`}
               className="text-green-600 cursor-pointer"
               onClick={() =>
                 handleEditButton(product.productid, product.editable)
@@ -188,7 +174,6 @@ export default function ProductsDashBoard({
                   product.productimages,
                 )
               }
-              // disabled={isPending}
             >
               Delete
             </button>

@@ -24,8 +24,6 @@ export default function EditProfileForm() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // const [isValid, setIsValid] = useState(false);
-
   const handleChangeFName = (e: ChangeEvent<HTMLInputElement>) => {
     if (user) {
       setUser({
@@ -95,7 +93,6 @@ export default function EditProfileForm() {
             confirmPassword,
             newHashedPassword,
           );
-          console.log(validCurrentPassword, validNewPassword);
 
           if (!validCurrentPassword || !validNewPassword) {
             throw new Error(
@@ -104,9 +101,6 @@ export default function EditProfileForm() {
           }
         }
 
-        // setIsValid(() => true);
-
-        // if (isValid) {
         if (newPassword) {
           await updateUserProfileAndPassword(userToUpdate);
         } else {
@@ -116,7 +110,6 @@ export default function EditProfileForm() {
         await update();
         notifySuccess();
         location.reload();
-        // }
       }
     } catch (err: unknown) {
       if (err instanceof Error) {

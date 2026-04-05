@@ -10,6 +10,9 @@ import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import { getTranslations } from "next-intl/server";
 import { getPageMetadata } from "@/app/lib/getPageMetadata";
+import { Suspense } from "react";
+import { CardsSkeleton } from "@ui/skeletons/productCard/skeletons";
+import { ProductDetailsSkeleton } from "@ui/skeletons/productDetails/skeletons";
 
 export async function generateMetadata({
   params,
@@ -75,17 +78,21 @@ export default async function ProductDetails(props: {
       <div className="pt-20">
         <BreadCrumbs breadCrumbs={breadCrumbs} />
       </div>
-      <ProductDetailsMain productDetails={PRODUCT_DETAILS_DATA} />
+      <Suspense fallback={<ProductDetailsSkeleton />}>
+        <ProductDetailsMain productDetails={PRODUCT_DETAILS_DATA} />
+      </Suspense>
       <Section>
         <SectionLabel>{t("relatedItems")}</SectionLabel>
 
-        {products && products.length ? (
-          <Cards products={products} showDiscountLabel />
-        ) : (
-          <p className="text-center text-identity mt-10">
-            {t2("noRelatedSubCategory")}
-          </p>
-        )}
+        <Suspense fallback={<CardsSkeleton />}>
+          {products && products.length ? (
+            <Cards products={products} showDiscountLabel />
+          ) : (
+            <p className="text-center text-identity mt-10">
+              {t2("noRelatedSubCategory")}
+            </p>
+          )}
+        </Suspense>
       </Section>
     </Container>
   );

@@ -2,9 +2,7 @@
 
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
-// import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
 import { FaAngleRight } from "react-icons/fa";
 
 export default function BreadCrumbs({
@@ -13,8 +11,6 @@ export default function BreadCrumbs({
   breadCrumbs: { label: string; href: string; number?: boolean }[];
 }) {
   const t = useTranslations("breadCrumbs");
-  // const pathName = usePathname();
-  // const links = pathName.split("/");
 
   return (
     <ul className="flex flex-wrap items-center gap-2">

@@ -10,7 +10,6 @@ export default function OrdersDashBoard({
 }) {
   const [selectedStatus, setSelectedStatus] = useState("all");
   const [ordersList, setOrdersList] = useState(orders);
-  // const [actionStatus, setActionStatus] = useState("");
 
   const changeOrderList = useEffectEvent(() => {
     if (selectedStatus === "all") {

@@ -14,7 +14,6 @@ export default async function EditProductPage(props: {
 }) {
   const searchParams = await props.searchParams;
   const productId = Number(searchParams.productid);
-  // const product = await fetchDashBoardProductById(productId);
 
   const [product, categories, subcategories, colors, sizes] = await Promise.all(
     [

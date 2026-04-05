@@ -149,7 +149,7 @@ export default function CartDetails({
         ) : null}
       </div>
       <div className="mt-20 flex flex-wrap gap-7.5 items-start *:flex-1">
-        {isCouponApplied ? null : cartProducts && cartProducts.length ? ( // </div> //   </p> //     <span className="text-green-500"> %{couponDiscount}</span> //     Applied Coupon Discount :{" "} //   <p className="my-4"> //   </p> //     Applied Coupon : <span className="text-green-500"> {coupon}</span> //   <p className="my-4"> // <div>
+        {isCouponApplied ? null : cartProducts && cartProducts.length ? (
           <form
             action=""
             className="flex gap-4 flex-wrap max-w-full"

@@ -6,8 +6,6 @@ import { UploadApiResponse } from "cloudinary";
 
 export async function uploadAdImage(file: File) {
   try {
-    // const file = formData.get("image") as File;
-
     if (!file || file.size === 0) {
       throw new Error("No image uploaded");
     }

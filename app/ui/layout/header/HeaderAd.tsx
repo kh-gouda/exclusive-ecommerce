@@ -6,8 +6,6 @@ import { getTranslations } from "next-intl/server";
 export default async function HeaderAd() {
   const t = await getTranslations("headerAD");
   const t2 = await getTranslations("general");
-  // const ADVERTISEMENT =
-  //   "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!";
 
   return (
     <div className="bg-black-color">

@@ -6,7 +6,8 @@ import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 import { FIRST_AD } from "@/app/lib/typeDefinitions";
 import FirstAd from "@ui/home/main/FirstAd";
 import Autoplay from "embla-carousel-autoplay";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
+import { FirstAdSkeleton } from "@ui/skeletons/home/skeletons";
 
 type PropType = {
   slides: FIRST_AD[];
@@ -35,7 +36,9 @@ export default function FirstAdArea(props: PropType) {
             <div className="embla__container">
               {slides.map((slide) => (
                 <div className="embla__slide" key={slide.productId}>
-                  <FirstAd AD={slide} />
+                  <Suspense fallback={<FirstAdSkeleton />}>
+                    <FirstAd AD={slide} />
+                  </Suspense>
                 </div>
               ))}
             </div>

@@ -83,13 +83,7 @@ export default function AddNewProductForm({
     setStock(newStock);
   };
 
-  // const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  // };
-
   const handleSubmit = async (formData: FormData) => {
-    // e: SubmitEvent<HTMLFormElement>
-    // e.preventDefault()
     const product = {
       name: name,
       description: description,
@@ -142,10 +136,7 @@ export default function AddNewProductForm({
   };
 
   return (
-    <form
-      action={handleSubmit}
-      // onSubmit={(e: SubmitEvent<HTMLFormElement>, formData: FormData) => handleSubmit(e, formData)}
-    >
+    <form action={handleSubmit}>
       <div className="mb-6">
         <label htmlFor="name">
           Product Name <span className="text-identity">(*)</span>

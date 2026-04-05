@@ -3,7 +3,9 @@ import Cards from "@ui/productCard/Cards";
 import Section from "@ui/shared/Section";
 import SectionLabel from "@ui/shared/SectionLabel";
 import SectionTitle from "@ui/shared/SectionTitle";
+import { CardsSkeleton } from "@ui/skeletons/productCard/skeletons";
 import { getTranslations } from "next-intl/server";
+import { Suspense } from "react";
 
 export default async function ShopProducts() {
   const t = await getTranslations("sectionLabel");
@@ -31,13 +33,15 @@ export default async function ShopProducts() {
       <div className="flex items-center justify-between max-[650px]:justify-center">
         <SectionTitle>{t2("allProducts")}</SectionTitle>
       </div>
-      {products && products.length ? (
-        <Cards products={products} showDiscountLabel />
-      ) : (
-        <p className="text-center text-identity mt-10">
-          {t3("shopNoProducts")}
-        </p>
-      )}
+      <Suspense fallback={<CardsSkeleton />}>
+        {products && products.length ? (
+          <Cards products={products} showDiscountLabel />
+        ) : (
+          <p className="text-center text-identity mt-10">
+            {t3("shopNoProducts")}
+          </p>
+        )}
+      </Suspense>
     </Section>
   );
 }

@@ -7,11 +7,6 @@ import {
 import AddNewProductForm from "@ui/dashboard/AddNewProductForm";
 
 export default async function AddNewProductPage() {
-  // const categories = await fetchCategories();
-  // const subcategories = await fetchSubCategories();
-  // const colors = await fetchColors();
-  // const sizes = await fetchSizes();
-
   const [categories, subcategories, colors, sizes] = await Promise.all([
     fetchCategories(),
     fetchSubCategories(),

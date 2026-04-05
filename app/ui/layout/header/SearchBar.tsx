@@ -12,8 +12,6 @@ export default function SearchBar() {
 
   const handleSubmit = async (e: SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // const searchResult = await fetchSearchResult(searchItem);
-    // console.log(searchResult);
     router.push(`/search-result?searchItem=${searchItem}`);
   };
 

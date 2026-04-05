@@ -25,13 +25,20 @@ import ScrollToTopButton from "@ui/shared/ScrollToTopButton";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { getPageMetadata } from "@/app/lib/getPageMetadata";
+import { Suspense } from "react";
+import { CardsSkeleton } from "@ui/skeletons/productCard/skeletons";
+import {
+  NewArrivalsSkeleton,
+  SecondAdSkeleton,
+  SubCategoriesSkeleton,
+} from "@ui/skeletons/home/skeletons";
 
 export async function generateMetadata({
   params,
 }: Readonly<{
   params: Promise<{ locale: string }>;
 }>) {
-  const param = await params
+  const param = await params;
   return getPageMetadata({
     locale: param.locale,
     page: "home",
@@ -81,7 +88,9 @@ export default async function Home() {
     4,
   );
   const flashSalesSlides = flashSalesProducts.map((slide, index) => (
-    <Cards key={index} products={slide} showDiscountLabel />
+    <Suspense key={index} fallback={<CardsSkeleton />}>
+      <Cards key={index} products={slide} showDiscountLabel />
+    </Suspense>
   ));
 
   const subCategories = await fetchSubCategories();
@@ -93,7 +102,9 @@ export default async function Home() {
   }));
   const categories = createSlides<CATEGORY_TYPE>(CATEGORIES, 6);
   const categoriesSlides = categories.map((slide, index) => (
-    <Categories key={index} categories={slide} />
+    <Suspense key={index} fallback={<SubCategoriesSkeleton />}>
+      <Categories key={index} categories={slide} />
+    </Suspense>
   ));
 
   const bestSelling_Products = await fetchBestSellingProductsLimited();
@@ -127,7 +138,9 @@ export default async function Home() {
   }));
   const exploreProducts = createSlides<ProductCardType>(ALL_PRODUCTS, 8);
   const exploreSlides = exploreProducts.map((slide, index) => (
-    <Cards key={index} products={slide} showNewLabel />
+    <Suspense key={index} fallback={<CardsSkeleton />}>
+      <Cards key={index} products={slide} showNewLabel />
+    </Suspense>
   ));
 
   const newArrivals = await Promise.all([
@@ -156,10 +169,7 @@ export default async function Home() {
   return (
     <>
       <Container>
-        <div
-          // className="w-292.5 max-w-full mx-auto"
-          className="flex pb-12.5 relative"
-        >
+        <div className="flex pb-12.5 relative">
           <SideNav />
           <FirstAdArea
             slides={NEW_FIRST_AD_AREA_LIST}
@@ -196,10 +206,14 @@ export default async function Home() {
               {t3("viewAllProducts")}
             </Link>
           </div>
-          <Cards products={bestSellingProducts} />
+          <Suspense fallback={<CardsSkeleton />}>
+            <Cards products={bestSellingProducts} />
+          </Suspense>
         </Section>
 
-        <SecondAdArea />
+        <Suspense fallback={<SecondAdSkeleton />}>
+          <SecondAdArea />
+        </Suspense>
 
         <Section>
           <SectionLabel>{t("OurProducts")}</SectionLabel>
@@ -214,7 +228,9 @@ export default async function Home() {
         <Section>
           <SectionLabel>{t("Featured")}</SectionLabel>
           <SectionTitle>{t2("newArrivals")}</SectionTitle>
-          <NewArrivals newArrivals={newArrivalData} />
+          <Suspense fallback={<NewArrivalsSkeleton />}>
+            <NewArrivals newArrivals={newArrivalData} />
+          </Suspense>
         </Section>
 
         <Section>

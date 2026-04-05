@@ -31,17 +31,6 @@ export async function createStripeAdSession(adId: number, duration: number) {
     const expiration = new Date(adData.stripe_session_expires_at);
 
     if (expiration > now) {
-      // const session = await stripe.checkout.sessions.retrieve(
-      //   adData.stripe_session_id,
-      // );
-
-      // if (session.status === "open" && session.url) {
-      //   return {
-      //     status: "existing_session",
-      //     url: session.url,
-      //   };
-      // }
-
       try {
         const session = await stripe.checkout.sessions.retrieve(
           adData.stripe_session_id,

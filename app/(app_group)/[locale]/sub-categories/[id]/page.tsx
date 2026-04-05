@@ -2,6 +2,8 @@ import Container from "@ui/shared/Container";
 import RelatedCategoryProducts from "@ui/subCategories/RelatedCategoryProducts";
 import SubCategoryProducts from "@ui/subCategories/SubCategoryProducts";
 import { getPageMetadata } from "@/app/lib/getPageMetadata";
+import { Suspense } from "react";
+import { CardsSkeleton } from "@ui/skeletons/productCard/skeletons";
 
 export async function generateMetadata({
   params,
@@ -28,8 +30,12 @@ export default async function CategoryPage(props: {
 
   return (
     <Container>
-      <SubCategoryProducts id={id} />
-      <RelatedCategoryProducts id={categoryIdNumber} subCategoryId={id} />
+      <Suspense fallback={<CardsSkeleton />}>
+        <SubCategoryProducts id={id} />
+      </Suspense>
+      <Suspense fallback={<CardsSkeleton />}>
+        <RelatedCategoryProducts id={categoryIdNumber} subCategoryId={id} />
+      </Suspense>
     </Container>
   );
 }
