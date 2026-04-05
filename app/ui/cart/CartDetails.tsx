@@ -7,6 +7,7 @@ import {
 import { deleteCartItem } from "@/app/actions/deleteCartItem";
 import { fetchCoupon } from "@/app/actions/fetchCoupon";
 import { updateCart } from "@/app/actions/updateCart";
+import { useSessionUpdate } from "@/app/hooks/useSessionUpdate";
 import { CART_TYPE } from "@/app/lib/typeDefinitions";
 import Cart from "@ui/cart/Cart";
 import { useTranslations } from "next-intl";
@@ -29,6 +30,9 @@ export default function CartDetails({
   products: CART_TYPE[];
 }) {
   const t = useTranslations();
+
+  const { refreshAll } = useSessionUpdate();
+
   const router = useRouter();
   const [cartProducts, setCartProducts] = useState(products);
   const [totalInvoice, setTotalInvoice] = useState(() =>
@@ -94,6 +98,7 @@ export default function CartDetails({
     await deleteCartItem(userid, productId);
     deleteProductFromState(productId);
     notifyDeleteItem();
+    await refreshAll();
   }
 
   async function handleApplyCoupon(e: SubmitEvent<HTMLFormElement>) {
@@ -117,6 +122,7 @@ export default function CartDetails({
 
     await addOrderItems(insertedOrder[0].orderid, cartProducts);
     await clearShoppingCart(userid);
+    await refreshAll();
     router.push(
       `/account/${userid}/checkout?orderid=${insertedOrder[0].orderid}`,
     );
