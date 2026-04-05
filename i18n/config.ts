@@ -24,5 +24,4 @@ export const locales = [
 
 export const defaultLocale = "en";
 
-export const siteUrl =
-  "https://exclusive-ecommerce-ekbioh8av-khaled-gouda.vercel.app";
+export const siteUrl = "https://exclusive-ecommerce-khaled-gouda.vercel.app";
