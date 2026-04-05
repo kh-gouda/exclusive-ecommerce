@@ -1,3 +1,0 @@
-UPDATE users
-SET social_links = (social_links #>> '{}')::jsonb
-WHERE jsonb_typeof(social_links) = 'string';
