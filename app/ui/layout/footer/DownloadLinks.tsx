@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
+import Link from "next/link";
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default async function Downloadlinks() {
   const t = await getTranslations("footer");
@@ -31,30 +33,18 @@ export default async function Downloadlinks() {
         </div>
       </div>
       <div className="mt-6 flex items-center gap-4 *:cursor-pointer">
-        <Image
-          width={24}
-          height={24}
-          src="/images/icon-facebook.png"
-          alt="facebook icon"
-        />
-        <Image
-          width={24}
-          height={24}
-          src="/images/icon-twitter.png"
-          alt="twitter icon"
-        />
-        <Image
-          width={24}
-          height={24}
-          src="/images/icon-instagram.png"
-          alt="instagram icon"
-        />
-        <Image
-          width={24}
-          height={24}
-          src="/images/icon-linkedin.png"
-          alt="linkedin icon"
-        />
+        <Link href={"https://www.linkedin.com/in/kh-gouda/"}>
+          <FaFacebook className="h-6 w-6 text-white-color hover:text-blue-900" />
+        </Link>
+        <Link href={"https://www.linkedin.com/in/kh-gouda/"}>
+          <FaTwitter className="h-6 w-6 text-white-color hover:text-blue-700" />
+        </Link>
+        <Link href={"https://www.linkedin.com/in/kh-gouda/"}>
+          <FaInstagram className="h-6 w-6 text-white-color hover:text-pink-700" />
+        </Link>
+        <Link href={"https://www.linkedin.com/in/kh-gouda/"}>
+          <FaLinkedin className="h-6 w-6 text-white-color hover:text-blue-900" />
+        </Link>
       </div>
     </div>
   );
